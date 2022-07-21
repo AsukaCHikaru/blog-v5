@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./tools",
+    "target": "ES5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+  },
+}

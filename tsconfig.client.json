@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "jsx": "react-jsx",
+    "target": "ES5",
+    "module": "ES2020",
+    "strict": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+  },
+  "include": ["src/*.ts", "src/*.tsx"],
+  "exclude": ["**/node_modules/**"]
+}

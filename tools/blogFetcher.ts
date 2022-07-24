@@ -1,6 +1,10 @@
 import { PostSummary } from "../types";
 import { getNotionBlockList, getNotionPageList } from "./notionApiService";
-import { writePostListPage } from "./componentWriter";
+import {
+  writePostDetailPage,
+  writePostListPage,
+  writeRoutes,
+} from "./componentWriter";
 
 const run = async () => {
   let notionPageList: PostSummary[] = [];
@@ -8,7 +12,8 @@ const run = async () => {
     notionPageList = await getNotionPageList();
     console.info("Notion page list fetched.");
 
-    writePostListPage(notionPageList);
+    await writeRoutes(notionPageList);
+    await writePostListPage(notionPageList);
   } catch (error) {
     console.error(error);
   }
@@ -17,6 +22,10 @@ const run = async () => {
     try {
       console.info(`Start fetching post ${page.title}`);
       const post = await getNotionBlockList(page.id);
+
+      if (page.category !== "programming") {
+        writePostDetailPage(page.pathname, post.results);
+      }
 
       console.info(`Post ${page.title} fetched.`);
     } catch (error) {

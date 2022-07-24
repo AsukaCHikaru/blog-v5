@@ -54,18 +54,23 @@ export const getNotionPageList = async (): Promise<PostSummary[]> => {
 
   const postSummaryList: PostSummary[] = [];
 
-  data.results.forEach(result => {
+  data.results.forEach((result) => {
     const postSummary: PostSummary = {
       id: result.id,
-      title: result.properties?.Name.title[0].plain_text || '',
-      category: result.properties?.category.select.name as PostCategory || 'others',
-      language: result.properties?.language.multi_select.map(select => select.name) as PostLanguage[] || [],
-      tags: result.properties?.tags.multi_select.map(select => select.name) || [],
-      publishDate: result.properties?.published.date.start || '',
-      pathname: result.properties?.pathname.rich_text[0].plain_text || '',
+      title: result.properties?.Name.title[0].plain_text || "",
+      category:
+        (result.properties?.category.select.name as PostCategory) || "others",
+      language:
+        (result.properties?.language.multi_select.map(
+          (select) => select.name
+        ) as PostLanguage[]) || [],
+      tags:
+        result.properties?.tags.multi_select.map((select) => select.name) || [],
+      publishDate: result.properties?.published.date.start || "",
+      pathname: result.properties?.pathname.rich_text[0].plain_text || "",
       zhTwLink: result.properties?.link_zhTW?.url || undefined,
-    }
-    postSummaryList.push(postSummary)
+    };
+    postSummaryList.push(postSummary);
   });
 
   return postSummaryList;

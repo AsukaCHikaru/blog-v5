@@ -10,5 +10,5 @@ export type PostSummary = {
   tags: string[];
   publishDate: string;
   pathname: string;
-  zhTwLink?: string
-}
+  zhTwLink?: string;
+};

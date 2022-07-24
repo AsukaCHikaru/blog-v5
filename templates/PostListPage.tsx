@@ -1,7 +1,7 @@
 import React from "react";
 
-//template_import_post_link
-//template_import_data
+//template_remove import { PostLink } from '../components/PostLink';
+//template_remove import { postList } from '../data';
 
 export const PostListPage: React.FC = () => {
   return <div>//template_map_post_link</div>;

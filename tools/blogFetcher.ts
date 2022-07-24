@@ -21,11 +21,7 @@ export const postList: PostSummary[] = ${JSON.stringify(notionPageList)};`;
       { encoding: "utf-8" }
     );
     const postListPage = rawPostListPage
-      .replace(
-        "//template_import_post_link",
-        "import { PostLink } from '../components/PostLink';"
-      )
-      .replace("//template_import_data", "import { postList } from '../data';")
+      .replace(/\/\/template_remove\s/g, "")
       .replace(
         "//template_map_post_link",
         `{postList.map((postSummary) => <PostLink key={postSummary.pathname} postSummary={postSummary} />)}`

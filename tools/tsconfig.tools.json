@@ -3,6 +3,7 @@
     "baseUrl": "./tools",
     "target": "ES5",
     "module": "commonjs",
+    "jsx": "react-jsx",
     "moduleResolution": "node",
     "esModuleInterop": true,
   },

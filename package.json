@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "ts-node --project tools/tsconfig.tools.json tools/build.ts"
+    "build": "ts-node --project tools/tsconfig.tools.json tools/build.ts",
+    "build:webpack": "webpack --config webpack.config.ts --mode production"
   },
   "repository": {
     "type": "git",

@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "ts-node --project tools/tsconfig.tools.json tools/build.ts",
-    "build:webpack": "webpack --config webpack.config.ts --mode production"
+    "build:html": "ts-node --project tools/tsconfig.tools.json tools/build.ts",
+    "build:webpack": "webpack --config webpack.config.ts --mode production",
+    "copy:index": "cp templates/index.html dist/",
+    "clear": "rm -rf dist && mkdir dist && mkdir dist/post",
+    "build": "npm run clear && npm run build:html && npm run build:webpack && npm run copy:index"
   },
   "repository": {
     "type": "git",

@@ -1,19 +1,21 @@
 import { readFileSync, writeFileSync } from "fs";
 import { resolve } from "path";
-import { renderToStaticMarkup } from "react-dom/server";
+import { renderToString } from "react-dom/server";
 
 import { PostSummary } from "../types";
 import { NotionBlock } from "../types/notion";
 import { PostBodyBlock } from "../templates/PostBodyBlock";
 
 export const writeRoutes = async (postList: PostSummary[]) => {
+  console.info("Writing routes.");
+
   const rawAppPage = await readFileSync(
     resolve(__dirname, "../templates", "App.tsx"),
     { encoding: "utf-8" }
   );
 
   const imports: string[] = [];
-  const routes: string[] = [];
+  const routes: string[] = ['<Route path="/" element={<PostListPage />} />'];
 
   postList.forEach((postSummary) => {
     if (postSummary.category !== "programming") {
@@ -35,9 +37,13 @@ export const writeRoutes = async (postList: PostSummary[]) => {
     .replace("//template_routes", routes.join(""));
 
   await writeFileSync(resolve(__dirname, "../src", "App.tsx"), appPage);
+
+  console.info("Routes writing completed.");
 };
 
 export const writePostListPage = async (postList: PostSummary[]) => {
+  console.info("Writing post list page.");
+
   const data = `import { PostSummary } from '../types';
   
 export const postList: PostSummary[] = ${JSON.stringify(postList)};`;
@@ -59,16 +65,23 @@ export const postList: PostSummary[] = ${JSON.stringify(postList)};`;
     resolve(__dirname, "../src", "pages", "PostListPage.tsx"),
     postListPage
   );
+
+  console.info("Post list page writing completed.");
 };
 
 export const writePostDetailPage = async (
   postName: string,
   blockList: NotionBlock[]
 ) => {
+  console.info(`Writing post "${postName}".`);
+
   const stringifiedBlockList: string[] = [];
   blockList.forEach((block) => {
     const blockComponent = <PostBodyBlock key={block.id} block={block} />;
-    const stringifiedBlock = renderToStaticMarkup(blockComponent);
+    const stringifiedBlock = renderToString(blockComponent).replace(
+      "class=",
+      "className="
+    );
     stringifiedBlockList.push(stringifiedBlock);
   });
 
@@ -85,4 +98,6 @@ export const writePostDetailPage = async (
     resolve(__dirname, "../src", "pages", `${postName}.tsx`),
     postDetailPage
   );
+
+  console.info(`Post "${postName}" writing completed.`);
 };

@@ -1,37 +1,45 @@
 import { PostSummary } from "../types";
+import { NotionPageChildrenResponse } from "../types/notion";
 import { getNotionBlockList, getNotionPageList } from "./notionApiService";
-import {
-  writePostDetailPage,
-  writePostListPage,
-  writeRoutes,
-} from "./componentWriter";
 
-const run = async () => {
+export const fetchPostSummaryList = async () => {
+  console.info("Start fetching Notion page list.");
   let notionPageList: PostSummary[] = [];
   try {
     notionPageList = await getNotionPageList();
     console.info("Notion page list fetched.");
-
-    await writeRoutes(notionPageList);
-    await writePostListPage(notionPageList);
   } catch (error) {
     console.error(error);
   }
 
-  notionPageList?.forEach(async (page) => {
-    try {
-      console.info(`Start fetching post ${page.title}`);
-      const post = await getNotionBlockList(page.id);
-
-      if (page.category !== "programming") {
-        writePostDetailPage(page.pathname, post.results);
-      }
-
-      console.info(`Post ${page.title} fetched.`);
-    } catch (error) {
-      console.error(error);
-    }
-  });
+  return notionPageList;
 };
 
-run();
+export const fetchPostDetailList = async (
+  notionPostSummaryList: PostSummary[]
+) => {
+  console.info("Start fetching all pages.");
+
+  const notionPageDetailList: Record<string, NotionPageChildrenResponse> = {};
+  const notionPostDetailPromiseList = notionPostSummaryList.map((postSummary) =>
+    getNotionBlockList(postSummary.id)
+  );
+
+  try {
+    await Promise.allSettled(notionPostDetailPromiseList).then(
+      (postDetailList) => {
+        postDetailList.forEach((postDetail, i) => {
+          if (postDetail.status !== "fulfilled") {
+            return;
+          }
+          notionPageDetailList[notionPostSummaryList[i].id] = postDetail.value;
+        });
+      }
+    );
+    console.info("All page fetched.");
+  } catch (error) {
+    console.error(error);
+  }
+
+  return notionPageDetailList;
+};

@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from "fs";
+import { mkdirSync, readFileSync, writeFileSync } from "fs";
 import { resolve } from "path";
 import { renderToString } from "react-dom/server";
 
@@ -61,6 +61,7 @@ export const postList: PostSummary[] = ${JSON.stringify(postList)};`;
       `{postList.map((postSummary) => <PostLink key={postSummary.pathname} postSummary={postSummary} />)}`
     );
 
+  await mkdirSync(resolve(__dirname, "../src", "pages"));
   await writeFileSync(
     resolve(__dirname, "../src", "pages", "PostListPage.tsx"),
     postListPage

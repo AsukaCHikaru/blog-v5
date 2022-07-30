@@ -1,9 +1,10 @@
 import { fetchPostDetailList, fetchPostSummaryList } from "./blogFetcher";
 import {
-  writePostDetailPage,
+  writeAllPostDetailPage,
   writePostListPage,
   writeRoutes,
 } from "./componentWriter";
+import { writePostDetailPageHtml } from "./htmlWriter";
 
 const build = async () => {
   const notionPostSummaryList = await fetchPostSummaryList();
@@ -12,12 +13,12 @@ const build = async () => {
   await writeRoutes(notionPostSummaryList);
   await writePostListPage(notionPostSummaryList);
 
-  notionPostSummaryList.forEach(async (postSummary) => {
-    await writePostDetailPage(
-      postSummary.pathname,
-      notionPostDetailList[postSummary.id].results
-    );
-  });
+  await writeAllPostDetailPage(
+    notionPostSummaryList.filter((post) => post.category !== "programming"),
+    notionPostDetailList
+  );
+
+  await writePostDetailPageHtml();
 };
 
 build();

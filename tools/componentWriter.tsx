@@ -3,7 +3,7 @@ import { resolve } from "path";
 import { renderToString } from "react-dom/server";
 
 import { PostSummary } from "../types";
-import { NotionBlock } from "../types/notion";
+import { NotionBlock, NotionPageChildrenResponse } from "../types/notion";
 import { PostBodyBlock } from "../templates/PostBodyBlock";
 
 export const writeRoutes = async (postList: PostSummary[]) => {
@@ -100,4 +100,18 @@ export const writePostDetailPage = async (
   );
 
   console.info(`Post "${postName}" writing completed.`);
+};
+
+export const writeAllPostDetailPage = (
+  postSummaryList: PostSummary[],
+  postDetailList: Record<string, NotionPageChildrenResponse>
+) => {
+  const writingPromiseList = postSummaryList.map((postSummary) => {
+    return writePostDetailPage(
+      postSummary.pathname,
+      postDetailList[postSummary.id].results
+    );
+  });
+
+  return Promise.allSettled(writingPromiseList);
 };

@@ -1,3 +1,4 @@
+import React from "react";
 import { mkdirSync, readFileSync, writeFileSync } from "fs";
 import { resolve } from "path";
 import { renderToString } from "react-dom/server";

@@ -1,3 +1,4 @@
+import React from "react";
 import { existsSync, readdirSync, readFileSync, writeFileSync } from "fs";
 import { resolve } from "path";
 import { renderToStaticMarkup } from "react-dom/server";

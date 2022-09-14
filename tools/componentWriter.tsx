@@ -72,10 +72,10 @@ export const postList: PostSummary[] = ${JSON.stringify(postList)};`;
 };
 
 export const writePostDetailPage = async (
-  postName: string,
+  postSummary: PostSummary,
   blockList: NotionBlock[]
 ) => {
-  console.info(`Writing post "${postName}".`);
+  console.info(`Writing post "${postSummary.pathname}".`);
 
   const stringifiedBlockList: string[] = [];
   blockList.forEach((block) => {
@@ -93,15 +93,23 @@ export const writePostDetailPage = async (
   );
 
   const postDetailPage = rawPostDetailPage
-    .replace("PostDetailPage", `Post${postName.replace(/-/g, "")}`)
+    .replace(/\/\/template_remove\s/g, "")
+    .replace(
+      "const PostDetailPage",
+      `const Post${postSummary.pathname.replace(/-/g, "")}`
+    )
+    .replace(
+      "//template_post_header",
+      `<PostDetailPageHeader postSummary={${JSON.stringify(postSummary)}} />`
+    )
     .replace("//template_post_content", stringifiedBlockList.join(""));
 
   await writeFileSync(
-    resolve(__dirname, "../src", "pages", `${postName}.tsx`),
+    resolve(__dirname, "../src", "pages", `${postSummary.pathname}.tsx`),
     postDetailPage
   );
 
-  console.info(`Post "${postName}" writing completed.`);
+  console.info(`Post "${postSummary.pathname}" writing completed.`);
 };
 
 export const writeAllPostDetailPage = (
@@ -110,7 +118,7 @@ export const writeAllPostDetailPage = (
 ) => {
   const writingPromiseList = postSummaryList.map((postSummary) => {
     return writePostDetailPage(
-      postSummary.pathname,
+      postSummary,
       postDetailList[postSummary.id].results
     );
   });

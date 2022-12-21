@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
-import { useEffect } from 'react'
-import { NotionPageListResponse } from '../types/notion'
-import { PostCategory, PostLanguage, PostSummary } from '../types'
+import { PostSummary } from '../types'
 import Link from 'next/link'
+import { fetchNotionPageList } from '../services/notionApi'
+import { convertNotionPageListToPostSummaryList } from '../utils/notionUtils'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -32,52 +32,10 @@ export default function Home({postSummaryList}: Props) {
   )
 }
 
-const postListFilterSorter = {
-  filter: {
-    property: "state",
-    select: {
-      equals: "Done",
-    },
-  },
-  sorts: [
-    {
-      property: "published",
-      direction: "descending",
-    },
-  ],
-};
-
 
 export async function getStaticProps () {
-  const res = await fetch(`https://api.notion.com/v1/databases/${process.env.NOTION_DATABASE_ID}/query`, {
-    method: 'POST',
-    headers: new Headers({
-      'Authorization': `Bearer ${process.env.NOTION_API_TOKEN}`,
-      'Content-Type': 'application/json'
-    }),
-    body: JSON.stringify(postListFilterSorter),
-  });
-  const notionPageList: NotionPageListResponse = await res.json();
-
-  const postSummaryList: PostSummary[] = [];
-
-  if (notionPageList.results && notionPageList.results.length > 0){
-    notionPageList.results.forEach((result) => {
-      const postSummary: PostSummary = {
-        id: result.id,
-        title: result.properties?.Name.title[0].plain_text || "",
-        category: (result.properties?.category.select.name as PostCategory) || "others",
-        language:(result.properties?.language.multi_select.map(
-              (select) => select.name
-            ) as PostLanguage[]) || [],
-        tags: result.properties?.tags.multi_select.map((select) => select.name) || [],
-        publishDate: result.properties?.published?.date.start || "",
-        pathname: result.properties?.pathname.rich_text[0]?.plain_text || "",
-        zhTwLink: result.properties?.link_zhTW?.url || null,
-      };
-      postSummaryList.push(postSummary);
-    }); 
-  }
+  const notionPageList = await fetchNotionPageList();
+  const postSummaryList = convertNotionPageListToPostSummaryList(notionPageList);
 
   return {
     props: {

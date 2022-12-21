@@ -26,6 +26,17 @@ export const fetchNotionPageList = async (): Promise<NotionPageListResponse> => 
     body: JSON.stringify(postListFilterSorter),
   });
   const notionPageList: NotionPageListResponse = await res.json();
-  
+
   return notionPageList;
 }
+
+export const fetchNotionBlockList = async (postId: string) => {
+  const res = await fetch(`https://api.notion.com/v1/blocks/${postId}/children`, {
+    method: 'GET',
+    headers: new Headers({
+      'Authorization': `Bearer ${process.env.NOTION_API_TOKEN}`,
+    }),
+  });
+
+  return res;
+};

@@ -2,12 +2,7 @@ import { FC } from "react";
 import Link from "next/link";
 
 import { PostCategory } from "../types";
-
-const POST_CATEGORIES: PostCategory[] = [
-  "gaming",
-  "programming",
-  "others",
-];
+import { POST_CATEGORIES } from "../consts/categories";
 
 export const PostListPageHeader: FC = () => {
   return (
@@ -22,7 +17,13 @@ export const PostListPageHeader: FC = () => {
             <CategoryLink key={`category-${category}`} category={category} />
           );
         })}
-        <a href="https://asukachikaru.com" rel="noreferrer noopener" target="_blank">ABOUT</a>
+        <a
+          href="https://asukachikaru.com"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
+          ABOUT
+        </a>
       </div>
     </div>
   );
@@ -35,7 +36,7 @@ interface CategoryLinkProps {
 const CategoryLink: FC<CategoryLinkProps> = ({ category }) => {
   return (
     <div>
-      <Link href={category === "all" ? "/" : `/tag/${category}`}>
+      <Link href={category === "all" ? "/" : `/category/${category}`}>
         {category.toUpperCase()}
       </Link>
     </div>

@@ -1,19 +1,18 @@
-import Head from 'next/head'
-import { Inter } from '@next/font/google'
-import { PostSummary } from '../types'
-import Link from 'next/link'
-import { fetchNotionPageList } from '../services/notionApi'
-import { convertNotionPageListToPostSummaryList } from '../utils/notionUtils'
-import { PostListPageHeader } from '../components/PostListPageHeader'
+import Head from "next/head";
+import { Inter } from "@next/font/google";
+import { PostSummary } from "../types";
+import { fetchNotionPageList } from "../services/notionApi";
+import { convertNotionPageListToPostSummaryList } from "../utils/notionUtils";
+import { PostListPageHeader } from "../components/PostListPageHeader";
+import { PostLink } from "../components/PostLink";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 interface Props {
-  postSummaryList: PostSummary[] 
+  postSummaryList: PostSummary[];
 }
 
-export default function Home({postSummaryList}: Props) {
-  
+export default function Home({ postSummaryList }: Props) {
   return (
     <>
       <Head>
@@ -25,23 +24,21 @@ export default function Home({postSummaryList}: Props) {
       <PostListPageHeader />
       <div>
         {postSummaryList.map((postSummary) => {
-          return <div key={postSummary.id}>
-          <Link  href={`/post/${postSummary.pathname}`}>{postSummary.title}</Link>
-          </div>
+          return <PostLink postSummary={postSummary} key={postSummary.id} />;
         })}
       </div>
     </>
-  )
+  );
 }
 
-
-export async function getStaticProps () {
+export async function getStaticProps() {
   const notionPageList = await fetchNotionPageList();
-  const postSummaryList = convertNotionPageListToPostSummaryList(notionPageList);
+  const postSummaryList =
+    convertNotionPageListToPostSummaryList(notionPageList);
 
   return {
     props: {
       postSummaryList,
-    }
-  }
+    },
+  };
 }

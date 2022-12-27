@@ -1,4 +1,6 @@
 import { FC } from "react";
+
+import { Footer } from "../../components/Footer";
 import { PostBodyBlock } from "../../components/PostBodyBlock";
 import { PostDetailPageHeader } from "../../components/PostDetailPageHeader";
 import {
@@ -16,12 +18,13 @@ interface Props {
 
 const Post: FC<Props> = ({ list, postSummary }) => {
   return (
-    <div>
+    <>
       <PostDetailPageHeader postSummary={postSummary} />
       {list.results.map((block) => (
         <PostBodyBlock block={block} key={block.id} />
       ))}
-    </div>
+      <Footer />
+    </>
   );
 };
 

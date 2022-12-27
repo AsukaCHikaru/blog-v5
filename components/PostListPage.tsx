@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import { PostSummary } from "../types";
+import { Footer } from "./Footer";
 import { PostLink } from "./PostLink";
 import { PostListPageHeader } from "./PostListPageHeader";
 
@@ -17,6 +18,7 @@ export const PostListPage: FC<Props> = ({ postSummaryList }) => {
           return <PostLink postSummary={postSummary} key={postSummary.id} />;
         })}
       </div>
+      <Footer />
     </>
   );
 };

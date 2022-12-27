@@ -21,6 +21,7 @@ export const PostListPageHeader: FC = () => {
           href="https://asukachikaru.com"
           rel="noreferrer noopener"
           target="_blank"
+          className='font-courier'
         >
           ABOUT
         </a>
@@ -35,7 +36,7 @@ interface CategoryLinkProps {
 
 const CategoryLink: FC<CategoryLinkProps> = ({ category }) => {
   return (
-    <div>
+    <div className="font-courier">
       <Link href={category === "all" ? "/" : `/category/${category}`}>
         {category.toUpperCase()}
       </Link>

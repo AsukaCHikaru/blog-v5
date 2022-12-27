@@ -1,11 +1,8 @@
 import Head from "next/head";
-import { Inter } from "@next/font/google";
 import { PostSummary } from "../types";
 import { fetchNotionPageList } from "../services/notionApi";
 import { convertNotionPageListToPostSummaryList } from "../utils/notionUtils";
 import { PostListPage } from "../components/PostListPage";
-
-const inter = Inter({ subsets: ["latin"] });
 
 interface Props {
   postSummaryList: PostSummary[];

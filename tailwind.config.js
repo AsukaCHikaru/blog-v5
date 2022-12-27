@@ -5,7 +5,10 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      courier: ["Courier New", "Courier", "Noto Sans JP", "monospace"],
+    },
     extend: {},
   },
   plugins: [],
-}
+};

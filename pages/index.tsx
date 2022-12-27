@@ -4,6 +4,7 @@ import { PostSummary } from '../types'
 import Link from 'next/link'
 import { fetchNotionPageList } from '../services/notionApi'
 import { convertNotionPageListToPostSummaryList } from '../utils/notionUtils'
+import { PostListPageHeader } from '../components/PostListPageHeader'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,6 +22,7 @@ export default function Home({postSummaryList}: Props) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <PostListPageHeader />
       <div>
         {postSummaryList.map((postSummary) => {
           return <div key={postSummary.id}>

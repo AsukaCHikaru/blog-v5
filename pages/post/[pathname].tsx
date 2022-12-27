@@ -1,20 +1,15 @@
-import { FC, useEffect } from "react"
+import { FC } from "react"
+import { PostBodyBlock } from "../../components/PostBodyBlock";
 import { fetchNotionBlockList, fetchNotionPageList } from "../../services/notionApi";
 import { NotionPageChildrenResponse } from "../../types/notion";
 import { convertNotionPageListToPostSummaryList } from "../../utils/notionUtils";
 
-const Post: FC = ({list}: {list: NotionPageChildrenResponse})=> {
-  useEffect(() => {
-    console.log(list);
-    
-  }, [list])
+interface Props {
+  list: NotionPageChildrenResponse
+}
 
-  
-  return <div>{list.results.map((block) => {
-    if (block.type === 'paragraph'){
-      return block.paragraph.text?.map((item, i) => <p key={`${item.plain_text}-${i}`}>{item.plain_text}</p>)
-    }
-  })}</div>
+const Post: FC<Props> = ({list})=> { 
+  return <div>{list.results.map((block) => <PostBodyBlock block={block}  key={block.id}/>)}</div>
 }
 
 export const getStaticPaths = async () => {

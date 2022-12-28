@@ -2,6 +2,7 @@ import { FC } from "react";
 
 import { PostSummary } from "../types";
 import { Footer } from "./Footer";
+import { Layout } from "./Layout";
 import { PostLink } from "./PostLink";
 import { PostListPageHeader } from "./PostListPageHeader";
 
@@ -11,7 +12,7 @@ interface Props {
 
 export const PostListPage: FC<Props> = ({ postSummaryList }) => {
   return (
-    <>
+    <Layout>
       <PostListPageHeader />
       <div>
         {postSummaryList.map((postSummary) => {
@@ -19,6 +20,6 @@ export const PostListPage: FC<Props> = ({ postSummaryList }) => {
         })}
       </div>
       <Footer />
-    </>
+    </Layout>
   );
 };

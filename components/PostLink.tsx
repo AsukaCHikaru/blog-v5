@@ -15,7 +15,7 @@ export const PostLink: FC<Props> = ({ postSummary }) => {
         <Link href={`/post/${postSummary.pathname}`}>{postSummary.title}</Link>
       </h3>
       <div className="mb-1">
-        <span className={`inline-block h-5 leading-5 mr-2 pr-2 ${!!postSummary.tags.length && 'border-r'}`}>
+        <span className={`inline-block h-5 leading-5 mr-2 pr-2 ${!!postSummary.tags.length && 'border-r border-r-foreground dark:border-r-background'}`}>
           {parseDateToEn(postSummary.publishDate)}
         </span>
 

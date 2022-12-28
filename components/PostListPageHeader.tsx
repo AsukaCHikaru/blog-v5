@@ -41,7 +41,7 @@ const CategoryLink: FC<CategoryLinkProps> = ({ category }) => {
   const selectedCategory = useMemo(() => asPath.replace(/\/category\/(\w+)/, '$1') as PostCategory, [asPath])
 
   return (
-    <div className={`px-2 font-courier text-lg border-r first:pl-0 h-5 leading-5 hover:underline ${selectedCategory === category && 'font-bold'}`}>
+    <div className={`px-2 font-courier text-lg border-r border-r-foreground dark:border-r-background first:pl-0 h-5 leading-5 hover:underline ${selectedCategory === category && 'font-bold'}`}>
       <Link href={category === "all" ? "/" : `/category/${category}`}>
         {category.toUpperCase()}
       </Link>

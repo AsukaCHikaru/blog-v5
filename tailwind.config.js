@@ -8,7 +8,12 @@ module.exports = {
     fontFamily: {
       courier: ["Courier New", "Courier", "Noto Sans JP", "monospace"],
     },
-    extend: {},
+    extend: {
+      colors: {
+        'foreground': '#222222',
+        'background': '#dddddd'
+      }
+    },
   },
   plugins: [],
 };

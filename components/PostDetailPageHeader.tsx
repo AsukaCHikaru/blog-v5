@@ -13,7 +13,7 @@ export const PostDetailPageHeader: FC<Props> = ({ postSummary }) => {
     <div className="mt-8 mb-4">
       <h1 className="mb-2 text-6xl font-semibold">{postSummary.title}</h1>
       <div className="text-xl">
-        <span className={`inline-block h-6 leading-6 mr-2 pr-2 ${!!postSummary.tags.length && 'border-r'}`}>
+        <span className={`inline-block h-6 leading-6 mr-2 pr-2 ${!!postSummary.tags.length && 'border-r border-r-foreground dark:border-r-background'}`}>
 
         {parseDateToEn(postSummary.publishDate)}
         </span>

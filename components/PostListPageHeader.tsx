@@ -1,5 +1,6 @@
-import { FC } from "react";
+import { FC, useMemo } from "react";
 import Link from "next/link";
+import {useRouter} from 'next/router'
 
 import { PostCategory } from "../types";
 import { POST_CATEGORIES } from "../consts/categories";
@@ -7,7 +8,7 @@ import { POST_CATEGORIES } from "../consts/categories";
 export const PostListPageHeader: FC = () => {
   return (
     <div className="mt-8 mb-4">
-      <h1 className="mb-2 text-5xl font-semibold">
+      <h1 className="mb-2 text-6xl font-semibold">
         <Link href="/">The work is undone.</Link>
       </h1>
       <div className="flex">
@@ -35,8 +36,12 @@ interface CategoryLinkProps {
 }
 
 const CategoryLink: FC<CategoryLinkProps> = ({ category }) => {
+  const {asPath} = useRouter();
+  
+  const selectedCategory = useMemo(() => asPath.replace(/\/category\/(\w+)/, '$1') as PostCategory, [asPath])
+
   return (
-    <div className="px-2 font-courier text-lg border-r first:pl-0 h-5 leading-5">
+    <div className={`px-2 font-courier text-lg border-r first:pl-0 h-5 leading-5 hover:underline ${selectedCategory === category && 'font-bold'}`}>
       <Link href={category === "all" ? "/" : `/category/${category}`}>
         {category.toUpperCase()}
       </Link>

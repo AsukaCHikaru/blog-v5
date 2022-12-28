@@ -10,14 +10,17 @@ interface Props {
 
 export const PostLink: FC<Props> = ({ postSummary }) => {
   return (
-    <div className="mt-2">
-      <h3 className="text-4xl">
+    <div className="mt-6">
+      <h3 className="text-4xl mb-1 hover:underline">
         <Link href={`/post/${postSummary.pathname}`}>{postSummary.title}</Link>
       </h3>
-      <div>{parseDateToEn(postSummary.publishDate)}</div>
-      <div>
+      <div className="mb-1">
+        <span className={`inline-block h-5 leading-5 mr-2 pr-2 ${!!postSummary.tags.length && 'border-r'}`}>
+          {parseDateToEn(postSummary.publishDate)}
+        </span>
+
         {postSummary.tags.map((tag) => (
-          <span className="mr-2" key={`${postSummary.id}-${tag}`}>
+          <span className="mr-2 hover:underline" key={`${postSummary.id}-${tag}`}>
             <Link href={`/tag/${tag}`}>#{tag}</Link>
           </span>
         ))}

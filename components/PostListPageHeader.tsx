@@ -6,8 +6,8 @@ import { POST_CATEGORIES } from "../consts/categories";
 
 export const PostListPageHeader: FC = () => {
   return (
-    <div>
-      <h1>
+    <div className="mt-8 mb-4">
+      <h1 className="mb-2 text-5xl font-semibold">
         <Link href="/">The work is undone.</Link>
       </h1>
       <div className="flex">
@@ -21,7 +21,7 @@ export const PostListPageHeader: FC = () => {
           href="https://asukachikaru.com"
           rel="noreferrer noopener"
           target="_blank"
-          className='font-courier'
+          className='pl-2 inline-block h-5 leading-5 font-courier text-lg'
         >
           ABOUT
         </a>
@@ -36,7 +36,7 @@ interface CategoryLinkProps {
 
 const CategoryLink: FC<CategoryLinkProps> = ({ category }) => {
   return (
-    <div className="font-courier">
+    <div className="px-2 font-courier text-lg border-r first:pl-0 h-5 leading-5">
       <Link href={category === "all" ? "/" : `/category/${category}`}>
         {category.toUpperCase()}
       </Link>

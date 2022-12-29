@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { FC } from "react";
 
 import { PostSummary } from "../types";
@@ -12,6 +13,13 @@ interface Props {
 
 export const PostListPage: FC<Props> = ({ postSummaryList }) => {
   return (
+    <>
+    <Head>
+      <title>The work is undone.</title>
+      <meta name="description" content="asukachikaru's blog"/>
+      <meta property="og:title" content="The work is undone." />
+      <meta property="twitter:title" content="The work is undone." />
+    </Head>
     <Layout>
       <PostListPageHeader />
       <div>
@@ -21,5 +29,6 @@ export const PostListPage: FC<Props> = ({ postSummaryList }) => {
       </div>
       <Footer />
     </Layout>
+    </>
   );
 };

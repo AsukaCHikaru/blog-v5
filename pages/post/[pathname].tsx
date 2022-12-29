@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { FC } from "react";
 
 import { Footer } from "../../components/Footer";
@@ -18,14 +19,24 @@ interface Props {
 }
 
 const Post: FC<Props> = ({ list, postSummary }) => {
+  const title = postSummary.title + ' | The work is undone.'
+
   return (
-    <Layout>
-      <PostDetailPageHeader postSummary={postSummary} />
-      {list.results.map((block) => (
-        <PostBodyBlock block={block} key={block.id} />
-      ))}
-      <Footer />
-    </Layout>
+    <>
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content="asukachikaru's blog"/>
+        <meta property="og:title" content={title} />
+        <meta property="twitter:title" content={title} />
+      </Head>
+      <Layout>
+        <PostDetailPageHeader postSummary={postSummary} />
+        {list.results.map((block) => (
+          <PostBodyBlock block={block} key={block.id} />
+        ))}
+        <Footer />
+      </Layout>
+    </>
   );
 };
 

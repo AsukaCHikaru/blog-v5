@@ -108,6 +108,11 @@ type NotionDividerBlock = NotionBlockBase & {
   devider: {};
 };
 
+type NotionQuoteBlock = NotionBlockBase & {
+  type: "quote";
+  quote: NotionQuoteObject;
+}
+
 export type NotionBlock =
   | NotionParagraphBlock
   | NotionHeading1Block
@@ -119,7 +124,8 @@ export type NotionBlock =
   | NotionImageBlock
   | NotionVideoBlock
   | NotionBookmarkBlock
-  | NotionDividerBlock;
+  | NotionDividerBlock
+  | NotionQuoteBlock;
 
 type NotionRichTextObject = {
   type: "text";
@@ -153,6 +159,10 @@ export type NotionBookmarkObject = {
   caption: NotionRichTextObject[];
   url: string;
 };
+
+export type NotionQuoteObject = {
+  text: NotionRichTextObject[];
+}
 
 export type NotionFileObject =
   | NotionUploadedFileObject

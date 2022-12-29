@@ -65,6 +65,13 @@ const BlockContent: FC<Props> = ({ block }) => {
           </code>
         </pre>
       );
+    case "quote":
+      return (
+        <div className="my-8 text-center whitespace-pre-wrap text-gray-600 dark:text-gray-400">
+          {block.quote.text[0].plain_text}
+        </div>
+      );
+
     case "image": {
       if (block.image.type === "file") {
         return (

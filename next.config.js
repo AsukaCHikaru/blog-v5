@@ -10,7 +10,7 @@ const nextConfig = {
     ],
   },
   optimizeFonts: true,
-  basePath: '/blog-v5',
+  trailingSlash: true,
 };
 
 module.exports = nextConfig;

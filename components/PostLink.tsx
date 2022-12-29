@@ -20,7 +20,7 @@ export const PostLink: FC<Props> = ({ postSummary }) => {
         </span>
 
         {postSummary.tags.map((tag) => (
-          <span className="mr-2 hover:underline" key={`${postSummary.id}-${tag}`}>
+          <span className="mr-2 hover:underline font-courier" key={`${postSummary.id}-${tag}`}>
             <Link href={`/tag/${tag}`}>#{tag}</Link>
           </span>
         ))}

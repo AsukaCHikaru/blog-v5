@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { NotionBlock, NotionRichTextObject } from "../types/notion";
+import { CodeBlock } from "./CodeBlock";
 
 interface Props {
   block: NotionBlock;
@@ -59,11 +60,9 @@ const BlockContent: FC<Props> = ({ block }) => {
       );
     case "code":
       return (
-        <pre className="px-1 bg-gray-700 whitespace-pre-wrap rounded-sm">
-          <code className="font-courier">
-            {block.code?.text[0].text.content}
-          </code>
-        </pre>
+        <CodeBlock lan={block.code?.language}>
+          {block.code?.text[0].text.content}
+        </CodeBlock>
       );
     case "quote":
       return (

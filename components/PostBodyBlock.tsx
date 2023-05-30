@@ -1,9 +1,9 @@
 import { FC } from "react";
-import { NotionBlock, NotionRichTextObject } from "../types/notion";
 import { CodeBlock } from "./CodeBlock";
+import { Content, List, PhrasingContent } from "mdast";
 
 interface Props {
-  block: NotionBlock;
+  block: Content;
 }
 
 export const PostBodyBlock: FC<Props> = ({ block }) => {
@@ -15,108 +15,108 @@ export const PostBodyBlock: FC<Props> = ({ block }) => {
 };
 
 const BlockContent: FC<Props> = ({ block }) => {
-  switch (block.type) {
-    case "paragraph":
-      return (
-        <p>
-          {block.paragraph.text?.map((item, i) => (
-            <RichTextItem item={item} key={item.plain_text + i} />
-          ))}
-        </p>
-      );
-    case "heading_1":
-      return (
-        <h2 className="mt-6 text-3xl">
-          {block.heading_1.text[0].text.content}
-        </h2>
-      );
-    case "heading_2":
-      return (
-        <h3 className="mt-6 text-2xl">
-          {block.heading_2.text[0].text.content}
-        </h3>
-      );
-    case "heading_3":
-      return (
-        <h4 className="mt-6 text-xl">{block.heading_3.text[0].text.content}</h4>
-      );
-    case "numbered_list_item":
-      return (
-        <ol>
-          {block.numbered_list_item.text.map((t) => (
-            <li key={t.plain_text}>{t.text.content}</li>
-          ))}
-        </ol>
-      );
-    case "bulleted_list_item":
-      return (
-        <ul className="list-disc list-inside">
-          <li key={block.id}>
-            {block.bulleted_list_item.text.map((item, i) => (
-              <RichTextItem item={item} key={item.plain_text + i} />
+  switch(block.type) {
+    case "paragraph": 
+    return (
+      <p>
+
+      {block.children.map((item, i) => <RichTextItem item={item} key={i} />)}
+      </p>
+    )
+    case "heading":
+      switch(block.depth) {
+        case 1:
+          return <h2 className="mt-6 text-3xl">{block.children.map((item, i) => <RichTextItem item={item} key={i} />)}</h2>
+        case 2:
+          return <h3 className="mt-6 text-2xl">{block.children.map((item, i) => <RichTextItem item={item} key={i} />)}</h3>
+        case 3:
+          return <h4 className="mt-6 text-xl">{block.children.map((item, i) => <RichTextItem item={item} key={i} />)}</h4>
+      }
+  
+    case "list":
+      const b = block as List;
+      if (b.ordered) {
+
+        return (
+          <ol>
+            {b.children.map((t,i) => (
+              <li key={i}><RichTextItem item={t} /></li>
             ))}
-          </li>
-        </ul>
-      );
+          </ol>
+        );
+      } else {
+        return (
+                <ul className="list-disc list-inside">
+                  {b.children.map((t,i) => (
+              <li key={i}><RichTextItem item={t} /></li>
+            ))}
+                </ul>
+                )
+      }
+  
     case "code":
       return (
-        <CodeBlock lan={block.code?.language}>
-          {block.code?.text[0].text.content}
+        <CodeBlock lan={block.lang}>
+          {block.value}
         </CodeBlock>
       );
-    case "quote":
+    case "blockquote":
       return (
         <div className="my-8 text-center whitespace-pre-wrap text-gray-600 dark:text-gray-400">
-          {block.quote.text[0].plain_text}
+          <RichTextItem item={block.children[0]} />
         </div>
       );
 
-    case "image": {
-      if (block.image.type === "file") {
-        return (
-          <div className="my-6">
-            <img
-              className="max-w-3xl max-h-[48rem] m-auto"
-              src={block.image.file.url}
-              alt={block.image.caption[0]?.plain_text}
-            />
-            <p className="text-center text-gray-400 text-md">
-              {block.image.caption[0]?.plain_text}
-            </p>
-          </div>
-        );
-      }
-      if (block.image.type === "external") {
-        return (
-          <div className="my-6">
-            <img
-              className="max-w-3xl max-h-[48rem] m-auto"
-              src={block.image.external.url}
-              alt={block.image.caption[0]?.plain_text}
-            />
-            <p className="text-center text-gray-400 text-md">
-              {block.image.caption[0]?.plain_text}
-            </p>
-          </div>
-        );
-      }
-    }
-    case "divider":
+      // TODO: image
+    // case "image": {
+    //   if (block.image.type === "file") {
+    //     return (
+    //       <div className="my-6">
+    //         <img
+    //           className="max-w-3xl max-h-[48rem] m-auto"
+    //           src={block.image.file.url}
+    //           alt={block.image.caption[0]?.plain_text}
+    //         />
+    //         <p className="text-center text-gray-400 text-md">
+    //           {block.image.caption[0]?.plain_text}
+    //         </p>
+    //       </div>
+    //     );
+    //   }
+    // }
+    case "thematicBreak":
       return <hr className="my-6 w-80 mx-auto" />;
-    case "video":
-      if (block.video.type === "external") {
-        return (
-          <div className="flex justify-center my-6">
-            <div className="iframeWrapper w-full h-[27rem] mx-2">
-              <iframe
-                className="w-full h-full"
-                id="ytplayer"
-                src={block.video.external.url.replace(/watch\?v=/, "embed/")}
-              />
-            </div>
-          </div>
-        );
-      }
+  //     if (block.image.type === "external") {
+  //       return (
+  //         <div className="my-6">
+  //           <img
+  //             className="max-w-3xl max-h-[48rem] m-auto"
+  //             src={block.image.external.url}
+  //             alt={block.image.caption[0]?.plain_text}
+  //           />
+  //           <p className="text-center text-gray-400 text-md">
+  //             {block.image.caption[0]?.plain_text}
+  //           </p>
+  //         </div>
+  //       );
+  //     }
+  //   }
+  //   case "divider":
+  //     return <hr className="my-6 w-80 mx-auto" />;
+  //   case "video":
+  //     if (block.video.type === "external") {
+  //       return (
+  //         <div className="flex justify-center my-6">
+  //           <div className="iframeWrapper w-full h-[27rem] mx-2">
+  //             <iframe
+  //               className="w-full h-full"
+  //               id="ytplayer"
+  //               src={block.video.external.url.replace(/watch\?v=/, "embed/")}
+  //             />
+  //           </div>
+  //         </div>
+  //       );
+  //     }
     // todo: bookmark
     default:
       return null;
@@ -124,46 +124,34 @@ const BlockContent: FC<Props> = ({ block }) => {
 };
 
 interface RichTextItemProps {
-  item: NotionRichTextObject;
+  item: PhrasingContent
 }
 
 const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
-  if (item.href) {
-    return (
-      <a
-        className="text-blue-400 underline"
-        href={item.href}
+  switch (item.type) {
+    case 'text':
+      return <span>{item.value}</span>
+
+    case 'link':
+      return <a href={item.url} 
+      className="text-blue-400 underline"
         rel="noreferrer noopener"
         target="_blank"
-      >
-        {item.plain_text}
-      </a>
-    );
-  }
+      ><RichTextItem item={item.children[0]} /></a>
 
-  if (item.annotations.code) {
-    return (
-      <code className="px-1 font-courier text-red-500 bg-gray-700 rounded-sm">
-        {item.plain_text}
-      </code>
-    );
-  }
+    case "strong":
+      return <strong><RichTextItem item={item.children[0]} /></strong>;
 
-  if (item.annotations.bold) {
-    return <strong>{item.text.content}</strong>;
-  }
+    case "emphasis":
+      return <span className="italic"><RichTextItem item={item.children[0]} /></span>;
 
-  if (item.annotations.italic) {
-    return <span className="italic">{item.text.content}</span>;
+    case "inlineCode":
+      return <code className="px-1 font-courier text-red-500 bg-gray-700 rounded-sm">
+        {item.value}
+        </code>
+      
+    // TODO: strikethrough (need remark GFM plugin)
+    default:
+      return <span>FIXME</span>;
   }
-
-  if (item.annotations.underline) {
-    return <span className="underline">{item.text.content}</span>;
-  }
-
-  if (item.annotations.strikethrough) {
-    return <span className="line-through">{item.text.content}</span>;
-  }
-
-  return <span>{item.text.content}</span>;
 };

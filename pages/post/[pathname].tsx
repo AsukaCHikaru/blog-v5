@@ -5,20 +5,16 @@ import { Footer } from "../../components/Footer";
 import { Layout } from "../../components/Layout";
 import { PostBodyBlock } from "../../components/PostBodyBlock";
 import { PostDetailPageHeader } from "../../components/PostDetailPageHeader";
-import {
-  fetchNotionBlockList,
-  fetchNotionPageList,
-} from "../../services/notionApi";
 import { PostSummary } from "../../types";
-import { NotionPageChildrenResponse } from "../../types/notion";
-import { convertNotionPageListToPostSummaryList } from "../../utils/notionUtils";
+import { Content } from "mdast";
+import { getPostContent, getPostList } from "../../services/markdownServices";
 
 interface Props {
-  list: NotionPageChildrenResponse;
+  postContent: Content[];
   postSummary: PostSummary;
 }
 
-const Post: FC<Props> = ({ list, postSummary }) => {
+const Post: FC<Props> = ({ postContent, postSummary }) => {
   const title = postSummary.title + ' | The work is undone.'
 
   return (
@@ -31,8 +27,8 @@ const Post: FC<Props> = ({ list, postSummary }) => {
       </Head>
       <Layout>
         <PostDetailPageHeader postSummary={postSummary} />
-        {list.results.map((block) => (
-          <PostBodyBlock block={block} key={block.id} />
+        {postContent.map((block, i) => (
+          <PostBodyBlock block={block} key={i} />
         ))}
         <Footer />
       </Layout>
@@ -41,9 +37,8 @@ const Post: FC<Props> = ({ list, postSummary }) => {
 };
 
 export const getStaticPaths = async () => {
-  const notionPageList = await fetchNotionPageList();
-  const postSummaryList =
-    convertNotionPageListToPostSummaryList(notionPageList);
+  const postList = await getPostList();
+  const postSummaryList = postList.map(post => post.postSummary);
 
   const paths = postSummaryList.map((postSummary) => ({
     params: { pathname: postSummary.pathname },
@@ -57,9 +52,8 @@ export const getStaticProps = async ({
 }: {
   params: { pathname: string };
 }) => {
-  const notionPageList = await fetchNotionPageList();
-  const postSummaryList =
-    convertNotionPageListToPostSummaryList(notionPageList);
+  const postList = await getPostList();
+  const postSummaryList = postList.map(post => post.postSummary);
 
   const thisPost = postSummaryList.find(
     (postSummary) => postSummary.pathname === params.pathname
@@ -69,10 +63,9 @@ export const getStaticProps = async ({
     return { props: {} };
   }
 
-  const notionPageBlockListResponse = await fetchNotionBlockList(thisPost.id);
-  const notionPageBlockList = await notionPageBlockListResponse.json();
+  const postContent = getPostContent(thisPost.title);
 
-  return { props: { list: notionPageBlockList, postSummary: thisPost } };
+  return { props: { postContent, postSummary: thisPost } };
 };
 
 export default Post;

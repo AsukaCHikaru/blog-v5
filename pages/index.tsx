@@ -1,7 +1,6 @@
 import { PostSummary } from "../types";
-import { fetchNotionPageList } from "../services/notionApi";
-import { convertNotionPageListToPostSummaryList } from "../utils/notionUtils";
 import { PostListPage } from "../components/PostListPage";
+import { getPostList } from "../services/markdownServices";
 
 interface Props {
   postSummaryList: PostSummary[];
@@ -12,10 +11,8 @@ const Home = ({ postSummaryList }: Props) => (
 );
 
 export async function getStaticProps() {
-  const notionPageList = await fetchNotionPageList();
-  const postSummaryList =
-    convertNotionPageListToPostSummaryList(notionPageList);
-
+  const postList = await getPostList();
+  const postSummaryList = postList.map(post => post.postSummary);
   return {
     props: {
       postSummaryList,

@@ -37,9 +37,14 @@ const BlockContent: FC<Props> = ({ block }) => {
       const b = block as List;
       if (b.ordered) {
         return (
-          <ol>
+          <ol className="list-decimal list-inside">
             {b.children.map((t,i) => (
-              <li key={i} className=""><RichTextItem item={t} /></li>
+              <li key={i}>
+                <div className="inline-block">
+
+                <RichTextItem item={t} />
+                </div>
+                </li>
             ))}
           </ol>
         );
@@ -47,7 +52,12 @@ const BlockContent: FC<Props> = ({ block }) => {
         return (
           <ul className="list-disc list-inside">
             {b.children.map((t,i) => (
-              <li key={i} className="inline"><RichTextItem item={t} /></li>
+              <li key={i}>
+                <div className="inline-block">
+                <RichTextItem item={t} />
+                </div>
+                  
+                </li>
             ))}
           </ul>
         );
@@ -106,6 +116,7 @@ const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
       return <BlockContent block={item.children[0]} />
 
     case "image":
+      // TODO: image size
       return <Image src={'/images/'+item.url} alt={item.alt || ''} width={600} height={400} />
 
     // TODO: strikethrough (need remark GFM plugin)

@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { CodeBlock } from "./CodeBlock";
-import { Content, List, PhrasingContent } from "mdast";
+import { BlockContent, Content, DefinitionContent, List, ListItem, PhrasingContent } from "mdast";
+import Image from "next/image";
 
 interface Props {
   block: Content;
@@ -19,8 +20,7 @@ const BlockContent: FC<Props> = ({ block }) => {
     case "paragraph": 
     return (
       <p>
-
-      {block.children.map((item, i) => <RichTextItem item={item} key={i} />)}
+        {block.children.map((item, i) => <RichTextItem item={item} key={i} />)}
       </p>
     )
     case "heading":
@@ -36,22 +36,21 @@ const BlockContent: FC<Props> = ({ block }) => {
     case "list":
       const b = block as List;
       if (b.ordered) {
-
         return (
           <ol>
             {b.children.map((t,i) => (
-              <li key={i}><RichTextItem item={t} /></li>
+              <li key={i} className=""><RichTextItem item={t} /></li>
             ))}
           </ol>
         );
       } else {
         return (
-                <ul className="list-disc list-inside">
-                  {b.children.map((t,i) => (
-              <li key={i}><RichTextItem item={t} /></li>
+          <ul className="list-disc list-inside">
+            {b.children.map((t,i) => (
+              <li key={i} className="inline"><RichTextItem item={t} /></li>
             ))}
-                </ul>
-                )
+          </ul>
+        );
       }
   
     case "code":
@@ -63,60 +62,13 @@ const BlockContent: FC<Props> = ({ block }) => {
     case "blockquote":
       return (
         <div className="my-8 text-center whitespace-pre-wrap text-gray-600 dark:text-gray-400">
-          <RichTextItem item={block.children[0]} />
+          <BlockContent block={block.children[0]} />
         </div>
       );
 
-      // TODO: image
-    // case "image": {
-    //   if (block.image.type === "file") {
-    //     return (
-    //       <div className="my-6">
-    //         <img
-    //           className="max-w-3xl max-h-[48rem] m-auto"
-    //           src={block.image.file.url}
-    //           alt={block.image.caption[0]?.plain_text}
-    //         />
-    //         <p className="text-center text-gray-400 text-md">
-    //           {block.image.caption[0]?.plain_text}
-    //         </p>
-    //       </div>
-    //     );
-    //   }
-    // }
     case "thematicBreak":
       return <hr className="my-6 w-80 mx-auto" />;
-  //     if (block.image.type === "external") {
-  //       return (
-  //         <div className="my-6">
-  //           <img
-  //             className="max-w-3xl max-h-[48rem] m-auto"
-  //             src={block.image.external.url}
-  //             alt={block.image.caption[0]?.plain_text}
-  //           />
-  //           <p className="text-center text-gray-400 text-md">
-  //             {block.image.caption[0]?.plain_text}
-  //           </p>
-  //         </div>
-  //       );
-  //     }
-  //   }
-  //   case "divider":
-  //     return <hr className="my-6 w-80 mx-auto" />;
-  //   case "video":
-  //     if (block.video.type === "external") {
-  //       return (
-  //         <div className="flex justify-center my-6">
-  //           <div className="iframeWrapper w-full h-[27rem] mx-2">
-  //             <iframe
-  //               className="w-full h-full"
-  //               id="ytplayer"
-  //               src={block.video.external.url.replace(/watch\?v=/, "embed/")}
-  //             />
-  //           </div>
-  //         </div>
-  //       );
-  //     }
+
     // todo: bookmark
     default:
       return null;
@@ -124,7 +76,7 @@ const BlockContent: FC<Props> = ({ block }) => {
 };
 
 interface RichTextItemProps {
-  item: PhrasingContent
+  item: PhrasingContent | ListItem | BlockContent | DefinitionContent
 }
 
 const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
@@ -149,7 +101,13 @@ const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
       return <code className="px-1 font-courier text-red-500 bg-gray-700 rounded-sm">
         {item.value}
         </code>
-      
+
+    case "listItem":
+      return <BlockContent block={item.children[0]} />
+
+    case "image":
+      return <Image src={'/images/'+item.url} alt={item.alt || ''} width={600} height={400} />
+
     // TODO: strikethrough (need remark GFM plugin)
     default:
       return <span>FIXME</span>;

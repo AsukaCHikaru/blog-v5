@@ -5,14 +5,14 @@ import ts from "highlight.js/lib/languages/typescript";
 import csharp from "highlight.js/lib/languages/csharp";
 import "highlight.js/styles/base16/google-dark.css";
 
-import { NotionCodeLanguageTypes } from "../types/notion";
+import { Code } from "mdast";
 
 hljs.registerLanguage("javascript", js);
 hljs.registerLanguage("typescript", ts);
 hljs.registerLanguage("csharp", csharp);
 
 interface Props {
-  lan?: NotionCodeLanguageTypes;
+  lan?: Code['lang'];
 }
 
 export const CodeBlock: FC<PropsWithChildren<Props>> = ({ children, lan }) => {

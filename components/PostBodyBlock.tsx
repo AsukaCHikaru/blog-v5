@@ -16,7 +16,7 @@ interface Props {
 
 export const PostBodyBlock: FC<Props> = ({ block }) => {
   return (
-    <div className="mb-2 text-2xl">
+    <div className="mb-6 text-2xl leading-10">
       <BlockContent block={block} />
     </div>
   );
@@ -37,7 +37,7 @@ const BlockContent: FC<Props> = ({ block }) => {
       switch (block.depth) {
         case 1:
           return (
-            <h2 className="mt-6 text-6xl">
+            <h2 className="mt-12 text-5xl font-bold">
               {block.children.map((item, i) => (
                 <RichTextItem item={item} key={i} />
               ))}
@@ -45,7 +45,7 @@ const BlockContent: FC<Props> = ({ block }) => {
           );
         case 2:
           return (
-            <h3 className="mt-6 text-5xl">
+            <h3 className="mt-12 text-4xl font-bold">
               {block.children.map((item, i) => (
                 <RichTextItem item={item} key={i} />
               ))}
@@ -53,7 +53,7 @@ const BlockContent: FC<Props> = ({ block }) => {
           );
         case 3:
           return (
-            <h4 className="mt-6 text-4xl">
+            <h4 className="mt-12 text-3xl font-bold">
               {block.children.map((item, i) => (
                 <RichTextItem item={item} key={i} />
               ))}
@@ -62,10 +62,11 @@ const BlockContent: FC<Props> = ({ block }) => {
       }
 
     case "list":
+      // TODO: wrap
       const b = block as List;
       if (b.ordered) {
         return (
-          <ol className="list-decimal list-inside">
+          <ol className="list-decimal list-inside mx-8">
             {b.children.map((t, i) => (
               <li key={i}>
                 <div className="inline-block">
@@ -77,9 +78,9 @@ const BlockContent: FC<Props> = ({ block }) => {
         );
       } else {
         return (
-          <ul className="list-disc list-inside">
+          <ul className="list-disc list-inside mx-8">
             {b.children.map((t, i) => (
-              <li key={i}>
+              <li key={i} >
                 <div className="inline-block">
                   <RichTextItem item={t} />
                 </div>
@@ -100,7 +101,7 @@ const BlockContent: FC<Props> = ({ block }) => {
       );
 
     case "thematicBreak":
-      return <hr className="my-6 w-80 mx-auto" />;
+      return <hr className="my-16 w-80 mx-auto" />;
 
     // todo: bookmark
     default:
@@ -145,7 +146,7 @@ const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
 
     case "inlineCode":
       return (
-        <code className="px-1 font-courier text-red-500 bg-gray-700 rounded-sm">
+        <code className="px-1 font-courier text-gray-300 bg-gray-700 rounded-sm">
           {item.value}
         </code>
       );
@@ -154,7 +155,6 @@ const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
       return <BlockContent block={item.children[0]} />;
 
     case "image":
-      item;
       // TODO: image size
       return (
         <>
@@ -163,8 +163,9 @@ const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
             alt={item.alt || ""}
             width={600}
             height={400}
+            className="m-auto"
           />
-          <span>{item.title}</span>
+          <span className="flex justify-center text-gray-400 text-xl">{item.title}</span>
         </>
       );
 

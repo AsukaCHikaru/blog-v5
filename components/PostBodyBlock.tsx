@@ -16,7 +16,7 @@ interface Props {
 
 export const PostBodyBlock: FC<Props> = ({ block }) => {
   return (
-    <div className="mb-2 text-lg">
+    <div className="mb-2 text-2xl">
       <BlockContent block={block} />
     </div>
   );
@@ -37,7 +37,7 @@ const BlockContent: FC<Props> = ({ block }) => {
       switch (block.depth) {
         case 1:
           return (
-            <h2 className="mt-6 text-3xl">
+            <h2 className="mt-6 text-6xl">
               {block.children.map((item, i) => (
                 <RichTextItem item={item} key={i} />
               ))}
@@ -45,7 +45,7 @@ const BlockContent: FC<Props> = ({ block }) => {
           );
         case 2:
           return (
-            <h3 className="mt-6 text-2xl">
+            <h3 className="mt-6 text-5xl">
               {block.children.map((item, i) => (
                 <RichTextItem item={item} key={i} />
               ))}
@@ -53,7 +53,7 @@ const BlockContent: FC<Props> = ({ block }) => {
           );
         case 3:
           return (
-            <h4 className="mt-6 text-xl">
+            <h4 className="mt-6 text-4xl">
               {block.children.map((item, i) => (
                 <RichTextItem item={item} key={i} />
               ))}
@@ -157,7 +157,7 @@ const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
       item;
       // TODO: image size
       return (
-        <div>
+        <>
           <Image
             src={"/images/" + item.url}
             alt={item.alt || ""}
@@ -165,7 +165,7 @@ const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
             height={400}
           />
           <span>{item.title}</span>
-        </div>
+        </>
       );
 
     // TODO: strikethrough (need remark GFM plugin)

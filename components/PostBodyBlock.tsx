@@ -1,6 +1,13 @@
 import { FC } from "react";
 import { CodeBlock } from "./CodeBlock";
-import { BlockContent, Content, DefinitionContent, List, ListItem, PhrasingContent } from "mdast";
+import {
+  BlockContent,
+  Content,
+  DefinitionContent,
+  List,
+  ListItem,
+  PhrasingContent,
+} from "mdast";
 import Image from "next/image";
 
 interface Props {
@@ -16,59 +23,75 @@ export const PostBodyBlock: FC<Props> = ({ block }) => {
 };
 
 const BlockContent: FC<Props> = ({ block }) => {
-  switch(block.type) {
-    case "paragraph": 
-    return (
-      <p>
-        {block.children.map((item, i) => <RichTextItem item={item} key={i} />)}
-      </p>
-    )
+  switch (block.type) {
+    case "paragraph":
+      return (
+        <p>
+          {block.children.map((item, i) => (
+            <RichTextItem item={item} key={i} />
+          ))}
+        </p>
+      );
+
     case "heading":
-      switch(block.depth) {
+      switch (block.depth) {
         case 1:
-          return <h2 className="mt-6 text-3xl">{block.children.map((item, i) => <RichTextItem item={item} key={i} />)}</h2>
+          return (
+            <h2 className="mt-6 text-3xl">
+              {block.children.map((item, i) => (
+                <RichTextItem item={item} key={i} />
+              ))}
+            </h2>
+          );
         case 2:
-          return <h3 className="mt-6 text-2xl">{block.children.map((item, i) => <RichTextItem item={item} key={i} />)}</h3>
+          return (
+            <h3 className="mt-6 text-2xl">
+              {block.children.map((item, i) => (
+                <RichTextItem item={item} key={i} />
+              ))}
+            </h3>
+          );
         case 3:
-          return <h4 className="mt-6 text-xl">{block.children.map((item, i) => <RichTextItem item={item} key={i} />)}</h4>
+          return (
+            <h4 className="mt-6 text-xl">
+              {block.children.map((item, i) => (
+                <RichTextItem item={item} key={i} />
+              ))}
+            </h4>
+          );
       }
-  
+
     case "list":
       const b = block as List;
       if (b.ordered) {
         return (
           <ol className="list-decimal list-inside">
-            {b.children.map((t,i) => (
+            {b.children.map((t, i) => (
               <li key={i}>
                 <div className="inline-block">
-
-                <RichTextItem item={t} />
+                  <RichTextItem item={t} />
                 </div>
-                </li>
+              </li>
             ))}
           </ol>
         );
       } else {
         return (
           <ul className="list-disc list-inside">
-            {b.children.map((t,i) => (
+            {b.children.map((t, i) => (
               <li key={i}>
                 <div className="inline-block">
-                <RichTextItem item={t} />
+                  <RichTextItem item={t} />
                 </div>
-                  
-                </li>
+              </li>
             ))}
           </ul>
         );
       }
-  
+
     case "code":
-      return (
-        <CodeBlock lan={block.lang}>
-          {block.value}
-        </CodeBlock>
-      );
+      return <CodeBlock lan={block.lang}>{block.value}</CodeBlock>;
+
     case "blockquote":
       return (
         <div className="my-8 text-center whitespace-pre-wrap text-gray-600 dark:text-gray-400">
@@ -86,38 +109,60 @@ const BlockContent: FC<Props> = ({ block }) => {
 };
 
 interface RichTextItemProps {
-  item: PhrasingContent | ListItem | BlockContent | DefinitionContent
+  item: PhrasingContent | ListItem | BlockContent | DefinitionContent;
 }
 
 const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
   switch (item.type) {
-    case 'text':
-      return <span>{item.value}</span>
+    case "text":
+      return <span>{item.value}</span>;
 
-    case 'link':
-      return <a href={item.url} 
-      className="text-blue-400 underline"
-        rel="noreferrer noopener"
-        target="_blank"
-      ><RichTextItem item={item.children[0]} /></a>
+    case "link":
+      return (
+        <a
+          href={item.url}
+          className="text-blue-400 underline"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
+          <RichTextItem item={item.children[0]} />
+        </a>
+      );
 
     case "strong":
-      return <strong><RichTextItem item={item.children[0]} /></strong>;
+      return (
+        <strong>
+          <RichTextItem item={item.children[0]} />
+        </strong>
+      );
 
     case "emphasis":
-      return <span className="italic"><RichTextItem item={item.children[0]} /></span>;
+      return (
+        <span className="italic">
+          <RichTextItem item={item.children[0]} />
+        </span>
+      );
 
     case "inlineCode":
-      return <code className="px-1 font-courier text-red-500 bg-gray-700 rounded-sm">
-        {item.value}
+      return (
+        <code className="px-1 font-courier text-red-500 bg-gray-700 rounded-sm">
+          {item.value}
         </code>
+      );
 
     case "listItem":
-      return <BlockContent block={item.children[0]} />
+      return <BlockContent block={item.children[0]} />;
 
     case "image":
       // TODO: image size
-      return <Image src={'/images/'+item.url} alt={item.alt || ''} width={600} height={400} />
+      return (
+        <Image
+          src={"/images/" + item.url}
+          alt={item.alt || ""}
+          width={600}
+          height={400}
+        />
+      );
 
     // TODO: strikethrough (need remark GFM plugin)
     default:

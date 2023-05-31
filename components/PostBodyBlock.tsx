@@ -154,14 +154,18 @@ const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
       return <BlockContent block={item.children[0]} />;
 
     case "image":
+      item;
       // TODO: image size
       return (
-        <Image
-          src={"/images/" + item.url}
-          alt={item.alt || ""}
-          width={600}
-          height={400}
-        />
+        <div>
+          <Image
+            src={"/images/" + item.url}
+            alt={item.alt || ""}
+            width={600}
+            height={400}
+          />
+          <span>{item.title}</span>
+        </div>
       );
 
     // TODO: strikethrough (need remark GFM plugin)

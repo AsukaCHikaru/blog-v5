@@ -5,10 +5,11 @@ export type PostLanguage = "enUS" | "zhTW";
 export type PostSummary = {
   id: string;
   title: string;
-  category: PostCategory;
+  category: string;
   language: PostLanguage[];
   tags: string[];
   publishDate: string;
   pathname: string;
   zhTwLink: string | null;
+  filename: string;
 };

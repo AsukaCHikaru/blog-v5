@@ -8,14 +8,14 @@ import { convertFrontmatterToSummary } from '../utils/markdownUtils';
 
 export const getPostList =  async () => {
     const postFolderPath = resolve('posts');
-    const fileNames = fs.readdirSync(postFolderPath);
+    const fileNames = fs.readdirSync(postFolderPath).filter(name => name.endsWith('.md'));
     const allPostsData = fileNames.map(fileName => {
-        const markdown = fs.readFileSync(postFolderPath + '/' + fileName, 'utf-8');
-        const rawMDAST =  unified().use(remarkParse).use(remarkFrontmatter).parse(markdown);
-        const postData = convertMDAST(rawMDAST);
-        const frontmatter = parseFrontmatter(rawMDAST);
-        const postSummary = convertFrontmatterToSummary(frontmatter);
-        return { postSummary, postData };
+      const markdown = fs.readFileSync(postFolderPath + '/' + fileName, 'utf-8');
+      const rawMDAST =  unified().use(remarkParse).use(remarkFrontmatter).parse(markdown);
+      const postData = convertMDAST(rawMDAST);
+      const frontmatter = parseFrontmatter(rawMDAST);
+      const postSummary = convertFrontmatterToSummary(frontmatter);
+      return { postSummary, postData };
     })
     return allPostsData;
 }
@@ -24,18 +24,22 @@ const parseFrontmatter = (input: Root): Record<string, string>  => {
   const rawFrontmatter = input.children[0] as YAML;
   const result: Record<string, string> = {};
   rawFrontmatter.value.split('\n').forEach(entry => {
-    const [key, value] = entry.split(': ');
-    result[key] = value;
+    const findKeyValue = /^(\w+):\s"?(.+?)"?$/.exec(entry);
+    if (findKeyValue !== null) {
+      const key = findKeyValue[1];
+      const value = findKeyValue[2];
+      result[key] = value;
+    }
   })
   return result;
-}
+};
 
 const convertMDAST = (input: Root) => {
   return input.children.map(block => {
     const { position, ...rest } = block;
     return rest
   });
-}
+};
 
 export const getPostContent = (name: string) => {
   const postFolderPath = resolve(`posts/${name}.md`);
@@ -43,4 +47,4 @@ export const getPostContent = (name: string) => {
   const rawMDAST =  unified().use(remarkParse).use(remarkFrontmatter).parse(markdown);
   const postData = convertMDAST(rawMDAST).slice(1);
   return postData;
-}
+};

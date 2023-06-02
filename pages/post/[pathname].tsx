@@ -63,7 +63,7 @@ export const getStaticProps = async ({
     return { props: {} };
   }
 
-  const postContent = getPostContent(thisPost.title);
+  const postContent = getPostContent(thisPost.filename);
 
   return { props: { postContent, postSummary: thisPost } };
 };

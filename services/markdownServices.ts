@@ -63,5 +63,18 @@ export const getPostContent = (name: string) => {
     .use(remarkFrontmatter)
     .parse(markdown);
   const postData = convertMDAST(rawMDAST).slice(1);
-  return postData;
+
+  // Filter and parse image
+  const parsedPostData = postData.map(block => {
+    if (block.type !== 'paragraph') return block;
+    if (block.children[0].type !== 'text') return block;
+    if (!block.children[0].value.startsWith('![[')) return block;
+    const findImage = /\!\[\[(.+)\]\](\n)?(.+)?/.exec(block.children[0].value);
+    if (findImage === null) return block;
+    const imagePath = findImage[1];
+    const caption = findImage[3];
+    return { type: 'paragraph', children: [{type: 'image', title: caption || '', url: imagePath, alt: 'TODO' }]};
+  })
+
+  return parsedPostData;
 };

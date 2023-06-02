@@ -1,16 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "s3.us-west-2.amazonaws.com",
-      },
-    ],
-  },
   optimizeFonts: true,
   trailingSlash: true,
+  output: 'export',
+  images: {
+    unoptimized: true,
+  }
 };
 
 module.exports = nextConfig;

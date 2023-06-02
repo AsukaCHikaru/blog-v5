@@ -26,11 +26,11 @@ const BlockContent: FC<Props> = ({ block }) => {
   switch (block.type) {
     case "paragraph":
       return (
-        <p>
+        <span>
           {block.children.map((item, i) => (
             <RichTextItem item={item} key={i} />
           ))}
-        </p>
+        </span>
       );
 
     case "heading":
@@ -69,9 +69,7 @@ const BlockContent: FC<Props> = ({ block }) => {
           <ol className="list-decimal list-inside mx-8">
             {b.children.map((t, i) => (
               <li key={i}>
-                <div className="inline-block">
                   <RichTextItem item={t} />
-                </div>
               </li>
             ))}
           </ol>
@@ -81,9 +79,7 @@ const BlockContent: FC<Props> = ({ block }) => {
           <ul className="list-disc list-inside mx-8">
             {b.children.map((t, i) => (
               <li key={i} >
-                <div className="inline-block">
                   <RichTextItem item={t} />
-                </div>
               </li>
             ))}
           </ul>

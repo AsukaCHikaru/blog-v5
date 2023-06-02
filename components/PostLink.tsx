@@ -15,15 +15,9 @@ export const PostLink: FC<Props> = ({ postSummary }) => {
         <Link href={`/post/${postSummary.pathname}`}>{postSummary.title}</Link>
       </h3>
       <div className="mb-1">
-        <span className={`inline-block h-5 leading-5 mr-2 pr-2 ${!!postSummary.tags.length && 'border-r border-r-foreground dark:border-r-background'}`}>
+        <span className={`inline-block h-5 leading-5 mr-2 pr-2 ${!!postSummary.tags.length}`}>
           {parseDateToEn(postSummary.publishDate)}
         </span>
-
-        {postSummary.tags.map((tag) => (
-          <span className="mr-2 hover:underline font-courier" key={`${postSummary.id}-${tag}`}>
-            <Link href={`/tag/${tag}`}>#{tag}</Link>
-          </span>
-        ))}
       </div>
     </div>
   );

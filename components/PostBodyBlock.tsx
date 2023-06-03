@@ -7,6 +7,7 @@ import {
   List,
   ListItem,
   PhrasingContent,
+  Image as MarkdownImage,
 } from "mdast";
 import Image from "next/image";
 
@@ -69,7 +70,7 @@ const BlockContent: FC<Props> = ({ block }) => {
           <ol className="list-decimal list-inside mx-8">
             {b.children.map((t, i) => (
               <li key={i}>
-                  <RichTextItem item={t} />
+                <RichTextItem item={t} />
               </li>
             ))}
           </ol>
@@ -78,8 +79,8 @@ const BlockContent: FC<Props> = ({ block }) => {
         return (
           <ul className="list-disc list-inside mx-8">
             {b.children.map((t, i) => (
-              <li key={i} >
-                  <RichTextItem item={t} />
+              <li key={i}>
+                <RichTextItem item={t} />
               </li>
             ))}
           </ul>
@@ -151,6 +152,9 @@ const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
       return <BlockContent block={item.children[0]} />;
 
     case "image":
+      if (/youtube\.com/.test(item.url) || /youtu\.be/.test(item.url)) {
+        return <YoutubeBlock item={item} />;
+      }
       // TODO: image size
       return (
         <>
@@ -161,7 +165,9 @@ const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
             height={400}
             className="m-auto"
           />
-          <span className="flex justify-center text-gray-400 text-xl">{item.title}</span>
+          <span className="flex justify-center text-gray-400 text-xl">
+            {item.title}
+          </span>
         </>
       );
 
@@ -169,4 +175,27 @@ const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
     default:
       return <span>FIXME</span>;
   }
+};
+
+const YoutubeBlock: FC<{ item: MarkdownImage }> = ({ item }) => {
+  const url = /youtube\.com/.test(item.url)
+    ? item.url.replace(/watch\?v=/, "embed/")
+    : /youtu\.be/.test(item.url)
+    ? item.url.replace(
+        /https:\/\/youtu\.be\/(\w+)/,
+        "https://youtube.com/embed/$1"
+      )
+    : undefined;
+
+  if (!url) {
+    return null;
+  }
+
+  return (
+    <div className="flex justify-center my-6">
+      <div className="iframeWrapper w-full h-[27rem] mx-2">
+        <iframe className="w-full h-full" id="ytplayer" src={url} />
+      </div>
+    </div>
+  );
 };

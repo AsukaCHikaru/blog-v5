@@ -5,10 +5,11 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    fontFamily: {
-      courier: ["Courier New", "Courier", "Noto Sans JP", "monospace"],
-    },
     extend: {
+      fontFamily: {
+        serif: [ 'var(--font-jp)'],
+        courier: ["Courier New", "Courier", "monospace"],
+      },
       colors: {
         'foreground': '#222222',
         'background': '#dddddd'

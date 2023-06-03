@@ -4,12 +4,6 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head />
-      <link
-        rel="preload"
-        href="/fonts/NotoSerifJP-Regular.woff2"
-        as="font"
-        type="font/woff2"
-      />
       <body>
         <Main />
         <NextScript />

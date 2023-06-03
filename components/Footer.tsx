@@ -2,7 +2,7 @@ import { FC } from "react";
 
 export const Footer: FC = () => {
   return (
-    <div className="mt-5 mb-5 text-center">
+    <div className="mt-16 mb-5 text-center">
       <a
         href="https://asukachikaru.com"
         rel="noopener noreferrer"

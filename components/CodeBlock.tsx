@@ -24,7 +24,7 @@ export const CodeBlock: FC<PropsWithChildren<Props>> = ({ children, lan }) => {
   }, []);
 
   return (
-    <pre className="my-6 border whitespace-pre-wrap rounded-md">
+    <pre className="my-6 border rounded-md text-base leading-4">
       <code className={`font-courier language-${modifiedLan} rounded-md`}>
         {children}
       </code>

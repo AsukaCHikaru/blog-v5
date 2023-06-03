@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 import { Noto_Serif_JP } from "@next/font/google";
 
 const notoSerifJp = Noto_Serif_JP({
-  weight: ["200", "300", "400", "500", "600", "700", "900"],
+  weight: ["400", "500", "900"],
   display: 'swap',
   variable: "--font-jp",
 });

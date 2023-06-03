@@ -1,8 +1,8 @@
-import Link from "next/link";
-import { FC } from "react";
+import Link from 'next/link';
+import { FC } from 'react';
 
-import { PostSummary } from "../types";
-import { parseDateToEn } from "../utils/dateTimeUtils";
+import { PostSummary } from '../types';
+import { parseDateToEn } from '../utils/dateTimeUtils';
 
 interface Props {
   postSummary: PostSummary;
@@ -15,7 +15,10 @@ export const PostLink: FC<Props> = ({ postSummary }) => {
         <Link href={`/post/${postSummary.pathname}`}>{postSummary.title}</Link>
       </h3>
       <div className="mb-1">
-        <span className={`inline-block h-5 leading-5 mr-2 pr-2 ${!!postSummary.tags.length}`}>
+        <span
+          className={`inline-block h-5 leading-5 mr-2 pr-2 ${!!postSummary.tags
+            .length}`}
+        >
           {parseDateToEn(postSummary.publishDate)}
         </span>
       </div>

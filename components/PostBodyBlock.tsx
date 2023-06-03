@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { CodeBlock } from "./CodeBlock";
+import { FC } from 'react';
+import { CodeBlock } from './CodeBlock';
 import {
   BlockContent,
   Content,
@@ -8,8 +8,8 @@ import {
   ListItem,
   PhrasingContent,
   Image as MarkdownImage,
-} from "mdast";
-import Image from "next/image";
+} from 'mdast';
+import Image from 'next/image';
 
 interface Props {
   block: Content;
@@ -25,7 +25,7 @@ export const PostBodyBlock: FC<Props> = ({ block }) => {
 
 const BlockContent: FC<Props> = ({ block }) => {
   switch (block.type) {
-    case "paragraph":
+    case 'paragraph':
       return (
         <span>
           {block.children.map((item, i) => (
@@ -34,7 +34,7 @@ const BlockContent: FC<Props> = ({ block }) => {
         </span>
       );
 
-    case "heading":
+    case 'heading':
       switch (block.depth) {
         case 1:
           return (
@@ -62,7 +62,7 @@ const BlockContent: FC<Props> = ({ block }) => {
           );
       }
 
-    case "list":
+    case 'list':
       // TODO: wrap
       const b = block as List;
       if (b.ordered) {
@@ -87,17 +87,17 @@ const BlockContent: FC<Props> = ({ block }) => {
         );
       }
 
-    case "code":
+    case 'code':
       return <CodeBlock lan={block.lang}>{block.value}</CodeBlock>;
 
-    case "blockquote":
+    case 'blockquote':
       return (
         <div className="my-8 text-center whitespace-pre-wrap text-gray-600 dark:text-gray-400">
           <BlockContent block={block.children[0]} />
         </div>
       );
 
-    case "thematicBreak":
+    case 'thematicBreak':
       return <hr className="my-16 w-80 mx-auto" />;
 
     // todo: bookmark
@@ -112,10 +112,10 @@ interface RichTextItemProps {
 
 const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
   switch (item.type) {
-    case "text":
+    case 'text':
       return <span>{item.value}</span>;
 
-    case "link":
+    case 'link':
       return (
         <a
           href={item.url}
@@ -127,31 +127,31 @@ const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
         </a>
       );
 
-    case "strong":
+    case 'strong':
       return (
         <strong>
           <RichTextItem item={item.children[0]} />
         </strong>
       );
 
-    case "emphasis":
+    case 'emphasis':
       return (
         <span className="italic">
           <RichTextItem item={item.children[0]} />
         </span>
       );
 
-    case "inlineCode":
+    case 'inlineCode':
       return (
         <code className="px-1 font-courier text-gray-300 bg-gray-700 rounded-sm">
           {item.value}
         </code>
       );
 
-    case "listItem":
+    case 'listItem':
       return <BlockContent block={item.children[0]} />;
 
-    case "image":
+    case 'image':
       if (/youtube\.com/.test(item.url) || /youtu\.be/.test(item.url)) {
         return <YoutubeBlock item={item} />;
       }
@@ -159,8 +159,8 @@ const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
       return (
         <>
           <Image
-            src={"/images/" + item.url}
-            alt={item.alt || ""}
+            src={'/images/' + item.url}
+            alt={item.alt || ''}
             width={600}
             height={400}
             className="m-auto"
@@ -179,11 +179,11 @@ const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
 
 const YoutubeBlock: FC<{ item: MarkdownImage }> = ({ item }) => {
   const url = /youtube\.com/.test(item.url)
-    ? item.url.replace(/watch\?v=/, "embed/")
+    ? item.url.replace(/watch\?v=/, 'embed/')
     : /youtu\.be/.test(item.url)
     ? item.url.replace(
         /https:\/\/youtu\.be\/(\w+)/,
-        "https://youtube.com/embed/$1"
+        'https://youtube.com/embed/$1',
       )
     : undefined;
 

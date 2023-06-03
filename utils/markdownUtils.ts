@@ -1,6 +1,8 @@
-import { PostLanguage, PostSummary } from "../types";
+import { PostLanguage, PostSummary } from '../types';
 
-export const convertFrontmatterToSummary = (frontmatter: Record<string, string>): PostSummary => {
+export const convertFrontmatterToSummary = (
+  frontmatter: Record<string, string>,
+): PostSummary => {
   const postSummary: PostSummary = {
     id: frontmatter.pathname,
     title: frontmatter.title,
@@ -10,7 +12,7 @@ export const convertFrontmatterToSummary = (frontmatter: Record<string, string>)
     publishDate: frontmatter.published,
     pathname: frontmatter.pathname,
     zhTwLink: null,
-    filename: frontmatter.filename
+    filename: frontmatter.filename,
   };
   return postSummary;
-}
+};

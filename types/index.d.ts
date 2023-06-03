@@ -1,6 +1,6 @@
-export type PostCategory = "gaming" | "programming" | "others";
+export type PostCategory = 'gaming' | 'programming' | 'others';
 
-export type PostLanguage = "enUS" | "zhTW";
+export type PostLanguage = 'enUS' | 'zhTW';
 
 export type PostSummary = {
   id: string;

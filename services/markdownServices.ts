@@ -1,21 +1,21 @@
-import fs from "fs";
-import { resolve } from "path";
-import { unified } from "unified";
-import remarkParse from "remark-parse";
-import remarkFrontmatter from "remark-frontmatter";
-import { YAML, Root } from "mdast";
-import { convertFrontmatterToSummary } from "../utils/markdownUtils";
+import fs from 'fs';
+import { resolve } from 'path';
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
+import remarkFrontmatter from 'remark-frontmatter';
+import { YAML, Root } from 'mdast';
+import { convertFrontmatterToSummary } from '../utils/markdownUtils';
 
 export const getPostList = async () => {
-  const postFolderPath = resolve("posts");
+  const postFolderPath = resolve('posts');
   const fileNames = fs
     .readdirSync(postFolderPath)
-    .filter((name) => name.endsWith(".md"));
+    .filter((name) => name.endsWith('.md'));
   const allPostsData = fileNames
     .map((fileName) => {
       const markdown = fs.readFileSync(
-        postFolderPath + "/" + fileName,
-        "utf-8"
+        postFolderPath + '/' + fileName,
+        'utf-8',
       );
       const rawMDAST = unified()
         .use(remarkParse)
@@ -29,7 +29,7 @@ export const getPostList = async () => {
     .sort(
       (prev, next) =>
         new Date(next.postSummary.publishDate).getTime() -
-        new Date(prev.postSummary.publishDate).getTime()
+        new Date(prev.postSummary.publishDate).getTime(),
     );
   return allPostsData;
 };
@@ -37,7 +37,7 @@ export const getPostList = async () => {
 const parseFrontmatter = (input: Root): Record<string, string> => {
   const rawFrontmatter = input.children[0] as YAML;
   const result: Record<string, string> = {};
-  rawFrontmatter.value.split("\n").forEach((entry) => {
+  rawFrontmatter.value.split('\n').forEach((entry) => {
     const findKeyValue = /^(\w+):\s"?(.+?)"?$/.exec(entry);
     if (findKeyValue !== null) {
       const key = findKeyValue[1];
@@ -57,7 +57,7 @@ const convertMDAST = (input: Root) => {
 
 export const getPostContent = (name: string) => {
   const postFolderPath = resolve(`posts/${name}.md`);
-  const markdown = fs.readFileSync(postFolderPath, "utf-8");
+  const markdown = fs.readFileSync(postFolderPath, 'utf-8');
   const rawMDAST = unified()
     .use(remarkParse)
     .use(remarkFrontmatter)
@@ -65,7 +65,7 @@ export const getPostContent = (name: string) => {
   const postData = convertMDAST(rawMDAST).slice(1);
 
   // Filter and parse image
-  const parsedPostData = postData.map(block => {
+  const parsedPostData = postData.map((block) => {
     if (block.type !== 'paragraph') return block;
     if (block.children[0].type !== 'text') return block;
     if (!block.children[0].value.startsWith('![[')) return block;
@@ -73,8 +73,13 @@ export const getPostContent = (name: string) => {
     if (findImage === null) return block;
     const imagePath = findImage[1];
     const caption = findImage[3];
-    return { type: 'paragraph', children: [{type: 'image', title: caption || '', url: imagePath, alt: 'TODO' }]};
-  })
+    return {
+      type: 'paragraph',
+      children: [
+        { type: 'image', title: caption || '', url: imagePath, alt: 'TODO' },
+      ],
+    };
+  });
 
   return parsedPostData;
 };

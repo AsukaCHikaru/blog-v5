@@ -1,5 +1,5 @@
-import { FC } from "react";
-import Link from "next/link";
+import { FC } from 'react';
+import Link from 'next/link';
 
 export const PostListPageHeader: FC = () => {
   return (
@@ -12,7 +12,7 @@ export const PostListPageHeader: FC = () => {
           href="https://asukachikaru.com"
           rel="noreferrer noopener"
           target="_blank"
-          className='underline'
+          className="underline"
         >
           asukachikaru
         </a>

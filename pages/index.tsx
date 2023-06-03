@@ -1,6 +1,6 @@
-import { PostSummary } from "../types";
-import { PostListPage } from "../components/PostListPage";
-import { getPostList } from "../services/markdownServices";
+import { PostSummary } from '../types';
+import { PostListPage } from '../components/PostListPage';
+import { getPostList } from '../services/markdownServices';
 
 interface Props {
   postSummaryList: PostSummary[];
@@ -12,7 +12,7 @@ const Home = ({ postSummaryList }: Props) => (
 
 export async function getStaticProps() {
   const postList = await getPostList();
-  const postSummaryList = postList.map(post => post.postSummary);
+  const postSummaryList = postList.map((post) => post.postSummary);
   return {
     props: {
       postSummaryList,

@@ -1,8 +1,7 @@
-import { PostCategory } from "../types";
+import { PostCategory } from '../types';
 
 export const POST_CATEGORIES: PostCategory[] = [
-    "gaming",
-    "programming",
-    "others",
-  ];
-  
+  'gaming',
+  'programming',
+  'others',
+];

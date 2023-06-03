@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC } from 'react';
 
 export const Footer: FC = () => {
   return (
@@ -9,7 +9,7 @@ export const Footer: FC = () => {
         target="_blank"
       >
         asukachikaru.com
-      </a>{" "}
+      </a>{' '}
       2018-
     </div>
   );

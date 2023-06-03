@@ -38,7 +38,7 @@ const parseFrontmatter = (input: Root): Record<string, string> => {
   const rawFrontmatter = input.children[0] as YAML;
   const result: Record<string, string> = {};
   rawFrontmatter.value.split('\n').forEach((entry) => {
-    const findKeyValue = /^(\w+):\s"?(.+?)"?$/.exec(entry);
+    const findKeyValue = /^(\w+):\s["']?(.+?)["']?$/.exec(entry);
     if (findKeyValue !== null) {
       const key = findKeyValue[1];
       const value = findKeyValue[2];

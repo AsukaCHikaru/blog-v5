@@ -63,7 +63,6 @@ const BlockContent: FC<Props> = ({ block }) => {
       }
 
     case 'list':
-      // TODO: wrap
       const b = block as List;
       if (b.ordered) {
         return (
@@ -100,7 +99,6 @@ const BlockContent: FC<Props> = ({ block }) => {
     case 'thematicBreak':
       return <hr className="my-16 w-80 mx-auto" />;
 
-    // todo: bookmark
     default:
       return null;
   }

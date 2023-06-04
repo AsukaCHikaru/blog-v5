@@ -7,9 +7,9 @@ import {
   List,
   ListItem,
   PhrasingContent,
-  Image as MarkdownImage,
 } from 'mdast';
 import Image from 'next/image';
+import { YoutubeBlock } from './YoutubeBlock';
 
 interface Props {
   block: Content;
@@ -173,27 +173,4 @@ const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
     default:
       return <span>FIXME</span>;
   }
-};
-
-const YoutubeBlock: FC<{ item: MarkdownImage }> = ({ item }) => {
-  const url = /youtube\.com/.test(item.url)
-    ? item.url.replace(/watch\?v=/, 'embed/')
-    : /youtu\.be/.test(item.url)
-    ? item.url.replace(
-        /https:\/\/youtu\.be\/(\w+)/,
-        'https://youtube.com/embed/$1',
-      )
-    : undefined;
-
-  if (!url) {
-    return null;
-  }
-
-  return (
-    <div className="flex justify-center my-6">
-      <div className="iframeWrapper w-full h-[27rem] mx-2">
-        <iframe className="w-full h-full" id="ytplayer" src={url} />
-      </div>
-    </div>
-  );
 };

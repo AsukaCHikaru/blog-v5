@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   optimizeFonts: true,
   trailingSlash: true,
-  output: 'export',
+  output: 'standalone',
   images: {
     unoptimized: true,
   },

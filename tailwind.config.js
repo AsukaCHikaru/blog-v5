@@ -14,7 +14,19 @@ module.exports = {
         foreground: '#222222',
         background: '#dddddd',
       },
+      textWrap: {
+        balance: 'balance',
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        '.text-wrap-balance': {
+          textWrap: 'balance',
+        },
+      };
+      addUtilities(newUtilities);
+    },
+  ],
 };

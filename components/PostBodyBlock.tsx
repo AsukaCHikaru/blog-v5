@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { CodeBlock } from './CodeBlock';
 import {
-  BlockContent,
+  BlockContent as MarkdownBlockContent,
   Content,
   DefinitionContent,
   List,
@@ -10,6 +10,7 @@ import {
 } from 'mdast';
 import Image from 'next/image';
 import { YoutubeBlock } from './YoutubeBlock';
+import { QuoteBlock } from './QuoteBlock';
 
 interface Props {
   block: Content;
@@ -23,7 +24,7 @@ export const PostBodyBlock: FC<Props> = ({ block }) => {
   );
 };
 
-const BlockContent: FC<Props> = ({ block }) => {
+export const BlockContent: FC<Props> = ({ block }) => {
   switch (block.type) {
     case 'paragraph':
       return (
@@ -90,11 +91,7 @@ const BlockContent: FC<Props> = ({ block }) => {
       return <CodeBlock lan={block.lang}>{block.value}</CodeBlock>;
 
     case 'blockquote':
-      return (
-        <div className="my-8 text-center whitespace-pre-wrap text-gray-600 dark:text-gray-400">
-          <BlockContent block={block.children[0]} />
-        </div>
-      );
+      return <QuoteBlock block={block} />;
 
     case 'thematicBreak':
       return <hr className="my-16 w-80 mx-auto" />;
@@ -105,10 +102,10 @@ const BlockContent: FC<Props> = ({ block }) => {
 };
 
 interface RichTextItemProps {
-  item: PhrasingContent | ListItem | BlockContent | DefinitionContent;
+  item: PhrasingContent | ListItem | MarkdownBlockContent | DefinitionContent;
 }
 
-const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
+export const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
   switch (item.type) {
     case 'text':
       return <span>{item.value}</span>;

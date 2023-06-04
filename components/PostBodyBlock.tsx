@@ -94,7 +94,9 @@ export const BlockContent: FC<Props> = ({ block }) => {
       return <QuoteBlock block={block} />;
 
     case 'thematicBreak':
-      return <hr className="my-16 w-80 mx-auto" />;
+      return (
+        <hr className="my-16 w-80 mx-auto border-gray-600 dark:border-gray-400" />
+      );
 
     default:
       return null;

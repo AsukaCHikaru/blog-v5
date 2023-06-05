@@ -3,6 +3,8 @@ import hljs from 'highlight.js/lib/core';
 import js from 'highlight.js/lib/languages/javascript';
 import ts from 'highlight.js/lib/languages/typescript';
 import csharp from 'highlight.js/lib/languages/csharp';
+import css from 'highlight.js/lib/languages/css';
+import json from 'highlight.js/lib/languages/json';
 import 'highlight.js/styles/base16/google-dark.css';
 
 import { Code } from 'mdast';
@@ -10,6 +12,8 @@ import { Code } from 'mdast';
 hljs.registerLanguage('javascript', js);
 hljs.registerLanguage('typescript', ts);
 hljs.registerLanguage('csharp', csharp);
+hljs.registerLanguage('css', css);
+hljs.registerLanguage('json', json);
 
 interface Props {
   lan?: Code['lang'];

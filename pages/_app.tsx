@@ -11,7 +11,7 @@ const notoSerifJp = Noto_Serif_JP({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <main className={`${notoSerifJp.variable} font-serif`}>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </main>
   );
 }

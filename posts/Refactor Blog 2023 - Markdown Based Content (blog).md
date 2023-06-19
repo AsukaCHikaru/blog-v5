@@ -22,5 +22,5 @@ I've been heavily using obsidian lately. The notes helps me writing blog posts i
 Most of my data are stored on somebody's server. And I either am okay with that or do not care that much. But the notes and blog posts are very personal things, so personal that I stopped entirely trusting some companies and store all my posts there. I wanted to make sure that if for some reason all my accounts are not accessible anymore, I still have all my posts.
 
 # Stacks
-Markdown parser: [remark](https://remark.js.org/)
-Frontmatter parser: selfmade
+- Markdown parser: [remark](https://remark.js.org/)
+- Frontmatter parser: selfmade

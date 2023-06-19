@@ -1,7 +1,7 @@
 ---
 created: 2023-06-05 09:32
 title: "Refactor Blog 2023: Markdown Based Content"
-published:
+published: 2023-06-19
 language: en-US
 pathname: refactor-blog-2023-markdown-based-content
 category: Meta

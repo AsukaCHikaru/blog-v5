@@ -8,7 +8,7 @@ export const convertFrontmatterToSummary = (
     title: frontmatter.title,
     category: frontmatter.category,
     language: [frontmatter.language as PostLanguage],
-    tags: frontmatter.tags?.split(',') || [],
+    tags: frontmatter.tags?.split(/,\s?/) || [],
     publishDate: frontmatter.published,
     pathname: frontmatter.pathname,
     zhTwLink: null,

@@ -25,14 +25,14 @@ export const CategoryList: FC<Props> = ({
 
   return (
     <div className="hidden lg:block col-span-3">
-      <h2 className="text-2xl font-medium mb-4">Categories</h2>
+      <h2 className="text-3xl font-medium mb-4">Categories</h2>
       <ul>
         {categoryList.map((category) => (
           <li
             key={`category-${category}`}
             className={`${
               selectedCategory === category ? 'font-bold' : ''
-            } mb-1`}
+            } mb-1 text-lg`}
           >
             <button onClick={() => onCategoryClick(category)}>
               {category}

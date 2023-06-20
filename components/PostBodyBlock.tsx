@@ -18,7 +18,7 @@ interface Props {
 
 export const PostBodyBlock: FC<Props> = ({ block }) => {
   return (
-    <div className="mb-6 text-xl leading-8">
+    <div className="mb-6 text-lg lg:text-xl lg:leading-8">
       <BlockContent block={block} />
     </div>
   );
@@ -39,7 +39,7 @@ export const BlockContent: FC<Props> = ({ block }) => {
       switch (block.depth) {
         case 1:
           return (
-            <h2 className="mt-12 text-4xl font-semibold">
+            <h2 className="mt-8 text-2xl lg:text-4xl font-semibold">
               {block.children.map((item, i) => (
                 <RichTextItem item={item} key={i} />
               ))}
@@ -47,7 +47,7 @@ export const BlockContent: FC<Props> = ({ block }) => {
           );
         case 2:
           return (
-            <h3 className="mt-12 text-3xl font-semibold">
+            <h3 className="mt-8 text-xl lg:text-3xl font-semibold">
               {block.children.map((item, i) => (
                 <RichTextItem item={item} key={i} />
               ))}
@@ -55,7 +55,7 @@ export const BlockContent: FC<Props> = ({ block }) => {
           );
         case 3:
           return (
-            <h4 className="mt-12 text-2xl font-semibold">
+            <h4 className="mt-8 text-lg lg:text-2xl font-semibold">
               {block.children.map((item, i) => (
                 <RichTextItem item={item} key={i} />
               ))}

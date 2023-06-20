@@ -4,7 +4,7 @@ title: The Stone
 published: 2017-05-01
 language: zh-TW
 pathname: the-stone
-category: Leauge of Legends
+category: League of Legends
 tags: 坂本真綾
 filename: The Stone (blog)
 ---

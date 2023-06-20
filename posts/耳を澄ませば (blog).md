@@ -3,7 +3,7 @@ created: 2023/06/01 22:00
 title: 耳を澄ませば
 published: 2016-12-27
 language: zh-TW
-pathname: whisper-of-heart
+pathname: whisper-of-the-heart
 category: Movies
 tags:
 filename: 耳を澄ませば (blog)

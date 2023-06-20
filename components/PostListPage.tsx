@@ -9,6 +9,7 @@ import { PostListPageHeader } from './PostListPageHeader';
 import { GridLayout } from './layout/GridLayout';
 import { MainContentLayout } from './layout/MainContentLayout';
 import { SideContentLayout } from './layout/SideContentLayout';
+import { TagList } from './TagList';
 
 interface Props {
   postSummaryList: PostSummary[];
@@ -16,12 +17,26 @@ interface Props {
 
 export const PostListPage: FC<Props> = ({ postSummaryList }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>();
+  const [selectedTag, setSelectedTag] = useState<string>();
 
   const handleCategoryClick = (category: string) => {
     setSelectedCategory((prev) => (prev === category ? undefined : category));
+
+    if (
+      selectedTag &&
+      !postSummaryList
+        .filter((postSummary) => postSummary.category === category)
+        .flatMap((postSummary) => postSummary.tags)
+        .includes(selectedTag)
+    ) {
+      setSelectedTag(undefined);
+    }
+  };
+  const handleTagClick = (tag: string) => {
+    setSelectedTag((prev) => (prev === tag ? undefined : tag));
   };
 
-  const filteredPostList = useMemo(() => {
+  const categoryFilteredPostList = useMemo(() => {
     if (!!!selectedCategory) {
       return postSummaryList;
     }
@@ -29,6 +44,15 @@ export const PostListPage: FC<Props> = ({ postSummaryList }) => {
       (postSummary) => postSummary.category === selectedCategory,
     );
   }, [selectedCategory, postSummaryList]);
+
+  const tagFilteredPostList = useMemo(() => {
+    if (!!!selectedTag) {
+      return categoryFilteredPostList;
+    }
+    return categoryFilteredPostList.filter((postSummary) =>
+      postSummary.tags.includes(selectedTag),
+    );
+  }, [selectedTag, categoryFilteredPostList]);
 
   return (
     <>
@@ -41,7 +65,7 @@ export const PostListPage: FC<Props> = ({ postSummaryList }) => {
       <GridLayout>
         <PostListPageHeader />
         <MainContentLayout>
-          {filteredPostList.map((postSummary) => {
+          {tagFilteredPostList.map((postSummary) => {
             return <PostLink postSummary={postSummary} key={postSummary.id} />;
           })}
         </MainContentLayout>
@@ -50,6 +74,11 @@ export const PostListPage: FC<Props> = ({ postSummaryList }) => {
             selectedCategory={selectedCategory}
             postSummaryList={postSummaryList}
             onCategoryClick={handleCategoryClick}
+          />
+          <TagList
+            selectedTag={selectedTag}
+            postSummaryList={categoryFilteredPostList}
+            onTagClick={handleTagClick}
           />
         </SideContentLayout>
         <Footer />

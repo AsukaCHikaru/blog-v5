@@ -24,7 +24,7 @@ export const CategoryList: FC<Props> = ({
   }, [postSummaryList]);
 
   return (
-    <div className="hidden xl:block">
+    <div className="hidden lg:block col-span-3">
       <h2 className="text-2xl font-medium mb-4">Categories</h2>
       <ul>
         {categoryList.map((category) => (

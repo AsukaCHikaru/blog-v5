@@ -9,7 +9,7 @@ interface Props {
 
 export const PostDetailPageHeader: FC<Props> = ({ postSummary }) => {
   return (
-    <div className="my-12">
+    <div className="my-12 col-span-10 col-start-2 lg:col-span-7 lg:col-start-3">
       <h1 className="mb-2 text-6xl font-extrabold">{postSummary.title}</h1>
       <div className="text-xl">
         <span

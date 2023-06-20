@@ -4,9 +4,9 @@ import { FC, useMemo, useState } from 'react';
 import { PostSummary } from '../types';
 import { CategoryList } from './CategoryList';
 import { Footer } from './Footer';
+import { Layout } from './Layout';
 import { PostLink } from './PostLink';
 import { PostListPageHeader } from './PostListPageHeader';
-import { ResponsiveLayout } from './ResponsiveLayout';
 
 interface Props {
   postSummaryList: PostSummary[];
@@ -36,9 +36,9 @@ export const PostListPage: FC<Props> = ({ postSummaryList }) => {
         <meta property="og:title" content="The work is undone." />
         <meta property="twitter:title" content="The work is undone." />
       </Head>
-      <PostListPageHeader />
-      <ResponsiveLayout>
-        <div className="w-[768px] pr-12">
+      <Layout>
+        <PostListPageHeader />
+        <div className="col-span-10 col-start-2 lg:col-span-7 lg:col-start-3">
           {filteredPostList.map((postSummary) => {
             return <PostLink postSummary={postSummary} key={postSummary.id} />;
           })}
@@ -48,8 +48,8 @@ export const PostListPage: FC<Props> = ({ postSummaryList }) => {
           postSummaryList={postSummaryList}
           onCategoryClick={handleCategoryClick}
         />
-      </ResponsiveLayout>
-      <Footer />
+        <Footer />
+      </Layout>
     </>
   );
 };

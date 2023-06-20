@@ -27,9 +27,11 @@ const Post: FC<Props> = ({ postContent, postSummary }) => {
       </Head>
       <Layout>
         <PostDetailPageHeader postSummary={postSummary} />
-        {postContent.map((block, i) => (
-          <PostBodyBlock block={block} key={i} />
-        ))}
+        <div className="col-span-10 col-start-2 lg:col-span-7 lg:col-start-3">
+          {postContent.map((block, i) => (
+            <PostBodyBlock block={block} key={i} />
+          ))}
+        </div>
         <Footer />
       </Layout>
     </>

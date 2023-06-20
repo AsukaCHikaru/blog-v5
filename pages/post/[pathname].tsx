@@ -1,13 +1,14 @@
 import Head from 'next/head';
 import { FC } from 'react';
 
+import { Content } from 'mdast';
 import { Footer } from '../../components/Footer';
-import { Layout } from '../../components/Layout';
 import { PostBodyBlock } from '../../components/PostBodyBlock';
 import { PostDetailPageHeader } from '../../components/PostDetailPageHeader';
-import { PostSummary } from '../../types';
-import { Content } from 'mdast';
+import { GridLayout } from '../../components/layout/GridLayout';
+import { MainContentLayout } from '../../components/layout/MainContentLayout';
 import { getPostContent, getPostList } from '../../services/markdownServices';
+import { PostSummary } from '../../types';
 
 interface Props {
   postContent: Content[];
@@ -25,15 +26,15 @@ const Post: FC<Props> = ({ postContent, postSummary }) => {
         <meta property="og:title" content={title} />
         <meta property="twitter:title" content={title} />
       </Head>
-      <Layout>
+      <GridLayout>
         <PostDetailPageHeader postSummary={postSummary} />
-        <div className="col-span-10 col-start-2 lg:col-span-7 lg:col-start-3">
+        <MainContentLayout>
           {postContent.map((block, i) => (
             <PostBodyBlock block={block} key={i} />
           ))}
-        </div>
+        </MainContentLayout>
         <Footer />
-      </Layout>
+      </GridLayout>
     </>
   );
 };

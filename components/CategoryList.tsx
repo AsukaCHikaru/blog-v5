@@ -1,5 +1,6 @@
 import { FC, useMemo } from 'react';
 import { PostSummary } from '../types';
+import { SideContentLayout } from './layout/SideContentLayout';
 
 interface Props {
   selectedCategory?: string;
@@ -24,7 +25,7 @@ export const CategoryList: FC<Props> = ({
   }, [postSummaryList]);
 
   return (
-    <div className="hidden lg:block col-span-3">
+    <div>
       <h2 className="text-3xl font-medium mb-4">Categories</h2>
       <ul>
         {categoryList.map((category) => (

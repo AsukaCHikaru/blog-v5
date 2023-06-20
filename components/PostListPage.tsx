@@ -4,9 +4,11 @@ import { FC, useMemo, useState } from 'react';
 import { PostSummary } from '../types';
 import { CategoryList } from './CategoryList';
 import { Footer } from './Footer';
-import { Layout } from './Layout';
 import { PostLink } from './PostLink';
 import { PostListPageHeader } from './PostListPageHeader';
+import { GridLayout } from './layout/GridLayout';
+import { MainContentLayout } from './layout/MainContentLayout';
+import { SideContentLayout } from './layout/SideContentLayout';
 
 interface Props {
   postSummaryList: PostSummary[];
@@ -36,20 +38,22 @@ export const PostListPage: FC<Props> = ({ postSummaryList }) => {
         <meta property="og:title" content="The work is undone." />
         <meta property="twitter:title" content="The work is undone." />
       </Head>
-      <Layout>
+      <GridLayout>
         <PostListPageHeader />
-        <div className="col-span-10 col-start-2 lg:col-span-7 lg:col-start-3">
+        <MainContentLayout>
           {filteredPostList.map((postSummary) => {
             return <PostLink postSummary={postSummary} key={postSummary.id} />;
           })}
-        </div>
-        <CategoryList
-          selectedCategory={selectedCategory}
-          postSummaryList={postSummaryList}
-          onCategoryClick={handleCategoryClick}
-        />
+        </MainContentLayout>
+        <SideContentLayout>
+          <CategoryList
+            selectedCategory={selectedCategory}
+            postSummaryList={postSummaryList}
+            onCategoryClick={handleCategoryClick}
+          />
+        </SideContentLayout>
         <Footer />
-      </Layout>
+      </GridLayout>
     </>
   );
 };

@@ -32,7 +32,7 @@ const Post: FC<Props> = ({ postContent, postSummary }) => {
         <PostDetailPageHeader postSummary={postSummary} />
         <MainContentLayout>
           {postContent.map((block, i) => (
-            <PostBodyBlock block={block} key={i} />
+            <PostBodyBlock block={block} key={i} index={i} />
           ))}
         </MainContentLayout>
         <SideContentLayout>

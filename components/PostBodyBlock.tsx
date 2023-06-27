@@ -15,17 +15,18 @@ import { getHeadingBlockPlainText } from '../utils/markdownUtils';
 
 interface Props {
   block: Content;
+  index: number;
 }
 
-export const PostBodyBlock: FC<Props> = ({ block }) => {
+export const PostBodyBlock: FC<Props> = ({ block, index }) => {
   return (
     <div className="mb-6 text-lg lg:text-xl lg:leading-8">
-      <BlockContent block={block} />
+      <BlockContent block={block} index={index} />
     </div>
   );
 };
 
-export const BlockContent: FC<Props> = ({ block }) => {
+export const BlockContent: FC<Props> = ({ block, index }) => {
   switch (block.type) {
     case 'paragraph':
       return (
@@ -43,10 +44,14 @@ export const BlockContent: FC<Props> = ({ block }) => {
           .join('')
           .toLowerCase(),
       );
+      const headingMt = index === 0 ? '' : 'mt-8';
       switch (block.depth) {
         case 1:
           return (
-            <h2 className="mt-8 text-2xl lg:text-4xl font-semibold" id={id}>
+            <h2
+              className={`text-2xl lg:text-4xl font-semibold ${headingMt}`}
+              id={id}
+            >
               {block.children.map((item, i) => (
                 <RichTextItem item={item} key={i} />
               ))}
@@ -54,7 +59,10 @@ export const BlockContent: FC<Props> = ({ block }) => {
           );
         case 2:
           return (
-            <h3 className="mt-8 text-xl lg:text-3xl font-semibold" id={id}>
+            <h3
+              className={`mt-8 text-xl lg:text-3xl font-semibold ${headingMt}`}
+              id={id}
+            >
               {block.children.map((item, i) => (
                 <RichTextItem item={item} key={i} />
               ))}
@@ -62,7 +70,10 @@ export const BlockContent: FC<Props> = ({ block }) => {
           );
         case 3:
           return (
-            <h4 className="mt-8 text-lg lg:text-2xl font-semibold" id={id}>
+            <h4
+              className={`mt-8 text-lg lg:text-2xl font-semibold ${headingMt}`}
+              id={id}
+            >
               {block.children.map((item, i) => (
                 <RichTextItem item={item} key={i} />
               ))}
@@ -153,7 +164,7 @@ export const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
       );
 
     case 'listItem':
-      return <BlockContent block={item.children[0]} />;
+      return <BlockContent block={item.children[0]} index={-1} />;
 
     case 'image':
       if (/youtube\.com/.test(item.url) || /youtu\.be/.test(item.url)) {

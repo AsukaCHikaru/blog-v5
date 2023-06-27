@@ -9,6 +9,8 @@ import { GridLayout } from '../../components/layout/GridLayout';
 import { MainContentLayout } from '../../components/layout/MainContentLayout';
 import { getPostContent, getPostList } from '../../services/markdownServices';
 import { PostSummary } from '../../types';
+import { SideContentLayout } from '../../components/layout/SideContentLayout';
+import { ContentIndex } from '../../components/ContentIndex';
 
 interface Props {
   postContent: Content[];
@@ -33,6 +35,9 @@ const Post: FC<Props> = ({ postContent, postSummary }) => {
             <PostBodyBlock block={block} key={i} />
           ))}
         </MainContentLayout>
+        <SideContentLayout>
+          <ContentIndex postContent={postContent} />
+        </SideContentLayout>
         <Footer />
       </GridLayout>
     </>

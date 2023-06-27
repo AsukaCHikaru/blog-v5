@@ -11,6 +11,7 @@ import {
 import Image from 'next/image';
 import { YoutubeBlock } from './YoutubeBlock';
 import { QuoteBlock } from './QuoteBlock';
+import { getHeadingBlockPlainText } from '../utils/markdownUtils';
 
 interface Props {
   block: Content;
@@ -36,10 +37,16 @@ export const BlockContent: FC<Props> = ({ block }) => {
       );
 
     case 'heading':
+      const id = encodeURIComponent(
+        block.children
+          .map((c) => getHeadingBlockPlainText(c))
+          .join('')
+          .toLowerCase(),
+      );
       switch (block.depth) {
         case 1:
           return (
-            <h2 className="mt-8 text-2xl lg:text-4xl font-semibold">
+            <h2 className="mt-8 text-2xl lg:text-4xl font-semibold" id={id}>
               {block.children.map((item, i) => (
                 <RichTextItem item={item} key={i} />
               ))}
@@ -47,7 +54,7 @@ export const BlockContent: FC<Props> = ({ block }) => {
           );
         case 2:
           return (
-            <h3 className="mt-8 text-xl lg:text-3xl font-semibold">
+            <h3 className="mt-8 text-xl lg:text-3xl font-semibold" id={id}>
               {block.children.map((item, i) => (
                 <RichTextItem item={item} key={i} />
               ))}
@@ -55,7 +62,7 @@ export const BlockContent: FC<Props> = ({ block }) => {
           );
         case 3:
           return (
-            <h4 className="mt-8 text-lg lg:text-2xl font-semibold">
+            <h4 className="mt-8 text-lg lg:text-2xl font-semibold" id={id}>
               {block.children.map((item, i) => (
                 <RichTextItem item={item} key={i} />
               ))}

@@ -1,6 +1,5 @@
 import { FC, useMemo } from 'react';
 import { PostSummary } from '../types';
-import { SideContentLayout } from './layout/SideContentLayout';
 
 interface Props {
   selectedCategory?: string;

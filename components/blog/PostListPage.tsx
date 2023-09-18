@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { FC, useMemo, useState } from 'react';
 
-import { PostSummary } from '../types';
+import { PostSummary } from '../../types';
 import { CategoryList } from './CategoryList';
 import { Footer } from './Footer';
 import { PostLink } from './PostLink';

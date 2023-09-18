@@ -1,5 +1,5 @@
 import { FC, useMemo } from 'react';
-import { PostSummary } from '../../types';
+import { PostSummary } from '@types';
 
 interface Props {
   postSummaryList: PostSummary[];

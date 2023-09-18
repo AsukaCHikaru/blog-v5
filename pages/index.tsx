@@ -1,5 +1,5 @@
-import { PostSummary } from '../types';
-import { PostListPage } from '../components/blog/PostListPage';
+import { PostSummary } from '@types';
+import { PostListPage } from '@components/blog/PostListPage';
 import { getPostList } from '../services/markdownServices';
 
 interface Props {

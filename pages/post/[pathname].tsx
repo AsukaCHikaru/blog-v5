@@ -2,13 +2,13 @@ import Head from 'next/head';
 import { FC } from 'react';
 
 import { Content } from 'mdast';
-import { Footer } from '../../components/blog/Footer';
-import { PostBodyBlock } from '../../components/blog/PostBodyBlock';
-import { PostDetailPageHeader } from '../../components/blog/PostDetailPageHeader';
-import { GridLayout } from '../../components/blog/layout/GridLayout';
-import { MainContentLayout } from '../../components/blog/layout/MainContentLayout';
+import { Footer } from '@components/blog/Footer';
+import { PostBodyBlock } from '@components/blog/PostBodyBlock';
+import { PostDetailPageHeader } from '@components/blog/PostDetailPageHeader';
+import { GridLayout } from '@components/blog/layout/GridLayout';
+import { MainContentLayout } from '@components/blog/layout/MainContentLayout';
 import { getPostContent, getPostList } from '../../services/markdownServices';
-import { PostSummary } from '../../types';
+import { PostSummary } from '@types';
 
 interface Props {
   postContent: Content[];

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-import { PostSummary } from '../../types';
-import { parseDateToEn } from '../../utils/dateTimeUtils';
+import { PostSummary } from '@types';
+import { parseDateToEn } from '@utils/dateTimeUtils';
 
 interface Props {
   postSummary: PostSummary;

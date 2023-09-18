@@ -15,10 +15,10 @@ export const AboutPage: FC<Props> = ({ content }) => {
   return (
     <GridLayout>
       <SiteHeader />
+      <SectionHeader title="ABOUT" path="/about" />
       <MainContentLayout>
-        <SectionHeader title="ABOUT" path="/about" />
         <div>
-          {content.map((block, i) => (
+          {content.slice(1).map((block, i) => (
             <PostBodyBlock block={block} key={i} />
           ))}
         </div>

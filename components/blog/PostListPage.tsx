@@ -10,6 +10,7 @@ import { GridLayout } from './layout/GridLayout';
 import { MainContentLayout } from './layout/MainContentLayout';
 import { SideContentLayout } from './layout/SideContentLayout';
 import { TagList } from './TagList';
+import { SiteHeader } from '@components/SiteHeader';
 
 interface Props {
   postSummaryList: PostSummary[];
@@ -63,6 +64,7 @@ export const PostListPage: FC<Props> = ({ postSummaryList }) => {
         <meta property="twitter:title" content="The work is undone." />
       </Head>
       <GridLayout>
+        <SiteHeader />
         <PostListPageHeader />
         <MainContentLayout>
           {tagFilteredPostList.map((postSummary) => {

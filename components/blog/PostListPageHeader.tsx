@@ -3,21 +3,11 @@ import { FC } from 'react';
 
 export const PostListPageHeader: FC = () => {
   return (
-    <div className="my-12 col-span-10 col-start-2 lg:col-span-9 lg:col-start-3">
-      <h1 className="mb-2 text-3xl lg:text-6xl font-extrabold">
-        <Link href="/">The work is undone.</Link>
+    <div className="mb-6 col-span-10 col-start-2 lg:col-span-9 lg:col-start-3">
+      <h1 className="mb-2 text-5xl lg:text-7xl font-extrabold text-center">
+        <Link href="/">BLOG</Link>
       </h1>
-      <div className="flex font-courier text-lg">
-        <a
-          href="https://asukachikaru.com"
-          rel="noreferrer noopener"
-          target="_blank"
-          className="underline"
-        >
-          asukachikaru
-        </a>
-        {"'s blog"}
-      </div>
+      <div>TODO: blog description</div>
     </div>
   );
 };

@@ -9,6 +9,7 @@ import { GridLayout } from '@components/blog/layout/GridLayout';
 import { MainContentLayout } from '@components/blog/layout/MainContentLayout';
 import { getPostContent, getPostList } from '../../services/markdownServices';
 import { PostSummary } from '@types';
+import { SiteHeader } from '@components/SiteHeader';
 
 interface Props {
   postContent: Content[];
@@ -27,6 +28,7 @@ const Post: FC<Props> = ({ postContent, postSummary }) => {
         <meta property="twitter:title" content={title} />
       </Head>
       <GridLayout>
+        <SiteHeader />
         <PostDetailPageHeader postSummary={postSummary} />
         <MainContentLayout>
           {postContent.map((block, i) => (

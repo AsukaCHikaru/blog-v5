@@ -5,7 +5,7 @@ import { PostSummary } from '@types';
 import { CategoryList } from './CategoryList';
 import { Footer } from './Footer';
 import { PostLink } from './PostLink';
-import { PostListPageHeader } from './PostListPageHeader';
+import { SectionHeader } from '@components/SectionHeader';
 import { GridLayout } from './layout/GridLayout';
 import { MainContentLayout } from './layout/MainContentLayout';
 import { SideContentLayout } from './layout/SideContentLayout';
@@ -65,7 +65,8 @@ export const PostListPage: FC<Props> = ({ postSummaryList }) => {
       </Head>
       <GridLayout>
         <SiteHeader />
-        <PostListPageHeader />
+        <SectionHeader title="BLOG" path="/blog" />
+        {/** TODO: blog description */}
         <MainContentLayout>
           {tagFilteredPostList.map((postSummary) => {
             return <PostLink postSummary={postSummary} key={postSummary.id} />;

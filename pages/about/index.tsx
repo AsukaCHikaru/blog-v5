@@ -1,3 +1,4 @@
+import { SectionHeader } from '@components/SectionHeader';
 import { SiteHeader } from '@components/SiteHeader';
 import { PostBodyBlock } from '@components/blog/PostBodyBlock';
 import { GridLayout } from '@components/blog/layout/GridLayout';
@@ -15,7 +16,7 @@ export const AboutPage: FC<Props> = ({ content }) => {
     <GridLayout>
       <SiteHeader />
       <MainContentLayout>
-        <h1>ABOUT</h1>
+        <SectionHeader title="ABOUT" path="/about" />
         <div>
           {content.map((block, i) => (
             <PostBodyBlock block={block} key={i} />

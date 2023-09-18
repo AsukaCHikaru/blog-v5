@@ -12,7 +12,7 @@ export const PostLink: FC<Props> = ({ postSummary }) => {
   return (
     <div className="mb-8">
       <h3 className="text-xl lg:text-4xl mb-1 font-medium hover:underline text-wrap-balance leading-6 lg:leading-[3rem]">
-        <Link href={`/post/${postSummary.pathname}`}>{postSummary.title}</Link>
+        <Link href={`/blog/${postSummary.pathname}`}>{postSummary.title}</Link>
       </h3>
       <div className="mb-1">
         <span

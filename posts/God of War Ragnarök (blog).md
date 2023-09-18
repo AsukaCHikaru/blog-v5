@@ -9,7 +9,7 @@ tags: Review
 filename: God of War Ragnarök (blog)
 ---
 
-God of War Ragnarök feels like a bigger [God of War 2018](https://blog.asukachikaru.com/post/god-of-war-2018) — more weapons, more companions, more characters, and a longer story. Gameplay-wise, I am happy with these added contents. Narrative-wise, not so much
+God of War Ragnarök feels like a bigger [God of War 2018](https://asukachikaru.com/blog/god-of-war-2018) — more weapons, more companions, more characters, and a longer story. Gameplay-wise, I am happy with these added contents. Narrative-wise, not so much
 
 God of War 2018 was an incredible journey. The story was focused on the relationship between Kratos and Atreus. The best moments were all about them. Players were right alongside them thanks to the single-take camera approach, so when the characters met their arc, it felt close.
 

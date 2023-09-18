@@ -61,7 +61,7 @@ filename: ジブリ (blog)
 
 # 1. 耳をすませば (心之谷)
 
-關於耳をすませば的心得我已經特地[另外用一篇文章](https://blog.asukachikaru.com/post/whisper-of-the-heart)寫完了。如果要在這裡簡短用一句話總結的話，我想應該是：我做了一個夢，夢裡我回到了學生時代。
+關於耳をすませば的心得我已經特地[另外用一篇文章](https://asukachikaru.com/blog/whisper-of-the-heart)寫完了。如果要在這裡簡短用一句話總結的話，我想應該是：我做了一個夢，夢裡我回到了學生時代。
 
 吉卜力之旅結束了，我認識了很多好作品，我感到很高興。
 

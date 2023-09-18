@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "deploy": "npm run build && touch ./out/.nojekyll && echo blog.asukachikaru.com > ./out/CNAME",
+    "deploy": "npm run build && touch ./out/.nojekyll && echo asukachikaru.com > ./out/CNAME",
     "start": "next start",
     "lint": "next lint"
   },

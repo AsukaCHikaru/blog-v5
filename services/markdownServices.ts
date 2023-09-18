@@ -83,3 +83,21 @@ export const getPostContent = (name: string) => {
 
   return parsedPostData;
 };
+
+export const GetAboutPageContent = async () => {
+  const contentPath = resolve('contents/about');
+  const filePath = fs
+    .readdirSync(contentPath)
+    .filter((name) => name.endsWith('.md'))?.[0];
+  const rawContent = fs.readFileSync(contentPath + '/' + filePath, 'utf-8');
+
+  const rawMDAST = unified()
+    .use(remarkParse)
+    .use(remarkFrontmatter)
+    .parse(rawContent);
+
+  const content = convertMDAST(rawMDAST);
+  const frontmatter = parseFrontmatter(rawMDAST);
+
+  return { content, frontmatter }
+};

@@ -7,7 +7,7 @@ import { YAML, Root } from 'mdast';
 import { convertFrontmatterToSummary } from '../utils/markdownUtils';
 
 export const getPostList = async () => {
-  const postFolderPath = resolve('posts');
+  const postFolderPath = resolve('contents/blog');
   const fileNames = fs
     .readdirSync(postFolderPath)
     .filter((name) => name.endsWith('.md'));
@@ -56,7 +56,7 @@ const convertMDAST = (input: Root) => {
 };
 
 export const getPostContent = (name: string) => {
-  const postFolderPath = resolve(`posts/${name}.md`);
+  const postFolderPath = resolve(`contents/blog/${name}.md`);
   const markdown = fs.readFileSync(postFolderPath, 'utf-8');
   const rawMDAST = unified()
     .use(remarkParse)

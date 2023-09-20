@@ -8,6 +8,7 @@ export const SiteHeader = () => {
       </div>
       <div className="col-span-2 col-start-5 mt-4 flex justify-between">
         <Link href="/blog">BLOG</Link>
+        <Link href="/snapshot">SNAPSHOT</Link>
         <Link href="/about">ABOUT</Link>
       </div>
       <div className="col-span-10 my-2 border-t border-b h-2" />

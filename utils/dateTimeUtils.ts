@@ -34,8 +34,8 @@ const months = (month: string) => {
 };
 
 export const parseDateToEn = (date: string) => {
-  const year = date.replace(/(\d{4})-\d{2}-\d{2}/, '$1');
-  const month = date.replace(/\d{4}-(\d{2})-\d{2}/, '$1');
-  const day = date.replace(/\d{4}-\d{2}-(\d{2})/, '$1');
+  const year = date.replace(/(\d{4})[-/]\d{2}[-/]\d{2}/, '$1');
+  const month = date.replace(/\d{4}[-/](\d{2})[-/]\d{2}/, '$1');
+  const day = date.replace(/\d{4}[-/]\d{2}[-/](\d{2})/, '$1');
   return `${months(month)} ${day}, ${year}`;
 };

@@ -3,6 +3,7 @@ import { SiteHeader } from '@components/SiteHeader';
 import { BlockContent } from '@components/blog/PostBodyBlock';
 import { GridLayout } from '@components/blog/layout/GridLayout';
 import { MainContentLayout } from '@components/blog/layout/MainContentLayout';
+import { parseDateToEn } from '@utils/dateTimeUtils';
 import { Content } from 'mdast';
 import { FC, useMemo } from 'react';
 import { getSnapshotPageContent } from 'services/markdownServices';
@@ -55,6 +56,11 @@ const SnapshotItem: FC<{
     content: Content[];
   };
 }> = ({ item }) => {
+  const timestamp = useMemo(() => {
+    const [date, time, timezone] = item.timestamp.split(' ');
+    return `${time} ${timezone}, ${parseDateToEn(date)}`;
+  }, [item.timestamp]);
+
   return (
     <div className="mb-8 pb-4 ">
       <div className="mb-2">
@@ -64,7 +70,7 @@ const SnapshotItem: FC<{
           </p>
         ))}
       </div>
-      <span className="text-gray-400">{item.timestamp}</span>
+      <span className="text-gray-400">{timestamp}</span>
     </div>
   );
 };

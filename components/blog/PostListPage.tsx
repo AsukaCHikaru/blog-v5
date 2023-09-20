@@ -7,10 +7,10 @@ import { Footer } from './Footer';
 import { PostLink } from './PostLink';
 import { SectionHeader } from '@components/SectionHeader';
 import { GridLayout } from './layout/GridLayout';
-import { MainContentLayout } from './layout/MainContentLayout';
 import { SideContentLayout } from './layout/SideContentLayout';
 import { TagList } from './TagList';
 import { SiteHeader } from '@components/SiteHeader';
+import { BlogContentLayout } from './layout/BlogContentLayout';
 
 interface Props {
   postSummaryList: PostSummary[];
@@ -67,11 +67,11 @@ export const PostListPage: FC<Props> = ({ postSummaryList }) => {
         <SiteHeader />
         <SectionHeader title="BLOG" path="/blog" />
         {/** TODO: blog description */}
-        <MainContentLayout>
+        <BlogContentLayout>
           {tagFilteredPostList.map((postSummary) => {
             return <PostLink postSummary={postSummary} key={postSummary.id} />;
           })}
-        </MainContentLayout>
+        </BlogContentLayout>
         <SideContentLayout>
           <CategoryList
             selectedCategory={selectedCategory}

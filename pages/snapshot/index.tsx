@@ -2,6 +2,7 @@ import { SectionHeader } from '@components/SectionHeader';
 import { SiteHeader } from '@components/SiteHeader';
 import { BlockContent } from '@components/blog/PostBodyBlock';
 import { GridLayout } from '@components/blog/layout/GridLayout';
+import { MainContentLayout } from '@components/blog/layout/MainContentLayout';
 import { Content } from 'mdast';
 import { FC, useMemo } from 'react';
 import { getSnapshotPageContent } from 'services/markdownServices';
@@ -39,11 +40,11 @@ const SnapshotPage: FC<Props> = ({ content }) => {
     <GridLayout>
       <SiteHeader />
       <SectionHeader title="SNAPSHOT" path="/snapshot" />
-      <div className="col-span-10 col-start-2 lg:col-span-8 lg:col-start-3">
+      <MainContentLayout>
         {Array.from(snapshotFeed.entries()).map(([timestamp, content]) => (
           <SnapshotItem item={{ timestamp, content }} key={timestamp} />
         ))}
-      </div>
+      </MainContentLayout>
     </GridLayout>
   );
 };

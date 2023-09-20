@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export const SiteHeader = () => {
   return (
-    <div className="mt-12 mb-6 col-span-10 col-start-2 lg:col-span-9 lg:col-start-3 grid grid-col-10 text-center">
+    <div className="mt-12 mb-6 col-span-10 col-start-2 lg:col-span-8 lg:col-start-3 grid grid-col-10 text-center">
       <div className="col-span-10 text-xl lg:text-3xl font-extrabold">
         Asuka Wang
       </div>

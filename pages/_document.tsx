@@ -12,10 +12,13 @@ export default function Document() {
         <Script strategy="beforeInteractive" id="theme-document">{`
         if (typeof window !== "undefined") {
           const savedTheme = localStorage.getItem("${LOCAL_STORAGE_KEYS.THEME}");
+          const html = document.documentElement;
           if (savedTheme === "DARK") {
-            document.documentElement.classList.add('dark');
+            html.classList.add('dark');
+            html.style.backgroundColor = "#222222";
           } else {
-            document.documentElement.classList.remove('dark');
+            html.classList.remove('dark');
+            html.style.backgroundColor = "#dddddd";
           }
         }
       `}</Script>

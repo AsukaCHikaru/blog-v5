@@ -4,6 +4,7 @@ import { PostBodyBlock } from '@components/blog/PostBodyBlock';
 import { GridLayout } from '@components/blog/layout/GridLayout';
 import { MainContentLayout } from '@components/blog/layout/MainContentLayout';
 import { Content } from 'mdast';
+import Head from 'next/head';
 import { FC } from 'react';
 import { GetAboutPageContent } from 'services/markdownServices';
 
@@ -13,17 +14,28 @@ interface Props {
 
 export const AboutPage: FC<Props> = ({ content }) => {
   return (
-    <GridLayout>
-      <SiteHeader />
-      <SectionHeader title="ABOUT" path="/about" />
-      <MainContentLayout>
-        <div>
-          {content.slice(1).map((block, i) => (
-            <PostBodyBlock block={block} key={i} />
-          ))}
-        </div>
-      </MainContentLayout>
-    </GridLayout>
+    <>
+      <Head>
+        <title>About | Asuka Wang</title>
+        <meta
+          name="description"
+          content="Introduction about me and this site."
+        />
+        <meta property="og:title" content="About | Asuka Wang" />
+        <meta property="twitter:title" content="About | Asuka Wang" />
+      </Head>
+      <GridLayout>
+        <SiteHeader />
+        <SectionHeader title="ABOUT" path="/about" />
+        <MainContentLayout>
+          <div>
+            {content.slice(1).map((block, i) => (
+              <PostBodyBlock block={block} key={i} />
+            ))}
+          </div>
+        </MainContentLayout>
+      </GridLayout>
+    </>
   );
 };
 

@@ -17,13 +17,13 @@ interface Props {
 }
 
 const Post: FC<Props> = ({ postContent, postSummary }) => {
-  const title = postSummary.title + ' | The work is undone.';
+  const title = postSummary.title + ' | Asuka Wang';
 
   return (
     <>
       <Head>
         <title>{title}</title>
-        <meta name="description" content="asukachikaru's blog" />
+        <meta name="description" content="Asuka Wang's blog" />
         <meta property="og:title" content={title} />
         <meta property="twitter:title" content={title} />
       </Head>

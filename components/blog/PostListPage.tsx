@@ -57,12 +57,6 @@ export const PostListPage: FC<Props> = ({ postSummaryList }) => {
 
   return (
     <>
-      <Head>
-        <title>The work is undone.</title>
-        <meta name="description" content="asukachikaru's blog" />
-        <meta property="og:title" content="The work is undone." />
-        <meta property="twitter:title" content="The work is undone." />
-      </Head>
       <GridLayout>
         <SiteHeader />
         <SectionHeader title="BLOG" path="/blog" />

@@ -3,6 +3,7 @@ import { SiteHeader } from '@components/SiteHeader';
 import { PostBodyBlock } from '@components/blog/PostBodyBlock';
 import { GridLayout } from '@components/blog/layout/GridLayout';
 import { MainContentLayout } from '@components/blog/layout/MainContentLayout';
+import { ThemeLayout } from '@components/blog/layout/ThemeLayout';
 import { Content } from 'mdast';
 import Head from 'next/head';
 import { FC } from 'react';
@@ -24,17 +25,19 @@ export const AboutPage: FC<Props> = ({ content }) => {
         <meta property="og:title" content="About | Asuka Wang" />
         <meta property="twitter:title" content="About | Asuka Wang" />
       </Head>
-      <GridLayout>
-        <SiteHeader />
-        <SectionHeader title="ABOUT" path="/about" />
-        <MainContentLayout>
-          <div>
-            {content.slice(1).map((block, i) => (
-              <PostBodyBlock block={block} key={i} />
-            ))}
-          </div>
-        </MainContentLayout>
-      </GridLayout>
+      <ThemeLayout>
+        <GridLayout>
+          <SiteHeader />
+          <SectionHeader title="ABOUT" path="/about" />
+          <MainContentLayout>
+            <div>
+              {content.slice(1).map((block, i) => (
+                <PostBodyBlock block={block} key={i} />
+              ))}
+            </div>
+          </MainContentLayout>
+        </GridLayout>
+      </ThemeLayout>
     </>
   );
 };

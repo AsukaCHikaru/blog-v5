@@ -10,6 +10,7 @@ import { MainContentLayout } from '@components/blog/layout/MainContentLayout';
 import { getPostContent, getPostList } from '../../services/markdownServices';
 import { PostSummary } from '@types';
 import { SiteHeader } from '@components/SiteHeader';
+import { ThemeLayout } from '@components/blog/layout/ThemeLayout';
 
 interface Props {
   postContent: Content[];
@@ -27,16 +28,18 @@ const Post: FC<Props> = ({ postContent, postSummary }) => {
         <meta property="og:title" content={title} />
         <meta property="twitter:title" content={title} />
       </Head>
-      <GridLayout>
-        <SiteHeader />
-        <PostDetailPageHeader postSummary={postSummary} />
-        <MainContentLayout>
-          {postContent.map((block, i) => (
-            <PostBodyBlock block={block} key={i} />
-          ))}
-        </MainContentLayout>
-        <Footer />
-      </GridLayout>
+      <ThemeLayout>
+        <GridLayout>
+          <SiteHeader />
+          <PostDetailPageHeader postSummary={postSummary} />
+          <MainContentLayout>
+            {postContent.map((block, i) => (
+              <PostBodyBlock block={block} key={i} />
+            ))}
+          </MainContentLayout>
+          <Footer />
+        </GridLayout>
+      </ThemeLayout>
     </>
   );
 };

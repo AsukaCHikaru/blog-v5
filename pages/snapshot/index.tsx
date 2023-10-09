@@ -3,6 +3,7 @@ import { SiteHeader } from '@components/SiteHeader';
 import { BlockContent } from '@components/blog/PostBodyBlock';
 import { GridLayout } from '@components/blog/layout/GridLayout';
 import { MainContentLayout } from '@components/blog/layout/MainContentLayout';
+import { ThemeLayout } from '@components/blog/layout/ThemeLayout';
 import { parseDateToEn } from '@utils/dateTimeUtils';
 import { Content } from 'mdast';
 import Head from 'next/head';
@@ -49,15 +50,17 @@ const SnapshotPage: FC<Props> = ({ content }) => {
         <meta property="og:title" content="Snapshot | Asuka Wang" />
         <meta property="twitter:title" content="Snapshot | Asuka Wang" />
       </Head>
-      <GridLayout>
-        <SiteHeader />
-        <SectionHeader title="SNAPSHOT" path="/snapshot" />
-        <MainContentLayout>
-          {Array.from(snapshotFeed.entries()).map(([timestamp, content]) => (
-            <SnapshotItem item={{ timestamp, content }} key={timestamp} />
-          ))}
-        </MainContentLayout>
-      </GridLayout>
+      <ThemeLayout>
+        <GridLayout>
+          <SiteHeader />
+          <SectionHeader title="SNAPSHOT" path="/snapshot" />
+          <MainContentLayout>
+            {Array.from(snapshotFeed.entries()).map(([timestamp, content]) => (
+              <SnapshotItem item={{ timestamp, content }} key={timestamp} />
+            ))}
+          </MainContentLayout>
+        </GridLayout>
+      </ThemeLayout>
     </>
   );
 };

@@ -11,6 +11,7 @@ import { SideContentLayout } from './layout/SideContentLayout';
 import { TagList } from './TagList';
 import { SiteHeader } from '@components/SiteHeader';
 import { BlogContentLayout } from './layout/BlogContentLayout';
+import { ThemeLayout } from './layout/ThemeLayout';
 
 interface Props {
   postSummaryList: PostSummary[];
@@ -57,29 +58,33 @@ export const PostListPage: FC<Props> = ({ postSummaryList }) => {
 
   return (
     <>
-      <GridLayout>
-        <SiteHeader />
-        <SectionHeader title="BLOG" path="/blog" />
-        {/** TODO: blog description */}
-        <BlogContentLayout>
-          {tagFilteredPostList.map((postSummary) => {
-            return <PostLink postSummary={postSummary} key={postSummary.id} />;
-          })}
-        </BlogContentLayout>
-        <SideContentLayout>
-          <CategoryList
-            selectedCategory={selectedCategory}
-            postSummaryList={postSummaryList}
-            onCategoryClick={handleCategoryClick}
-          />
-          <TagList
-            selectedTag={selectedTag}
-            postSummaryList={categoryFilteredPostList}
-            onTagClick={handleTagClick}
-          />
-        </SideContentLayout>
-        <Footer />
-      </GridLayout>
+      <ThemeLayout>
+        <GridLayout>
+          <SiteHeader />
+          <SectionHeader title="BLOG" path="/blog" />
+          {/** TODO: blog description */}
+          <BlogContentLayout>
+            {tagFilteredPostList.map((postSummary) => {
+              return (
+                <PostLink postSummary={postSummary} key={postSummary.id} />
+              );
+            })}
+          </BlogContentLayout>
+          <SideContentLayout>
+            <CategoryList
+              selectedCategory={selectedCategory}
+              postSummaryList={postSummaryList}
+              onCategoryClick={handleCategoryClick}
+            />
+            <TagList
+              selectedTag={selectedTag}
+              postSummaryList={categoryFilteredPostList}
+              onTagClick={handleTagClick}
+            />
+          </SideContentLayout>
+          <Footer />
+        </GridLayout>
+      </ThemeLayout>
     </>
   );
 };

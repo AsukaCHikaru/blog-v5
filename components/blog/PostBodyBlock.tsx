@@ -11,6 +11,7 @@ import {
 import Image from 'next/image';
 import { YoutubeBlock } from './YoutubeBlock';
 import { QuoteBlock } from './QuoteBlock';
+import { getImageSnapshotUrl, isImageSnapshot } from '@utils/stringUtils';
 
 interface Props {
   block: Content;
@@ -110,6 +111,16 @@ interface RichTextItemProps {
 export const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
   switch (item.type) {
     case 'text':
+      if (isImageSnapshot(item.value)) {
+        return (
+          <img
+            className="mx-auto px-4 py-2 w-full"
+            src={getImageSnapshotUrl(item.value)}
+            alt="" // TODO
+          />
+        );
+      }
+
       return <span>{item.value}</span>;
 
     case 'link':

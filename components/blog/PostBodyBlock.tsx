@@ -173,7 +173,7 @@ export const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
             height={400}
             className="m-auto"
           />
-          <span className="flex justify-center text-gray-400 text-xl">
+          <span className="flex justify-center text-gray-400 text-lg">
             {item.title}
           </span>
         </>

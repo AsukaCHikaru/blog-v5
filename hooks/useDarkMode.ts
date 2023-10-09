@@ -5,10 +5,13 @@ type Theme = 'DARK' | 'LIGHT';
 
 export const useDarkMode = () => {
   const setDarkMode = (mode: Theme) => {
+    const html = document.documentElement;
     if (mode === 'LIGHT') {
-      document.documentElement.classList.remove('dark');
+      html.classList.remove('dark');
+      html.style.backgroundColor = '#dddddd';
     } else {
-      document.documentElement.classList.add('dark');
+      html.classList.add('dark');
+      html.style.backgroundColor = '#222222';
     }
     localStorage.setItem(LOCAL_STORAGE_KEYS.THEME, mode);
   };

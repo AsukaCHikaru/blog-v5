@@ -5,15 +5,6 @@
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --foreground-color: #222222;
-  --background-color: #dddddd;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-color: #dddddd;
-    --background-color: #222222;
-  }
 }
 
 * {
@@ -31,10 +22,4 @@ body {
 body {
   color: var(--foreground-color);
   background: var(--background-color);
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }

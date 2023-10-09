@@ -1,6 +1,6 @@
+import { LOCAL_STORAGE_KEYS } from 'consts/storageKeys';
 import { useEffect } from 'react';
 
-const THEME_STORAGE_KEY = 'ASUKACHIKARU_THEME';
 type Theme = 'DARK' | 'LIGHT';
 
 export const useDarkMode = () => {
@@ -10,7 +10,7 @@ export const useDarkMode = () => {
     } else {
       document.documentElement.classList.add('dark');
     }
-    localStorage.setItem(THEME_STORAGE_KEY, mode);
+    localStorage.setItem(LOCAL_STORAGE_KEYS.THEME, mode);
   };
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export const useDarkMode = () => {
       console.log('window not defined');
       return;
     }
-    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY) as Theme;
+    const savedTheme = localStorage.getItem(LOCAL_STORAGE_KEYS.THEME) as Theme;
     if (savedTheme) {
       setDarkMode(savedTheme);
       return;

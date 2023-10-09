@@ -13,7 +13,10 @@ export default function Document() {
         if (typeof window !== "undefined") {
           const savedTheme = localStorage.getItem("${LOCAL_STORAGE_KEYS.THEME}");
           const html = document.documentElement;
-          if (savedTheme === "DARK") {
+          const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'DARK'
+            : 'LIGHT';
+          if (savedTheme === "DARK" || systemTheme === "DARK") {
             html.classList.add('dark');
             html.style.backgroundColor = "#222222";
           } else {

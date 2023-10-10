@@ -7,7 +7,7 @@ import { ThemeLayout } from '@components/blog/layout/ThemeLayout';
 import { Content } from 'mdast';
 import Head from 'next/head';
 import { FC } from 'react';
-import { GetAboutPageContent } from 'services/markdownServices';
+import { getAboutPageContent } from 'services/markdownServices';
 
 interface Props {
   content: Content[];
@@ -43,7 +43,7 @@ export const AboutPage: FC<Props> = ({ content }) => {
 };
 
 export const getStaticProps = async () => {
-  const content = await GetAboutPageContent();
+  const content = await getAboutPageContent();
 
   return { props: { ...content } };
 };

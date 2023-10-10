@@ -7,7 +7,7 @@ import { PostBodyBlock } from '@components/blog/PostBodyBlock';
 import { PostDetailPageHeader } from '@components/blog/PostDetailPageHeader';
 import { GridLayout } from '@components/blog/layout/GridLayout';
 import { MainContentLayout } from '@components/blog/layout/MainContentLayout';
-import { getPostContent, getPostList } from '../../services/markdownServices';
+import { getBlogPostContent, getBlogPostList } from '../../services/markdownServices';
 import { PostSummary } from '@types';
 import { SiteHeader } from '@components/SiteHeader';
 import { ThemeLayout } from '@components/blog/layout/ThemeLayout';
@@ -45,7 +45,7 @@ const Post: FC<Props> = ({ postContent, postSummary }) => {
 };
 
 export const getStaticPaths = async () => {
-  const postList = await getPostList();
+  const postList = await getBlogPostList();
   const postSummaryList = postList.map((post) => post.postSummary);
 
   const paths = postSummaryList.map((postSummary) => ({
@@ -60,7 +60,7 @@ export const getStaticProps = async ({
 }: {
   params: { pathname: string };
 }) => {
-  const postList = await getPostList();
+  const postList = await getBlogPostList();
   const postSummaryList = postList.map((post) => post.postSummary);
 
   const thisPost = postSummaryList.find(
@@ -71,7 +71,7 @@ export const getStaticProps = async ({
     return { props: {} };
   }
 
-  const postContent = getPostContent(thisPost.filename);
+  const postContent = getBlogPostContent(thisPost.filename);
 
   return { props: { postContent, postSummary: thisPost } };
 };

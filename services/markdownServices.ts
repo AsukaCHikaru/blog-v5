@@ -9,7 +9,7 @@ import {
   parseFrontmatter,
 } from '../utils/markdownUtils';
 
-export const getPostList = async () => {
+export const getBlogPostList = async () => {
   const postFolderPath = resolve('contents/blog');
   const fileNames = fs
     .readdirSync(postFolderPath)
@@ -37,7 +37,7 @@ export const getPostList = async () => {
   return allPostsData;
 };
 
-export const getPostContent = (name: string) => {
+export const getBlogPostContent = (name: string) => {
   const postFolderPath = resolve(`contents/blog/${name}.md`);
   const markdown = fs.readFileSync(postFolderPath, 'utf-8');
   const rawMDAST = unified()
@@ -66,7 +66,7 @@ export const getPostContent = (name: string) => {
   return parsedPostData;
 };
 
-export const GetAboutPageContent = async () => {
+export const getAboutPageContent = async () => {
   const contentPath = resolve('contents/about');
   const filePath = fs
     .readdirSync(contentPath)

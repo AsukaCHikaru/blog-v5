@@ -85,7 +85,7 @@ const SnapshotItem: FC<{
           </p>
         ))}
       </div>
-      <span className="text-gray-400">{timestamp}</span>
+      <span className="text-secondDark dark:text-secondLight">{timestamp}</span>
     </div>
   );
 };

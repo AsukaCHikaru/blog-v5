@@ -22,7 +22,7 @@ export const SiteHeader = () => {
       <div className="col-span-1 col-start-10 mt-4 flex justify-end">
         <DarkModeButton />
       </div>
-      <div className="col-span-10 my-2 border-t border-b h-2 border-foreground dark:border-background" />
+      <div className="col-span-10 my-2 border-t border-b h-2 border-dark dark:border-light" />
     </div>
   );
 };

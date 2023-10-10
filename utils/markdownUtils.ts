@@ -32,7 +32,7 @@ export const parseFrontmatter = (input: Root): Record<string, string> => {
   return result;
 };
 
-export const convertMDAST = (input: Root) => {
+export const removePositionFromMDAST = (input: Root) => {
   return input.children.map((block) => {
     const { position, ...rest } = block;
     return rest;

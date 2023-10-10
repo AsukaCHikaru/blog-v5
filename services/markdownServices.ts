@@ -5,7 +5,7 @@ import remarkParse from 'remark-parse';
 import remarkFrontmatter from 'remark-frontmatter';
 import {
   convertFrontmatterToSummary,
-  convertMDAST,
+  removePositionFromMDAST,
   parseFrontmatter,
 } from '../utils/markdownUtils';
 
@@ -24,7 +24,7 @@ export const getBlogPostList = async () => {
         .use(remarkParse)
         .use(remarkFrontmatter)
         .parse(markdown);
-      const postData = convertMDAST(rawMDAST);
+      const postData = removePositionFromMDAST(rawMDAST);
       const frontmatter = parseFrontmatter(rawMDAST);
       const postSummary = convertFrontmatterToSummary(frontmatter);
       return { postSummary, postData };
@@ -44,7 +44,7 @@ export const getBlogPostContent = (name: string) => {
     .use(remarkParse)
     .use(remarkFrontmatter)
     .parse(markdown);
-  const postData = convertMDAST(rawMDAST).slice(1);
+  const postData = removePositionFromMDAST(rawMDAST).slice(1);
 
   // Filter and parse image
   const parsedPostData = postData.map((block) => {
@@ -78,7 +78,7 @@ export const getAboutPageContent = async () => {
     .use(remarkFrontmatter)
     .parse(rawContent);
 
-  const content = convertMDAST(rawMDAST);
+  const content = removePositionFromMDAST(rawMDAST);
   const frontmatter = parseFrontmatter(rawMDAST);
 
   return { content, frontmatter };
@@ -95,7 +95,7 @@ export const getSnapshotPageContent = async () => {
     .use(remarkFrontmatter)
     .parse(rawContent);
 
-  const content = convertMDAST(rawMDAST);
+  const content = removePositionFromMDAST(rawMDAST);
   const frontmatter = parseFrontmatter(rawMDAST);
 
   return { content, frontmatter };

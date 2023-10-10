@@ -96,7 +96,7 @@ export const BlockContent: FC<Props> = ({ block }) => {
 
     case 'thematicBreak':
       return (
-        <hr className="my-16 w-80 mx-auto border-gray-600 dark:border-gray-400" />
+        <hr className="my-16 w-80 mx-auto border-secondDark dark:border-secondLight" />
       );
 
     default:
@@ -173,7 +173,7 @@ export const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
             height={400}
             className="m-auto"
           />
-          <span className="flex justify-center text-gray-400 text-lg">
+          <span className="flex justify-center text-secondDark dark:text-secondLight text-lg">
             {item.title}
           </span>
         </>

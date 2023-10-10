@@ -8,7 +8,7 @@ export const QuoteBlock: FC<{ block: Blockquote }> = ({ block }) => {
   }
 
   return (
-    <div className="my-8 text-center whitespace-pre-wrap text-gray-600 dark:text-gray-400 text-wrap-balance">
+    <div className="my-8 text-center whitespace-pre-wrap text-secondDark dark:text-secondLight text-wrap-balance">
       <span className="relative">
         <span className="absolute top-0 left-0 transform -translate-x-4 -translate-y-4 text-3xl">
           &ldquo;

@@ -1,13 +1,20 @@
 import { PostSummary } from '@types';
 import { PostListPage } from '@components/blog/PostListPage';
 import { getBlogPostList } from '../services/markdownServices';
+import { SiteHead } from '@components/SiteHead';
 
 interface Props {
   postSummaryList: PostSummary[];
 }
 
 const Home = ({ postSummaryList }: Props) => (
-  <PostListPage postSummaryList={postSummaryList} />
+  <>
+    <SiteHead
+      title="Blog | Asuka Wang"
+      description="Essays, reviews and notes."
+    />
+    <PostListPage postSummaryList={postSummaryList} />
+  </>
 );
 
 export async function getStaticProps() {

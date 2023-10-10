@@ -1,7 +1,7 @@
 import { PostSummary } from '@types';
 import { PostListPage } from '@components/blog/PostListPage';
 import { getBlogPostList } from '../../services/markdownServices';
-import Head from 'next/head';
+import { SiteHead } from '@components/SiteHead';
 
 interface Props {
   postSummaryList: PostSummary[];
@@ -9,12 +9,10 @@ interface Props {
 
 const Home = ({ postSummaryList }: Props) => (
   <>
-    <Head>
-      <title>Blog | Asuka Wang</title>
-      <meta name="description" content="Essays, reviews and notes." />
-      <meta property="og:title" content="Blog | Asuka Wang" />
-      <meta property="twitter:title" content="Blog | Asuka Wang" />
-    </Head>
+    <SiteHead
+      title="Blog | Asuka Wang"
+      description="Essays, reviews and notes."
+    />
     <PostListPage postSummaryList={postSummaryList} />
   </>
 );

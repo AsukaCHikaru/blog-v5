@@ -1,11 +1,11 @@
 import { SectionHeader } from '@components/SectionHeader';
+import { SiteHead } from '@components/SiteHead';
 import { SiteHeader } from '@components/SiteHeader';
 import { PostBodyBlock } from '@components/blog/PostBodyBlock';
 import { GridLayout } from '@components/blog/layout/GridLayout';
 import { MainContentLayout } from '@components/blog/layout/MainContentLayout';
 import { ThemeLayout } from '@components/blog/layout/ThemeLayout';
 import { Content } from 'mdast';
-import Head from 'next/head';
 import { FC } from 'react';
 import { getAboutPageContent } from 'services/markdownServices';
 
@@ -16,15 +16,10 @@ interface Props {
 export const AboutPage: FC<Props> = ({ content }) => {
   return (
     <>
-      <Head>
-        <title>About | Asuka Wang</title>
-        <meta
-          name="description"
-          content="Introduction about me and this site."
-        />
-        <meta property="og:title" content="About | Asuka Wang" />
-        <meta property="twitter:title" content="About | Asuka Wang" />
-      </Head>
+      <SiteHead
+        title="About | Asuka Wang"
+        description="Introduction about me and this site."
+      />
       <ThemeLayout>
         <GridLayout>
           <SiteHeader />

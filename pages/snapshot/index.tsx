@@ -1,4 +1,5 @@
 import { SectionHeader } from '@components/SectionHeader';
+import { SiteHead } from '@components/SiteHead';
 import { SiteHeader } from '@components/SiteHeader';
 import { BlockContent } from '@components/blog/PostBodyBlock';
 import { GridLayout } from '@components/blog/layout/GridLayout';
@@ -6,7 +7,6 @@ import { MainContentLayout } from '@components/blog/layout/MainContentLayout';
 import { ThemeLayout } from '@components/blog/layout/ThemeLayout';
 import { parseDateToEn } from '@utils/dateTimeUtils';
 import { Content } from 'mdast';
-import Head from 'next/head';
 import { FC, useMemo } from 'react';
 import { getSnapshotPageContent } from 'services/markdownServices';
 
@@ -41,15 +41,10 @@ const SnapshotPage: FC<Props> = ({ content }) => {
 
   return (
     <>
-      <Head>
-        <title>Snapshot | Asuka Wang</title>
-        <meta
-          name="description"
-          content="Raw, unorganized thoughts and ideas."
-        />
-        <meta property="og:title" content="Snapshot | Asuka Wang" />
-        <meta property="twitter:title" content="Snapshot | Asuka Wang" />
-      </Head>
+      <SiteHead
+        title="Snapshot | Asuka Wang"
+        description="Raw, unorganized thoughts and ideas."
+      />
       <ThemeLayout>
         <GridLayout>
           <SiteHeader />

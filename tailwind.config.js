@@ -12,8 +12,10 @@ module.exports = {
         courier: ['Courier New', 'Courier', 'monospace'],
       },
       colors: {
-        foreground: '#222222',
-        background: '#dddddd',
+        dark: '#27221F',
+        light: '#F5F2E8',
+        secondDark: '#5B4F49',
+        secondLight: '#C4C2BA',
       },
       textWrap: {
         balance: 'balance',

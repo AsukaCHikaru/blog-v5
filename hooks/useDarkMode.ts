@@ -1,3 +1,4 @@
+import { COLORS } from 'consts/colors';
 import { LOCAL_STORAGE_KEYS } from 'consts/storageKeys';
 import { useEffect } from 'react';
 
@@ -8,10 +9,10 @@ export const useDarkMode = () => {
     const html = document.documentElement;
     if (mode === 'LIGHT') {
       html.classList.remove('dark');
-      html.style.backgroundColor = '#dddddd';
+      html.style.backgroundColor = COLORS.LIGHT;
     } else {
       html.classList.add('dark');
-      html.style.backgroundColor = '#222222';
+      html.style.backgroundColor = COLORS.DARK;
     }
     localStorage.setItem(LOCAL_STORAGE_KEYS.THEME, mode);
   };

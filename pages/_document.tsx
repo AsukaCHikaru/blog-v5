@@ -18,10 +18,10 @@ export default function Document() {
             : 'LIGHT';
           if (savedTheme === "DARK" || systemTheme === "DARK") {
             html.classList.add('dark');
-            html.style.backgroundColor = "#222222";
+            html.style.backgroundColor = "#27211F";
           } else {
             html.classList.remove('dark');
-            html.style.backgroundColor = "#dddddd";
+            html.style.backgroundColor = "#F5F2E8";
           }
         }
       `}</Script>

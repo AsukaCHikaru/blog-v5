@@ -3,8 +3,11 @@ import { resolve } from 'path';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkFrontmatter from 'remark-frontmatter';
-import { YAML, Root } from 'mdast';
-import { convertFrontmatterToSummary } from '../utils/markdownUtils';
+import {
+  convertFrontmatterToSummary,
+  convertMDAST,
+  parseFrontmatter,
+} from '../utils/markdownUtils';
 
 export const getPostList = async () => {
   const postFolderPath = resolve('contents/blog');
@@ -32,27 +35,6 @@ export const getPostList = async () => {
         new Date(prev.postSummary.publishDate).getTime(),
     );
   return allPostsData;
-};
-
-const parseFrontmatter = (input: Root): Record<string, string> => {
-  const rawFrontmatter = input.children[0] as YAML;
-  const result: Record<string, string> = {};
-  rawFrontmatter.value.split('\n').forEach((entry) => {
-    const findKeyValue = /^(\w+):\s["']?(.+?)["']?$/.exec(entry);
-    if (findKeyValue !== null) {
-      const key = findKeyValue[1];
-      const value = findKeyValue[2];
-      result[key] = value;
-    }
-  });
-  return result;
-};
-
-const convertMDAST = (input: Root) => {
-  return input.children.map((block) => {
-    const { position, ...rest } = block;
-    return rest;
-  });
 };
 
 export const getPostContent = (name: string) => {
@@ -117,5 +99,4 @@ export const getSnapshotPageContent = async () => {
   const frontmatter = parseFrontmatter(rawMDAST);
 
   return { content, frontmatter };
-;
-}
+};

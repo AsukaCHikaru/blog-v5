@@ -1,4 +1,5 @@
 import { PostLanguage, PostSummary } from '../types';
+import { YAML, Root } from 'mdast';
 
 export const convertFrontmatterToSummary = (
   frontmatter: Record<string, string>,
@@ -15,4 +16,25 @@ export const convertFrontmatterToSummary = (
     filename: frontmatter.filename,
   };
   return postSummary;
+};
+
+export const parseFrontmatter = (input: Root): Record<string, string> => {
+  const rawFrontmatter = input.children[0] as YAML;
+  const result: Record<string, string> = {};
+  rawFrontmatter.value.split('\n').forEach((entry) => {
+    const findKeyValue = /^(\w+):\s["']?(.+?)["']?$/.exec(entry);
+    if (findKeyValue !== null) {
+      const key = findKeyValue[1];
+      const value = findKeyValue[2];
+      result[key] = value;
+    }
+  });
+  return result;
+};
+
+export const convertMDAST = (input: Root) => {
+  return input.children.map((block) => {
+    const { position, ...rest } = block;
+    return rest;
+  });
 };

@@ -52,6 +52,7 @@ const SnapshotPage: FC<Props> = ({ content }) => {
           <SectionHeader
             title={SECTIONS.SNAPSHOT.title}
             path={SECTIONS.SNAPSHOT.path}
+            description={SECTIONS.SNAPSHOT.description.toUpperCase()}
           />
           <MainContentLayout>
             {Array.from(snapshotFeed.entries()).map(([timestamp, content]) => (

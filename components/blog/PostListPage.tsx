@@ -65,8 +65,8 @@ export const PostListPage: FC<Props> = ({ postSummaryList }) => {
           <SectionHeader
             title={SECTIONS.BLOG.title}
             path={SECTIONS.BLOG.path}
+            description={SECTIONS.BLOG.description.toUpperCase()}
           />
-          {/** TODO: blog description */}
           <BlogContentLayout>
             {tagFilteredPostList.map((postSummary) => {
               return (

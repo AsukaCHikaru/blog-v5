@@ -27,6 +27,7 @@ export const AboutPage: FC<Props> = ({ content }) => {
           <SectionHeader
             title={SECTIONS.ABOUT.title}
             path={SECTIONS.ABOUT.path}
+            description={SECTIONS.ABOUT.description.toUpperCase()}
           />
           <MainContentLayout>
             <div>

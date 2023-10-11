@@ -6,6 +6,7 @@ import { GridLayout } from '@components/blog/layout/GridLayout';
 import { MainContentLayout } from '@components/blog/layout/MainContentLayout';
 import { ThemeLayout } from '@components/blog/layout/ThemeLayout';
 import { parseDateToEn } from '@utils/dateTimeUtils';
+import { SECTIONS } from 'consts/sections';
 import { Content } from 'mdast';
 import { FC, useMemo } from 'react';
 import { getSnapshotPageContent } from 'services/markdownServices';
@@ -42,13 +43,16 @@ const SnapshotPage: FC<Props> = ({ content }) => {
   return (
     <>
       <SiteHead
-        title="Snapshot | Asuka Wang"
-        description="Raw, unorganized thoughts and ideas."
+        title={`${SECTIONS.SNAPSHOT.title} | Asuka Wang`}
+        description={SECTIONS.SNAPSHOT.description}
       />
       <ThemeLayout>
         <GridLayout>
           <SiteHeader />
-          <SectionHeader title="SNAPSHOT" path="/snapshot" />
+          <SectionHeader
+            title={SECTIONS.SNAPSHOT.title}
+            path={SECTIONS.SNAPSHOT.path}
+          />
           <MainContentLayout>
             {Array.from(snapshotFeed.entries()).map(([timestamp, content]) => (
               <SnapshotItem item={{ timestamp, content }} key={timestamp} />

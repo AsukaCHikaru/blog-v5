@@ -5,6 +5,7 @@ import { PostBodyBlock } from '@components/blog/PostBodyBlock';
 import { GridLayout } from '@components/blog/layout/GridLayout';
 import { MainContentLayout } from '@components/blog/layout/MainContentLayout';
 import { ThemeLayout } from '@components/blog/layout/ThemeLayout';
+import { SECTIONS } from 'consts/sections';
 import { Content } from 'mdast';
 import { FC } from 'react';
 import { getAboutPageContent } from 'services/markdownServices';
@@ -17,13 +18,16 @@ export const AboutPage: FC<Props> = ({ content }) => {
   return (
     <>
       <SiteHead
-        title="About | Asuka Wang"
-        description="Introduction about me and this site."
+        title={`${SECTIONS.ABOUT.title} | Asuka Wang`}
+        description={SECTIONS.ABOUT.description}
       />
       <ThemeLayout>
         <GridLayout>
           <SiteHeader />
-          <SectionHeader title="ABOUT" path="/about" />
+          <SectionHeader
+            title={SECTIONS.ABOUT.title}
+            path={SECTIONS.ABOUT.path}
+          />
           <MainContentLayout>
             <div>
               {content.slice(1).map((block, i) => (

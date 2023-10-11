@@ -12,6 +12,7 @@ import { TagList } from './TagList';
 import { SiteHeader } from '@components/SiteHeader';
 import { BlogContentLayout } from './layout/BlogContentLayout';
 import { ThemeLayout } from './layout/ThemeLayout';
+import { SECTIONS } from 'consts/sections';
 
 interface Props {
   postSummaryList: PostSummary[];
@@ -61,7 +62,10 @@ export const PostListPage: FC<Props> = ({ postSummaryList }) => {
       <ThemeLayout>
         <GridLayout>
           <SiteHeader />
-          <SectionHeader title="BLOG" path="/blog" />
+          <SectionHeader
+            title={SECTIONS.BLOG.title}
+            path={SECTIONS.BLOG.path}
+          />
           {/** TODO: blog description */}
           <BlogContentLayout>
             {tagFilteredPostList.map((postSummary) => {

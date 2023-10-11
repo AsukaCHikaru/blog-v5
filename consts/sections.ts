@@ -12,6 +12,6 @@ export const SECTIONS = {
   SNAPSHOT: {
     path: '/snapshot',
     title: 'SNAPSHOT',
-    description: 'Raw, unorganized thoughts and ideas',
+    description: 'A raw and brief capture of my thoughts in past moments',
   },
 } as const;

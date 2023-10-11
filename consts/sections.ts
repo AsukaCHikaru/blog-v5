@@ -7,11 +7,11 @@ export const SECTIONS = {
   BLOG: {
     path: '/blog',
     title: 'BLOG',
-    description: 'Introduction about me and this site',
+    description: 'Essays, reviews and notes',
   },
   SNAPSHOT: {
     path: '/snapshot',
     title: 'SNAPSHOT',
-    description: 'Introduction about me and this site',
+    description: 'Raw, unorganized thoughts and ideas',
   },
 } as const;

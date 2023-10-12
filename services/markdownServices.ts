@@ -1,12 +1,8 @@
 import fs from 'fs';
 import { resolve } from 'path';
-import { unified } from 'unified';
-import remarkParse from 'remark-parse';
-import remarkFrontmatter from 'remark-frontmatter';
 import {
   convertFrontmatterToSummary,
-  removePositionFromMDAST,
-  parseFrontmatter,
+  parseMarkdown,
 } from '../utils/markdownUtils';
 
 export const getBlogPostList = async () => {
@@ -20,14 +16,10 @@ export const getBlogPostList = async () => {
         postFolderPath + '/' + fileName,
         'utf-8',
       );
-      const rawMDAST = unified()
-        .use(remarkParse)
-        .use(remarkFrontmatter)
-        .parse(markdown);
-      const postData = removePositionFromMDAST(rawMDAST);
-      const frontmatter = parseFrontmatter(rawMDAST);
+      const { frontmatter } = parseMarkdown(markdown);
       const postSummary = convertFrontmatterToSummary(frontmatter);
-      return { postSummary, postData };
+
+      return { postSummary };
     })
     .sort(
       (prev, next) =>
@@ -40,30 +32,9 @@ export const getBlogPostList = async () => {
 export const getBlogPostContent = (name: string) => {
   const postFolderPath = resolve(`contents/blog/${name}.md`);
   const markdown = fs.readFileSync(postFolderPath, 'utf-8');
-  const rawMDAST = unified()
-    .use(remarkParse)
-    .use(remarkFrontmatter)
-    .parse(markdown);
-  const postData = removePositionFromMDAST(rawMDAST).slice(1);
+  const { content } = parseMarkdown(markdown);
 
-  // Filter and parse image
-  const parsedPostData = postData.map((block) => {
-    if (block.type !== 'paragraph') return block;
-    if (block.children[0].type !== 'text') return block;
-    if (!block.children[0].value.startsWith('![[')) return block;
-    const findImage = /\!\[\[(.+)\]\](\n)?(.+)?/.exec(block.children[0].value);
-    if (findImage === null) return block;
-    const imagePath = findImage[1];
-    const caption = findImage[3];
-    return {
-      type: 'paragraph',
-      children: [
-        { type: 'image', title: caption || '', url: imagePath, alt: 'TODO' },
-      ],
-    };
-  });
-
-  return parsedPostData;
+  return content;
 };
 
 export const getAboutPageContent = async () => {
@@ -71,15 +42,8 @@ export const getAboutPageContent = async () => {
   const filePath = fs
     .readdirSync(contentPath)
     .filter((name) => name.endsWith('.md'))?.[0];
-  const rawContent = fs.readFileSync(contentPath + '/' + filePath, 'utf-8');
-
-  const rawMDAST = unified()
-    .use(remarkParse)
-    .use(remarkFrontmatter)
-    .parse(rawContent);
-
-  const content = removePositionFromMDAST(rawMDAST);
-  const frontmatter = parseFrontmatter(rawMDAST);
+  const markdown = fs.readFileSync(contentPath + '/' + filePath, 'utf-8');
+  const { frontmatter, content } = parseMarkdown(markdown);
 
   return { content, frontmatter };
 };
@@ -89,14 +53,8 @@ export const getSnapshotPageContent = async () => {
   const filePath = fs
     .readdirSync(contentPath)
     .filter((name) => name.endsWith('.md'))?.[0];
-  const rawContent = fs.readFileSync(contentPath + '/' + filePath, 'utf-8');
-  const rawMDAST = unified()
-    .use(remarkParse)
-    .use(remarkFrontmatter)
-    .parse(rawContent);
-
-  const content = removePositionFromMDAST(rawMDAST);
-  const frontmatter = parseFrontmatter(rawMDAST);
+  const markdown = fs.readFileSync(contentPath + '/' + filePath, 'utf-8');
+  const { frontmatter, content } = parseMarkdown(markdown);
 
   return { content, frontmatter };
 };

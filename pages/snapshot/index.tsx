@@ -73,13 +73,11 @@ const SnapshotItem: FC<{
 
   return (
     <div className="mb-8 pb-4 ">
-      <div className="mb-2">
+      <p className="mb-2 text-xl">
         {item.content.map((block, i) => (
-          <p key={i} className="text-xl">
-            <BlockContent block={block} />
-          </p>
+          <BlockContent key={i} block={block} />
         ))}
-      </div>
+      </p>
       <span className="text-secondDark dark:text-secondLight">{timestamp}</span>
     </div>
   );

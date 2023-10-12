@@ -22,11 +22,11 @@ export const BlockContent: FC<Props> = ({ block }) => {
   switch (block.type) {
     case 'paragraph':
       return (
-        <span>
+        <>
           {block.children.map((child, i) => (
             <RichTextItem key={i} item={child} />
           ))}
-        </span>
+        </>
       );
 
     case 'image':

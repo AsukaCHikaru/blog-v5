@@ -130,10 +130,12 @@ export const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
     case 'plain':
       if (isImageSnapshot(item.text)) {
         return (
-          <img
-            className="mx-auto px-4 py-2 w-full"
+          <Image
+            className="mx-auto px-4 py-2"
             src={getImageSnapshotUrl(item.text)}
             alt="" // TODO
+            width={500}
+            height={500}
           />
         );
       }

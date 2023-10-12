@@ -7,25 +7,20 @@ import { MainContentLayout } from '@components/blog/layout/MainContentLayout';
 import { ThemeLayout } from '@components/blog/layout/ThemeLayout';
 import { parseDateToEn } from '@utils/dateTimeUtils';
 import { SECTIONS } from 'consts/sections';
-import { Content } from 'mdast';
 import { FC, useMemo } from 'react';
 import { getSnapshotPageContent } from 'services/markdownServices';
+import { MarkdownBlock } from 'types/markdown';
 
 interface Props {
-  content: Content[];
+  content: MarkdownBlock[];
 }
 
 const SnapshotPage: FC<Props> = ({ content }) => {
   const snapshotFeed = useMemo(() => {
-    const map = new Map<string, Content[]>();
+    const map = new Map<string, MarkdownBlock[]>();
     let currentItemTimestamp: string;
     content
-      .slice(1)
-      .map((item) =>
-        item.type === 'heading' && item.children[0].type === 'text'
-          ? item.children[0].value
-          : item,
-      )
+      .map((item) => (item.type === 'heading' ? item.children[0].text : item))
       .forEach((item) => {
         if (typeof item === 'string') {
           currentItemTimestamp = item;
@@ -68,7 +63,7 @@ const SnapshotPage: FC<Props> = ({ content }) => {
 const SnapshotItem: FC<{
   item: {
     timestamp: string;
-    content: Content[];
+    content: MarkdownBlock[];
   };
 }> = ({ item }) => {
   const timestamp = useMemo(() => {

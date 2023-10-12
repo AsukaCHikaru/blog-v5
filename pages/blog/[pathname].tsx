@@ -13,9 +13,10 @@ import { PostSummary } from '@types';
 import { SiteHeader } from '@components/SiteHeader';
 import { ThemeLayout } from '@components/blog/layout/ThemeLayout';
 import { SiteHead } from '@components/SiteHead';
+import { MarkdownBlock } from 'types/markdown';
 
 interface Props {
-  postContent: Content[];
+  postContent: MarkdownBlock[];
   postSummary: PostSummary;
 }
 

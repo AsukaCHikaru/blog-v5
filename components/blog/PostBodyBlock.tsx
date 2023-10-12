@@ -1,20 +1,13 @@
 import { FC } from 'react';
 import { CodeBlock } from './CodeBlock';
-import {
-  BlockContent as MarkdownBlockContent,
-  Content,
-  DefinitionContent,
-  List,
-  ListItem,
-  PhrasingContent,
-} from 'mdast';
 import Image from 'next/image';
 import { YoutubeBlock } from './YoutubeBlock';
 import { QuoteBlock } from './QuoteBlock';
 import { getImageSnapshotUrl, isImageSnapshot } from '@utils/stringUtils';
+import { MarkdownBlock, TextBlock } from 'types/markdown';
 
 interface Props {
-  block: Content;
+  block: MarkdownBlock;
 }
 
 export const PostBodyBlock: FC<Props> = ({ block }) => {
@@ -30,10 +23,29 @@ export const BlockContent: FC<Props> = ({ block }) => {
     case 'paragraph':
       return (
         <span>
-          {block.children.map((item, i) => (
-            <RichTextItem item={item} key={i} />
+          {block.children.map((child, i) => (
+            <RichTextItem key={i} item={child} />
           ))}
         </span>
+      );
+
+    case 'image':
+      if (/youtube\.com/.test(block.url) || /youtu\.be/.test(block.url)) {
+        return <YoutubeBlock item={block} />;
+      }
+      return (
+        <>
+          <Image
+            src={'/images/' + block.url}
+            alt={block.alt || ''}
+            width={600}
+            height={400}
+            className="m-auto"
+          />
+          <span className="flex justify-center text-secondDark dark:text-secondLight text-lg">
+            {block.caption}
+          </span>
+        </>
       );
 
     case 'heading':
@@ -41,37 +53,40 @@ export const BlockContent: FC<Props> = ({ block }) => {
         case 1:
           return (
             <h2 className="mt-8 text-2xl lg:text-4xl font-semibold">
-              {block.children.map((item, i) => (
-                <RichTextItem item={item} key={i} />
+              {block.children.map((child, i) => (
+                <RichTextItem key={i} item={child} />
               ))}
             </h2>
           );
         case 2:
           return (
             <h3 className="mt-8 text-xl lg:text-3xl font-semibold">
-              {block.children.map((item, i) => (
-                <RichTextItem item={item} key={i} />
+              {block.children.map((child, i) => (
+                <RichTextItem key={i} item={child} />
               ))}
             </h3>
           );
         case 3:
           return (
             <h4 className="mt-8 text-lg lg:text-2xl font-semibold">
-              {block.children.map((item, i) => (
-                <RichTextItem item={item} key={i} />
+              {block.children.map((child, i) => (
+                <RichTextItem key={i} item={child} />
               ))}
             </h4>
           );
+        default:
+          return null;
       }
 
     case 'list':
-      const b = block as List;
-      if (b.ordered) {
+      if (block.ordered) {
         return (
           <ol className="list-decimal list-inside mx-8">
-            {b.children.map((t, i) => (
+            {block.children.map((child, i) => (
               <li key={i}>
-                <RichTextItem item={t} />
+                {child.children.map((child) => (
+                  <RichTextItem key={i} item={child} />
+                ))}
               </li>
             ))}
           </ol>
@@ -79,9 +94,11 @@ export const BlockContent: FC<Props> = ({ block }) => {
       } else {
         return (
           <ul className="list-disc list-inside mx-8">
-            {b.children.map((t, i) => (
+            {block.children.map((child, i) => (
               <li key={i}>
-                <RichTextItem item={t} />
+                {child.children.map((child) => (
+                  <RichTextItem key={i} item={child} />
+                ))}
               </li>
             ))}
           </ul>
@@ -89,9 +106,9 @@ export const BlockContent: FC<Props> = ({ block }) => {
       }
 
     case 'code':
-      return <CodeBlock lan={block.lang}>{block.value}</CodeBlock>;
+      return <CodeBlock lan={block.lang}>{block.text}</CodeBlock>;
 
-    case 'blockquote':
+    case 'quote':
       return <QuoteBlock block={block} />;
 
     case 'thematicBreak':
@@ -105,23 +122,23 @@ export const BlockContent: FC<Props> = ({ block }) => {
 };
 
 interface RichTextItemProps {
-  item: PhrasingContent | ListItem | MarkdownBlockContent | DefinitionContent;
+  item: TextBlock;
 }
 
 export const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
   switch (item.type) {
-    case 'text':
-      if (isImageSnapshot(item.value)) {
+    case 'plain':
+      if (isImageSnapshot(item.text)) {
         return (
           <img
             className="mx-auto px-4 py-2 w-full"
-            src={getImageSnapshotUrl(item.value)}
+            src={getImageSnapshotUrl(item.text)}
             alt="" // TODO
           />
         );
       }
 
-      return <span>{item.value}</span>;
+      return <span>{item.text}</span>;
 
     case 'link':
       return (
@@ -131,52 +148,21 @@ export const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
           rel="noreferrer noopener"
           target="_blank"
         >
-          <RichTextItem item={item.children[0]} />
+          {item.text}
         </a>
       );
 
     case 'strong':
-      return (
-        <strong>
-          <RichTextItem item={item.children[0]} />
-        </strong>
-      );
+      return <strong>{item.text}</strong>;
 
-    case 'emphasis':
-      return (
-        <span className="italic">
-          <RichTextItem item={item.children[0]} />
-        </span>
-      );
+    case 'italic':
+      return <span className="italic">{item.text}</span>;
 
     case 'inlineCode':
       return (
         <code className="px-1 font-courier text-gray-300 bg-gray-700 rounded-sm">
-          {item.value}
+          {item.text}
         </code>
-      );
-
-    case 'listItem':
-      return <BlockContent block={item.children[0]} />;
-
-    case 'image':
-      if (/youtube\.com/.test(item.url) || /youtu\.be/.test(item.url)) {
-        return <YoutubeBlock item={item} />;
-      }
-      // TODO: image size
-      return (
-        <>
-          <Image
-            src={'/images/' + item.url}
-            alt={item.alt || ''}
-            width={600}
-            height={400}
-            className="m-auto"
-          />
-          <span className="flex justify-center text-secondDark dark:text-secondLight text-lg">
-            {item.title}
-          </span>
-        </>
       );
 
     // TODO: strikethrough (need remark GFM plugin)

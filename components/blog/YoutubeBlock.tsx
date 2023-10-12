@@ -1,7 +1,7 @@
-import { Image } from "mdast";
-import { FC } from "react";
+import { FC } from 'react';
+import { ImageBlock } from 'types/markdown';
 
-export const YoutubeBlock: FC<{ item: Image }> = ({ item }) => {
+export const YoutubeBlock: FC<{ item: ImageBlock }> = ({ item }) => {
   const url = /youtube\.com/.test(item.url)
     ? item.url.replace(/watch\?v=/, 'embed/')
     : /youtu\.be/.test(item.url)

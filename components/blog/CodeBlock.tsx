@@ -9,7 +9,9 @@ import 'highlight.js/styles/base16/google-dark.css';
 
 import { Code } from 'mdast';
 
+hljs.registerLanguage('js', js);
 hljs.registerLanguage('javascript', js);
+hljs.registerLanguage('ts', ts);
 hljs.registerLanguage('typescript', ts);
 hljs.registerLanguage('csharp', csharp);
 hljs.registerLanguage('css', css);

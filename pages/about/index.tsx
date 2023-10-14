@@ -25,7 +25,7 @@ export const AboutPage: FC<Props> = ({ content }) => {
       />
       <MainContentLayout>
         <div>
-          {content.slice(1).map((block, i) => (
+          {content.map((block, i) => (
             <PostBodyBlock block={block} key={i} />
           ))}
         </div>

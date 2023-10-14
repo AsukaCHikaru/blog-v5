@@ -4,7 +4,7 @@ import { Noto_Serif_JP } from '@next/font/google';
 import { ThemeLayout } from '@components/layout/ThemeLayout';
 import { GridLayout } from '@components/layout/GridLayout';
 import { SiteHeader } from '@components/SiteHeader';
-import { Footer } from '@components/blog/Footer';
+import { SiteFooter } from '@components/SiteFooter';
 
 const notoSerifJp = Noto_Serif_JP({
   weight: ['400', '500', '900'],
@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <GridLayout>
           <SiteHeader />
           <Component {...pageProps} />
-          <Footer />
+          <SiteFooter />
         </GridLayout>
       </ThemeLayout>
     </main>

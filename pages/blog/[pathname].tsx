@@ -8,7 +8,7 @@ import {
 import { PostSummary } from '@types';
 import { SiteHead } from '@components/SiteHead';
 import { MarkdownBlock } from 'types/markdown';
-import { BlogContentLayout } from '@components/blog/layout/BlogContentLayout';
+import { FullContentLayout } from '@components/layout/FullContentLayout';
 
 interface Props {
   postContent: MarkdownBlock[];
@@ -22,11 +22,11 @@ const Post: FC<Props> = ({ postContent, postSummary }) => {
     <>
       <SiteHead title={title} description="Asuka Wang's blog" />
       <PostDetailPageHeader postSummary={postSummary} />
-      <BlogContentLayout>
+      <FullContentLayout>
         {postContent.map((block, i) => (
           <PostBodyBlock block={block} key={i} />
         ))}
-      </BlogContentLayout>
+      </FullContentLayout>
     </>
   );
 };

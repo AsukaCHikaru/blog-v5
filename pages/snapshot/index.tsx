@@ -1,7 +1,7 @@
 import { SectionHeader } from '@components/SectionHeader';
 import { SiteHead } from '@components/SiteHead';
 import { BlockContent } from '@components/blog/PostBodyBlock';
-import { MainContentLayout } from '@components/blog/layout/MainContentLayout';
+import { FullContentLayout } from '@components/layout/FullContentLayout';
 import { parseDateToEn } from '@utils/dateTimeUtils';
 import { SECTIONS } from 'consts/sections';
 import { FC, useMemo } from 'react';
@@ -41,13 +41,13 @@ const SnapshotPage: FC<Props> = ({ content }) => {
       <SectionHeader
         title={SECTIONS.SNAPSHOT.title}
         path={SECTIONS.SNAPSHOT.path}
-        description={SECTIONS.SNAPSHOT.description.toUpperCase()}
+        description={SECTIONS.SNAPSHOT.description}
       />
-      <MainContentLayout>
+      <FullContentLayout>
         {Array.from(snapshotFeed.entries()).map(([timestamp, content]) => (
           <SnapshotItem item={{ timestamp, content }} key={timestamp} />
         ))}
-      </MainContentLayout>
+      </FullContentLayout>
     </>
   );
 };

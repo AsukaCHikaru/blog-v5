@@ -1,7 +1,7 @@
 import { SectionHeader } from '@components/SectionHeader';
 import { SiteHead } from '@components/SiteHead';
 import { PostBodyBlock } from '@components/blog/PostBodyBlock';
-import { MainContentLayout } from '@components/blog/layout/MainContentLayout';
+import { FullContentLayout } from '@components/layout/FullContentLayout';
 import { SECTIONS } from 'consts/sections';
 import { FC } from 'react';
 import { getAboutPageContent } from 'services/markdownServices';
@@ -21,15 +21,15 @@ export const AboutPage: FC<Props> = ({ content }) => {
       <SectionHeader
         title={SECTIONS.ABOUT.title}
         path={SECTIONS.ABOUT.path}
-        description={SECTIONS.ABOUT.description.toUpperCase()}
+        description={SECTIONS.ABOUT.description}
       />
-      <MainContentLayout>
+      <FullContentLayout>
         <div>
           {content.map((block, i) => (
             <PostBodyBlock block={block} key={i} />
           ))}
         </div>
-      </MainContentLayout>
+      </FullContentLayout>
     </>
   );
 };

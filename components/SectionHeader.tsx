@@ -14,7 +14,7 @@ export const SectionHeader: FC<Props> = ({ title, path, description }) => {
         <Link href={path}>{title}</Link>
       </h1>
       <h3 className="text-center text-lg lg:text-2xl text-wrap-balance">
-        {description}
+        {description.toUpperCase()}
       </h3>
     </div>
   );

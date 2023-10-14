@@ -1,10 +1,7 @@
 import { SectionHeader } from '@components/SectionHeader';
 import { SiteHead } from '@components/SiteHead';
-import { SiteHeader } from '@components/SiteHeader';
 import { BlockContent } from '@components/blog/PostBodyBlock';
-import { GridLayout } from '@components/blog/layout/GridLayout';
 import { MainContentLayout } from '@components/blog/layout/MainContentLayout';
-import { ThemeLayout } from '@components/blog/layout/ThemeLayout';
 import { parseDateToEn } from '@utils/dateTimeUtils';
 import { SECTIONS } from 'consts/sections';
 import { FC, useMemo } from 'react';
@@ -41,21 +38,16 @@ const SnapshotPage: FC<Props> = ({ content }) => {
         title={`${SECTIONS.SNAPSHOT.title} | Asuka Wang`}
         description={SECTIONS.SNAPSHOT.description}
       />
-      <ThemeLayout>
-        <GridLayout>
-          <SiteHeader />
-          <SectionHeader
-            title={SECTIONS.SNAPSHOT.title}
-            path={SECTIONS.SNAPSHOT.path}
-            description={SECTIONS.SNAPSHOT.description.toUpperCase()}
-          />
-          <MainContentLayout>
-            {Array.from(snapshotFeed.entries()).map(([timestamp, content]) => (
-              <SnapshotItem item={{ timestamp, content }} key={timestamp} />
-            ))}
-          </MainContentLayout>
-        </GridLayout>
-      </ThemeLayout>
+      <SectionHeader
+        title={SECTIONS.SNAPSHOT.title}
+        path={SECTIONS.SNAPSHOT.path}
+        description={SECTIONS.SNAPSHOT.description.toUpperCase()}
+      />
+      <MainContentLayout>
+        {Array.from(snapshotFeed.entries()).map(([timestamp, content]) => (
+          <SnapshotItem item={{ timestamp, content }} key={timestamp} />
+        ))}
+      </MainContentLayout>
     </>
   );
 };

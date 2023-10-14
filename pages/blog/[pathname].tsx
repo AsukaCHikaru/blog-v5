@@ -1,17 +1,12 @@
 import { FC } from 'react';
-import { Content } from 'mdast';
-import { Footer } from '@components/blog/Footer';
 import { PostBodyBlock } from '@components/blog/PostBodyBlock';
 import { PostDetailPageHeader } from '@components/blog/PostDetailPageHeader';
-import { GridLayout } from '@components/blog/layout/GridLayout';
 import { MainContentLayout } from '@components/blog/layout/MainContentLayout';
 import {
   getBlogPostContent,
   getBlogPostList,
 } from '../../services/markdownServices';
 import { PostSummary } from '@types';
-import { SiteHeader } from '@components/SiteHeader';
-import { ThemeLayout } from '@components/blog/layout/ThemeLayout';
 import { SiteHead } from '@components/SiteHead';
 import { MarkdownBlock } from 'types/markdown';
 
@@ -26,18 +21,12 @@ const Post: FC<Props> = ({ postContent, postSummary }) => {
   return (
     <>
       <SiteHead title={title} description="Asuka Wang's blog" />
-      <ThemeLayout>
-        <GridLayout>
-          <SiteHeader />
-          <PostDetailPageHeader postSummary={postSummary} />
-          <MainContentLayout>
-            {postContent.map((block, i) => (
-              <PostBodyBlock block={block} key={i} />
-            ))}
-          </MainContentLayout>
-          <Footer />
-        </GridLayout>
-      </ThemeLayout>
+      <PostDetailPageHeader postSummary={postSummary} />
+      <MainContentLayout>
+        {postContent.map((block, i) => (
+          <PostBodyBlock block={block} key={i} />
+        ))}
+      </MainContentLayout>
     </>
   );
 };

@@ -26,3 +26,5 @@ collections:
     label: "About"
     create: false
     folder: "public/contents/about"
+    fields:
+      - { label: "Updated date", name: "updated", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }

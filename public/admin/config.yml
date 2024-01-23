@@ -1,15 +1,18 @@
 backend:
   name: git-gateway
   branch: main
+
 publish_mode: editorial_workflow
+
 media_folder: "public/images"
 public_folder: "/images"
+
 collections:
   - name: "post"
     label: "Blog"
     create: true
     folder: "public/contents/blog"
-    slug: "{{slug}} (blog)"
+    slug: "{{slug}} (blog).md"
     fields:
       - { label: "Title", name: "title", widget: "string", default: "title" }
       - { label: "Publish Date", name: "published", widget: "datetime" }

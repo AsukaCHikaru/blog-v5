@@ -12,8 +12,17 @@ collections:
     label: "Blog"
     create: true
     folder: "public/contents/blog"
-    slug: "{{slug}}-blog.md"
+    slug: "{{slug}}-blog"
     fields:
-      - { label: "Title", name: "title", widget: "string", default: "title" }
-      - { label: "Publish Date", name: "published", widget: "datetime" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "published", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
       - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Language", name: "language", widget: "select", options: ["en-US", "zh-TW"] }
+      - { label: "Pathname", name: "pathname", widget: "string" }
+      - { label: "Category", name: "category", widget: "string" }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Filename", name: "filename", widget: "string" }
+- name: "about"
+  label: "About"
+  create: false
+  folder: "public/contents/about"

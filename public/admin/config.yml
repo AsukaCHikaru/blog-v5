@@ -12,7 +12,7 @@ collections:
     label: "Blog"
     create: true
     folder: "public/contents/blog"
-    slug: "{{slug}} (blog).md"
+    slug: "{{slug}}-blog.md"
     fields:
       - { label: "Title", name: "title", widget: "string", default: "title" }
       - { label: "Publish Date", name: "published", widget: "datetime" }

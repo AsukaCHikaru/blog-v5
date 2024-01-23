@@ -22,7 +22,7 @@ collections:
       - { label: "Category", name: "category", widget: "string" }
       - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Filename", name: "filename", widget: "string" }
-- name: "about"
-  label: "About"
-  create: false
-  folder: "public/contents/about"
+  - name: "about"
+    label: "About"
+    create: false
+    folder: "public/contents/about"

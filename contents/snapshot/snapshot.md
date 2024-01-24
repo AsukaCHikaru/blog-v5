@@ -3,6 +3,15 @@ created: 2023-09-02 21:03
 category: "[[-032.2 Snapshots]]"
 ---
 
+# 2023/11/02 18:51 GMT+9
+My new phone’s battery level does not drop at all, it’s mind blowing compared to my previous phone, a three and half year old Pixel 4. Battery life was the reason I changed phone so there should be expectations, but two weeks in and I’m still very impressed.
+
+# 2023/10/29 21:53 GMT+9
+This snapshot is triggered by iOS shortcut. Now it’s gonna be easier to write snapshots.
+
+# 2023/10/15 22:42 GMT+9
+After a hiatus of four months, I finally gathered enough motivation to try to be productive again.
+
 # 2023/09/18 23:15 GMT+9
 My favorite one in my first ~200 shots.
 

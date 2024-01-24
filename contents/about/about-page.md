@@ -40,6 +40,7 @@ I love making lists, so I'll tell you more about myself with lists below:
 - I was president of Literature Club in university
 - My favorite English word is "irrelevant"
 - I have my own annual music awards since 2009
+- All of my side projects are named after League of Legends champions
 # About this site
 I built this site to serve as:
 - a personal archive; a digital time capsule for me to revisit my past self

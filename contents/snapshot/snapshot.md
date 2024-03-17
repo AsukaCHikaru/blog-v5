@@ -3,6 +3,17 @@ created: 2023-09-02 21:03
 category: "[[-032.2 Snapshots]]"
 ---
 
+# 2024/03/03 10:47 GMT+9
+Been researching and replaying Diablo II for the game I'm currently making.
+The more I know about Diablo II the more I appreciate and love it.
+I've never been a heavy D2 player, maybe I should be, after being 20 years late.
+
+# 2024/02/02 17:55 GMT+9
+Been burnt out for a month, the second I got over with this task I started being productive, ain't no way this was a coincidence.
+
+# 2024/01/26 00:07 GMT+9
+Back to Figma for my blog's next redesign. Goddamn Figma is incredible to use, does so much while demands so little efforts. Oh and now that Figma is not acquired by Adobe anymore, I guess subscribe to Figma is an option again?
+
 # 2023/11/02 18:51 GMT+9
 My new phone’s battery level does not drop at all, it’s mind blowing compared to my previous phone, a three and half year old Pixel 4. Battery life was the reason I changed phone so there should be expectations, but two weeks in and I’m still very impressed.
 

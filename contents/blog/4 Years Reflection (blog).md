@@ -26,7 +26,7 @@ I reckon this plan works with my current employee. Due to reorganization, starti
 
 I'll give it a try for some time. If it isn't, then maybe it's time considering my next step.
 # The Work
-I learnt some much as a developer in last two years. Or at least I think I did.
+I learned some much as a developer in last two years. Or at least I think I did.
 
 There were time I thought our code review process was too sloppy. "They wouldn't be doing like this in FAANG!" I thought. Then we had new (experienced) members that asks a lot of good questions in pull requests. "So this is more like how they doing it in FAANG" I thought. And I struggled in every second of it.
 
@@ -36,7 +36,7 @@ There were growing pains. But I believe the peak has passed, and I've become a b
 # The Code
 Still enjoying coding, and occasional joy of the "a-ha" moment.
 
-Recently I invest more and more time on high level design before writing first line of code. Developing without clear structure is shooting myself in the foot, I learnt that the hard way.
+Recently I invest more and more time on high level design before writing first line of code. Developing without clear structure is shooting myself in the foot, I learned that the hard way.
 
 I applied this to other aspects as well, like the visual design of my blog. I used to jump right into Figma after blunt outline of the first idea emerges in my head, bearing the wishful thinking of if I blindly tinker enough I will hit the sweet spot somehow. Now I do research after research, asking myself what direction am I aiming, what goal am I pursuing, before committing anything.
 

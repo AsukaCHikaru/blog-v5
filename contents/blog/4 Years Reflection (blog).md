@@ -42,4 +42,4 @@ I applied this to other aspects as well, like the visual design of my blog. I us
 
 And research is fun. I have always loved bookstores, recently they have become one of my favorite places to go. All the books on the shelfs, and the knowledge held by it, shine unlimited promises of their possibilities in my eyes.
 
-I guess I leant to see my craft from a bigger picture, and the enjoyment of it.
+I guess I learned to see my craft from a bigger picture, and the enjoyment of it.

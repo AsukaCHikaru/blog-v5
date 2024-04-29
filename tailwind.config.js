@@ -18,6 +18,10 @@ module.exports = {
     extend: {
       fontFamily: {
         serif: ['var(--font-jp)'],
+        'noto-sans': ['var(--font-noto-sans)'],
+        'abhaya-libre': ['var(--font-abhaya-libre)'],
+        'gentium-basic': ['var(--font-gentium-basic)'],
+        alegreya: ['var(--font-alegreya)', 'var(--font-jp)'],
         courier: ['Courier New', 'Courier', 'monospace'],
       },
       colors: {

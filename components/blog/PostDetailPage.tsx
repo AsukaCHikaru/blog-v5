@@ -29,7 +29,7 @@ export const PostDetailPage: FC<Props> = ({
             <PostBodyBlock block={block} key={i} />
           ))}
         </div>
-        <div>
+        <div className="flex flex-col gap-fb5">
           <ArchiveColumn postList={last5posts} />
           <CategoryListColumn categoryList={categoryList} />
         </div>

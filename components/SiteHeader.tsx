@@ -1,27 +1,42 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useCallback } from 'react';
 
-const SECTIONS: { label: string; url: string }[] = [
+type Section = { label: string; url: string; isHome: boolean };
+const SECTIONS: Section[] = [
   {
     label: 'BLOG',
     url: '/blog',
+    isHome: true,
   },
   {
     label: 'ABOUT',
     url: '/about',
+    isHome: false,
   },
 ];
 
 export const SiteHeader = () => {
+  const { pathname } = useRouter();
+
+  const isLinkActive = useCallback(
+    (section: Section) => {
+      return (pathname === '/' && section.isHome) || pathname === section.url;
+    },
+    [pathname],
+  );
+
   return (
     <>
       <div className="flex justify-between w-full mt-fb8 mb-fb2">
         <div className="w-fit flex gap-fb3">
           {SECTIONS.map((section) => (
-            // TODO: active color
             <Link
               key={section.url}
               href={section.url}
-              className="text-fb3 leading-fb5"
+              className={`text-fb3 leading-fb5 opacity-75 ${
+                isLinkActive(section) ? 'opacity-100' : ''
+              } hover:opacity-100`}
             >
               {section.label}
             </Link>

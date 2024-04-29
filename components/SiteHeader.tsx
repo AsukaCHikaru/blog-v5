@@ -42,8 +42,11 @@ export const SiteHeader = () => {
             </Link>
           ))}
         </div>
-        <Link href="/" className="text-fb5 leading-fb5">
-          Asuka Wang
+        <Link
+          href="/"
+          className="text-fb5 leading-fb5 font-abhaya-libre font-bold"
+        >
+          ASUKA WANG
         </Link>
       </div>
       <div className="mb-fb3 border-t-2 border-b h-2 border-dark dark:border-light" />

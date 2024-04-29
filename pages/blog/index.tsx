@@ -11,9 +11,10 @@ interface Props {
   postSummary: PostSummary;
   postDetail: MarkdownBlock[];
   categoryList: CategoryList;
+  last5posts: PostSummary[];
 }
 
-const Home = ({ postSummary, categoryList, postDetail }: Props) => (
+const Home = ({ postSummary, categoryList, postDetail, last5posts }: Props) => (
   <>
     <SiteHead
       title="Blog | Asuka Wang"
@@ -23,6 +24,7 @@ const Home = ({ postSummary, categoryList, postDetail }: Props) => (
       postDetail={postDetail}
       postSummary={postSummary}
       categoryList={categoryList}
+      last5posts={last5posts}
     />
   </>
 );
@@ -39,16 +41,16 @@ const getCategoryList = (list: PostSummary[]) => {
 
 export async function getStaticProps() {
   const postList = await getBlogPostList();
-  const lastPost = postList[0].postSummary;
+  const lastPost = postList[0];
   const postDetail = getBlogPostContent(lastPost.filename);
-  const categoryList = getCategoryList(
-    postList.map((item) => item.postSummary),
-  );
+  const categoryList = getCategoryList(postList.map((item) => item));
+  const last5posts = postList.slice(0, 5);
   return {
     props: {
       postSummary: lastPost,
       postDetail,
       categoryList,
+      last5posts,
     },
   };
 }

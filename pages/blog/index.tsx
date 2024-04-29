@@ -1,4 +1,4 @@
-import { PostSummary } from '@types';
+import { CategoryList, PostSummary } from '@types';
 import {
   getBlogPostContent,
   getBlogPostList,
@@ -10,7 +10,7 @@ import { MarkdownBlock } from 'types/markdown';
 interface Props {
   postSummary: PostSummary;
   postDetail: MarkdownBlock[];
-  categoryList: [string, number][];
+  categoryList: CategoryList;
 }
 
 const Home = ({ postSummary, categoryList, postDetail }: Props) => (
@@ -34,7 +34,7 @@ const getCategoryList = (list: PostSummary[]) => {
     if (current) map.set(category, current + 1);
     else map.set(category, 1);
   });
-  return Array.from(map.entries()).sort((prev, next) => next[1] - prev[1]);
+  return Object.fromEntries(map.entries());
 };
 
 export async function getStaticProps() {

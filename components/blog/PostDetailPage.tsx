@@ -1,12 +1,13 @@
 import { FC } from 'react';
-import { PostSummary } from '@types';
+import { CategoryList, PostSummary } from '@types';
 import { MarkdownBlock } from 'types/markdown';
 import { PostBodyBlock } from './PostBodyBlock';
 import { PostDetailPageHeader } from './PostDetailPageHeader';
 import { ContentLayout } from '@components/layout/ContentLayout';
+import { CategoryListColumn } from './CategoryListColumn';
 
 interface Props {
-  categoryList: [string, number][];
+  categoryList: CategoryList;
   postSummary: PostSummary;
   postDetail: MarkdownBlock[];
 }
@@ -25,7 +26,7 @@ export const PostDetailPage: FC<Props> = ({
             <PostBodyBlock block={block} key={i} />
           ))}
         </div>
-        <div>side</div>
+        <div>{<CategoryListColumn categoryList={categoryList} />}</div>
       </ContentLayout>
     </div>
   );

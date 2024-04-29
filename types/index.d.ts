@@ -1,5 +1,3 @@
-export type PostCategory = 'gaming' | 'programming' | 'others';
-
 export type PostLanguage = 'enUS' | 'zhTW';
 
 export type PostSummary = {
@@ -12,4 +10,8 @@ export type PostSummary = {
   pathname: string;
   zhTwLink: string | null;
   filename: string;
+};
+
+export type CategoryList = {
+  [key: string]: number;
 };

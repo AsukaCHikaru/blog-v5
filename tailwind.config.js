@@ -1,3 +1,12 @@
+const size = {
+  fb1: '7px',
+  fb2: '14px',
+  fb3: '21px',
+  fb5: '35px',
+  fb8: '56px',
+  fb11: '77px',
+};
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
@@ -20,6 +29,9 @@ module.exports = {
       textWrap: {
         balance: 'balance',
       },
+      spacing: { ...size },
+      fontSize: { ...size },
+      lineHeight: { ...size },
     },
   },
   plugins: [

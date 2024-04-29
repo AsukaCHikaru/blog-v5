@@ -25,7 +25,8 @@ export const getBlogPostList = async () => {
       (prev, next) =>
         new Date(next.postSummary.publishDate).getTime() -
         new Date(prev.postSummary.publishDate).getTime(),
-    );
+    )
+    .map((item) => item.postSummary);
   return allPostsData;
 };
 

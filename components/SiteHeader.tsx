@@ -1,28 +1,37 @@
 import Link from 'next/link';
-import { DarkModeButton } from './DarkModeButton';
+
+const SECTIONS: { label: string; url: string }[] = [
+  {
+    label: 'BLOG',
+    url: '/blog',
+  },
+  {
+    label: 'ABOUT',
+    url: '/about',
+  },
+];
 
 export const SiteHeader = () => {
   return (
-    <div className="mt-12 mb-6 col-span-10 col-start-2 lg:col-span-8 lg:col-start-3 grid grid-cols-10 text-center">
-      <div className="col-start-1 col-span-10 text-xl lg:text-3xl font-extrabold">
-        Asuka Wang
+    <>
+      <div className="flex justify-between w-full mt-fb8 mb-fb2">
+        <div className="w-fit flex gap-fb3">
+          {SECTIONS.map((section) => (
+            // TODO: active color
+            <Link
+              key={section.url}
+              href={section.url}
+              className="text-fb3 leading-fb5"
+            >
+              {section.label}
+            </Link>
+          ))}
+        </div>
+        <Link href="/" className="text-fb5 leading-fb5">
+          Asuka Wang
+        </Link>
       </div>
-      <div
-        className="
-      col-span-6 col-start-3 lg:col-span-6 lg:col-start-3
-      mt-4 flex justify-between
-      leading-[32px] lg:leading-[40px]
-      text-xs lg:text-base
-      "
-      >
-        <Link href="/blog">BLOG</Link>
-        <Link href="/snapshot">SNAPSHOT</Link>
-        <Link href="/about">ABOUT</Link>
-      </div>
-      <div className="col-span-1 col-start-10 mt-4 flex justify-end">
-        <DarkModeButton />
-      </div>
-      <div className="col-span-10 my-2 border-t border-b h-2 border-dark dark:border-light" />
-    </div>
+      <div className="mb-fb3 border-t-2 border-b h-2 border-dark dark:border-light" />
+    </>
   );
 };

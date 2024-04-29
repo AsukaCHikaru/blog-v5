@@ -3,6 +3,7 @@ import { PostSummary } from '@types';
 import { MarkdownBlock } from 'types/markdown';
 import { PostBodyBlock } from './PostBodyBlock';
 import { PostDetailPageHeader } from './PostDetailPageHeader';
+import { ContentLayout } from '@components/layout/ContentLayout';
 
 interface Props {
   categoryList: [string, number][];
@@ -18,9 +19,14 @@ export const PostDetailPage: FC<Props> = ({
   return (
     <div>
       <PostDetailPageHeader postSummary={postSummary} />
-      {postDetail.map((block, i) => (
-        <PostBodyBlock block={block} key={i} />
-      ))}
+      <ContentLayout>
+        <div className="col-span-3">
+          {postDetail.map((block, i) => (
+            <PostBodyBlock block={block} key={i} />
+          ))}
+        </div>
+        <div>side</div>
+      </ContentLayout>
     </div>
   );
 };

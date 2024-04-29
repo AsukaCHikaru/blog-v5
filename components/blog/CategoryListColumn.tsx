@@ -27,6 +27,7 @@ export const CategoryListColumn: FC<Props> = ({ categoryList }) => {
                 className="flex leading-fb3 items-end"
               >
                 <span className="text-fb3">{category}</span>
+                {/** TODO: border hover does match link hover */}
                 <span className="mx-fb1 flex-grow border-b border-dashed border-light50 hover:border-light" />
                 <span className="text-fb3">{postNumber}</span>
                 <span className="ml-fb1 text-fb2 leading-none">

@@ -5,17 +5,17 @@ type Section = {
   description: string;
 };
 export const SECTIONS: Record<string, Section> = {
-  ABOUT: {
-    url: '/about',
-    label: 'ABOUT',
-    description: 'Introduction about me and this site',
-    isHome: false,
-  },
   BLOG: {
     url: '/blog',
     label: 'BLOG',
     description: 'Essays, reviews and notes',
     isHome: true,
+  },
+  ABOUT: {
+    url: '/about',
+    label: 'ABOUT',
+    description: 'Introduction about me and this site',
+    isHome: false,
   },
   // SNAPSHOT: {
   //   path: '/snapshot',

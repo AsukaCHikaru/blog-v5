@@ -12,27 +12,31 @@ export const TableOfContentColumn: FC<Props> = ({ list }) => {
   return (
     <div>
       <SideColumnHeader>TABLE OF CONTENT</SideColumnHeader>
-      <div>
+      <ul className="ml-fb3 list-outside list-disc marker:text-light75 hover:marker:text-light">
         {list.map((header) => (
           <HeaderLink block={header} key={header.children[0].text} />
         ))}
-      </div>
+      </ul>
     </div>
   );
 };
 
 const HeaderLink: FC<{ block: HeadingBlock }> = ({ block }) => {
   const { pathname } = useRouter();
+  const text = block.children.map((item) => item.text);
   return (
-    <div className="flex">
+    <li className="mt-fb2">
       {Array(block.depth - 1)
         .fill(0)
         .map((_, i) => (
           <div className="w-fb2" key={i} />
         ))}
-      <Link href={`${pathname}#${123}`}>
-        {block.children.map((item) => item.text)}
+      <Link
+        href={`${pathname}#${text.join('-').replace(/\s/g, '-')}`}
+        className="font-serif text-fb3 leading-none text-light75 hover:text-light"
+      >
+        {text}
       </Link>
-    </div>
+    </li>
   );
 };

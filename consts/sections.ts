@@ -1,17 +1,25 @@
-export const SECTIONS = {
+type Section = {
+  label: string;
+  url: string;
+  isHome: boolean;
+  description: string;
+};
+export const SECTIONS: Record<string, Section> = {
   ABOUT: {
-    path: '/about',
-    title: 'ABOUT',
+    url: '/about',
+    label: 'ABOUT',
     description: 'Introduction about me and this site',
+    isHome: false,
   },
   BLOG: {
-    path: '/blog',
-    title: 'BLOG',
+    url: '/blog',
+    label: 'BLOG',
     description: 'Essays, reviews and notes',
+    isHome: true,
   },
-  SNAPSHOT: {
-    path: '/snapshot',
-    title: 'SNAPSHOT',
-    description: 'A raw and brief capture of my thoughts in past moments',
-  },
+  // SNAPSHOT: {
+  //   path: '/snapshot',
+  //   title: 'SNAPSHOT',
+  //   description: 'A raw and brief capture of my thoughts in past moments',
+  // },
 } as const;

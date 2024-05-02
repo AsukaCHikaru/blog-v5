@@ -1,26 +1,13 @@
+import { SECTIONS } from 'consts/sections';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useCallback } from 'react';
-
-type Section = { label: string; url: string; isHome: boolean };
-const SECTIONS: Section[] = [
-  {
-    label: 'BLOG',
-    url: '/blog',
-    isHome: true,
-  },
-  {
-    label: 'ABOUT',
-    url: '/about',
-    isHome: false,
-  },
-];
 
 export const SiteHeader = () => {
   const { pathname } = useRouter();
 
   const isLinkActive = useCallback(
-    (section: Section) => {
+    (section: (typeof SECTIONS)[keyof typeof SECTIONS]) => {
       return (
         (pathname === '/' && section.isHome) || pathname.startsWith(section.url)
       );
@@ -32,7 +19,7 @@ export const SiteHeader = () => {
     <>
       <div className="flex justify-between w-full mt-fb8 mb-fb2">
         <div className="w-fit flex gap-fb3">
-          {SECTIONS.map((section) => (
+          {Object.values(SECTIONS).map((section) => (
             <Link
               key={section.url}
               href={section.url}

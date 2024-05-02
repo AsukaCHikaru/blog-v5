@@ -52,7 +52,13 @@ export const BlockContent: FC<Props> = ({ block }) => {
       switch (block.depth) {
         case 1:
           return (
-            <h2 className="mt-8 text-2xl lg:text-4xl font-semibold">
+            <h2
+              className="mt-8 text-2xl lg:text-4xl font-semibold"
+              id={block.children
+                .map((item) => item.text)
+                .join('-')
+                .replace(/\s/g, '-')}
+            >
               {block.children.map((child, i) => (
                 <RichTextItem key={i} item={child} />
               ))}
@@ -60,7 +66,13 @@ export const BlockContent: FC<Props> = ({ block }) => {
           );
         case 2:
           return (
-            <h3 className="mt-8 text-xl lg:text-3xl font-semibold">
+            <h3
+              className="mt-8 text-xl lg:text-3xl font-semibold"
+              id={block.children
+                .map((item) => item.text)
+                .join('-')
+                .replace(/\s/g, '-')}
+            >
               {block.children.map((child, i) => (
                 <RichTextItem key={i} item={child} />
               ))}
@@ -68,7 +80,13 @@ export const BlockContent: FC<Props> = ({ block }) => {
           );
         case 3:
           return (
-            <h4 className="mt-8 text-lg lg:text-2xl font-semibold">
+            <h4
+              className="mt-8 text-lg lg:text-2xl font-semibold"
+              id={block.children
+                .map((item) => item.text)
+                .join('-')
+                .replace(/\s/g, '-')}
+            >
               {block.children.map((child, i) => (
                 <RichTextItem key={i} item={child} />
               ))}

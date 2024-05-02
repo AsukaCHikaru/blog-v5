@@ -7,6 +7,7 @@ import { SiteHead } from '@components/SiteHead';
 import { PostDetailPage } from '@components/blog/PostDetailPage';
 import { MarkdownBlock } from 'types/markdown';
 import { getCategoryList } from '@utils/markdownUtils';
+import { SECTIONS } from 'consts/sections';
 
 interface Props {
   postSummary: PostSummary;
@@ -19,7 +20,7 @@ const Home = ({ postSummary, categoryList, postDetail, last5posts }: Props) => (
   <>
     <SiteHead
       title="Blog | Asuka Wang"
-      description="Essays, reviews and notes."
+      description={SECTIONS.BLOG.description}
     />
     <PostDetailPage
       postDetail={postDetail}

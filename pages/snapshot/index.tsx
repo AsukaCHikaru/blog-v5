@@ -35,12 +35,12 @@ const SnapshotPage: FC<Props> = ({ content }) => {
   return (
     <>
       <SiteHead
-        title={`${SECTIONS.SNAPSHOT.title} | Asuka Wang`}
+        title={`${SECTIONS.SNAPSHOT.label} | Asuka Wang`}
         description={SECTIONS.SNAPSHOT.description}
       />
       <SectionHeader
-        title={SECTIONS.SNAPSHOT.title}
-        path={SECTIONS.SNAPSHOT.path}
+        title={SECTIONS.SNAPSHOT.label}
+        path={SECTIONS.SNAPSHOT.url}
         description={SECTIONS.SNAPSHOT.description}
       />
       <FullContentLayout>

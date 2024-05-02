@@ -18,7 +18,7 @@ export const AboutPage: FC<Props> = ({ content }) => {
   return (
     <>
       <SiteHead
-        title={`${SECTIONS.ABOUT.title} | Asuka Wang`}
+        title={`${SECTIONS.ABOUT.label} | Asuka Wang`}
         description={SECTIONS.ABOUT.description}
       />
       <h1 className="font-abril text-fb13 mb-fb13 leading-none">ABOUT</h1>

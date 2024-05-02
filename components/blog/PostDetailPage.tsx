@@ -37,7 +37,7 @@ export const PostDetailPage: FC<Props> = ({
           ))}
         </div>
         <SideColumn>
-          <TableOfContentColumn list={headers} />
+          {headers.length ? <TableOfContentColumn list={headers} /> : null}
           <ArchiveColumn postList={last5posts} />
           <CategoryListColumn categoryList={categoryList} />
         </SideColumn>

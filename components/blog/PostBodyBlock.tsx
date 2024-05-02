@@ -12,7 +12,7 @@ interface Props {
 
 export const PostBodyBlock: FC<Props> = ({ block }) => {
   return (
-    <div className="mb-6 text-lg lg:text-xl lg:leading-8">
+    <div className="mb-6 text-lg lg:text-xl lg:leading-8 last:mb-0">
       <BlockContent block={block} />
     </div>
   );

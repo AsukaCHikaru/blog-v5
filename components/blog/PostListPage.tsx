@@ -14,7 +14,7 @@ export const PostListPage: FC<Props> = ({ postList }) => {
         ARCHIVE
       </h1>
       <ContentLayout>
-        <ul>
+        <ul className="col-span-3">
           {postList.map((post) => {
             return <PostLink postSummary={post} key={post.id} />;
           })}

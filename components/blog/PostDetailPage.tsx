@@ -7,6 +7,7 @@ import { ContentLayout } from '@components/layout/ContentLayout';
 import { CategoryListColumn } from './CategoryListColumn';
 import { ArchiveColumn } from './ArchiveColumn';
 import { TableOfContentColumn } from './TableOfContentColumn';
+import { SideColumn } from './SideColumn';
 
 interface Props {
   categoryList: CategoryList;
@@ -35,11 +36,11 @@ export const PostDetailPage: FC<Props> = ({
             <PostBodyBlock block={block} key={i} />
           ))}
         </div>
-        <div className="flex flex-col gap-fb5">
+        <SideColumn>
           <TableOfContentColumn list={headers} />
           <ArchiveColumn postList={last5posts} />
           <CategoryListColumn categoryList={categoryList} />
-        </div>
+        </SideColumn>
       </ContentLayout>
     </div>
   );

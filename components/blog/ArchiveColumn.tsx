@@ -19,7 +19,7 @@ export const ArchiveColumn: FC<Props> = ({ postList }) => {
             className="flex flex-col gap-fb1 text-light75 hover:text-light"
             href={`/blog/${post.pathname}`}
           >
-            <div className="text-fb3 font-abril">{post.title}</div>
+            <div className="text-fb3 font-abril leading-none text-wrap-balance">{post.title}</div>
             <div className="text-fb2 leading-none font-noto-sans">
               {parseDateToEn(post.publishDate)}
             </div>

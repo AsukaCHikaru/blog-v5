@@ -1,6 +1,6 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { CategoryList, PostSummary } from '@types';
-import { HeadingBlock, MarkdownBlock } from 'types/markdown';
+import { MarkdownBlock } from 'types/markdown';
 import { PostBodyBlock } from './PostBodyBlock';
 import { PostDetailPageHeader } from './PostDetailPageHeader';
 import { ContentLayout } from '@components/layout/ContentLayout';
@@ -8,6 +8,7 @@ import { CategoryListColumn } from './CategoryListColumn';
 import { ArchiveColumn } from './ArchiveColumn';
 import { TableOfContentColumn } from './TableOfContentColumn';
 import { SideColumn } from './SideColumn';
+import { isHeadingBlock } from '@utils/markdownUtils';
 
 interface Props {
   categoryList: CategoryList;
@@ -15,9 +16,6 @@ interface Props {
   postDetail: MarkdownBlock[];
   last5posts: PostSummary[];
 }
-
-const isHeadingBlock = (block: MarkdownBlock): block is HeadingBlock =>
-  block.type === 'heading';
 
 export const PostDetailPage: FC<Props> = ({
   categoryList,

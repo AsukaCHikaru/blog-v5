@@ -1,4 +1,9 @@
-import { ListBlock, MarkdownBlock, TextBlock } from 'types/markdown';
+import {
+  HeadingBlock,
+  ListBlock,
+  MarkdownBlock,
+  TextBlock,
+} from 'types/markdown';
 import { PostLanguage, PostSummary } from '../types';
 import { YAML, Content, PhrasingContent, Paragraph, List } from 'mdast';
 import { unified } from 'unified';
@@ -177,6 +182,9 @@ export const convertFrontmatterToSummary = (
   };
   return postSummary;
 };
+
+export const isHeadingBlock = (block: MarkdownBlock): block is HeadingBlock =>
+  block.type === 'heading';
 
 export const getCategoryList = (list: PostSummary[]) => {
   const map = new Map<string, number>();

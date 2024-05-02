@@ -1,29 +1,44 @@
-import { PostSummary } from '@types';
-import { PostListPage } from '@components/blog/PostListPage';
-import { getBlogPostList } from '../services/markdownServices';
+import { CategoryList, PostSummary } from '@types';
+import {
+  getBlogPostContent,
+  getBlogPostList,
+} from '../services/markdownServices';
 import { SiteHead } from '@components/SiteHead';
-import { SECTIONS } from 'consts/sections';
+import { PostDetailPage } from '@components/blog/PostDetailPage';
+import { MarkdownBlock } from 'types/markdown';
+import { getCategoryList } from '@utils/markdownUtils';
 
 interface Props {
-  postSummaryList: PostSummary[];
+  postSummary: PostSummary;
+  postDetail: MarkdownBlock[];
+  categoryList: CategoryList;
+  last5posts: PostSummary[];
 }
 
-const Home = ({ postSummaryList }: Props) => (
+const Home = ({ postSummary, categoryList, postDetail, last5posts }: Props) => (
   <>
-    <SiteHead
-      title={`${SECTIONS.BLOG.title} | Asuka Wang`}
-      description={SECTIONS.BLOG.description}
+    <SiteHead title="Asuka Wang" description="Asuka Wang's personal site." />
+    <PostDetailPage
+      postDetail={postDetail}
+      postSummary={postSummary}
+      categoryList={categoryList}
+      last5posts={last5posts}
     />
-    <PostListPage postSummaryList={postSummaryList} />
   </>
 );
 
 export async function getStaticProps() {
   const postList = await getBlogPostList();
-  const postSummaryList = postList.map((post) => post.postSummary);
+  const lastPost = postList[0];
+  const postDetail = getBlogPostContent(lastPost.filename);
+  const categoryList = getCategoryList(postList.map((item) => item));
+  const last5posts = postList.slice(0, 5);
   return {
     props: {
-      postSummaryList,
+      postSummary: lastPost,
+      postDetail,
+      categoryList,
+      last5posts,
     },
   };
 }

@@ -21,7 +21,9 @@ export const SiteHeader = () => {
 
   const isLinkActive = useCallback(
     (section: Section) => {
-      return (pathname === '/' && section.isHome) || pathname === section.url;
+      return (
+        (pathname === '/' && section.isHome) || pathname.startsWith(section.url)
+      );
     },
     [pathname],
   );

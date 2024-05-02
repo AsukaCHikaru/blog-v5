@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { PostMetadata } from '@types';
 import { PostLink } from './PostLink';
 import { ContentLayout } from '@components/layout/ContentLayout';
+import { SideColumn } from './SideColumn';
 
 interface Props {
   postList: PostMetadata[];
@@ -21,6 +22,7 @@ export const PostListPage: FC<Props> = ({ postList }) => {
             })}
           </ul>
         </div>
+        <SideColumn />
       </ContentLayout>
     </>
   );

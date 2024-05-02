@@ -4,7 +4,7 @@ const size = {
   fb3: '21px',
   fb5: '35px',
   fb8: '56px',
-  fb11: '77px',
+  fb13: '91px',
 };
 
 /** @type {import('tailwindcss').Config} */

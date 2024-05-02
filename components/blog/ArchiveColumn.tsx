@@ -2,6 +2,7 @@ import { PostSummary } from '@types';
 import { FC } from 'react';
 import { SideColumnHeader } from './SideColumnHeader';
 import { parseDateToEn } from '@utils/dateTimeUtils';
+import Link from 'next/link';
 
 interface Props {
   postList: PostSummary[];
@@ -23,6 +24,12 @@ export const ArchiveColumn: FC<Props> = ({ postList }) => {
             </div>
           </div>
         ))}
+        <Link href="/blog/archive" className="flex items-end">
+          <div className="flex-grow border-b border-dashed border-light50 hover:border-light" />
+          <span className="font-noto-sans text-fb3 leading-none text-light75 hover:text-light">
+            FULL LIST
+          </span>
+        </Link>
       </div>
     </div>
   );

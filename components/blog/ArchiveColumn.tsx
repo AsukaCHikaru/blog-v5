@@ -14,15 +14,16 @@ export const ArchiveColumn: FC<Props> = ({ postList }) => {
       <SideColumnHeader>ARCHIVE</SideColumnHeader>
       <div className="flex flex-col gap-fb3">
         {postList.map((post) => (
-          <div
+          <Link
             key={post.pathname}
-            className="flex flex-col gap-fb1 text-light75"
+            className="flex flex-col gap-fb1 text-light75 hover:text-light"
+            href={`/blog/${post.pathname}`}
           >
             <div className="text-fb3 font-abril">{post.title}</div>
             <div className="text-fb2 leading-none font-noto-sans">
               {parseDateToEn(post.publishDate)}
             </div>
-          </div>
+          </Link>
         ))}
         <Link href="/blog/archive" className="flex items-end">
           <div className="flex-grow border-b border-dashed border-light50 hover:border-light" />

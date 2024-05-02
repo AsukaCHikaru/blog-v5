@@ -14,11 +14,13 @@ export const PostListPage: FC<Props> = ({ postList }) => {
         ARCHIVE
       </h1>
       <ContentLayout>
-        <ul className="col-span-3">
-          {postList.map((post) => {
-            return <PostLink postSummary={post} key={post.id} />;
-          })}
-        </ul>
+        <div className="col-span-3">
+          <ul>
+            {postList.map((post) => {
+              return <PostLink postSummary={post} key={post.id} />;
+            })}
+          </ul>
+        </div>
       </ContentLayout>
     </>
   );

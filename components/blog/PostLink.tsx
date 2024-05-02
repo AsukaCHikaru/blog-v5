@@ -10,7 +10,7 @@ interface Props {
 
 export const PostLink: FC<Props> = ({ postSummary }) => {
   return (
-    <li className="flex flex-col gap-fb2 mt-fb8 first-of-type:mt-0">
+    <li className="flex flex-col gap-fb2 mt-fb8 first-of-type:mt-0 text-light75 hover:text-light">
       <div className="font-abril text-fb8 leading-none">
         <Link href={`/blog/${postSummary.pathname}`}>{postSummary.title}</Link>
       </div>

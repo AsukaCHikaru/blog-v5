@@ -6,6 +6,7 @@ import {
 import { SiteHead } from '@components/SiteHead';
 import { PostDetailPage } from '@components/blog/PostDetailPage';
 import { MarkdownBlock } from 'types/markdown';
+import { getCategoryList } from '@utils/markdownUtils';
 
 interface Props {
   postSummary: PostSummary;
@@ -28,16 +29,6 @@ const Home = ({ postSummary, categoryList, postDetail, last5posts }: Props) => (
     />
   </>
 );
-
-const getCategoryList = (list: PostSummary[]) => {
-  const map = new Map<string, number>();
-  list.forEach(({ category }) => {
-    const current = map.get(category);
-    if (current) map.set(category, current + 1);
-    else map.set(category, 1);
-  });
-  return Object.fromEntries(map.entries());
-};
 
 export async function getStaticProps() {
   const postList = await getBlogPostList();

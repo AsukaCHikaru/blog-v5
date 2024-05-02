@@ -1,41 +1,46 @@
 import { FC } from 'react';
-import { PostBodyBlock } from '@components/blog/PostBodyBlock';
-import { PostDetailPageHeader } from '@components/blog/PostDetailPageHeader';
 import {
   getBlogPostContent,
   getBlogPostList,
 } from '../../services/markdownServices';
-import { PostSummary } from '@types';
+import { CategoryList, PostSummary } from '@types';
 import { SiteHead } from '@components/SiteHead';
 import { MarkdownBlock } from 'types/markdown';
-import { FullContentLayout } from '@components/layout/FullContentLayout';
+import { PostDetailPage } from '@components/blog/PostDetailPage';
+import { getCategoryList } from '@utils/markdownUtils';
 
 interface Props {
   postContent: MarkdownBlock[];
   postSummary: PostSummary;
+  categoryList: CategoryList;
+  last5posts: PostSummary[];
 }
 
-const Post: FC<Props> = ({ postContent, postSummary }) => {
+const Post: FC<Props> = ({
+  postContent,
+  postSummary,
+  last5posts,
+  categoryList,
+}) => {
   const title = postSummary.title + ' | Asuka Wang';
 
   return (
     <>
       <SiteHead title={title} description="Asuka Wang's blog" />
-      <PostDetailPageHeader postSummary={postSummary} />
-      <FullContentLayout>
-        {postContent.map((block, i) => (
-          <PostBodyBlock block={block} key={i} />
-        ))}
-      </FullContentLayout>
+      <PostDetailPage
+        postSummary={postSummary}
+        postDetail={postContent}
+        categoryList={categoryList}
+        last5posts={last5posts}
+      />
     </>
   );
 };
 
 export const getStaticPaths = async () => {
   const postList = await getBlogPostList();
-  const postSummaryList = postList.map((post) => post.postSummary);
 
-  const paths = postSummaryList.map((postSummary) => ({
+  const paths = postList.map((postSummary) => ({
     params: { pathname: postSummary.pathname },
   }));
 
@@ -48,9 +53,8 @@ export const getStaticProps = async ({
   params: { pathname: string };
 }) => {
   const postList = await getBlogPostList();
-  const postSummaryList = postList.map((post) => post.postSummary);
 
-  const thisPost = postSummaryList.find(
+  const thisPost = postList.find(
     (postSummary) => postSummary.pathname === params.pathname,
   );
 
@@ -60,7 +64,12 @@ export const getStaticProps = async ({
 
   const postContent = getBlogPostContent(thisPost.filename);
 
-  return { props: { postContent, postSummary: thisPost } };
+  const categoryList = getCategoryList(postList.map((item) => item));
+  const last5posts = postList.slice(0, 5);
+
+  return {
+    props: { postContent, postSummary: thisPost, categoryList, last5posts },
+  };
 };
 
 export default Post;

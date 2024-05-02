@@ -177,3 +177,13 @@ export const convertFrontmatterToSummary = (
   };
   return postSummary;
 };
+
+export const getCategoryList = (list: PostSummary[]) => {
+  const map = new Map<string, number>();
+  list.forEach(({ category }) => {
+    const current = map.get(category);
+    if (current) map.set(category, current + 1);
+    else map.set(category, 1);
+  });
+  return Object.fromEntries(map.entries());
+};

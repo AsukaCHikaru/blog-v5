@@ -4,7 +4,7 @@ import {
   MarkdownBlock,
   TextBlock,
 } from 'types/markdown';
-import { PostLanguage, PostSummary } from '../types';
+import { PostLanguage, PostMetadata } from '../types';
 import { YAML, Content, PhrasingContent, Paragraph, List } from 'mdast';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
@@ -168,8 +168,8 @@ export const parseMarkdown = (raw: string) => {
 
 export const convertFrontmatterToSummary = (
   frontmatter: Record<string, string>,
-): PostSummary => {
-  const postSummary: PostSummary = {
+): PostMetadata => {
+  const postMetadata: PostMetadata = {
     id: frontmatter.pathname,
     title: frontmatter.title,
     category: frontmatter.category,
@@ -180,13 +180,13 @@ export const convertFrontmatterToSummary = (
     zhTwLink: null,
     filename: frontmatter.filename,
   };
-  return postSummary;
+  return postMetadata;
 };
 
 export const isHeadingBlock = (block: MarkdownBlock): block is HeadingBlock =>
   block.type === 'heading';
 
-export const getCategoryList = (list: PostSummary[]) => {
+export const getCategoryList = (list: PostMetadata[]) => {
   const map = new Map<string, number>();
   list.forEach(({ category }) => {
     const current = map.get(category);

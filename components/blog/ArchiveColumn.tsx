@@ -1,11 +1,11 @@
-import { PostSummary } from '@types';
+import { PostMetadata } from '@types';
 import { FC } from 'react';
 import { SideColumnHeader } from './SideColumnHeader';
 import { parseDateToEn } from '@utils/dateTimeUtils';
 import Link from 'next/link';
 
 interface Props {
-  postList: PostSummary[];
+  postList: PostMetadata[];
 }
 
 export const ArchiveColumn: FC<Props> = ({ postList }) => {

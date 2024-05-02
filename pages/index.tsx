@@ -1,4 +1,4 @@
-import { CategoryList, PostSummary } from '@types';
+import { CategoryList, PostMetadata } from '@types';
 import {
   getBlogPostContent,
   getBlogPostList,
@@ -9,18 +9,18 @@ import { MarkdownBlock } from 'types/markdown';
 import { getCategoryList } from '@utils/markdownUtils';
 
 interface Props {
-  postSummary: PostSummary;
+  postMetadata: PostMetadata;
   postDetail: MarkdownBlock[];
   categoryList: CategoryList;
-  last5posts: PostSummary[];
+  last5posts: PostMetadata[];
 }
 
-const Home = ({ postSummary, categoryList, postDetail, last5posts }: Props) => (
+const Home = ({ postMetadata, categoryList, postDetail, last5posts }: Props) => (
   <>
     <SiteHead title="Asuka Wang" description="Asuka Wang's personal site." />
     <PostDetailPage
       postDetail={postDetail}
-      postSummary={postSummary}
+      postMetadata={postMetadata}
       categoryList={categoryList}
       last5posts={last5posts}
     />
@@ -35,7 +35,7 @@ export async function getStaticProps() {
   const last5posts = postList.slice(0, 5);
   return {
     props: {
-      postSummary: lastPost,
+      postMetadata: lastPost,
       postDetail,
       categoryList,
       last5posts,

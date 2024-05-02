@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { CategoryList, PostSummary } from '@types';
+import { CategoryList, PostMetadata } from '@types';
 import { MarkdownBlock } from 'types/markdown';
 import { PostBodyBlock } from './PostBodyBlock';
 import { PostDetailPageHeader } from './PostDetailPageHeader';
@@ -12,14 +12,14 @@ import { isHeadingBlock } from '@utils/markdownUtils';
 
 interface Props {
   categoryList: CategoryList;
-  postSummary: PostSummary;
+  postMetadata: PostMetadata;
   postDetail: MarkdownBlock[];
-  last5posts: PostSummary[];
+  last5posts: PostMetadata[];
 }
 
 export const PostDetailPage: FC<Props> = ({
   categoryList,
-  postSummary,
+  postMetadata,
   postDetail,
   last5posts,
 }) => {
@@ -27,7 +27,7 @@ export const PostDetailPage: FC<Props> = ({
 
   return (
     <div>
-      <PostDetailPageHeader postSummary={postSummary} />
+      <PostDetailPageHeader postMetadata={postMetadata} />
       <ContentLayout>
         <div className="col-span-3">
           {postDetail.map((block, i) => (

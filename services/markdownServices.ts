@@ -17,16 +17,16 @@ export const getBlogPostList = async () => {
         'utf-8',
       );
       const { frontmatter } = parseMarkdown(markdown);
-      const postSummary = convertFrontmatterToSummary(frontmatter);
+      const postMetadata = convertFrontmatterToSummary(frontmatter);
 
-      return { postSummary };
+      return { postMetadata };
     })
     .sort(
       (prev, next) =>
-        new Date(next.postSummary.publishDate).getTime() -
-        new Date(prev.postSummary.publishDate).getTime(),
+        new Date(next.postMetadata.publishDate).getTime() -
+        new Date(prev.postMetadata.publishDate).getTime(),
     )
-    .map((item) => item.postSummary);
+    .map((item) => item.postMetadata);
   return allPostsData;
 };
 

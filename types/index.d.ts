@@ -1,6 +1,6 @@
 export type PostLanguage = 'enUS' | 'zhTW';
 
-export type PostSummary = {
+export type PostMetadata = {
   id: string;
   title: string;
   category: string;

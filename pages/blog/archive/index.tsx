@@ -1,10 +1,10 @@
-import { PostSummary } from '@types';
+import { PostMetadata } from '@types';
 import { getBlogPostList } from '../../../services/markdownServices';
 import { SiteHead } from '@components/SiteHead';
 import { PostListPage } from '@components/blog/PostListPage';
 
 interface Props {
-  postList: PostSummary[];
+  postList: PostMetadata[];
 }
 
 const Home = ({ postList }: Props) => (

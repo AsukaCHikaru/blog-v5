@@ -54,7 +54,7 @@ import { Content } from 'mdast';
 
 interface Props {
   list: Content[];
-  postSummary: PostSummary;
+  postMetadata: PostMetadata;
 }
 ```
 

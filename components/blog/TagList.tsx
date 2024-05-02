@@ -1,8 +1,8 @@
 import { FC, useMemo } from 'react';
-import { PostSummary } from '@types';
+import { PostMetadata } from '@types';
 
 interface Props {
-  postSummaryList: PostSummary[];
+  postSummaryList: PostMetadata[];
   selectedTag?: string;
   onTagClick: (tag: string) => void;
 }
@@ -15,7 +15,7 @@ export const TagList: FC<Props> = ({
   const tagList = useMemo(() => {
     const result: string[] = [];
     postSummaryList
-      .flatMap((postSummary) => postSummary.tags)
+      .flatMap((postMetadata) => postMetadata.tags)
       .forEach((tag) => {
         if (result.includes(tag)) {
           return;

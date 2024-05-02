@@ -1,10 +1,10 @@
 import { FC, useMemo } from 'react';
-import { PostSummary } from '@types';
+import { PostMetadata } from '@types';
 import { SideContentLayout } from './layout/SideContentLayout';
 
 interface Props {
   selectedCategory?: string;
-  postSummaryList: PostSummary[];
+  postSummaryList: PostMetadata[];
   onCategoryClick: (category: string) => void;
 }
 

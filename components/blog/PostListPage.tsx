@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import { PostSummary } from '@types';
+import { PostMetadata } from '@types';
 import { PostLink } from './PostLink';
 import { ContentLayout } from '@components/layout/ContentLayout';
 
 interface Props {
-  postList: PostSummary[];
+  postList: PostMetadata[];
 }
 
 export const PostListPage: FC<Props> = ({ postList }) => {
@@ -17,7 +17,7 @@ export const PostListPage: FC<Props> = ({ postList }) => {
         <div className="col-span-3">
           <ul>
             {postList.map((post) => {
-              return <PostLink postSummary={post} key={post.id} />;
+              return <PostLink postMetadata={post} key={post.id} />;
             })}
           </ul>
         </div>

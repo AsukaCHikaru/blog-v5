@@ -22,6 +22,7 @@ module.exports = {
         'abhaya-libre': ['var(--font-abhaya-libre)'],
         'gentium-basic': ['var(--font-gentium-basic)'],
         alegreya: ['var(--font-alegreya)', 'var(--font-jp)'],
+        abril: ['var(--font-abril)'],
         courier: ['Courier New', 'Courier', 'monospace'],
       },
       colors: {

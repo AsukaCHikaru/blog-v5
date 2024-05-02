@@ -13,8 +13,11 @@ export const ArchiveColumn: FC<Props> = ({ postList }) => {
       <SideColumnHeader>ARCHIVE</SideColumnHeader>
       <div className="flex flex-col gap-fb3">
         {postList.map((post) => (
-          <div key={post.pathname} className="flex flex-col gap-fb1">
-            <div className="text-fb3 leading-tight">{post.title}</div>
+          <div
+            key={post.pathname}
+            className="flex flex-col gap-fb1 text-light75"
+          >
+            <div className="text-fb3 font-abril">{post.title}</div>
             <div className="text-fb2 leading-none font-noto-sans">
               {parseDateToEn(post.publishDate)}
             </div>

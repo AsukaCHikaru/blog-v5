@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import {
   Abhaya_Libre,
+  Abril_Fatface,
   Alegreya,
   Amiri,
   Gentium_Book_Basic,
@@ -42,6 +43,11 @@ const alegreya = Alegreya({
   display: 'swap',
   variable: '--font-alegreya',
 });
+const abril = Abril_Fatface({
+  weight: ['400'],
+  display: 'swap',
+  variable: '--font-abril',
+});
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -52,6 +58,7 @@ export default function App({ Component, pageProps }: AppProps) {
         ${abhayaLibre.variable}
         ${gentiumBasic.variable}
         ${alegreya.variable}
+        ${abril.variable}
         font-serif`}
     >
       <ThemeLayout>

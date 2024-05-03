@@ -2,19 +2,19 @@ import { FC, useMemo } from 'react';
 import { PostMetadata } from '@types';
 
 interface Props {
-  postSummaryList: PostMetadata[];
+  postMetadataList: PostMetadata[];
   selectedTag?: string;
   onTagClick: (tag: string) => void;
 }
 
 export const TagList: FC<Props> = ({
-  postSummaryList,
+  postMetadataList,
   selectedTag,
   onTagClick,
 }) => {
   const tagList = useMemo(() => {
     const result: string[] = [];
-    postSummaryList
+    postMetadataList
       .flatMap((postMetadata) => postMetadata.tags)
       .forEach((tag) => {
         if (result.includes(tag)) {
@@ -23,7 +23,7 @@ export const TagList: FC<Props> = ({
         result.push(tag);
       });
     return result.sort();
-  }, [postSummaryList]);
+  }, [postMetadataList]);
 
   return (
     <div className="mt-8">

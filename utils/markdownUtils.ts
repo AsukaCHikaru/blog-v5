@@ -166,7 +166,7 @@ export const parseMarkdown = (raw: string) => {
   };
 };
 
-export const convertFrontmatterToSummary = (
+export const convertFrontmatterToMetadata = (
   frontmatter: Record<string, string>,
 ): PostMetadata => {
   const postMetadata: PostMetadata = {

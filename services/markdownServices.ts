@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { resolve } from 'path';
 import {
-  convertFrontmatterToSummary,
+  convertFrontmatterToMetadata,
   parseMarkdown,
 } from '../utils/markdownUtils';
 
@@ -17,7 +17,7 @@ export const getBlogPostList = async () => {
         'utf-8',
       );
       const { frontmatter } = parseMarkdown(markdown);
-      const postMetadata = convertFrontmatterToSummary(frontmatter);
+      const postMetadata = convertFrontmatterToMetadata(frontmatter);
 
       return { postMetadata };
     })

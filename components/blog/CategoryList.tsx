@@ -1,28 +1,27 @@
 import { FC, useMemo } from 'react';
 import { PostMetadata } from '@types';
-import { SideContentLayout } from './layout/SideContentLayout';
 
 interface Props {
   selectedCategory?: string;
-  postSummaryList: PostMetadata[];
+  postMetadataList: PostMetadata[];
   onCategoryClick: (category: string) => void;
 }
 
 export const CategoryList: FC<Props> = ({
   selectedCategory,
-  postSummaryList,
+  postMetadataList,
   onCategoryClick,
 }) => {
   const categoryList = useMemo(() => {
     const result: string[] = [];
-    postSummaryList.forEach(({ category }) => {
+    postMetadataList.forEach(({ category }) => {
       if (result.includes(category)) {
         return;
       }
       result.push(category);
     });
     return result.sort();
-  }, [postSummaryList]);
+  }, [postMetadataList]);
 
   return (
     <div>

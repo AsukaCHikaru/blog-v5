@@ -13,9 +13,11 @@ export const PostDetailPageHeader: FC<Props> = ({ postMetadata }) => {
       <h1 className="text-fb13 font-abril leading-none">
         {postMetadata.title.toUpperCase()}
       </h1>
-      <h2 className="text-fb5 italic font-gentium-basic">
-        TODO: Post Description Things I learned in my first Godot project
-      </h2>
+      {postMetadata.description ? (
+        <h2 className="text-fb5 italic font-gentium-basic leading-tight">
+          {postMetadata.description}
+        </h2>
+      ) : null}
       <div className="text-fb3 font-noto-sans">
         {parseDateToEn(postMetadata.publishDate)}
       </div>

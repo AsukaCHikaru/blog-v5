@@ -10,6 +10,7 @@ export type PostMetadata = {
   pathname: string;
   zhTwLink: string | null;
   filename: string;
+  description?: string; // TODO: remove optional after description for all posts are completed
 };
 
 export type CategoryList = {

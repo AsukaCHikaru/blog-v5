@@ -172,6 +172,7 @@ export const convertFrontmatterToSummary = (
   const postMetadata: PostMetadata = {
     id: frontmatter.pathname,
     title: frontmatter.title,
+    description: frontmatter.description || '',
     category: frontmatter.category,
     language: [frontmatter.language as PostLanguage],
     tags: frontmatter.tags?.split(/,\s?/) || [],

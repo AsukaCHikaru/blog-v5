@@ -25,14 +25,6 @@ module.exports = {
         abril: ['var(--font-abril)', 'var(--font-jp)'],
         courier: ['Courier New', 'Courier', 'monospace'],
       },
-      colors: {
-        dark: '#27221F',
-        light: '#F5F2E8',
-        light50: 'rgba(245, 242, 232, 0.5)',
-        light75: 'rgba(245, 242, 232, 0.75)',
-        secondDark: '#5B4F49',
-        secondLight: '#C4C2BA',
-      },
       textWrap: {
         balance: 'balance',
       },

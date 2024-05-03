@@ -4,11 +4,8 @@ export const DarkModeButton = () => {
   const { toggleDarkMode } = useDarkMode();
 
   return (
-    <button
-      className="whitespace-pre text-right text-xs lg:text-sm leading-4"
-      onClick={toggleDarkMode}
-    >
-      dark{`\n`}mode
+    <button className="font-noto-sans text-fb2" onClick={toggleDarkMode}>
+      dark mode
     </button>
   );
 };

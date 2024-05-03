@@ -2,6 +2,7 @@ import { SECTIONS } from 'consts/sections';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useCallback } from 'react';
+import { DarkModeButton } from './DarkModeButton';
 
 export const SiteHeader = () => {
   const { pathname } = useRouter();
@@ -16,7 +17,10 @@ export const SiteHeader = () => {
   );
 
   return (
-    <>
+    <div className="mt-fb2">
+      <div className="flex justify-end">
+        <DarkModeButton />
+      </div>
       <div className="flex justify-between w-full mt-fb8 mb-fb2">
         <div className="w-fit flex gap-fb3">
           {Object.values(SECTIONS).map((section) => (
@@ -39,6 +43,6 @@ export const SiteHeader = () => {
         </Link>
       </div>
       <div className="mb-fb3 border-t-2 border-b h-2 border-dark dark:border-light" />
-    </>
+    </div>
   );
 };

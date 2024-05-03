@@ -6,11 +6,11 @@
   --max-width: 1100px;
   --border-radius: 12px;
   --light: rgba(245, 242, 232, 1);
-  --light75: rgba(245, 242, 232, 0.75);
-  --light50: rgba(245, 242, 232, 0.5);
+  --light-second: rgba(245, 242, 232, 0.75);
+  --light-third: rgba(245, 242, 232, 0.5);
   --dark: rgba(39, 34, 31, 1);
-  --dark75: rgba(39, 34, 31, 0.75);
-  --dark50: rgba(39, 34, 31, 0.5);
+  --dark-second: rgba(39, 34, 31, 0.7);
+  --dark-third: rgba(39, 34, 31, 0.5);
 }
 
 * {
@@ -26,8 +26,8 @@ body {
 }
 
 .interactive-color {
-  color: var(--dark75);
-  border-color: var(--dark75);
+  color: var(--dark-second);
+  border-color: var(--dark-second);
 
   &:hover {
     color: var(--dark);
@@ -40,7 +40,7 @@ body {
 }
 
 .text-color-second {
-  color: var(--dark50);
+  color: var(--dark-second);
 }
 
 .border-color-100 {
@@ -48,11 +48,11 @@ body {
 }
 
 .border-color {
-  border-color: var(--dark50);
+  border-color: var(--dark-third);
 }
 
 .interactive-list-color {
-  color: var(--dark75);
+  color: var(--dark-second);
 
   &:hover {
     color: var(--dark);
@@ -61,8 +61,8 @@ body {
 
 .dark {
   .interactive-color {
-    color: var(--light75);
-    border-color: var(--light75);
+    color: var(--light-second);
+    border-color: var(--light-second);
 
     &:hover {
       color: var(--light);
@@ -75,7 +75,7 @@ body {
   }
 
   .text-color-second {
-    color: var(--light50);
+    color: var(--light-second);
   }
 
   .border-color-100 {
@@ -83,11 +83,11 @@ body {
   }
 
   .border-color {
-    border-color: var(--light50);
+    border-color: var(--light-third);
   }
 
   .interactive-list-color {
-    color: var(--light75);
+    color: var(--light-second);
 
     &:hover {
       color: var(--light);

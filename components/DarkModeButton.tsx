@@ -4,7 +4,10 @@ export const DarkModeButton = () => {
   const { toggleDarkMode } = useDarkMode();
 
   return (
-    <button className="font-noto-sans text-fb2" onClick={toggleDarkMode}>
+    <button
+      className="font-noto-sans text-fb2 interactive-color"
+      onClick={toggleDarkMode}
+    >
       dark mode
     </button>
   );

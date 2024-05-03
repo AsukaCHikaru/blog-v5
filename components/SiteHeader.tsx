@@ -27,9 +27,9 @@ export const SiteHeader = () => {
             <Link
               key={section.url}
               href={section.url}
-              className={`text-fb3 leading-fb5 opacity-75 ${
-                isLinkActive(section) ? 'opacity-100' : ''
-              } hover:opacity-100`}
+              className={`text-fb3 leading-fb5 interactive-color ${
+                isLinkActive(section) ? 'text-color' : ''
+              }`}
             >
               {section.label}
             </Link>
@@ -42,7 +42,7 @@ export const SiteHeader = () => {
           ASUKA WANG
         </Link>
       </div>
-      <div className="mb-fb3 border-t-2 border-b h-2 border-dark dark:border-light" />
+      <div className="mb-fb3 border-t-2 border-b h-2 border-color-100" />
     </div>
   );
 };

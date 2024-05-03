@@ -12,7 +12,7 @@ export const TableOfContentColumn: FC<Props> = ({ list }) => {
   return (
     <div>
       <SideColumnHeader>TABLE OF CONTENT</SideColumnHeader>
-      <ul className="ml-fb3 list-outside list-disc marker:text-light75 hover:marker:text-light">
+      <ul className="ml-fb3 list-outside list-disc interactive-list-color">
         {list.map((header) => (
           <HeaderLink block={header} key={header.children[0].text} />
         ))}
@@ -33,7 +33,7 @@ const HeaderLink: FC<{ block: HeadingBlock }> = ({ block }) => {
         ))}
       <Link
         href={`${pathname}#${text.join('-').replace(/\s/g, '-')}`}
-        className="font-serif text-fb3 leading-none text-light75 hover:text-light"
+        className="font-serif text-fb3 leading-none interactive-color"
       >
         {text}
       </Link>

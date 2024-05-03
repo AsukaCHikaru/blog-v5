@@ -16,7 +16,7 @@ export const ArchiveColumn: FC<Props> = ({ postList }) => {
         {postList.map((post) => (
           <Link
             key={post.pathname}
-            className="flex flex-col gap-fb1 text-light75 hover:text-light"
+            className="flex flex-col gap-fb1 interactive-color"
             href={`/blog/${post.pathname}`}
           >
             <div className="text-fb3 font-abril leading-none text-wrap-balance">
@@ -28,7 +28,7 @@ export const ArchiveColumn: FC<Props> = ({ postList }) => {
           </Link>
         ))}
         <Link href="/blog/archive" className="flex items-end justify-end">
-          <span className="font-noto-sans text-fb3 leading-none text-light75 hover:text-light">
+          <span className="font-noto-sans text-fb3 leading-none interactive-color">
             FULL LIST
           </span>
         </Link>

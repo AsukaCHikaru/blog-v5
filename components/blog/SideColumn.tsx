@@ -10,7 +10,7 @@ export const SideColumn: FC<PropsWithChildren> = ({ children }) => {
       <div className="flex flex-col gap-fb5">{children}</div>
       <div className="self-end mt-fb5">
         <button
-          className="font-noto-sans text-fb3 text-light75 hover:text-light"
+          className="font-noto-sans text-fb3 interactive-color"
           onClick={handleTopClick}
         >
           TOP

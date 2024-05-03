@@ -42,7 +42,7 @@ export const BlockContent: FC<Props> = ({ block }) => {
             height={400}
             className="m-auto"
           />
-          <span className="flex justify-center text-secondDark dark:text-secondLight text-lg">
+          <span className="flex justify-center text-color-second text-lg">
             {block.caption}
           </span>
         </>
@@ -130,9 +130,7 @@ export const BlockContent: FC<Props> = ({ block }) => {
       return <QuoteBlock block={block} />;
 
     case 'thematicBreak':
-      return (
-        <hr className="my-16 w-80 mx-auto border-secondDark dark:border-secondLight" />
-      );
+      return <hr className="my-16 w-80 mx-auto border-color" />;
 
     default:
       return null;

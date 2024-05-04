@@ -20,7 +20,7 @@ export const CategoryListColumn: FC<Props> = ({ categoryList }) => {
           .map(([category, postNumber]) => (
             <div key={`category-list-item-${category}`}>
               <Link
-                href={`/blog?category=${category}`}
+                href={`/blog/archive?category=${category}`}
                 className="flex leading-fb3 items-end interactive-color"
               >
                 <span className="text-fb3 font-alegreya">{category}</span>

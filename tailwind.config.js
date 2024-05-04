@@ -20,7 +20,7 @@ module.exports = {
         serif: ['var(--font-jp)'],
         'noto-sans': ['var(--font-noto-sans)'],
         'abhaya-libre': ['var(--font-abhaya-libre)'],
-        'gentium-basic': ['var(--font-gentium-basic)'],
+        'gentium-basic': ['var(--font-gentium-basic)', 'var(--font-jp)'],
         alegreya: ['var(--font-alegreya)', 'var(--font-jp)'],
         abril: ['var(--font-abril)', 'var(--font-jp)'],
         courier: ['Courier New', 'Courier', 'monospace'],

@@ -29,7 +29,7 @@ export const PostDetailPage: FC<Props> = ({
     <div>
       <PostDetailPageHeader postMetadata={postMetadata} />
       <ContentLayout>
-        <div className="col-span-3">
+        <div className="col-span-4 lg:col-span-3">
           {postDetail.map((block, i) => (
             <PostBodyBlock block={block} key={i} />
           ))}

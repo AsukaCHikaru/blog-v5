@@ -16,7 +16,9 @@ export const PostListPage: FC<Props> = ({ postList, category }) => {
 
   return (
     <>
-      <h1 className={`mb-fb13 text-fb13 leading-none ${headerTypography}`}>
+      <h1
+        className={`text-fb8 mb-fb8 lg:mb-fb13 lg:text-fb13 leading-none ${headerTypography}`}
+      >
         {category || 'ARCHIVE'}
       </h1>
       <ContentLayout>

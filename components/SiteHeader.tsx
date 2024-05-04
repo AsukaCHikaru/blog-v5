@@ -18,10 +18,10 @@ export const SiteHeader = () => {
 
   return (
     <div className="mt-fb1 lg:mt-fb2">
-      <div className="flex justify-between lg:justify-end">
-        <button className="block lg:hidden font-noto-sans text-fb2 leading-none interactive-color">
+      <div className="flex justify-end">
+        {/* <button className="block lg:hidden font-noto-sans text-fb2 leading-none interactive-color">
           MENU
-        </button>
+        </button> */}
         <DarkModeButton />
       </div>
       <div className="flex justify-between w-full mt-fb8 mb-fb2">
@@ -45,7 +45,7 @@ export const SiteHeader = () => {
           ASUKA WANG
         </Link>
       </div>
-      <div className="mb-fb3 border-t-2 border-b h-2 border-color-100" />
+      <div className="mb-fb2 lg:mb-fb3 border-t-2 border-b h-2 border-color-100" />
     </div>
   );
 };

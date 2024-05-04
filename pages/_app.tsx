@@ -34,7 +34,7 @@ const gentiumBasic = Gentium_Plus({
   variable: '--font-gentium-basic',
 });
 const notoSans = Noto_Sans({
-  weight: ['200'],
+  weight: ['100', '200'],
   display: 'swap',
   variable: '--font-noto-sans',
 });

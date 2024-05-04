@@ -10,17 +10,15 @@ interface Props {
 }
 
 export const PostListPage: FC<Props> = ({ postList, category }) => {
+  const headerTypography = category
+    ? 'font-gentium-basic'
+    : 'font-noto-sans font-thin';
+
   return (
     <>
-      {category ? (
-        <h1 className="mb-fb13 text-fb13 font-gentium-basic leading-none">
-          {category}
-        </h1>
-      ) : (
-        <h1 className="mb-fb13 text-fb13  font-noto-sans leading-none font-extralight">
-          ARCHIVE
-        </h1>
-      )}
+      <h1 className={`mb-fb13 text-fb13 leading-none ${headerTypography}`}>
+        {category || 'ARCHIVE'}
+      </h1>
       <ContentLayout>
         <div className="col-span-3">
           <ul>

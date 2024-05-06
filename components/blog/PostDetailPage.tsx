@@ -12,6 +12,7 @@ import { isHeadingBlock } from '@utils/markdownUtils';
 import Link from 'next/link';
 import { parseDateToEn } from '@utils/dateTimeUtils';
 import { SideColumnHeader } from './SideColumnHeader';
+import { BelowPostDetailColumnHeader } from './BelowPostDetailColumnHeader';
 
 interface Props {
   categoryList: CategoryListType;
@@ -51,11 +52,7 @@ export const PostDetailPage: FC<Props> = ({
         <div className="lg:hidden col-span-4 flex flex-col gap-fb3">
           <div className="my-fb5 border-2 border-light" />
           <div className="px-fb2">
-            <div className="flex gap-fb2 mb-fb1">
-              <div className="flex-grow my-auto border-t border-b border-color h-[3px]" />
-              <div className="font-noto-sans text-fb2 font-thin">ARCHIVE</div>
-              <div className="flex-grow my-auto border-t border-b border-color h-[3px]" />
-            </div>
+            <BelowPostDetailColumnHeader>ARCHIVE</BelowPostDetailColumnHeader>
             <ul>
               {last5posts.map((post) => (
                 <li
@@ -87,13 +84,7 @@ export const PostDetailPage: FC<Props> = ({
             </ul>
           </div>
           <div className="px-fb2">
-            <div className="flex gap-fb2 mb-fb1">
-              <div className="flex-grow my-auto border-t border-b border-color h-[3px]" />
-              <div className="font-noto-sans text-fb2 font-thin text-light">
-                CATEGORY
-              </div>
-              <div className="flex-grow my-auto border-t border-b border-color h-[3px]" />
-            </div>
+            <BelowPostDetailColumnHeader>CATEGORY</BelowPostDetailColumnHeader>
             <ul>
               {Object.entries(categoryList)
                 .sort(

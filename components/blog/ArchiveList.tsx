@@ -8,7 +8,7 @@ interface Props {
   postList: PostMetadata[];
 }
 
-export const ArchiveColumn: FC<Props> = ({ postList }) => {
+export const ArchiveList: FC<Props> = ({ postList }) => {
   return (
     <div>
       <SideColumnHeader>ARCHIVE</SideColumnHeader>

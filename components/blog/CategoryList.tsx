@@ -1,45 +1,39 @@
-import { FC, useMemo } from 'react';
-import { PostMetadata } from '@types';
+import { type CategoryList as CategoryListType } from '@types';
+import { FC } from 'react';
+import { SideColumnHeader } from './SideColumnHeader';
+import Link from 'next/link';
 
 interface Props {
-  selectedCategory?: string;
-  postMetadataList: PostMetadata[];
-  onCategoryClick: (category: string) => void;
+  categoryList: CategoryListType;
 }
 
-export const CategoryList: FC<Props> = ({
-  selectedCategory,
-  postMetadataList,
-  onCategoryClick,
-}) => {
-  const categoryList = useMemo(() => {
-    const result: string[] = [];
-    postMetadataList.forEach(({ category }) => {
-      if (result.includes(category)) {
-        return;
-      }
-      result.push(category);
-    });
-    return result.sort();
-  }, [postMetadataList]);
-
+export const CategoryList: FC<Props> = ({ categoryList }) => {
   return (
     <div>
-      <h2 className="text-3xl font-medium mb-4">Categories</h2>
-      <ul>
-        {categoryList.map((category) => (
-          <li
-            key={`category-${category}`}
-            className={`${
-              selectedCategory === category ? 'font-bold' : ''
-            } mb-1 text-lg`}
-          >
-            <button onClick={() => onCategoryClick(category)}>
-              {category}
-            </button>
-          </li>
-        ))}
-      </ul>
+      <SideColumnHeader>CATEGORY</SideColumnHeader>
+      <div className="flex flex-col gap-fb2 border-l-2 border-color pl-fb2">
+        {Object.entries(categoryList)
+          .sort(
+            ([, prevPostCount], [, nextPostCount]) =>
+              nextPostCount - prevPostCount,
+          )
+          .map(([category, postNumber]) => (
+            <div key={`category-list-item-${category}`}>
+              <Link
+                href={`/blog/archive?category=${category}`}
+                className="flex leading-fb3 items-end interactive-color"
+              >
+                <span className="text-fb3 font-alegreya">{category}</span>
+                {/** TODO: border hover does match link hover */}
+                <span className="mx-fb1 flex-grow border-b border-dashed border-color" />
+                <span className="text-fb3 font-noto-sans">{postNumber}</span>
+                <span className="ml-fb1 text-fb2 font-noto-sans leading-none">
+                  POST{postNumber > 1 ? 'S' : ''}
+                </span>
+              </Link>
+            </div>
+          ))}
+      </div>
     </div>
   );
 };

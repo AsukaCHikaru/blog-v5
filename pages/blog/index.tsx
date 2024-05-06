@@ -16,7 +16,12 @@ interface Props {
   last5posts: PostMetadata[];
 }
 
-const Home = ({ postMetadata, categoryList, postDetail, last5posts }: Props) => (
+const Home = ({
+  postMetadata,
+  categoryList,
+  postDetail,
+  last5posts,
+}: Props) => (
   <>
     <SiteHead
       title="Blog | Asuka Wang"

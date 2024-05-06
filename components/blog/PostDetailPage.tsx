@@ -9,8 +9,6 @@ import { ArchiveList } from './ArchiveList';
 import { TableOfContentColumn } from './TableOfContentColumn';
 import { SideColumn } from './SideColumn';
 import { isHeadingBlock } from '@utils/markdownUtils';
-import Link from 'next/link';
-import { parseDateToEn } from '@utils/dateTimeUtils';
 import { SideColumnHeader } from './SideColumnHeader';
 import { BelowPostDetailColumnHeader } from './BelowPostDetailColumnHeader';
 

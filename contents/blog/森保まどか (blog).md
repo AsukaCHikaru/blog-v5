@@ -4,8 +4,9 @@ title: 森保まどか
 published: 2021-06-08
 language: zh-TW
 pathname: moriyasumadoka
-category: 森保まどか
-tags: HKT48
+category: HKT48
+tags:
+  - HKT48
 filename: 森保まどか (blog)
 ---
 

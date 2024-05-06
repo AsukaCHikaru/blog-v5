@@ -2,16 +2,18 @@
 created: 2024/01/07 10:12
 title: S13 Recap
 published: 2024-01-23
-language: en-US
 pathname: s13-recap
 category: League of Legends
 tags: 
 filename: S13 Recap (blog)
+description: After a three years gap, I'm back to league.
+updated: 2024-05-03
+language: en-US
 ---
 The last time I wrote a recap for my League of Legends season was 3 years ago. The reason is simple: I haven't been playing much.
 
 Playing League solo takes a toll on your mental, and it became unbearable in recent years. The saddest part to me is that gameplay-wise I still love this game so much, but the player interaction part makes playing it painful.
-# League still have great gameplay
+# League still has great gameplay
 I played some Heroes of the Storm with my buddies last year.
 
 All of us agreed that Heroes was not fun.
@@ -47,6 +49,16 @@ As a mid laner I have more tools to make play that may impact the game. One time
 I don't usually win lane and snowball to win, but with my buddies I can play a more pivotal and supportive role with champions like Galio, trying to win games with not brawn but brain.
 
 Then after we got our first win of the day I can int with Akali.
+
+# About Akali
+## Pros
+- Extremely high mobility, good chasing and escaping capability
+- Shroud creates confusion and space in fight
+- 
+## Cons
+- mechanically demanding
+- not the best side lane champion
+
 # Esports
 After the announcement of TSM selling their LCS spot, I stopped caring about LCS. To be honest I haven't for a while, I was just waiting for the last straw.
 

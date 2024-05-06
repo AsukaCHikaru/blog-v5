@@ -7,6 +7,8 @@ pathname: improving-greatness
 category: Gaming
 tags: 
 filename: Improving Greatness (blog)
+description: Breath of the Wild is one of the most impactful game in last decade. Yet for its successor, Nintendo built an even more polished version on an already magnificent fundamental.
+updated: 2024-05-03
 ---
 I did not enjoy Breath of the Wild.
 

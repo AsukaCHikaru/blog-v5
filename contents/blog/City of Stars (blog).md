@@ -5,7 +5,10 @@ published: 2019-09-12
 language: zh-TW
 pathname: city-of-stars
 category: Life
-tags: Travel, Movies, United States
+tags:
+  - Travel
+  - Movies
+  - UnitedStates
 filename: City of Stars (blog)
 ---
 去了一趟 LA。

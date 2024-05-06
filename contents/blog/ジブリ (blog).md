@@ -4,9 +4,10 @@ title: ジブリ
 published: 2017-01-10
 language: zh-TW
 pathname: ghibli
-category: Movies
-tags:
+category: Movie
+tags: 
 filename: ジブリ (blog)
+description:
 ---
 
 所以，我驚覺人生至此，聽過吉卜力的大名不下數百次，也知道一些著名作品與片段，但卻完全沒有完整看過任何一部作品。完全。更何況我就住在吉卜力的出產國。那麼放眼未來，補充吉卜力知識應該是一筆蠻划算的投資。一部只看一次有些囫圇吞棗，不過目的本來就不是深度鑑賞而是建立基本認識，如果能順便過濾出特別喜歡（跟特別不喜歡）的作品的話就賺了。

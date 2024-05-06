@@ -4,8 +4,9 @@ title: Full-Screen Scroll
 published: 2021-02-11
 language: en-US
 pathname: full-screen-scroll
-category: Front-end
-tags: React.js
+category: Web Development
+tags:
+  - React.js
 filename: Full-Screen Scroll (blog)
 ---
 ## TL;DR:

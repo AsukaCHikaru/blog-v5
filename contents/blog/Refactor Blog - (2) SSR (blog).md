@@ -4,8 +4,12 @@ title: "Refactor Blog: (2) SSR"
 published: 2021-03-26
 language: en-US
 pathname: refactor-blog-2-ssr
-category: Front-end
-tags: React.js, HTML, TypeScript, Express.js
+category: Meta
+tags:
+  - React.js
+  - HTML
+  - TypeScript
+  - Express.js
 filename: Refactor Blog - (2) SSR (blog)
 ---
 One of the reasons I choose Gatsby last time I wrote my blog site is to have SSR. SEO matters, isn't it?

@@ -4,8 +4,10 @@ title: Download Progress Tool in Terminal Using Node.JS
 published: 2019-06-07
 language: en-US
 pathname: download-progress-tool-in-terminal-using-nodejs
-category: JavaScript
-tags: Node.js, Terminal
+category: Programming
+tags:
+  - Node.js
+  - Terminal
 filename: Download progress tool in terminal using Node.JS (blog)
 ---
 # TL;DR:

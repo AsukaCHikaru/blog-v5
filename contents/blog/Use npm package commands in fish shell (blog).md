@@ -4,8 +4,11 @@ title: Use npm Package Commands in Fish Shell
 published: 2020-04-20
 language: en-US
 pathname: use-npm-package-commands-in-fish-shell
-category: Snippets
-tags: fish shell, Terminal
+category: Programming
+tags:
+  - fish
+  - shell
+  - Terminal
 filename: Use npm package commands in fish shell (blog)
 ---
 # TL;DR:

@@ -4,8 +4,8 @@ title: この町が、まどかを育ててた
 published: 2016-11-16
 language: zh-TW
 pathname: this-city-raised-madoka
-category: 森保まどか
-tags:
+category: HKT48
+tags: 
 filename: この町が、まどかを育ててた (blog)
 ---
 ![[this-city-raised-madoka_1.jpg]]

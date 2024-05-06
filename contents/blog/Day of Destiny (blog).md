@@ -4,8 +4,8 @@ title: Day of Destiny
 published: 2017-09-17
 language: zh-TW
 pathname: day-of-destiny
-category: 森保まどか
-tags:
+category: HKT48
+tags: 
 filename: Day of Destiny (blog)
 ---
 ![[day-of-destiny_1.png]]

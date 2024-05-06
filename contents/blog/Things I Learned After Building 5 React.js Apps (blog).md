@@ -4,8 +4,10 @@ title: Things I Learned After Building 5 React.js Apps
 published: 2019-08-08
 language: en-US
 pathname: things-i-learned-after-building-5-react-apps
-category: Front-end
-tags: JavaScript, React.js
+category: Web Development
+tags:
+  - JavaScript
+  - React.js
 filename: Things I Learned After Building 5 React.js Apps (blog)
 ---
 # TLDR:

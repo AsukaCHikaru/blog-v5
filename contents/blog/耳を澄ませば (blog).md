@@ -4,8 +4,8 @@ title: 耳を澄ませば
 published: 2016-12-27
 language: zh-TW
 pathname: whisper-of-the-heart
-category: Movies
-tags:
+category: Movie
+tags: 
 filename: 耳を澄ませば (blog)
 ---
 

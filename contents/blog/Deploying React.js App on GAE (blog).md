@@ -4,8 +4,10 @@ title: Deploying React.js App on GAE
 published: 2019-09-19
 language: en-US
 pathname: deploying-react-app-on-gae
-category: Front-end
-tags: GAE, React.js
+category: Web Development
+tags:
+  - GAE
+  - React.js
 filename: Deploying React.js App on GAE (blog)
 ---
 For people like me who have only used a static host like Amazon S3 before, deploying React app on Google App Engine is a challenge. For all the references I found it looks straightforward and easy to deploy a React app, yet I still struggled for 2 days. Here is how I did it, with the things I realized by logs and tries and errors.

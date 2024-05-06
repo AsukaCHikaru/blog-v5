@@ -4,11 +4,15 @@ title: First Game Jam Postmortem
 published: 2023-05-23
 language: en-US
 pathname: first-game-jam-postmortem
-category: Life
-tags: Game Design, Gamejam
+category: Game Development
+tags:
+  - Game
+  - Design
+  - Gamejam
 filename: First Game Jam Postmortem (blog)
+description: I attended a game jam for the first time in my life. It was the best decision I made as an indie game developer in many years.
+updated: 2024-05-03
 ---
-
 I joined [Gamedev.js Jam 2023](https://itch.io/jam/gamedevjs-2023). The first game jam I've ever attended.
 
 In late 2022 I decided to commit to indie game development in 2023; attending game jam was one of my goals. But I was thinking about (and only knew) the major ones, [Brackeys](https://itch.io/jam/brackeys-9), [GMTK](https://itch.io/jam/gmtk-jam-2022), etc. 
@@ -20,7 +24,6 @@ At the time I was building the prototype of my (hopefully) first commercial rele
 > Gamejams help you stay small, and help you get good at discarding ideas xD
 
 Scope creep has always been an issue since I start making games. I had to keep reminding myself to be careful before adding those cool new features. The last time I had a public release was in 2009. I needed a finished game, and to achieve that I needed to be aware of the scope. This was the reason I decided to join the jam.
-
 # Planning
 The theme of the jam was "Time."
 
@@ -35,7 +38,6 @@ From Rent I was inspired by that life may be measured by all the decisions made 
 The game is named "How Do You Measure a Year." It is directly borrowed from the lyrics of one song in Rent. The game is a time-management simulation, where players need to schedule their day routine, and try to reach balance between money, health and mental.
 
 I focused mostly on gameplay, and if the progress is good, I may spare some time on art. No plan for audio was made.
-
 # Building
 Although this was a "Gamedev.js" jam, I checked that Unity3D-made games are eligible as long as it runs on a browser. Considering I'm likely going to keep use Unity as my main tool to build game in the foreseable future, I decided to go with it.
 
@@ -48,7 +50,6 @@ I took the deadline day off to do a final sprint. Thanks to that I barely manage
 After I built the game to where I considered it was in submittable status and there was no time enough to make impactable changes, I clicked the build button and submitted it. Then I found out there was a major visual bug -- not directly affecting gameplay but a key part of UI. That was about 40 minutes before the deadline.
 
 I tried to solve the issue. It was not fixed. I tried another approach. It was not ideal but it works at least. I clicked build and shipped it. The time was 17 minutes before the deadline. And that concludes my first ever jam game building.
-
 # Reviews
 I later realized there was another critical bug: the good ending screen where when a year passed in in-game time, the game should pause and the player's yearly statics should be displayed. That screen does not appear. The player's one year is not measured at all! This game's name doesn't even make sense! 
 
@@ -74,7 +75,6 @@ Their overall review may be biased (love ya hommies), but the reactions were not
 I was deeply impressed by how itch.io crafted its jam community system. For every comment a submission received, the reviewer's submission is shown below their comment. It's very natural for a reviewee to review the reviewer's submission, thus the connections between creator and player are built. 
 
 I've been looking for an indie dev community where I'm comfortable enough to start or join a conversation since last year. Discord, Reddit, you name it. The closest one so far was [mastodon.gamedev.place](https://mastodon.gamedev.place). But itch.io, or at least this jam, helped me to have the most connection with fellow indie devs and players. And it was so elegant!
-
 # Result
 On May 9th the result was announced. Out of 202 entries, my entry "How Do You Measure a Year" got 80th overall.
 
@@ -87,7 +87,6 @@ After all these years, studying game design theories, reviewing games after play
 Now I know there are people like my idea.
 
 It's a small jam, I know. My entry had only 16 ratings, I know. But it was a confidence boost I needed badly. I gained so much by joining this jam, but maybe this is the most precious one.
-
 # Lesson
 I was just happy that I finally got to finish a game. My first public release in 14 years! Hooray! This was more like merely a promise kept from myself to myself that I'm done only talking about being a indie dev.
 

@@ -5,16 +5,18 @@ published: 2022-07-19
 language: en-US
 pathname: dark-souls
 category: Gaming
-tags: Review, Game Design
+tags:
+  - Review
+  - GameDesign
 filename: Dark Souls (blog)
+description: Though once a cult classic, the soul-like has become a mainstream genre. I beat its early entry to see its secrets and the reputation of unmerciful difficulty.
+updated: 2024-05-03
 ---
-
 Dark Souls is a critically acclaimed game. It also has a reputation for being unreasonably difficult.
 
 Intending to experience the great stage design everyone talks about, I tried this game for the third time.
 
 Somehow, I managed to finish it. I do indeed learn a lot from the stage and encounter designs, but the impression of Dark Souls being difficult changed halfway through the game.
-
 ## Teach the game properly
 
 Bosses in Dark Souls are intimidating. They either hurt a lot, has a wide attack range, or both.

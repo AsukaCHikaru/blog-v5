@@ -11,6 +11,7 @@ import { SideColumn } from './SideColumn';
 import { isHeadingBlock } from '@utils/markdownUtils';
 import Link from 'next/link';
 import { parseDateToEn } from '@utils/dateTimeUtils';
+import { SideColumnHeader } from './SideColumnHeader';
 
 interface Props {
   categoryList: CategoryListType;
@@ -38,8 +39,14 @@ export const PostDetailPage: FC<Props> = ({
         </div>
         <SideColumn>
           {headers.length ? <TableOfContentColumn list={headers} /> : null}
-          <ArchiveList postList={last5posts} />
-          <CategoryList categoryList={categoryList} />
+          <div>
+            <SideColumnHeader>ARCHIVE</SideColumnHeader>
+            <ArchiveList postList={last5posts} />
+          </div>
+          <div>
+            <SideColumnHeader>CATEGORY</SideColumnHeader>
+            <CategoryList categoryList={categoryList} />
+          </div>
         </SideColumn>
         <div className="lg:hidden col-span-4 flex flex-col gap-fb3">
           <div className="my-fb5 border-2 border-light" />

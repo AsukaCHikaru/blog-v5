@@ -8,7 +8,7 @@ interface Props {
 
 export const CategoryList: FC<Props> = ({ categoryList }) => {
   return (
-    <div className="flex flex-col gap-fb2 border-l-2 border-color pl-fb2">
+    <div className="flex flex-col gap-fb2 lg:border-l-2 border-color lg:pl-fb2">
       {Object.entries(categoryList)
         .sort(
           ([, prevPostCount], [, nextPostCount]) =>

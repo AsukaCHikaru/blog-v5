@@ -53,67 +53,11 @@ export const PostDetailPage: FC<Props> = ({
           <div className="my-fb5 border-2 border-light" />
           <div className="px-fb2">
             <BelowPostDetailColumnHeader>ARCHIVE</BelowPostDetailColumnHeader>
-            <ul>
-              {last5posts.map((post) => (
-                <li
-                  key={post.pathname}
-                  className="my-fb3 pb-fb2 flex flex-col gap-fb1 border-b border-color interactive-color last-of-type:border-none"
-                >
-                  <Link
-                    href={`/blog/${post.pathname}`}
-                    className="font-abril text-fb5 leading-none"
-                  >
-                    {post.title}
-                  </Link>
-                  {post.description ? (
-                    <div className="font-gentium-basic text-fb3 leading-none">
-                      {post.description}
-                    </div>
-                  ) : null}
-                  <div className="font-noto-sans text-fb2 leading-none">
-                    {parseDateToEn(post.publishDate)}
-                  </div>
-                </li>
-              ))}
-              <Link
-                href="/blog/archive"
-                className="font-noto-sans text-fb3 leading-none font-thin"
-              >
-                FULL LIST
-              </Link>
-            </ul>
+            <ArchiveList postList={last5posts} />
           </div>
           <div className="px-fb2">
             <BelowPostDetailColumnHeader>CATEGORY</BelowPostDetailColumnHeader>
-            <ul>
-              {Object.entries(categoryList)
-                .sort(
-                  ([, prevPostCount], [, nextPostCount]) =>
-                    nextPostCount - prevPostCount,
-                )
-                .map(([category, postCount]) => (
-                  <li
-                    key={`category-${category}`}
-                    className="my-fb2 flex flex-col gap-fb1 interactive-color"
-                  >
-                    <Link
-                      href={`/blog/archive?category=${category}`}
-                      className="flex items-end"
-                    >
-                      <span className="font-alegreya text-fb3 leading-none">
-                        {category}
-                      </span>
-                      <div className="mx-fb1 flex-grow border-b border-dashed border-color" />
-                      <span className="font-noto-sans text-fb3 leading-none">
-                        {postCount}
-                      </span>
-                      <span className="ml-fb1 font-noto-sans text-fb2 leading-none">
-                        POST{postCount > 1 ? 'S' : ''}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-            </ul>
+            <CategoryList categoryList={categoryList} />
           </div>
         </div>
       </ContentLayout>

@@ -50,7 +50,7 @@ export const PostDetailPage: FC<Props> = ({
           </div>
         </SideColumn>
         <div className="lg:hidden col-span-4 flex flex-col gap-fb3">
-          <div className="my-fb5 border-2 border-light" />
+          <div className="mt-fb5 mb-fb2 border border-color" />
           <div className="px-fb2">
             <BelowPostDetailColumnHeader>ARCHIVE</BelowPostDetailColumnHeader>
             <ArchiveList postList={last5posts} />

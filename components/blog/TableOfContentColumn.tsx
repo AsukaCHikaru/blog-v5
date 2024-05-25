@@ -24,7 +24,6 @@ export const TableOfContentColumn: FC<Props> = ({ list }) => {
 
 const getPathname = (pathname: string, query: ParsedUrlQuery) => {
   const stringifiedQuery = stringify(query);
-  console.log(stringifiedQuery);
   return stringifiedQuery
     ? pathname.replace('[pathname]', stringifiedQuery.split('=')[1])
     : pathname;
@@ -32,7 +31,6 @@ const getPathname = (pathname: string, query: ParsedUrlQuery) => {
 
 const HeaderLink: FC<{ block: HeadingBlock }> = ({ block }) => {
   const router = useRouter();
-  console.log(router.pathname);
   const pathname = getPathname(router.pathname, router.query);
   const text = block.children.map((item) => item.text);
   return (

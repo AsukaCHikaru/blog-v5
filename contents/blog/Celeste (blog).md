@@ -110,8 +110,10 @@ Madeline 在這段對話看來無比自信與樂觀，相信可以拋棄不完�
 在這一刻，持續在背景咆哮的風暴終於平息，一切都安靜了下來。
 
 ![[celeste_1.png]]
+#nullcaption
 
 ![[celeste_2.png]]
+#nullcaption
 
 接納了另一部分自己的 Badeline 回到 Madeline 體內，然後角色能力成長，現在 Madeline 可以衝刺兩次也就是三段跳，原本無法前往的地區都變得有可能了。
 
@@ -162,6 +164,7 @@ Madeline 在這段對話看來無比自信與樂觀，相信可以拋棄不完�
 終於，Madeline 迎來了編號 1 號的告示牌以及最後一段天堂路，踏上了 Mt. Celeste 的山頂。Madeline 與 Badeline 兩人一起享受著山頂的美景，以及彼此努力的成果。
 
 ![[celeste_3.png]]
+#nullcaption
 
 Credit roll 結束後，所有登場人物都集結在 Old woman 在山腳的家，Madeline 用旅途上收集到的草莓烤了草莓派給大家吃。這是她第一次作草莓派，開動前還給 Theo 打了預防針說不要太期待。Mr. Oshiro 用一句話為這個故事劃上了完美的句點：
 

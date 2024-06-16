@@ -56,5 +56,6 @@ filename: The Stone (blog)
 該說我內心早就猜到了嗎？
 
 ![[the-stone_1.png]]
+#nullcaption
 
 我的下一隻 main 就是 Taliyah。

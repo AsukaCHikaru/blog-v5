@@ -42,9 +42,11 @@ export const BlockContent: FC<Props> = ({ block }) => {
             height={400}
             className="m-auto"
           />
-          <span className="flex justify-center text-color-second text-lg">
-            {block.caption}
-          </span>
+          {block.caption !== '#nullcaption' ? (
+            <span className="flex justify-center text-color-second text-lg">
+              {block.caption}
+            </span>
+          ) : null}
         </>
       );
 

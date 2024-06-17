@@ -26,7 +26,10 @@ const Post: FC<Props> = ({
 
   return (
     <>
-      <SiteHead title={title} description="Asuka Wang's blog" />
+      <SiteHead
+        title={title}
+        description={postMetadata.description || "Asuka Wang's blog"}
+      />
       <PostDetailPage
         postMetadata={postMetadata}
         postDetail={postContent}

@@ -4,19 +4,20 @@ import { useEffect, useState } from 'react';
 
 type Theme = 'DARK' | 'LIGHT';
 
+const setDarkMode = (mode: Theme) => {
+  const html = document.documentElement;
+  if (mode === 'LIGHT') {
+    html.classList.remove('dark');
+    html.style.backgroundColor = COLORS.LIGHT;
+  } else {
+    html.classList.add('dark');
+    html.style.backgroundColor = COLORS.DARK;
+  }
+  localStorage.setItem(LOCAL_STORAGE_KEYS.THEME, mode);
+};
+
 export const DarkModeButton = () => {
   const [mode, setMode] = useState<Theme>('DARK');
-  const setDarkMode = (mode: Theme) => {
-    const html = document.documentElement;
-    if (mode === 'LIGHT') {
-      html.classList.remove('dark');
-      html.style.backgroundColor = COLORS.LIGHT;
-    } else {
-      html.classList.add('dark');
-      html.style.backgroundColor = COLORS.DARK;
-    }
-    localStorage.setItem(LOCAL_STORAGE_KEYS.THEME, mode);
-  };
 
   useEffect(() => {
     if (typeof window === 'undefined') {

@@ -30,7 +30,7 @@ export const SiteHeader = () => {
             <Link
               key={section.url}
               href={section.url}
-              className={`text-fb2 lg:text-fb3 leading-fb3 lg:leading-fb5 interactive-color ${
+              className={`text-fb2 font-serif lg:text-fb3 leading-fb3 lg:leading-fb5 interactive-color ${
                 isLinkActive(section) ? 'text-color' : ''
               }`}
             >

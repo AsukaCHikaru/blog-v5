@@ -1,6 +1,7 @@
 import { type CategoryList as CategoryListType } from '@types';
 import { FC } from 'react';
 import Link from 'next/link';
+import styles from '@styles/blog/CategoryList.module.css';
 
 interface Props {
   categoryList: CategoryListType;
@@ -8,7 +9,7 @@ interface Props {
 
 export const CategoryList: FC<Props> = ({ categoryList }) => {
   return (
-    <div className="flex flex-col gap-fb2 lg:border-l-2 border-color lg:pl-fb2">
+    <div className={styles.container}>
       {Object.entries(categoryList)
         .sort(
           ([, prevPostCount], [, nextPostCount]) =>
@@ -18,13 +19,13 @@ export const CategoryList: FC<Props> = ({ categoryList }) => {
           <div key={`category-list-item-${category}`}>
             <Link
               href={`/blog/archive?category=${category}`}
-              className="flex leading-fb3 items-end interactive-color"
+              className={`${styles.link} interactive-color`}
             >
-              <span className="text-fb3 font-alegreya">{category}</span>
+              <span className={styles.category}>{category}</span>
               {/** TODO: border hover does match link hover */}
-              <span className="mx-fb1 flex-grow border-b border-dashed border-color" />
-              <span className="text-fb3 font-noto-sans">{postNumber}</span>
-              <span className="ml-fb1 text-fb2 font-noto-sans leading-none">
+              <span className={`${styles.border} border-color`} />
+              <span className={styles['post-number']}>{postNumber}</span>
+              <span className={styles['post-number-label']}>
                 POST{postNumber > 1 ? 'S' : ''}
               </span>
             </Link>

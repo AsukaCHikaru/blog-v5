@@ -6,6 +6,7 @@ import csharp from 'highlight.js/lib/languages/csharp';
 import css from 'highlight.js/lib/languages/css';
 import json from 'highlight.js/lib/languages/json';
 import 'highlight.js/styles/base16/google-dark.css';
+import styles from '@styles/blog/CodeBlock.module.css';
 
 import { Code } from 'mdast';
 
@@ -30,8 +31,8 @@ export const CodeBlock: FC<PropsWithChildren<Props>> = ({ children, lan }) => {
   }, []);
 
   return (
-    <pre className="my-6 border rounded-md text-base leading-4">
-      <code className={`font-courier language-${modifiedLan} rounded-md`}>
+    <pre className={styles.block}>
+      <code className={`${styles.code} language-${modifiedLan}`}>
         {children}
       </code>
     </pre>

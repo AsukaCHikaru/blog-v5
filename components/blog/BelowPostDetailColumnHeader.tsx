@@ -1,13 +1,14 @@
 import { FC, PropsWithChildren } from 'react';
+import styles from '@styles/blog/BelowPostDetailColumnHeader.module.css';
 
 export const BelowPostDetailColumnHeader: FC<PropsWithChildren> = ({
   children,
 }) => {
   return (
-    <div className="flex gap-fb2 mb-fb1">
-      <div className="flex-grow my-auto border-t border-b border-color h-[3px]" />
-      <div className="font-noto-sans text-fb2 font-thin">{children}</div>
-      <div className="flex-grow my-auto border-t border-b border-color h-[3px]" />
+    <div className={styles.container}>
+      <div className={`${styles['double-border']} border-color`} />
+      <div className={styles.title}>{children}</div>
+      <div className={`${styles['double-border']} border-color`} />
     </div>
   );
 };

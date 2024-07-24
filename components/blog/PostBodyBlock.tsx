@@ -5,6 +5,7 @@ import { YoutubeBlock } from './YoutubeBlock';
 import { QuoteBlock } from './QuoteBlock';
 import { getImageSnapshotUrl, isImageSnapshot } from '@utils/stringUtils';
 import { MarkdownBlock, TextBlock } from 'types/markdown';
+import styles from '@styles/blog/PostBodyBlock.module.css';
 
 interface Props {
   block: MarkdownBlock;
@@ -12,7 +13,7 @@ interface Props {
 
 export const PostBodyBlock: FC<Props> = ({ block }) => {
   return (
-    <div className="mb-6 font-serif text-lg lg:text-xl lg:leading-8 last:mb-0">
+    <div className={styles.wrapper}>
       <BlockContent block={block} />
     </div>
   );
@@ -40,10 +41,10 @@ export const BlockContent: FC<Props> = ({ block }) => {
             alt={block.alt || ''}
             width={600}
             height={400}
-            className="m-auto"
+            className={styles.image}
           />
           {block.caption !== '#nullcaption' ? (
-            <span className="flex justify-center text-color-second text-lg">
+            <span className={`${styles['image-caption']} text-color-second`}>
               {block.caption}
             </span>
           ) : null}
@@ -55,7 +56,7 @@ export const BlockContent: FC<Props> = ({ block }) => {
         case 1:
           return (
             <h2
-              className="mt-8 text-2xl lg:text-4xl font-semibold"
+              className={styles.h2}
               id={block.children
                 .map((item) => item.text)
                 .join('-')
@@ -69,7 +70,7 @@ export const BlockContent: FC<Props> = ({ block }) => {
         case 2:
           return (
             <h3
-              className="mt-8 text-xl lg:text-3xl font-semibold"
+              className={styles.h3}
               id={block.children
                 .map((item) => item.text)
                 .join('-')
@@ -83,7 +84,7 @@ export const BlockContent: FC<Props> = ({ block }) => {
         case 3:
           return (
             <h4
-              className="mt-8 text-lg lg:text-2xl font-semibold"
+              className={styles.h4}
               id={block.children
                 .map((item) => item.text)
                 .join('-')
@@ -101,7 +102,7 @@ export const BlockContent: FC<Props> = ({ block }) => {
     case 'list':
       if (block.ordered) {
         return (
-          <ol className="list-decimal list-inside mx-8">
+          <ol className={styles.ol}>
             {block.children.map((child, i) => (
               <li key={i}>
                 {child.children.map((child) => (
@@ -113,7 +114,7 @@ export const BlockContent: FC<Props> = ({ block }) => {
         );
       } else {
         return (
-          <ul className="list-disc list-inside mx-8">
+          <ul className={styles.ul}>
             {block.children.map((child, i) => (
               <li key={i}>
                 {child.children.map((child) => (
@@ -132,7 +133,7 @@ export const BlockContent: FC<Props> = ({ block }) => {
       return <QuoteBlock block={block} />;
 
     case 'thematicBreak':
-      return <hr className="my-16 w-80 mx-auto border-color" />;
+      return <hr className={`${styles.br} border-color`} />;
 
     default:
       return null;
@@ -149,7 +150,7 @@ export const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
       if (isImageSnapshot(item.text)) {
         return (
           <Image
-            className="mx-auto px-4 py-2"
+            className={styles['snapshot-image']}
             src={getImageSnapshotUrl(item.text)}
             alt="" // TODO
             width={500}
@@ -164,7 +165,7 @@ export const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
       return (
         <a
           href={item.url}
-          className="text-blue-400 underline"
+          className={styles.link}
           rel="noreferrer noopener"
           target="_blank"
         >
@@ -176,14 +177,10 @@ export const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
       return <strong>{item.text}</strong>;
 
     case 'italic':
-      return <span className="italic">{item.text}</span>;
+      return <span className={styles.italic}>{item.text}</span>;
 
     case 'inlineCode':
-      return (
-        <code className="px-1 font-courier text-gray-300 bg-gray-700 rounded-sm">
-          {item.text}
-        </code>
-      );
+      return <code className={styles['inline-code']}>{item.text}</code>;
 
     // TODO: strikethrough (need remark GFM plugin)
     default:

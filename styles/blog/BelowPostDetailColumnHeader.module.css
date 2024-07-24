@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  gap: var(--fb2);
+  margin-bottom: var(--fb1);
+}
+.double-border {
+  flex-grow: 1;
+  margin: auto 0;
+  border-top: solid 1px;
+  border-bottom: solid 1px;
+  height: 3px;
+}
+.title {
+  font-family: var(--font-noto-sans);
+  font-size: var(--fb2);
+  font-weight: 100;
+}

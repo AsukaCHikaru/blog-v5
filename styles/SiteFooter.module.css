@@ -1,0 +1,14 @@
+.container {
+  margin: var(--fb8) 0;
+  text-align: center;
+  font-family: var(--font-noto-sans);
+  bordr-top: solid 1px;
+
+  @media (min-width: 768px) {
+    text-align: left;
+  }
+}
+
+.link {
+  font-size: var(--fb2);
+}

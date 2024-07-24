@@ -1,13 +1,14 @@
 import { FC } from 'react';
+import styles from '@styles/SiteFooter.module.css';
 
 export const SiteFooter: FC = () => {
   return (
-    <div className="mt-fb8 pt-fb2 mb-fb8 text-center lg:text-left font-noto-sans interactive-color border-t border-color">
+    <div className={`${styles.container} interactive-color border-color`}>
       <a
         href="https://asukachikaru.com"
         rel="noopener noreferrer"
         target="_blank"
-        className="text-fb2"
+        className={styles.link}
       >
         asukachikaru.com
       </a>{' '}

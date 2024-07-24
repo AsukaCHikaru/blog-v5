@@ -1,8 +1,9 @@
-import { SECTIONS } from 'consts/sections';
+import { SECTIONS } from '../consts/sections';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useCallback } from 'react';
 import { DarkModeButton } from './DarkModeButton';
+import styles from '@styles/SiteHeader.module.css';
 
 export const SiteHeader = () => {
   const { pathname } = useRouter();
@@ -17,20 +18,17 @@ export const SiteHeader = () => {
   );
 
   return (
-    <div className="mt-fb1 lg:mt-fb2">
-      <div className="flex justify-end">
-        {/* <button className="block lg:hidden font-noto-sans text-fb2 leading-none interactive-color">
-          MENU
-        </button> */}
+    <div className={styles.container}>
+      <div className={styles['dark-mode-button-wrapper']}>
         <DarkModeButton />
       </div>
-      <div className="flex justify-between w-full mt-fb8 mb-fb2">
-        <div className="w-fit flex flex-col lg:flex-row gap-fb1 lg:gap-fb3">
+      <div className={styles['nav-container']}>
+        <div className={styles['section-container']}>
           {Object.values(SECTIONS).map((section) => (
             <Link
               key={section.url}
               href={section.url}
-              className={`text-fb2 font-serif lg:text-fb3 leading-fb3 lg:leading-fb5 interactive-color ${
+              className={`${styles['section-link']} interactive-color ${
                 isLinkActive(section) ? 'text-color' : ''
               }`}
             >
@@ -38,14 +36,11 @@ export const SiteHeader = () => {
             </Link>
           ))}
         </div>
-        <Link
-          href="/"
-          className="text-fb3 lg:text-fb5 leading-none font-abhaya-libre font-bold"
-        >
+        <Link href="/" className={styles['publication-folio']}>
           ASUKA WANG
         </Link>
       </div>
-      <div className="mb-fb2 lg:mb-fb3 border-t-2 border-b h-2 border-color-100" />
+      <div className={`${styles['divider']} border-color-100`} />
     </div>
   );
 };

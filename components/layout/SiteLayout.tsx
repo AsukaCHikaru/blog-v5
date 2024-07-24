@@ -1,5 +1,6 @@
 import { FC, PropsWithChildren } from 'react';
+import styles from '@styles/SiteLayout.module.css';
 
 export const SiteLayout: FC<PropsWithChildren> = ({ children }) => {
-  return <div className="mx-fb2 lg:mx-auto max-w-[1280px]">{children}</div>;
+  return <div className={styles.container}>{children}</div>;
 };

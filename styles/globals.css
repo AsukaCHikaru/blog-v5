@@ -11,6 +11,12 @@
   --dark: rgba(39, 34, 31, 1);
   --dark-second: rgba(39, 34, 31, 0.7);
   --dark-third: rgba(39, 34, 31, 0.5);
+  --fb1: 7px;
+  --fb2: 14px;
+  --fb3: 21px;
+  --fb5: 35px;
+  --fb8: 56px;
+  --fb13: 91px;
 }
 
 * {

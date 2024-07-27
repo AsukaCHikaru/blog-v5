@@ -2,7 +2,8 @@
   margin: var(--fb8) 0;
   padding: var(--fb2) 0 0;
   text-align: center;
-  font-family: var(--font-noto-sans);
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 200;
   border-top: solid 1px;
 
   @media (min-width: 768px) {

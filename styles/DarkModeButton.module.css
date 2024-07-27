@@ -1,4 +1,5 @@
 .button {
-  font-family: var(--font-noto-sans);
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 100;
   font-size: var(--fb2);
 }

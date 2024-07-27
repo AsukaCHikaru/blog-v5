@@ -2,10 +2,10 @@
   font-size: var(--fb8);
   margin: 0 0 var(--fb8);
   line-height: 1;
-  font-family: var(--font-gentium-basic);
+  font-family: 'Gentium', serif;
 
   &[data-archive='true'] {
-    font-family: var(--font-noto-sans);
+    font-family: 'Noto Sans', sans-serif;
     font-weight: 100;
   }
 

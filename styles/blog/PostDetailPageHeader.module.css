@@ -11,7 +11,8 @@
 
 .title {
   font-size: var(--fb8);
-  font-family: var(--font-abril), var(--font-jp);
+  font-family: 'Abril Fatface', 'Noto Serif JP', serif;
+  font-weight: 400;
   line-height: 1;
   text-transform: uppercase;
 
@@ -23,7 +24,7 @@
 .description {
   font-size: var(--fb3);
   font-style: italic;
-  font-family: var(--font-gentium-basic);
+  font-family: 'Gentium', serif;
   font-weight: 400;
 
   @media (min-width: 768px) {
@@ -33,7 +34,8 @@
 
 .publish-date {
   font-size: var(--fb2);
-  font-family: var(--font-noto-sans);
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 100;
 
   @media (min-width: 768px) {
     font-size: var(--fb3);

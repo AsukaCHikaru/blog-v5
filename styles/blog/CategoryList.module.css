@@ -15,7 +15,7 @@
 }
 .category {
   font-size: var(--fb3);
-  font-family: var(--font-alegreya);
+  font-family: 'Alegreya', serif;
 }
 .border {
   margin: 0 var(--fb1);
@@ -24,11 +24,13 @@
 }
 .post-number {
   font-size: var(--fb3);
-  font-family: var(--font-noto-sans);
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 100;
 }
 .post-number-label {
   margin-left: var(--fb1);
   font-size: var(--fb2);
-  font-family: var(--font-noto-sans);
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 100;
   line-height: 1;
 }

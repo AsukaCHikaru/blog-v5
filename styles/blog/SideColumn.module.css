@@ -21,5 +21,6 @@
 
 .top-button {
   font-size: var(--fb3);
-  font-family: var(--font-noto-sans);
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 100;
 }

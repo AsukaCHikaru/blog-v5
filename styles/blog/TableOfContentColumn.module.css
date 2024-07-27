@@ -12,5 +12,5 @@
 .link {
   font-size: var(--fb3);
   line-height: 1;
-  font-family: var(--font-jp);
+  font-family: 'Gentium Book', 'Noto Serif JP', serif;
 }

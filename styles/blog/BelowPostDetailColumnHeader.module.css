@@ -11,7 +11,7 @@
   height: 3px;
 }
 .title {
-  font-family: var(--font-noto-sans);
+  font-family: 'Noto Sans', sans-serif;
   font-size: var(--fb2);
   font-weight: 100;
 }

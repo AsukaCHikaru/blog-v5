@@ -27,12 +27,11 @@
   }
 }
 .section-link {
-  font-size: var(--fb2);
+  font-size: var(--fb3);
   font-family: 'Gentium Book', serif;
   line-height: var(--fb3);
 
   @media (min-width: 768px) {
-    font-size: var(--fb3);
     line-height: var(--fb5);
   }
 }
@@ -44,6 +43,7 @@
 
   @media (min-width: 768px) {
     font-size: 28px;
+    line-height: var(--fb5);
   }
 }
 .divider {

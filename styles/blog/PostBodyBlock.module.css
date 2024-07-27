@@ -19,6 +19,13 @@
 }
 .image {
   margin: auto;
+  width: 100%;
+  object-fit: contain;
+  height: fit-content;
+
+  @media (min-width: 768px) {
+    height: auto;
+  }
 }
 .image-caption {
   display: flex;

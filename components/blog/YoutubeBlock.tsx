@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { ImageBlock } from 'types/markdown';
-import styles from '@styles/blog/Youtubeblock.module.css';
+import styles from '@styles/blog/YoutubeBlock.module.css';
 
 export const YoutubeBlock: FC<{ item: ImageBlock }> = ({ item }) => {
   const url = /youtube\.com/.test(item.url)

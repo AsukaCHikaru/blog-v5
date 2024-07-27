@@ -5,8 +5,10 @@ import {
   parseMarkdown,
 } from '../utils/markdownUtils';
 
+const CONTENTS_PATH = 'public/contents';
+
 export const getBlogPostList = async () => {
-  const postFolderPath = resolve('contents/blog');
+  const postFolderPath = resolve(CONTENTS_PATH, 'blog');
   const fileNames = fs
     .readdirSync(postFolderPath)
     .filter((name) => name.endsWith('.md'));
@@ -31,7 +33,7 @@ export const getBlogPostList = async () => {
 };
 
 export const getBlogPostContent = (name: string) => {
-  const postFolderPath = resolve(`contents/blog/${name}.md`);
+  const postFolderPath = resolve(CONTENTS_PATH, 'blog', `${name}.md`);
   const markdown = fs.readFileSync(postFolderPath, 'utf-8');
   const { content } = parseMarkdown(markdown);
 
@@ -39,7 +41,7 @@ export const getBlogPostContent = (name: string) => {
 };
 
 export const getAboutPageContent = async () => {
-  const contentPath = resolve('contents/about');
+  const contentPath = resolve(CONTENTS_PATH, 'about');
   const filePath = fs
     .readdirSync(contentPath)
     .filter((name) => name.endsWith('.md'))?.[0];
@@ -50,7 +52,7 @@ export const getAboutPageContent = async () => {
 };
 
 export const getSnapshotPageContent = async () => {
-  const contentPath = resolve('contents/snapshot');
+  const contentPath = resolve(CONTENTS_PATH, 'snapshot');
   const filePath = fs
     .readdirSync(contentPath)
     .filter((name) => name.endsWith('.md'))?.[0];

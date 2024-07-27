@@ -7,6 +7,10 @@
     margin-bottom: 0;
   }
 
+  &:has(img) {
+    display: flex;
+  }
+
   @media (min-width: 768px) {
     font-size: 1.25rem;
     line-height: 2rem;

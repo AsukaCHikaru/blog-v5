@@ -39,11 +39,11 @@
 .publication-folio {
   font-size: var(--fb3);
   line-height: 1;
-  font-family: var(--font-abhaya-libre);
-  font-weight: 600;
+  font-family: var(--font-abril);
+  font-weight: 400;
 
   @media (min-width: 768px) {
-    font-size: var(--fb5);
+    font-size: 28px;
   }
 }
 .divider {

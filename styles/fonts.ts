@@ -1,5 +1,4 @@
 import {
-  Abhaya_Libre,
   Abril_Fatface,
   Alegreya,
   Gentium_Plus,
@@ -7,11 +6,6 @@ import {
   Noto_Serif_JP,
 } from '@next/font/google';
 
-const abhayaLibre = Abhaya_Libre({
-  weight: ['700'],
-  display: 'swap',
-  variable: '--font-abhaya-libre',
-});
 const notoSerifJp = Noto_Serif_JP({
   weight: ['400', '500', '900'],
   display: 'swap',
@@ -40,7 +34,6 @@ const abril = Abril_Fatface({
 });
 
 export const fonts = [
-  abhayaLibre.variable,
   notoSerifJp.variable,
   gentiumBasic.variable,
   notoSans.variable,

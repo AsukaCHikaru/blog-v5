@@ -10,20 +10,21 @@ interface Props {
 
 export const PostLink: FC<Props> = ({ postMetadata }) => {
   return (
-    <li className={`${styles.container} interactive-color`}>
-      <div className={styles.title}>
-        <Link href={`/blog/${postMetadata.pathname}`}>
-          {postMetadata.title}
-        </Link>
-      </div>
-      {postMetadata.description ? (
-        <div className={styles.description}>{postMetadata.description}</div>
-      ) : null}
-      <div>
-        <span className={styles['publish-date']}>
-          {parseDateToEn(postMetadata.publishDate)}
-        </span>
-      </div>
+    <li className={styles.container}>
+      <Link
+        href={`/blog/${postMetadata.pathname}`}
+        className={`${styles.title} interactive-color`}
+      >
+        {postMetadata.title}
+        {postMetadata.description ? (
+          <div className={styles.description}>{postMetadata.description}</div>
+        ) : null}
+        <div>
+          <span className={styles['publish-date']}>
+            {parseDateToEn(postMetadata.publishDate)}
+          </span>
+        </div>
+      </Link>
     </li>
   );
 };

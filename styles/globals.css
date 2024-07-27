@@ -27,6 +27,20 @@ body {
   overflow-x: hidden;
 }
 
+a {
+  text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+iframe {
+  border: none;
+}
+
 .interactive-color {
   color: var(--dark-second);
   border-color: var(--dark-second);

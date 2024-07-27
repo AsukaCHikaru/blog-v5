@@ -36,7 +36,7 @@ export const SiteHeader = () => {
             </Link>
           ))}
         </div>
-        <Link href="/" className={styles['publication-folio']}>
+        <Link href="/" className={`${styles['publication-folio']} text-color`}>
           ASUKA WANG
         </Link>
       </div>

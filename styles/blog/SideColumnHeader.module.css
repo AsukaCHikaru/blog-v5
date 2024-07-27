@@ -1,0 +1,10 @@
+.container {
+  padding: var(--fb1) 0;
+  margin: 0 0 var(--fb3);
+  border-top: solid 1px;
+  border-bottom: solid 1px;
+  font-size: var(--fb3);
+  font-family: var(--font-noto-sans);
+  font-weight: 200;
+  text-align: center;
+}

@@ -1,9 +1,6 @@
 import { FC, PropsWithChildren } from 'react';
+import styles from '@styles/blog/SideColumnHeader.module.css';
 
 export const SideColumnHeader: FC<PropsWithChildren> = ({ children }) => {
-  return (
-    <div className="text-fb3 py-fb1 mb-fb3 border-t border-b border-color text-center font-noto-sans font-extralight">
-      {children}
-    </div>
-  );
+  return <div className={`${styles.container} border-color`}>{children}</div>;
 };

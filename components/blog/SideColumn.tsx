@@ -1,4 +1,5 @@
 import { FC, PropsWithChildren } from 'react';
+import styles from '@styles/blog/SideColumn.module.css';
 
 export const SideColumn: FC<PropsWithChildren> = ({ children }) => {
   const handleTopClick = () => {
@@ -6,11 +7,11 @@ export const SideColumn: FC<PropsWithChildren> = ({ children }) => {
   };
 
   return (
-    <div className="flex-col justify-between hidden lg:flex">
-      <div className="flex flex-col gap-fb5">{children}</div>
-      <div className="self-end mt-fb5">
+    <div className={styles.container}>
+      <div className={styles.children}>{children}</div>
+      <div className={styles['top-button-wrapper']}>
         <button
-          className="font-noto-sans text-fb3 interactive-color"
+          className={`${styles['top-button']} interactive-color`}
           onClick={handleTopClick}
         >
           TOP

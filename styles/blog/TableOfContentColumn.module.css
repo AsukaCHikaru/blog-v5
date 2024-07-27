@@ -1,0 +1,16 @@
+.ul {
+  margin: 0 0 0 var(--fb3);
+  list-style-position: outside;
+  list-style: disc;
+}
+.li {
+  margin: var(--fb2) 0 0;
+}
+.indent {
+  width: var(--fb2);
+}
+.link {
+  font-size: var(--fb3);
+  line-height: 1;
+  font-family: var(--font-jp);
+}

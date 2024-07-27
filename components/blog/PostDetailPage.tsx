@@ -11,6 +11,7 @@ import { SideColumn } from './SideColumn';
 import { isHeadingBlock } from '@utils/markdownUtils';
 import { SideColumnHeader } from './SideColumnHeader';
 import { BelowPostDetailColumnHeader } from './BelowPostDetailColumnHeader';
+import styles from '@styles/blog/PostDetailPage.module.css';
 
 interface Props {
   categoryList: CategoryListType;
@@ -31,7 +32,7 @@ export const PostDetailPage: FC<Props> = ({
     <div>
       <PostDetailPageHeader postMetadata={postMetadata} />
       <ContentLayout>
-        <div className="col-span-4 lg:col-span-3">
+        <div className={styles['main-content-container']}>
           {postDetail.map((block, i) => (
             <PostBodyBlock block={block} key={i} />
           ))}
@@ -47,13 +48,13 @@ export const PostDetailPage: FC<Props> = ({
             <CategoryList categoryList={categoryList} />
           </div>
         </SideColumn>
-        <div className="lg:hidden col-span-4 flex flex-col gap-fb3">
-          <div className="mt-fb5 mb-fb2 border border-color" />
-          <div className="px-fb2">
+        <div className={styles['below-content-container']}>
+          <div className={`${styles['below-content-divider']} border-color`} />
+          <div className={styles['below-content-wrapper']}>
             <BelowPostDetailColumnHeader>ARCHIVE</BelowPostDetailColumnHeader>
             <ArchiveList postList={last5posts} />
           </div>
-          <div className="px-fb2">
+          <div className={styles['below-content-wrapper']}>
             <BelowPostDetailColumnHeader>CATEGORY</BelowPostDetailColumnHeader>
             <CategoryList categoryList={categoryList} />
           </div>

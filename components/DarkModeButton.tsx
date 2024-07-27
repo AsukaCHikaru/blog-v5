@@ -1,6 +1,7 @@
 import { COLORS } from 'consts/colors';
 import { LOCAL_STORAGE_KEYS } from 'consts/storageKeys';
 import { useEffect, useState } from 'react';
+import styles from '@styles/DarkModeButton.module.css';
 
 type Theme = 'DARK' | 'LIGHT';
 
@@ -50,7 +51,7 @@ export const DarkModeButton = () => {
 
   return (
     <button
-      className="font-noto-sans text-fb2 interactive-color"
+      className={`${styles.button} interactive-color`}
       onClick={toggleDarkMode}
     >
       {(mode === 'DARK' ? 'light' : 'dark') + ' mode'}

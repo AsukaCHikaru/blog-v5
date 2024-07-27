@@ -8,6 +8,7 @@ import { SECTIONS } from 'consts/sections';
 import { FC } from 'react';
 import { getAboutPageContent } from 'services/markdownServices';
 import { MarkdownBlock } from 'types/markdown';
+import styles from '@styles/about/AboutPage.module.css';
 
 interface Props {
   content: MarkdownBlock[];
@@ -21,11 +22,9 @@ export const AboutPage: FC<Props> = ({ content }) => {
         title={`${SECTIONS.ABOUT.label} | Asuka Wang`}
         description={SECTIONS.ABOUT.description}
       />
-      <h1 className="font-abril text-fb8 mb-fb5 lg:text-fb13 lg:mb-fb13 leading-none">
-        ABOUT
-      </h1>
+      <h1 className={styles.header}>ABOUT</h1>
       <ContentLayout>
-        <div className="col-span-4 lg:col-span-3">
+        <div className={styles['main-content-container']}>
           {content.map((block, i) => (
             <PostBodyBlock block={block} key={i} />
           ))}

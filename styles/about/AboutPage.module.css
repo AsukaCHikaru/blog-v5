@@ -1,0 +1,17 @@
+.header {
+  margin: 0 0 var(--fb5);
+  font-size: var(--fb8);
+  line-height: 1;
+  font-family: var(--font-abril);
+
+  @media (min-width: 768px) {
+    margin: 0 0 var(--fb13);
+    font-size: var(--fb13);
+  }
+}
+
+.main-content-container {
+  @media (min-width: 768px) {
+    grid-column: span 3;
+  }
+}

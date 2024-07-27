@@ -3,6 +3,7 @@ import { PostMetadata } from '@types';
 import { PostLink } from './PostLink';
 import { ContentLayout } from '@components/layout/ContentLayout';
 import { SideColumn } from './SideColumn';
+import styles from '@styles/blog/PostListPage.module.css';
 
 interface Props {
   postList: PostMetadata[];
@@ -10,19 +11,13 @@ interface Props {
 }
 
 export const PostListPage: FC<Props> = ({ postList, category }) => {
-  const headerTypography = category
-    ? 'font-gentium-basic'
-    : 'font-noto-sans font-thin';
-
   return (
     <>
-      <h1
-        className={`text-fb8 mb-fb8 lg:mb-fb13 lg:text-fb13 leading-none ${headerTypography}`}
-      >
+      <h1 className={styles.header} data-archive={category === undefined}>
         {category || 'ARCHIVE'}
       </h1>
       <ContentLayout>
-        <div className="col-span-3">
+        <div className={styles['main-content']}>
           <ul>
             {postList.map((post) => {
               return <PostLink postMetadata={post} key={post.id} />;

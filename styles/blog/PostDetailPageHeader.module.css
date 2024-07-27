@@ -1,0 +1,40 @@
+.container {
+  margin: 0 0 var(--fb5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--fb1);
+
+  @media (min-width: 768px) {
+    margin: 0 0 var(--fb8);
+  }
+}
+
+.title {
+  font-size: var(--fb8);
+  font-family: var(--font-abril);
+  line-height: 1;
+  text-transform: uppercase;
+
+  @media (min-width: 768px) {
+    font-size: var(--fb13);
+  }
+}
+
+.description {
+  font-size: var(--fb3);
+  font-style: italic;
+  font-family: var(--font-gentium-basic);
+
+  @media (min-width: 768px) {
+    font-size: var(--fb5);
+  }
+}
+
+.publish-date {
+  font-size: var(--fb2);
+  font-family: var(--font-noto-sans);
+
+  @media (min-width: 768px) {
+    font-size: var(--fb3);
+  }
+}

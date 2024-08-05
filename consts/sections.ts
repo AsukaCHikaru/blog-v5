@@ -7,13 +7,13 @@ type Section = {
 export const SECTIONS: Record<string, Section> = {
   BLOG: {
     url: '/blog',
-    label: 'BLOG',
+    label: 'blog',
     description: 'Essays, reviews and notes',
     isHome: true,
   },
   ABOUT: {
     url: '/about',
-    label: 'ABOUT',
+    label: 'about',
     description: 'Introduction about me and this site',
     isHome: false,
   },

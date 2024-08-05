@@ -2,7 +2,6 @@ import { SECTIONS } from '../consts/sections';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useCallback } from 'react';
-import { DarkModeButton } from './DarkModeButton';
 import styles from '@styles/SiteHeader.module.css';
 
 export const SiteHeader = () => {
@@ -19,9 +18,6 @@ export const SiteHeader = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles['dark-mode-button-wrapper']}>
-        <DarkModeButton />
-      </div>
       <div className={styles['nav-container']}>
         <div className={styles['section-container']}>
           {Object.values(SECTIONS).map((section) => (

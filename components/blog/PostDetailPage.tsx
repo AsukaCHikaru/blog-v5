@@ -24,7 +24,11 @@ export const PostDetailPage: FC<Props> = ({ postMetadata, postDetail }) => {
   return (
     <>
       <FullContent>
-        <PostDetailPageHeader postMetadata={postMetadata} />
+        <PostDetailPageHeader
+          title={postMetadata.title}
+          description={postMetadata.description}
+          publishDate={postMetadata.publishDate}
+        />
       </FullContent>
       <MainContent>
         {postDetail.map((block, i) => (

@@ -4,3 +4,16 @@ import styles from '@styles/Layout.module.css';
 export const Layout = ({ children }: { children: ReactNode }) => {
   return <div className={`text-color ${styles.container}`}>{children}</div>;
 };
+
+export const MainContent = ({ children }: { children: ReactNode }) => {
+  return <div className={styles['main-content']}>{children}</div>;
+};
+export const LeftPanel = ({ children }: { children: ReactNode }) => {
+  return <div className={styles['left-panel']}>{children}</div>;
+};
+export const RightPanel = ({ children }: { children: ReactNode }) => {
+  return <div className={styles['right-panel']}>{children}</div>;
+};
+export const RightWideContent = ({ children }: { children: ReactNode }) => {
+  return <div className={styles['right-wide-content']}>{children}</div>;
+};

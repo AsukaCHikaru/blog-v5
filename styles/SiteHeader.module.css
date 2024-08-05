@@ -1,8 +1,13 @@
 .container {
   margin: 20px 8px;
   grid-column: 2 / span 4;
+  position: sticky;
+  background-color: var(--light);
+
   @media (min-width: 768px) {
-    margin: 40px 0 0;
+    padding: 40px 0 8px;
+    margin: 0;
+    top: 0;
   }
 }
 

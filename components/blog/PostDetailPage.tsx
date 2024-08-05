@@ -14,12 +14,12 @@ import {
 interface Props {
   categoryList: CategoryListType;
   postMetadata: PostMetadata;
-  postDetail: MarkdownBlock[];
+  postContent: MarkdownBlock[];
   last5posts: PostMetadata[];
 }
 
-export const PostDetailPage: FC<Props> = ({ postMetadata, postDetail }) => {
-  const headers = postDetail.filter(isHeadingBlock);
+export const PostDetailPage: FC<Props> = ({ postMetadata, postContent }) => {
+  const headers = postContent.filter(isHeadingBlock);
 
   return (
     <>
@@ -31,7 +31,7 @@ export const PostDetailPage: FC<Props> = ({ postMetadata, postDetail }) => {
         />
       </FullContent>
       <MainContent>
-        {postDetail.map((block, i) => (
+        {postContent.map((block, i) => (
           <PostBodyBlock block={block} key={i} />
         ))}
       </MainContent>

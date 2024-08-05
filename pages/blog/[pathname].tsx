@@ -32,7 +32,7 @@ const Post: FC<Props> = ({
       />
       <PostDetailPage
         postMetadata={postMetadata}
-        postDetail={postContent}
+        postContent={postContent}
         categoryList={categoryList}
         last5posts={last5posts}
       />

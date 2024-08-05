@@ -10,7 +10,7 @@ import { getCategoryList } from '@utils/markdownUtils';
 
 interface Props {
   postMetadata: PostMetadata;
-  postDetail: MarkdownBlock[];
+  postContent: MarkdownBlock[];
   categoryList: CategoryList;
   last5posts: PostMetadata[];
 }
@@ -18,13 +18,13 @@ interface Props {
 const Home = ({
   postMetadata,
   categoryList,
-  postDetail,
+  postContent,
   last5posts,
 }: Props) => (
   <>
     <SiteHead title="Asuka Wang" description="Asuka Wang's personal site." />
     <PostDetailPage
-      postDetail={postDetail}
+      postContent={postContent}
       postMetadata={postMetadata}
       categoryList={categoryList}
       last5posts={last5posts}
@@ -35,13 +35,13 @@ const Home = ({
 export async function getStaticProps() {
   const postList = await getBlogPostList();
   const lastPost = postList[0];
-  const postDetail = getBlogPostContent(lastPost.filename);
+  const postContent = getBlogPostContent(lastPost.filename);
   const categoryList = getCategoryList(postList.map((item) => item));
   const last5posts = postList.slice(0, 5);
   return {
     props: {
       postMetadata: lastPost,
-      postDetail,
+      postContent,
       categoryList,
       last5posts,
     },

@@ -1,16 +1,25 @@
-.ul {
-  margin: 0 0 0 var(--fb3);
-  list-style-position: outside;
-  list-style: disc;
+.container {
+  padding: 8px 8px 12px;
+  background-color: #27221f19;
+  position: sticky;
+  top: 112px;
 }
-.li {
-  margin: var(--fb2) 0 0;
+.ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
 }
 .indent {
-  width: var(--fb2);
+  width: 8px;
 }
 .link {
-  font-size: var(--fb3);
+  font-size: 16px;
   line-height: 1;
-  font-family: 'Gentium Book', 'Noto Serif JP', serif;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 200;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

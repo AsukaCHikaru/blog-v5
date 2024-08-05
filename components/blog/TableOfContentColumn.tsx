@@ -12,8 +12,7 @@ interface Props {
 
 export const TableOfContentColumn: FC<Props> = ({ list }) => {
   return (
-    <div>
-      <SideColumnHeader>TABLE OF CONTENT</SideColumnHeader>
+    <div className={styles.container}>
       <ul className={`${styles.ul} interactive-list-color`}>
         {list.map((header) => (
           <HeaderLink block={header} key={header.children[0].text} />

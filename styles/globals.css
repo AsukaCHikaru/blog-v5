@@ -42,7 +42,7 @@ iframe {
 }
 
 .interactive-color {
-  color: var(--dark-second);
+  color: var(--dark-third);
   border-color: var(--dark-second);
 
   &:hover {

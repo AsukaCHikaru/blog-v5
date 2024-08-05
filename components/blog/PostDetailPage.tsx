@@ -10,6 +10,8 @@ import {
   RightPanel,
   FullContent,
 } from '@components/layout/Layout';
+import { AdditionalPostList } from './AdditionPostList';
+import styles from '@styles/blog/PostDetailPage.module.css';
 
 interface Props {
   categoryList: CategoryListType;
@@ -18,7 +20,11 @@ interface Props {
   last5posts: PostMetadata[];
 }
 
-export const PostDetailPage: FC<Props> = ({ postMetadata, postContent }) => {
+export const PostDetailPage: FC<Props> = ({
+  postMetadata,
+  postContent,
+  last5posts,
+}) => {
   const headers = postContent.filter(isHeadingBlock);
 
   return (
@@ -34,6 +40,13 @@ export const PostDetailPage: FC<Props> = ({ postMetadata, postContent }) => {
         {postContent.map((block, i) => (
           <PostBodyBlock block={block} key={i} />
         ))}
+        <div className={styles['additional-list-container']}>
+          <AdditionalPostList
+            postList={last5posts}
+            category={postMetadata.category}
+          />
+          <AdditionalPostList postList={last5posts} />
+        </div>
       </MainContent>
       <RightPanel>
         {headers.length ? <TableOfContentColumn list={headers} /> : null}

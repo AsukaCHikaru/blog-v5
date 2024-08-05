@@ -1,0 +1,90 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 360px;
+  background-color: #27221f19;
+  padding: 16px 12px;
+}
+
+.category-link {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 20px;
+  line-height: 24px;
+
+  > a {
+    font-family: 'Gentium';
+    color: var(--dark);
+    font-size: 24px;
+    text-decoration: underline;
+    margin-left: 6px;
+  }
+}
+
+.archive-link {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 100;
+  text-decoration: underline;
+  color: var(--dark);
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.card-list {
+  margin-top: 16px;
+  display: flex;
+  gap: 16px;
+  overflow-x: scroll;
+  width: 100%;
+  height: 100%;
+}
+
+.card {
+  min-width: 220px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  cursor: pointer;
+
+  &:after {
+    content: '';
+    height: 100%;
+    border-right: solid 1px var(--dark-third);
+    position: absolute;
+    top: 0;
+    right: -8px;
+  }
+
+  &:last-child {
+    &:after {
+      border: none;
+    }
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.card-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 200;
+  margin-bottom: 12px;
+}
+
+.card-description {
+  font-family: 'Gentium';
+  font-size: 20px;
+  line-height: 24px;
+  margin-bottom: 12px;
+}
+
+.card-publish-date {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 100;
+  font-size: 14px;
+  line-height: 1;
+}

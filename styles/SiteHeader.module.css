@@ -2,7 +2,7 @@
   margin: 20px 8px;
   grid-column: 2 / span 4;
   @media (min-width: 768px) {
-    margin-top: 40px;
+    margin: 40px 0 0;
   }
 }
 
@@ -48,6 +48,6 @@
   height: 8px;
 
   @media (min-width: 768px) {
-    margin: 12px 0;
+    margin: 12px 0 0;
   }
 }

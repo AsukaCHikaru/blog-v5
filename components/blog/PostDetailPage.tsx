@@ -8,7 +8,7 @@ import { isHeadingBlock } from '@utils/markdownUtils';
 import {
   MainContent,
   RightPanel,
-  RightWideContent,
+  FullContent,
 } from '@components/layout/Layout';
 
 interface Props {
@@ -23,9 +23,9 @@ export const PostDetailPage: FC<Props> = ({ postMetadata, postDetail }) => {
 
   return (
     <>
-      <RightWideContent>
+      <FullContent>
         <PostDetailPageHeader postMetadata={postMetadata} />
-      </RightWideContent>
+      </FullContent>
       <MainContent>
         {postDetail.map((block, i) => (
           <PostBodyBlock block={block} key={i} />

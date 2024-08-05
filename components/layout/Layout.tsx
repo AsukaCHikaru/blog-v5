@@ -5,6 +5,10 @@ export const Layout = ({ children }: { children: ReactNode }) => {
   return <div className={`text-color ${styles.container}`}>{children}</div>;
 };
 
+export const FullContent = ({ children }: { children: ReactNode }) => {
+  return <div className={styles['full-content']}>{children}</div>;
+};
+
 export const MainContent = ({ children }: { children: ReactNode }) => {
   return <div className={styles['main-content']}>{children}</div>;
 };

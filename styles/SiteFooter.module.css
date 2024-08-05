@@ -1,6 +1,7 @@
 .container {
   margin: var(--fb8) 0;
   padding: var(--fb2) 0 0;
+  grid-column: 2 / span 4;
   text-align: center;
   font-family: 'Noto Sans', sans-serif;
   font-weight: 200;

@@ -1,5 +1,6 @@
 .container {
   margin: 20px 8px;
+  grid-column: 2 / span 4;
   @media (min-width: 768px) {
     margin-top: 40px;
   }

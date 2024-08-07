@@ -1,5 +1,5 @@
 .container {
-  margin: 20px 8px;
+  margin: 20px 0 8px;
   grid-column: 2 / span 4;
   position: sticky;
   background-color: var(--light);

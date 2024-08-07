@@ -14,16 +14,17 @@ import { AdditionalPostList } from './AdditionPostList';
 import styles from '@styles/blog/PostDetailPage.module.css';
 
 interface Props {
-  categoryList: CategoryListType;
   postMetadata: PostMetadata;
   postContent: MarkdownBlock[];
   last5posts: PostMetadata[];
+  categoryPosts: PostMetadata[];
 }
 
 export const PostDetailPage: FC<Props> = ({
   postMetadata,
   postContent,
   last5posts,
+  categoryPosts = [],
 }) => {
   const headers = postContent.filter(isHeadingBlock);
 
@@ -41,10 +42,12 @@ export const PostDetailPage: FC<Props> = ({
           <PostBodyBlock block={block} key={i} />
         ))}
         <div className={styles['additional-list-container']}>
-          <AdditionalPostList
-            postList={last5posts}
-            category={postMetadata.category}
-          />
+          {categoryPosts.length ? (
+            <AdditionalPostList
+              postList={categoryPosts}
+              category={postMetadata.category}
+            />
+          ) : null}
           <AdditionalPostList postList={last5posts} />
         </div>
       </MainContent>

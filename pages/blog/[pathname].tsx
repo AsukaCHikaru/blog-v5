@@ -3,24 +3,23 @@ import {
   getBlogPostContent,
   getBlogPostList,
 } from '../../services/markdownServices';
-import { CategoryList, PostMetadata } from '@types';
+import { PostMetadata } from '@types';
 import { SiteHead } from '@components/SiteHead';
 import { MarkdownBlock } from 'types/markdown';
 import { PostDetailPage } from '@components/blog/PostDetailPage';
-import { getCategoryList } from '@utils/markdownUtils';
 
 interface Props {
   postContent: MarkdownBlock[];
   postMetadata: PostMetadata;
-  categoryList: CategoryList;
   last5posts: PostMetadata[];
+  categoryPosts: PostMetadata[];
 }
 
 const Post: FC<Props> = ({
   postContent,
   postMetadata,
   last5posts,
-  categoryList,
+  categoryPosts,
 }) => {
   const title = postMetadata.title + ' | Asuka Wang';
 
@@ -33,8 +32,8 @@ const Post: FC<Props> = ({
       <PostDetailPage
         postMetadata={postMetadata}
         postContent={postContent}
-        categoryList={categoryList}
         last5posts={last5posts}
+        categoryPosts={categoryPosts}
       />
     </>
   );
@@ -67,11 +66,15 @@ export const getStaticProps = async ({
 
   const postContent = getBlogPostContent(thisPost.filename);
 
-  const categoryList = getCategoryList(postList.map((item) => item));
   const last5posts = postList.slice(0, 5);
+  const categoryPosts = postList
+    .filter(
+      (post) => post.category === thisPost.category && post.id !== thisPost.id,
+    )
+    .slice(0, 5);
 
   return {
-    props: { postContent, postMetadata: thisPost, categoryList, last5posts },
+    props: { postContent, postMetadata: thisPost, last5posts, categoryPosts },
   };
 };
 

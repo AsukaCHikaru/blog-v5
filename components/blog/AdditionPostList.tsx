@@ -30,7 +30,7 @@ export const AdditionalPostList = ({
 );
 
 const PostCard = ({ post }: { post: PostMetadata }) => (
-  <div className={styles.card}>
+  <Link className={styles.card} href={`/blog/${post.pathname}`}>
     <div>
       <div className={styles['card-title']}>{post.title}</div>
       {post.description ? (
@@ -40,5 +40,5 @@ const PostCard = ({ post }: { post: PostMetadata }) => (
     <div className={styles['card-publish-date']}>
       {parseDateToEn(post.publishDate)}
     </div>
-  </div>
+  </Link>
 );

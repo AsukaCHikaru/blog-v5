@@ -1,8 +1,8 @@
 .wrapper {
   margin-bottom: 20px;
   font-family: 'Gentium Book', 'Noto Serif JP', serif;
-  font-size: 1.125rem;
-  line-height: 1.65rem;
+  font-size: 16px;
+  line-height: 22px;
 
   &:last-child {
     margin-bottom: 0;
@@ -35,8 +35,8 @@
 .h2 {
   margin-top: 20px;
   font-weight: 600;
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: 24px;
+  line-height: 32px;
 
   @media (min-width: 768px) {
     font-size: 32px;
@@ -46,8 +46,8 @@
 .h3 {
   margin-top: 20px;
   font-weight: 600;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
+  font-size: 20px;
+  line-height: 28px;
 
   @media (min-width: 768px) {
     font-size: 24px;
@@ -57,8 +57,8 @@
 .h4 {
   margin-top: 20px;
   font-weight: 600;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+  font-size: 16px;
+  line-height: 24px;
 
   @media (min-width: 768px) {
     font-size: 20px;
@@ -91,8 +91,9 @@
   font-style: italic;
 }
 .inline-code {
-  padding: 0 0.125rem;
+  color: var(--light);
+  padding: 0 2px;
   font-family: 'Courier New';
   background-color: rgb(55, 65, 81);
-  border-radius: 0.125rem;
+  border-radius: 2px;
 }

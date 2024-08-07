@@ -1,14 +1,14 @@
 .container {
-  margin: 20px 0 8px;
+  margin: 20px 0 0;
+  padding: 4px 0 8px;
   grid-column: 2 / span 4;
   position: sticky;
   background-color: var(--light);
   z-index: 1;
+  top: 0;
 
   @media (min-width: 768px) {
-    padding: 24px 0 8px;
-    margin: 0;
-    top: 0;
+    padding: 8px 0;
   }
 }
 

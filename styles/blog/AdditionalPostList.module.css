@@ -1,22 +1,36 @@
 .container {
   display: flex;
   flex-direction: column;
-  height: 360px;
   background-color: #27221f19;
-  padding: 16px 12px;
+  padding: 12px 8px;
+  height: 304px;
+
+  @media (min-width: 768px) {
+    padding: 16px 12px;
+    height: 360px;
+  }
 }
 
 .category-link {
   font-family: 'Noto Serif JP', serif;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+    line-height: 24px;
+  }
 
   > a {
     font-family: 'Gentium';
     color: var(--dark);
-    font-size: 24px;
+    font-size: 20px;
     text-decoration: underline;
     margin-left: 6px;
+
+    @media (min-width: 768px) {
+      font-size: 24px;
+    }
   }
 }
 
@@ -39,7 +53,7 @@
 }
 
 .card {
-  min-width: 220px;
+  min-width: 180px;
   height: 99%;
   display: flex;
   flex-direction: column;
@@ -47,6 +61,10 @@
   position: relative;
   cursor: pointer;
   color: var(--dark);
+
+  @media (min-width: 768px) {
+    min-width: 220px;
+  }
 
   &:after {
     content: '';
@@ -70,22 +88,36 @@
 
 .card-title {
   font-family: 'Noto Serif JP', serif;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 20px;
+  line-height: 24px;
   font-weight: 200;
   margin-bottom: 12px;
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+    line-height: 28px;
+  }
 }
 
 .card-description {
   font-family: 'Gentium';
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   margin-bottom: 12px;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+    line-height: 24px;
+  }
 }
 
 .card-publish-date {
   font-family: 'Noto Sans', sans-serif;
   font-weight: 100;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1;
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 }

@@ -38,7 +38,10 @@ export async function getStaticProps() {
   const last5posts = postList.slice(0, 5);
   const categoryPosts = postList
     .filter(
-      (post) => post.category === lastPost.category && post.id !== lastPost.id,
+      (post) =>
+        post.category === lastPost.category &&
+        post.id !== lastPost.id &&
+        post.description,
     )
     .slice(0, 5);
 

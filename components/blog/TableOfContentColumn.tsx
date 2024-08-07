@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { HeadingBlock } from 'types/markdown';
-import { SideColumnHeader } from './SideColumnHeader';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ParsedUrlQuery, stringify } from 'querystring';

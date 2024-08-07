@@ -3,9 +3,10 @@
   grid-column: 2 / span 4;
   position: sticky;
   background-color: var(--light);
+  z-index: 1;
 
   @media (min-width: 768px) {
-    padding: 40px 0 8px;
+    padding: 24px 0 8px;
     margin: 0;
     top: 0;
   }
@@ -31,8 +32,8 @@
   line-height: 24px;
 
   @media (min-width: 768px) {
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 20px;
+    line-height: 24px;
   }
 }
 .publication-folio {
@@ -42,8 +43,8 @@
   font-weight: 800;
 
   @media (min-width: 768px) {
-    font-size: 28px;
-    line-height: 1;
+    font-size: 20px;
+    line-height: 24px;
   }
 }
 .divider {
@@ -53,6 +54,6 @@
   height: 8px;
 
   @media (min-width: 768px) {
-    margin: 12px 0 0;
+    margin: 8px 0 0;
   }
 }

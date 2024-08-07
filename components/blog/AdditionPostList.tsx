@@ -14,7 +14,7 @@ export const AdditionalPostList = ({
     {category ? (
       <div className={styles['category-link']}>
         More from
-        <Link href={`/blog/archive?category={category}`}>{category}</Link>
+        <Link href={`/blog/archive?category=${category}`}>{category}</Link>
       </div>
     ) : (
       <Link href="/blog/archive" className={styles['archive-link']}>

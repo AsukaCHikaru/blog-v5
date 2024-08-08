@@ -34,7 +34,6 @@
   @media (min-width: 768px) {
     width: fit-content;
     display: flex;
-    display: block;
     gap: 12px;
   }
 }

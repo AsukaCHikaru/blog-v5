@@ -84,7 +84,7 @@
   padding: 0.5rem 1rem;
 }
 .link {
-  color: #9c0d24;
+  color: var(--light-accent);
   text-decoration: underline;
 }
 .italic {

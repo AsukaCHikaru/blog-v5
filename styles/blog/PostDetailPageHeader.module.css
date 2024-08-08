@@ -29,6 +29,7 @@
   font-family: 'Gentium', serif;
   font-weight: 400;
   line-height: 20px;
+  color: var(--dark-second);
 
   @media (min-width: 768px) {
     margin: 0 0 24px;

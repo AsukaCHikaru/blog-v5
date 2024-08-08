@@ -46,6 +46,7 @@
   font-style: italic;
   font-size: 18px;
   line-height: 22px;
+  color: var(--dark-second);
 }
 
 .publish-date {

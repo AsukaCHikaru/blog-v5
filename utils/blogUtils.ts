@@ -28,7 +28,6 @@ export const generatePostTileList = (posts: PostMetadata[]): PostTile[][] => {
     if (currentRowSize === 4) {
       result.push([...currentRow]);
       currentRow = [];
-      console.log(1, result);
       return;
     }
   });

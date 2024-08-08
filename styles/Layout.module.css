@@ -27,7 +27,7 @@
 
   @media (min-width: 768px) {
     display: block;
-    grid-column: 6 / span 4;
+    grid-column: 6 / span 1;
   }
 }
 .right-wide-content {

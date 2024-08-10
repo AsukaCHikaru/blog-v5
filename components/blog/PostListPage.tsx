@@ -44,7 +44,6 @@ export const PostListPage: FC<Props> = ({ postList, category }) => {
           </div>
         ))}
       </div>
-      <SideColumn />
     </MainContent>
   );
 };

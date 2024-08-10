@@ -32,4 +32,8 @@
   &:first-child {
     padding-top: 0;
   }
+
+  &:last-child {
+    border-bottom: none;
+  }
 }

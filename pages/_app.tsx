@@ -13,16 +13,14 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <main>
-      <Layout>
+      <Layout isMenuOpen={isMenuOpen}>
         <SiteHeader
           onToggleMenu={() => setIsMenuOpen((prev) => !prev)}
           isMenuOpen={isMenuOpen}
+          mobileMenu={<MobileMenu onClose={() => setIsMenuOpen(false)} />}
         />
         <Component {...pageProps} />
         <SiteFooter />
-        {isMenuOpen ? (
-          <MobileMenu onClose={() => setIsMenuOpen(false)} />
-        ) : null}
       </Layout>
     </main>
   );

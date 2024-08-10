@@ -68,3 +68,8 @@
     margin: 8px 0 0;
   }
 }
+
+.menu-wrapper {
+  position: absolute;
+  margin-top: 4px;
+}

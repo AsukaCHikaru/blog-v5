@@ -1,8 +1,21 @@
 import { ReactNode } from 'react';
 import styles from '@styles/Layout.module.css';
 
-export const Layout = ({ children }: { children: ReactNode }) => {
-  return <div className={`text-color ${styles.container}`}>{children}</div>;
+export const Layout = ({
+  children,
+  isMenuOpen,
+}: {
+  children: ReactNode;
+  isMenuOpen: boolean;
+}) => {
+  return (
+    <div
+      className={`text-color ${styles.container}`}
+      data-is-menu-open={isMenuOpen}
+    >
+      {children}
+    </div>
+  );
 };
 
 export const FullContent = ({ children }: { children: ReactNode }) => {

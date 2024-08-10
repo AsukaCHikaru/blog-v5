@@ -1,15 +1,16 @@
 import { SECTIONS } from '../consts/sections';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useCallback } from 'react';
+import { ReactNode, useCallback } from 'react';
 import styles from '@styles/SiteHeader.module.css';
 
 interface Props {
   onToggleMenu: () => void;
   isMenuOpen: boolean;
+  mobileMenu: ReactNode;
 }
 
-export const SiteHeader = ({ onToggleMenu, isMenuOpen }: Props) => {
+export const SiteHeader = ({ onToggleMenu, mobileMenu, isMenuOpen }: Props) => {
   const { pathname } = useRouter();
 
   const isLinkActive = useCallback(
@@ -22,7 +23,7 @@ export const SiteHeader = ({ onToggleMenu, isMenuOpen }: Props) => {
   );
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-is-menu-open={isMenuOpen}>
       <div className={styles['nav-container']}>
         <div className={styles['section-container']}>
           {Object.values(SECTIONS).map((section) => (
@@ -45,6 +46,9 @@ export const SiteHeader = ({ onToggleMenu, isMenuOpen }: Props) => {
         </Link>
       </div>
       <div className={`${styles['divider']} border-color-100`} />
+      <div className={styles['menu-wrapper']}>
+        {isMenuOpen ? mobileMenu : null}
+      </div>
     </div>
   );
 };

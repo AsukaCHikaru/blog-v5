@@ -1,4 +1,4 @@
-import { FC, useMemo } from 'react';
+import { FC, useEffect, useMemo, useState } from 'react';
 import { PostMetadata } from '@types';
 import { PostLink } from './PostLink';
 import { SideColumn } from './SideColumn';
@@ -13,10 +13,20 @@ interface Props {
 }
 
 export const PostListPage: FC<Props> = ({ postList, category }) => {
-  const postTileList = useMemo(
-    () => generatePostTileList(postList),
-    [postList],
-  );
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => setIsClient(true), []);
+
+  const postTileList = useMemo(() => {
+    if (isClient) {
+      return generatePostTileList(
+        postList,
+        document.body.clientWidth < 768 ? 2 : 4,
+      );
+    }
+    return generatePostTileList(postList);
+  }, [postList, isClient]);
+
   return (
     <MainContent>
       <h1 className={styles.header} data-archive={category === undefined}>

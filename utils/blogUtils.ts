@@ -26,33 +26,29 @@ export const generatePostTileList = (
   let row: PostTile[] = [];
 
   flatTileList.forEach((tile) => {
-    if (row.length === 0) {
-      row.push(tile);
-
-      if (getRowSize(row) === rowSize) {
-        result.push([...row]);
-        row = [];
-      }
-      return;
-    }
-
-    if (rowSize - getRowSize(row) === 1 && tile.size === 2) {
+    if (rowSize - getRowSize(row) < tile.size) {
       const size1Post = row.find((post) => post.size === 1);
       if (size1Post) {
         size1Post.size = 2;
       }
-      result.push([...row]);
-      row = [tile];
-      return;
+      if (getRowSize(row) === rowSize) {
+        result.push([...row]);
+        row = [];
+      }
     }
-
-    row.push(tile);
+    if (rowSize - getRowSize(row) >= tile.size) {
+      row.push(tile);
+    }
 
     if (getRowSize(row) === rowSize) {
       result.push([...row]);
       row = [];
     }
   });
+
+  if (row.length !== 0) {
+    result.push([...row]);
+  }
 
   return result;
 };

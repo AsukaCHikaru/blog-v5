@@ -40,6 +40,19 @@ describe('generatePostTileList', () => {
     });
   });
 
+  describe('tile count matches post count', () => {
+    test('size = 4', () => {
+      const posts = generateDummyPostList();
+      const tiles = generatePostTileList(posts);
+      expect(tiles.flatMap((row) => row).length).toEqual(posts.length);
+    });
+    test('size = 2', () => {
+      const posts = generateDummyPostList();
+      const tiles = generatePostTileList(posts, 2);
+      expect(tiles.flatMap((row) => row).length).toEqual(posts.length);
+    });
+  });
+
   describe('no row is empty', () => {
     test('size = 4', () => {
       const tilePostList = generatePostTileList(generateDummyPostList());

@@ -18,6 +18,8 @@
   line-height: 1;
   padding-bottom: 12px;
   border-bottom: solid 1px var(--dark-third);
+  width: 100%;
+  display: inline-block;
 
   &[data-active='true'] {
     color: var(--dark);

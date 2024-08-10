@@ -61,7 +61,7 @@ describe('generatePostTileList', () => {
         .map((row) => row)
         .map((row) => row.reduce((acc, cur) => acc + cur.size, 0))
         .slice(0, -1);
-      expect(rowSizes.every((size) => size === 4)).toBe(true);
+      expect(rowSizes).toEqual(Array(rowSizes.length).fill(4));
     });
     test('size = 2', () => {
       const tilePostList_size2 = generatePostTileList(
@@ -72,7 +72,7 @@ describe('generatePostTileList', () => {
         .map((row) => row)
         .map((row) => row.reduce((acc, cur) => acc + cur.size, 0))
         .slice(0, -1);
-      expect(rowSizes_size2.every((size) => size === 2)).toBe(true);
+      expect(rowSizes_size2).toEqual(Array(rowSizes_size2.length).fill(2));
     });
   });
 });

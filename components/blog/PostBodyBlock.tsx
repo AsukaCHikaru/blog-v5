@@ -35,7 +35,7 @@ export const BlockContent: FC<Props> = ({ block }) => {
         return <YoutubeBlock item={block} />;
       }
       return (
-        <>
+        <div>
           <Image
             src={'/images/' + block.url}
             alt={block.alt || ''}
@@ -48,7 +48,7 @@ export const BlockContent: FC<Props> = ({ block }) => {
               {block.caption}
             </span>
           ) : null}
-        </>
+        </div>
       );
 
     case 'heading':

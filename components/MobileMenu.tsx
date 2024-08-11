@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useMemo, useState } from 'react';
 import styles from '@styles/MobileMenu.module.css';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -9,6 +9,17 @@ interface Props {
 
 export const MobileMenu = ({ onClose }: Props) => {
   const { pathname } = useRouter();
+  const [categories, setCategories] = useState<
+    { name: string; count: number }[] | undefined
+  >(undefined);
+
+  useEffect(() => {
+    fetch('/api/blog/getCategories')
+      .then((res) => res.json())
+      .then((data: { name: string; count: number }[]) =>
+        setCategories(data.sort((prev, next) => next.count - prev.count)),
+      );
+  }, []);
 
   return (
     <>
@@ -19,7 +30,27 @@ export const MobileMenu = ({ onClose }: Props) => {
           label="blog"
           path="/blog"
           onTitleClick={onClose}
-        />
+        >
+          {pathname.includes('blog') ? (
+            <ul className={styles['category-container']}>
+              {categories?.map((category) => (
+                <li key={`menu-blog-category-${category}`}>
+                  <Link
+                    href={`/blog/archive?category=${category.name}`}
+                    onClick={onClose}
+                    className={`${styles['category-link']}`}
+                  >
+                    {category.name}
+                    <div />
+                    <span>
+                      {category.count} post{category.count > 1 ? 's' : ''}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </MenuSectionTitle>
         <MenuSectionTitle
           active={pathname === '/about'}
           label="about"

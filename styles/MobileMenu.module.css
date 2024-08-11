@@ -16,10 +16,11 @@
   font-family: 'Gentium Book', serif;
   font-size: 16px;
   line-height: 1;
-  padding-bottom: 12px;
+  padding-bottom: 4px;
   border-bottom: solid 1px var(--dark-third);
   width: 100%;
   display: inline-block;
+  margin: 0 0 8px;
 
   &[data-active='true'] {
     color: var(--dark);
@@ -33,4 +34,38 @@
   height: 100vh;
   width: 100vw;
   background-color: #27221fa0;
+}
+
+.category-container {
+  background-color: #27221f19;
+  padding: 8px 8px 12px;
+  list-style: none;
+
+  > li:last-child {
+    > a {
+      margin: 0;
+    }
+  }
+}
+
+.category-link {
+  display: flex;
+  margin: 0 0 12px;
+  color: var(--dark);
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 200;
+  font-size: 12px;
+  line-height: 14px;
+
+  > div {
+    flex-grow: 1;
+    border-bottom: dotted 1px var(--dark-third);
+    margin: 0 4px;
+  }
+
+  > span {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+  }
 }

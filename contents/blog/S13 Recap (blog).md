@@ -50,14 +50,6 @@ I don't usually win lane and snowball to win, but with my buddies I can play a m
 
 Then after we got our first win of the day I can int with Akali.
 
-# About Akali
-## Pros
-- Extremely high mobility, good chasing and escaping capability
-- Shroud creates confusion and space in fight
-- 
-## Cons
-- mechanically demanding
-- not the best side lane champion
 
 # Esports
 After the announcement of TSM selling their LCS spot, I stopped caring about LCS. To be honest I haven't for a while, I was just waiting for the last straw.

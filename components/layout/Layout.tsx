@@ -1,19 +1,25 @@
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import styles from '@styles/Layout.module.css';
+import { SiteHeader } from '@components/SiteHeader';
+import { SiteFooter } from '@components/SiteFooter';
+import { MobileMenu } from '@components/MobileMenu';
 
-export const Layout = ({
-  children,
-  isMenuOpen,
-}: {
-  children: ReactNode;
-  isMenuOpen: boolean;
-}) => {
+export const Layout = ({ children }: { children: ReactNode }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <div
       className={`text-color ${styles.container}`}
       data-is-menu-open={isMenuOpen}
     >
+      <SiteHeader
+        onToggleMenu={() => setIsMenuOpen((prev) => !prev)}
+        isMenuOpen={isMenuOpen}
+        mobileMenu={<MobileMenu onClose={() => setIsMenuOpen(false)} />}
+      />
+
       {children}
+      <SiteFooter />
     </div>
   );
 };

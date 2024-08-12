@@ -21,6 +21,7 @@
   line-height: 1;
   font-family: 'Noto Serif JP', serif;
   font-weight: 200;
+  text-align: left;
 
   &:hover {
     text-decoration: underline;

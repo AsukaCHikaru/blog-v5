@@ -1,4 +1,5 @@
 import { PostMetadata } from '@types';
+import { HeadingBlock } from 'types/markdown';
 
 type TileSize = 1 | 2 | 3;
 
@@ -64,3 +65,10 @@ const convertPostMetadataToTile = (post: PostMetadata): PostTile => ({
   publishDate: post.publishDate,
   pathname: post.pathname,
 });
+
+export const convertHeaderLabelToId = (header: HeadingBlock) =>
+  header.children
+    .map((item) => item.text)
+    .join('-')
+    .replace(/[\s\.,\(\)]/g, '-')
+    .toLowerCase();

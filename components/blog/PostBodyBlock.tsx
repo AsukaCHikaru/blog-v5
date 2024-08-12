@@ -6,6 +6,8 @@ import { QuoteBlock } from './QuoteBlock';
 import { getImageSnapshotUrl, isImageSnapshot } from '@utils/stringUtils';
 import { MarkdownBlock, TextBlock } from 'types/markdown';
 import styles from '@styles/blog/PostBodyBlock.module.css';
+import { MainContent } from '@components/layout/Layout';
+import { convertHeaderLabelToId } from '@utils/blogUtils';
 
 interface Props {
   block: MarkdownBlock;
@@ -55,13 +57,7 @@ export const BlockContent: FC<Props> = ({ block }) => {
       switch (block.depth) {
         case 1:
           return (
-            <h2
-              className={styles.h2}
-              id={block.children
-                .map((item) => item.text)
-                .join('-')
-                .replace(/\s/g, '-')}
-            >
+            <h2 className={styles.h2} id={convertHeaderLabelToId(block)}>
               {block.children.map((child, i) => (
                 <RichTextItem key={i} item={child} />
               ))}
@@ -69,13 +65,7 @@ export const BlockContent: FC<Props> = ({ block }) => {
           );
         case 2:
           return (
-            <h3
-              className={styles.h3}
-              id={block.children
-                .map((item) => item.text)
-                .join('-')
-                .replace(/\s/g, '-')}
-            >
+            <h3 className={styles.h3} id={convertHeaderLabelToId(block)}>
               {block.children.map((child, i) => (
                 <RichTextItem key={i} item={child} />
               ))}
@@ -83,13 +73,7 @@ export const BlockContent: FC<Props> = ({ block }) => {
           );
         case 3:
           return (
-            <h4
-              className={styles.h4}
-              id={block.children
-                .map((item) => item.text)
-                .join('-')
-                .replace(/\s/g, '-')}
-            >
+            <h4 className={styles.h4} id={convertHeaderLabelToId(block)}>
               {block.children.map((child, i) => (
                 <RichTextItem key={i} item={child} />
               ))}

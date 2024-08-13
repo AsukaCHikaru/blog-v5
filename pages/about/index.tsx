@@ -1,15 +1,25 @@
 import { SiteHead } from '@components/SiteHead';
 import { SECTIONS } from 'consts/sections';
-import { FC } from 'react';
+import { FC, useContext, useEffect } from 'react';
 import { getAboutPageContent } from 'services/markdownServices';
 import { MarkdownBlock } from 'types/markdown';
 import { AboutPage } from '@components/about/AboutPage';
+import { SiteContext } from 'pages/_app';
 
 interface Props {
   content: MarkdownBlock[];
 }
 
 export const About: FC<Props> = ({ content }) => {
+  const context = useContext(SiteContext);
+
+  useEffect(() => {
+    if (!context) {
+      return;
+    }
+    context.activeSection = 'about';
+  }, [context]);
+
   return (
     <>
       <SiteHead

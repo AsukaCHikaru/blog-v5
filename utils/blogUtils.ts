@@ -72,3 +72,24 @@ export const convertHeaderLabelToId = (header: HeadingBlock) =>
     .join('-')
     .replace(/[\s\.,\(\)]/g, '-')
     .toLowerCase();
+
+export type BlogCategoryList = { name: string; count: number }[];
+export const convertPostListToCategories = (
+  postList: PostMetadata[],
+): BlogCategoryList => {
+  const categories = postList.map((post) => post.category);
+
+  const categoryCountList: { name: string; count: number }[] = [];
+  categories.forEach((category) => {
+    const thisCategoryCountItem = categoryCountList.find(
+      (item) => item.name === category,
+    );
+    if (thisCategoryCountItem) {
+      thisCategoryCountItem.count += 1;
+    } else {
+      categoryCountList.push({ name: category, count: 1 });
+    }
+  });
+
+  return categoryCountList;
+};

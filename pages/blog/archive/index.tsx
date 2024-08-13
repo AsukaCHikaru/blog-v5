@@ -3,12 +3,19 @@ import { getBlogPostList } from '../../../services/markdownServices';
 import { SiteHead } from '@components/SiteHead';
 import { PostListPage } from '@components/blog/PostListPage';
 import { useSearchParams } from 'next/navigation';
+import {
+  BlogCategoryList,
+  convertPostListToCategories,
+} from '@utils/blogUtils';
+import { useContext, useEffect } from 'react';
+import { SiteContext } from 'pages/_app';
 
 interface Props {
   postList: PostMetadata[];
+  categories: BlogCategoryList;
 }
 
-const Home = ({ postList }: Props) => {
+const Home = ({ postList, categories }: Props) => {
   const params = useSearchParams();
   const categoryQuery = params.get('category') ?? undefined;
   const filteredList = categoryQuery
@@ -16,6 +23,18 @@ const Home = ({ postList }: Props) => {
         (post) => post.category.toLowerCase() === categoryQuery?.toLowerCase(),
       )
     : postList;
+  const context = useContext(SiteContext);
+
+  useEffect(() => {
+    if (!context) {
+      return;
+    }
+    context.activeSection = 'blog';
+    if (context.blogCategories.length) {
+      return;
+    }
+    context.blogCategories = categories;
+  }, [categories, context]);
 
   return (
     <>
@@ -30,9 +49,11 @@ const Home = ({ postList }: Props) => {
 
 export async function getStaticProps() {
   const postList = await getBlogPostList();
+  const categories = convertPostListToCategories(postList);
   return {
     props: {
       postList,
+      categories,
     },
   };
 }

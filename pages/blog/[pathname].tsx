@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useContext, useEffect } from 'react';
 import {
   getBlogPostContent,
   getBlogPostList,
@@ -7,12 +7,18 @@ import { PostMetadata } from '@types';
 import { SiteHead } from '@components/SiteHead';
 import { MarkdownBlock } from 'types/markdown';
 import { PostDetailPage } from '@components/blog/PostDetailPage';
+import {
+  BlogCategoryList,
+  convertPostListToCategories,
+} from '@utils/blogUtils';
+import { SiteContext } from 'pages/_app';
 
 interface Props {
   postContent: MarkdownBlock[];
   postMetadata: PostMetadata;
   last5posts: PostMetadata[];
   categoryPosts: PostMetadata[];
+  categories: BlogCategoryList;
 }
 
 const Post: FC<Props> = ({
@@ -20,8 +26,21 @@ const Post: FC<Props> = ({
   postMetadata,
   last5posts,
   categoryPosts,
+  categories,
 }) => {
   const title = postMetadata.title + ' | Asuka Wang';
+  const context = useContext(SiteContext);
+
+  useEffect(() => {
+    if (!context) {
+      return;
+    }
+    context.activeSection = 'blog';
+    if (context.blogCategories.length) {
+      return;
+    }
+    context.blogCategories = categories;
+  }, [categories, context]);
 
   return (
     <>
@@ -75,9 +94,16 @@ export const getStaticProps = async ({
         post.description,
     )
     .slice(0, 5);
+  const categories = convertPostListToCategories(postList);
 
   return {
-    props: { postContent, postMetadata: thisPost, last5posts, categoryPosts },
+    props: {
+      postContent,
+      postMetadata: thisPost,
+      last5posts,
+      categoryPosts,
+      categories,
+    },
   };
 };
 

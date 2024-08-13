@@ -1,8 +1,8 @@
-import { ReactNode } from 'react';
+import { ReactNode, useContext } from 'react';
 import styles from '@styles/MobileMenu.module.css';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { useCustomApi } from 'hooks/useCustomApi';
+import { SiteContext } from 'pages/_app';
 
 interface Props {
   onClose: () => void;
@@ -10,23 +10,21 @@ interface Props {
 
 export const MobileMenu = ({ onClose }: Props) => {
   const { pathname } = useRouter();
-  const { data: categories } = useCustomApi<{ name: string; count: number }[]>(
-    '/api/blog/getCategories',
-  );
+  const context = useContext(SiteContext);
 
   return (
     <>
       <div className={styles.backdrop} onClick={() => onClose()} />
       <div className={styles.menu}>
         <MenuSectionTitle
-          active={pathname.includes('blog')}
+          active={context?.activeSection === 'blog'}
           label="blog"
           path="/blog"
           onTitleClick={onClose}
         >
-          {pathname.includes('blog') ? (
+          {context?.activeSection === 'blog' ? (
             <ul className={styles['category-container']}>
-              {categories
+              {context?.blogCategories
                 ?.sort((prev, next) => next.count - prev.count)
                 .map((category) => (
                   <li key={`menu-blog-category-${category}`}>
@@ -47,7 +45,7 @@ export const MobileMenu = ({ onClose }: Props) => {
           ) : null}
         </MenuSectionTitle>
         <MenuSectionTitle
-          active={pathname === '/about'}
+          active={context?.activeSection === 'about'}
           label="about"
           path="/about"
           onTitleClick={onClose}

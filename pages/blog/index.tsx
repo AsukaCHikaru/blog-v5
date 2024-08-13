@@ -7,12 +7,19 @@ import { SiteHead } from '@components/SiteHead';
 import { PostDetailPage } from '@components/blog/PostDetailPage';
 import { MarkdownBlock } from 'types/markdown';
 import { SECTIONS } from 'consts/sections';
+import { useContext, useEffect } from 'react';
+import { SiteContext } from 'pages/_app';
+import {
+  BlogCategoryList,
+  convertPostListToCategories,
+} from '@utils/blogUtils';
 
 interface Props {
   postMetadata: PostMetadata;
   postContent: MarkdownBlock[];
   last5posts: PostMetadata[];
   categoryPosts: PostMetadata[];
+  categories: BlogCategoryList;
 }
 
 const Home = ({
@@ -20,20 +27,36 @@ const Home = ({
   postContent,
   last5posts,
   categoryPosts = [],
-}: Props) => (
-  <>
-    <SiteHead
-      title="Blog | Asuka Wang"
-      description={SECTIONS.BLOG.description}
-    />
-    <PostDetailPage
-      postContent={postContent}
-      postMetadata={postMetadata}
-      last5posts={last5posts}
-      categoryPosts={categoryPosts}
-    />
-  </>
-);
+  categories,
+}: Props) => {
+  const context = useContext(SiteContext);
+
+  useEffect(() => {
+    if (!context) {
+      return;
+    }
+    context.activeSection = 'blog';
+    if (context.blogCategories.length) {
+      return;
+    }
+    context.blogCategories = categories;
+  }, [categories, context]);
+
+  return (
+    <>
+      <SiteHead
+        title="Blog | Asuka Wang"
+        description={SECTIONS.BLOG.description}
+      />
+      <PostDetailPage
+        postContent={postContent}
+        postMetadata={postMetadata}
+        last5posts={last5posts}
+        categoryPosts={categoryPosts}
+      />
+    </>
+  );
+};
 
 export async function getStaticProps() {
   const postList = await getBlogPostList();
@@ -48,6 +71,7 @@ export async function getStaticProps() {
         post.description,
     )
     .slice(0, 5);
+  const categories = convertPostListToCategories(postList);
 
   return {
     props: {
@@ -55,6 +79,7 @@ export async function getStaticProps() {
       postContent,
       last5posts,
       categoryPosts,
+      categories,
     },
   };
 }

@@ -59,11 +59,7 @@ const HeaderLink: FC<{
         .map((_, i) => (
           <div className={styles.indent} key={i} />
         ))}
-      <button
-        role="link"
-        className={`${styles.link} interactive-color`}
-        onClick={onClick}
-      >
+      <button role="link" className={styles.link} onClick={onClick}>
         {children}
       </button>
     </li>

@@ -1,14 +1,90 @@
-import {
-  HeadingBlock,
-  ListBlock,
-  MarkdownBlock,
-  TextBlock,
-} from 'types/markdown';
-import { PostLanguage, PostMetadata } from '../types';
 import { YAML, Content, PhrasingContent, Paragraph, List } from 'mdast';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkFrontmatter from 'remark-frontmatter';
+
+export type PostMetadata = {
+  id: string;
+  title: string;
+  category: string;
+  tags: string[];
+  publishDate: string;
+  pathname: string;
+  filename: string;
+  description?: string; // TODO: remove optional after description for all posts are completed
+};
+
+export type CategoryList = {
+  [key: string]: number;
+};
+
+type TextBlockTypes = 'plain' | 'strong' | 'italic' | 'inlineCode';
+
+type LinkTextBlock = {
+  type: 'link';
+  text: string;
+  url: string;
+};
+
+type TextBlock =
+  | {
+      type: TextBlockTypes;
+      text: string;
+    }
+  | LinkTextBlock;
+
+type HeadingBlock = {
+  type: 'heading';
+  children: TextBlock[];
+  depth: number;
+};
+
+type ParagraphBlock = {
+  type: 'paragraph';
+  children: TextBlock[];
+};
+
+type ImageBlock = {
+  type: 'image';
+  url: string;
+  caption: string | null;
+  alt: string | null;
+};
+
+type ListItemBlock = {
+  type: 'listItem';
+  children: TextBlock[];
+};
+
+type ListBlock = {
+  type: 'list';
+  children: ListItemBlock[];
+  ordered: boolean;
+};
+
+type CodeBlock = {
+  type: 'code';
+  lang?: string;
+  text: string;
+};
+
+type QuoteBlock = {
+  type: 'quote';
+  children: TextBlock[];
+};
+
+type ThematicBreakBlock = {
+  type: 'thematicBreak';
+};
+
+export type MarkdownBlock =
+  | HeadingBlock
+  | ParagraphBlock
+  | ImageBlock
+  | ListBlock
+  | CodeBlock
+  | QuoteBlock
+  | ThematicBreakBlock;
 
 const parseFrontmatter = (rawFrontmatter: YAML): Record<string, string> => {
   const result: Record<string, string> = {};
@@ -174,11 +250,9 @@ export const convertFrontmatterToMetadata = (
     title: frontmatter.title,
     description: frontmatter.description || '',
     category: frontmatter.category,
-    language: [frontmatter.language as PostLanguage],
     tags: frontmatter.tags?.split(/,\s?/) || [],
     publishDate: frontmatter.published,
     pathname: frontmatter.pathname,
-    zhTwLink: null,
     filename: frontmatter.filename,
   };
   return postMetadata;

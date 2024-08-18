@@ -6,7 +6,6 @@ language: zh-TW
 pathname: spring-finals
 category: League of Legends
 tags: esports, TSM
-filename: Spring Finals (blog)
 ---
 寫在 TSM 擊敗 C9，第五度贏得 NALCS Championship 之後。
 

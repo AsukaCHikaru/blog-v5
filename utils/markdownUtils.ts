@@ -10,7 +10,6 @@ export type PostMetadata = {
   tags: string[];
   publishDate: string;
   pathname: string;
-  filename: string;
   description?: string; // TODO: remove optional after description for all posts are completed
 };
 
@@ -253,7 +252,6 @@ export const convertFrontmatterToMetadata = (
     tags: frontmatter.tags?.split(/,\s?/) || [],
     publishDate: frontmatter.published,
     pathname: frontmatter.pathname,
-    filename: frontmatter.filename,
   };
   return postMetadata;
 };

@@ -1,6 +1,5 @@
 ---
 created: 2024-04-09 17:17
-filename: Godot Essentials (blog)
 title: Godot Essentials
 description: The biggest lessons I learned in my first Godot project.
 published: 2024-04-21

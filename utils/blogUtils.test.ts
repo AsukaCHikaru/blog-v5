@@ -8,7 +8,6 @@ const generateDummmyPost = (): PostMetadata => ({
   pathname: faker.lorem.slug({ min: 3, max: 10 }),
   category: faker.lorem.word(),
   publishDate: faker.date.past().toString(),
-  filename: faker.system.fileName(),
   id: faker.lorem.slug({ min: 3, max: 10 }),
   tags: [],
 });

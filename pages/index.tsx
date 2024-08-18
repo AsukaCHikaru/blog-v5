@@ -56,7 +56,7 @@ const Home = ({
 export async function getStaticProps() {
   const postList = await getBlogPostList();
   const lastPost = postList[0];
-  const postContent = getBlogPostContent(lastPost.filename);
+  const postContent = getBlogPostContent(lastPost.pathname);
   const last5posts = postList.slice(0, 5);
   const categoryPosts = postList
     .filter(

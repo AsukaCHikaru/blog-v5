@@ -6,7 +6,6 @@ language: zh-TW
 pathname: sotsugyo
 category: Life
 tags:
-filename: 卒業 (blog)
 ---
 一直覺得「畢業(卒業)」是個很漂亮的講法。
 

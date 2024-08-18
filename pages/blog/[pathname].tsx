@@ -82,7 +82,7 @@ export const getStaticProps = async ({
     return { props: {} };
   }
 
-  const postContent = getBlogPostContent(thisPost.filename);
+  const postContent = getBlogPostContent(thisPost.pathname);
 
   const last5posts = postList.slice(0, 5);
   const categoryPosts = postList

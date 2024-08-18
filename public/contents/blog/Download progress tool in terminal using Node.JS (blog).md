@@ -8,7 +8,6 @@ category: Programming
 tags:
   - Node.js
   - Terminal
-filename: Download progress tool in terminal using Node.JS (blog)
 ---
 # TL;DR:
 

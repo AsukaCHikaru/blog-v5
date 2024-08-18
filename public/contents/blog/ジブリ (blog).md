@@ -6,7 +6,6 @@ language: zh-TW
 pathname: ghibli
 category: Movie
 tags: 
-filename: ジブリ (blog)
 description:
 ---
 

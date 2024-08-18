@@ -6,7 +6,6 @@ language: zh-TW
 pathname: zelda-botw
 category: Gaming
 tags: Review
-filename: Zelda - Breath of the Wild (blog)
 ---
 先說結論，我並不享受這個遊戲。
 

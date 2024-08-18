@@ -1,7 +1,7 @@
-import { type CategoryList as CategoryListType } from '@types';
 import { FC } from 'react';
 import Link from 'next/link';
 import styles from '@styles/blog/CategoryList.module.css';
+import { CategoryList as CategoryListType } from '@utils/markdownUtils';
 
 interface Props {
   categoryList: CategoryListType;

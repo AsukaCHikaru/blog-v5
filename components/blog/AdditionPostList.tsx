@@ -1,7 +1,7 @@
-import { PostMetadata } from '@types';
 import styles from '@styles/blog/AdditionalPostList.module.css';
 import Link from 'next/link';
 import { parseDateToEn } from '@utils/dateTimeUtils';
+import { PostMetadata } from '@utils/markdownUtils';
 
 export const AdditionalPostList = ({
   postList,

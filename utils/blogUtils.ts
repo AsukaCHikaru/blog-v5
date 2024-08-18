@@ -1,5 +1,4 @@
-import { PostMetadata } from '@types';
-import { HeadingBlock } from 'types/markdown';
+import { HeadingBlock, PostMetadata } from './markdownUtils';
 
 type TileSize = 1 | 2 | 3;
 

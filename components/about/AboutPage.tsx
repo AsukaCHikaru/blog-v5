@@ -5,8 +5,7 @@ import {
   MainContent,
   RightPanel,
 } from '@components/layout/Layout';
-import { isHeadingBlock } from '@utils/markdownUtils';
-import { MarkdownBlock } from 'types/markdown';
+import { isHeadingBlock, MarkdownBlock } from '@utils/markdownUtils';
 import styles from '@styles/about/AboutPage.module.css';
 
 export const AboutPage = ({ content }: { content: MarkdownBlock[] }) => {

@@ -1,7 +1,7 @@
 import { FC, ReactNode, useCallback } from 'react';
-import { HeadingBlock } from 'types/markdown';
 import styles from '@styles/blog/TableOfContentColumn.module.css';
 import { convertHeaderLabelToId } from '@utils/blogUtils';
+import { HeadingBlock } from '@utils/markdownUtils';
 
 const DESKTOP_SITE_HEADER_HEIGHT = 56;
 const DESKTOP_HEADER_MARGIN_TOP = 20;

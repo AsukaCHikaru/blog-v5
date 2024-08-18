@@ -1,15 +1,13 @@
-import { PostMetadata } from '@types';
 import { generatePostTileList } from './blogUtils';
 import { faker } from '@faker-js/faker';
+import { PostMetadata } from './markdownUtils';
 
 const generateDummmyPost = (): PostMetadata => ({
   title: faker.lorem.sentence({ min: 3, max: 10 }),
   description: faker.lorem.sentences({ min: 1, max: 4 }),
   pathname: faker.lorem.slug({ min: 3, max: 10 }),
   category: faker.lorem.word(),
-  language: ['enUS'],
   publishDate: faker.date.past().toString(),
-  zhTwLink: null,
   filename: faker.system.fileName(),
   id: faker.lorem.slug({ min: 3, max: 10 }),
   tags: [],

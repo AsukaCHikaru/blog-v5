@@ -4,10 +4,9 @@ import Image from 'next/image';
 import { YoutubeBlock } from './YoutubeBlock';
 import { QuoteBlock } from './QuoteBlock';
 import { getImageSnapshotUrl, isImageSnapshot } from '@utils/stringUtils';
-import { MarkdownBlock, TextBlock } from 'types/markdown';
 import styles from '@styles/blog/PostBodyBlock.module.css';
-import { MainContent } from '@components/layout/Layout';
 import { convertHeaderLabelToId } from '@utils/blogUtils';
+import { MarkdownBlock, TextBlock } from '@utils/markdownUtils';
 
 interface Props {
   block: MarkdownBlock;

@@ -1,8 +1,8 @@
-import { PostMetadata } from '@types';
 import { FC } from 'react';
 import { parseDateToEn } from '@utils/dateTimeUtils';
 import Link from 'next/link';
 import styles from '@styles/blog/ArchiveList.module.css';
+import { PostMetadata } from '@utils/markdownUtils';
 
 interface Props {
   postList: PostMetadata[];

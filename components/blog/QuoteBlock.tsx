@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { QuoteBlock as QuoteBlockType } from 'types/markdown';
 import { RichTextItem } from './PostBodyBlock';
 import styles from '@styles/blog/QuoteBlock.module.css';
+import { QuoteBlock as QuoteBlockType } from '@utils/markdownUtils';
 
 export const QuoteBlock: FC<{ block: QuoteBlockType }> = ({ block }) => {
   return (

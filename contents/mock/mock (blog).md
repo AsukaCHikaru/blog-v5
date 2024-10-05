@@ -6,7 +6,6 @@ language: en-US
 pathname: mock
 category: Test
 tags:
-filename: mock (blog)
 ---
 
 # H1 **strong** *italic* [link](https://google.com)`inline-code`

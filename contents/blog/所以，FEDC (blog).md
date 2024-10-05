@@ -7,7 +7,6 @@ pathname: so-fedc
 category: Life
 tags:
   - Front-end
-filename: 所以，FEDC (blog)
 ---
 大約是今年 3、4 月的時候，我在 Front-End Developers Taiwan 社團看到了 FEDC2018 Taiwan(以下簡稱 FEDC)的廣告。講座的部分，幾乎是當下就決定要去了。但這將會是我第一次參加 Conference 以及 Workshop(很明顯地於公於私都不會有人揪我一起去)，我對兩者會是怎樣的形式都沒有明確的概念。Conference 比較單純，在我的想像中就是人手一台 laptop(87%是 macbook)聽台上發表一些神奇新技術，但 workshop？會是小組合作嗎？有個主題？有個時限？我曾在 Medium 看過"Why you should attend workshop"之類的文章，內容不外乎作者並非高手，但經過一連串的洗禮之後得到了許多實戰經驗，非常建議大家也參加，下略五千字。嗯，我很確定那些人與會當時的程設程度都比我好(應該啦)，我是個基礎沒打好的非本科生，更何況 Workshop 的介紹可寫著「建議具備 React 基本知識」啊。事實上，這句話就是一切的出發點。
 

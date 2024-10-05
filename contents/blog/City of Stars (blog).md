@@ -9,7 +9,6 @@ tags:
   - Travel
   - Movies
   - UnitedStates
-filename: City of Stars (blog)
 ---
 去了一趟 LA。
 

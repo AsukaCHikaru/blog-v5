@@ -1,6 +1,5 @@
 ---
 created: 2024-05-30 09:55
-filename: A Peek of the World (blog)
 title: A Peek of the World
 description: I went to Copenhagen and London for my honeymoon, the first trip to Europe in my life. Some memories keep staying on my mind and I have many thoughts about them.
 published: 2024-06-16

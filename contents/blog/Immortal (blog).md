@@ -6,7 +6,6 @@ language: zh-TW
 pathname: immortal
 category: League of Legends
 tags:
-filename: Immortal (blog)
 ---
 日前，LS 發現了 leaague 遊戲中一個關於他的彩蛋：在商店中搜尋 "ls" 或是 "last shadow"時，搜尋結果會出現 Liandry's Anguish 與 Morellonomicon 兩個道具。當下，他立刻激動無比，幾近哽咽。
 

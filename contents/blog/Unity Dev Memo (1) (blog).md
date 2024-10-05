@@ -6,7 +6,6 @@ language: zh-TW
 pathname: unity-dev-memo-1
 category: Game Development
 tags: Unity3D
-filename: Unity Dev Memo (1) (blog)
 ---
 在數年的醞釀以及一時的心血來潮以後，我開始第一次真正投入時間學習 Unity 。至今一週，最大的感想是過往兩年自學程式的經驗惠我良多，但並不是因為程式的概念等，而是在尋找資源，搜尋關鍵字，看文件的速度上，比起兩三年前另一次摸 Unity 的時候有效率太多了。以下是這一週學到的我覺得值得筆記的部分。
 

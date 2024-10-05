@@ -5,7 +5,6 @@ published: 2024-01-23
 pathname: s13-recap
 category: League of Legends
 tags: 
-filename: S13 Recap (blog)
 description: After a three years gap, I'm back to league.
 updated: 2024-05-03
 language: en-US

@@ -6,7 +6,6 @@ language: en-US
 pathname: hades
 category: Gaming
 tags: Review, Game Design
-filename: Hades (blog)
 ---
 For the film industry, there is a “Best Picture” award.
 

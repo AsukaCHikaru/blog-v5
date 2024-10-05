@@ -6,7 +6,6 @@ language: zh-TW
 pathname: day-of-destiny
 category: HKT48
 tags:
-filename: Day of Destiny (blog)
 ---
 
 ![[day-of-destiny_1.png]]

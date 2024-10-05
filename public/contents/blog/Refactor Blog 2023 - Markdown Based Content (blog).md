@@ -6,7 +6,6 @@ language: en-US
 pathname: refactor-blog-2023-markdown-based-content
 category: Meta
 tags: 
-filename: Refactor Blog 2023 - Markdown Based Content (blog)
 description: Embracing a different approach toward my own data, I made a change to the content hosting method of my blog.
 updated: 2024-05-03
 ---

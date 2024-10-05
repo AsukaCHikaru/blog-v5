@@ -9,7 +9,6 @@ tags:
   - fish
   - shell
   - Terminal
-filename: Use npm package commands in fish shell (blog)
 ---
 # TL;DR:
 

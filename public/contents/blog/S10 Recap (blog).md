@@ -6,7 +6,6 @@ language: en-US
 pathname: s10-recap
 category: League of Legends
 tags: TSM
-filename: S10 Recap (blog)
 ---
 # TSM
 

@@ -1,3 +1,14 @@
+@keyframes menuOpen {
+  0% {
+    width: 0;
+    padding: 24px 0 8px;
+  }
+
+  100% {
+    width: 80vw;
+    padding: 24px 12px 8px;
+  }
+}
 .menu {
   position: absolute;
   top: 0;
@@ -10,6 +21,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  animation: 0.3s ease-in-out 1 menuOpen;
 }
 
 .menu-section-title {
@@ -56,6 +68,7 @@
   font-weight: 200;
   font-size: 12px;
   line-height: 14px;
+  white-space: nowrap;
 
   > div {
     flex-grow: 1;

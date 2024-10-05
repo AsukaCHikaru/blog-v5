@@ -9,7 +9,6 @@ tags:
   - React.js
   - TypeScript
   - Webpack
-filename: Refactor Blog - (1) Webpack (blog)
 ---
 Recently, I rewrote my [blog](https://asukachikaru.com/blog) for the second time. Every time, I rewrite to solve particular problems.
 

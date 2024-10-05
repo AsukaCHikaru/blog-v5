@@ -7,7 +7,6 @@ pathname: god-of-war-ragnarok
 category: Gaming
 tags:
   - Review
-filename: God of War Ragnarök (blog)
 description: As a successor of a game with solid gameplay and extraordinary narrative, God of War Ragnarök made attempts to be something better on many aspects. Some of them were great, some others were not.
 updated: 2024-05-03
 ---

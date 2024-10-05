@@ -6,7 +6,6 @@ language: zh-TW
 pathname: hkt-theaters
 category: HKT48
 tags:
-filename: 淺談劇場 (blog)
 ---
 簡單談談 HKT 的四個劇場。
 

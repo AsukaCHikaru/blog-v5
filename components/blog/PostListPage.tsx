@@ -1,11 +1,9 @@
 import { FC, useEffect, useMemo, useState } from 'react';
-import { PostMetadata } from '@types';
-import { PostLink } from './PostLink';
-import { SideColumn } from './SideColumn';
 import styles from '@styles/blog/PostListPage.module.css';
 import { MainContent } from '@components/layout/Layout';
 import { generatePostTileList } from '@utils/blogUtils';
 import { PostListTile } from './PostListTile';
+import { PostMetadata } from '@utils/markdownUtils';
 
 interface Props {
   postList: PostMetadata[];

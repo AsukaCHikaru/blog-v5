@@ -3,15 +3,14 @@ import {
   getBlogPostContent,
   getBlogPostList,
 } from '../../services/markdownServices';
-import { PostMetadata } from '@types';
 import { SiteHead } from '@components/SiteHead';
-import { MarkdownBlock } from 'types/markdown';
 import { PostDetailPage } from '@components/blog/PostDetailPage';
 import {
   BlogCategoryList,
   convertPostListToCategories,
 } from '@utils/blogUtils';
 import { SiteContext } from 'pages/_app';
+import { MarkdownBlock, PostMetadata } from '@utils/markdownUtils';
 
 interface Props {
   postContent: MarkdownBlock[];
@@ -83,7 +82,7 @@ export const getStaticProps = async ({
     return { props: {} };
   }
 
-  const postContent = getBlogPostContent(thisPost.filename);
+  const postContent = getBlogPostContent(thisPost.pathname);
 
   const last5posts = postList.slice(0, 5);
   const categoryPosts = postList

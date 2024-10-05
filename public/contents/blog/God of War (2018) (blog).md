@@ -6,7 +6,6 @@ language: en-US
 pathname: god-of-war-2018
 category: Gaming
 tags: Review
-filename: God of War (2018) (blog)
 ---
 
 # Narrative

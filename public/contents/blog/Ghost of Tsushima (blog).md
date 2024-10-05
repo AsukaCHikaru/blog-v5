@@ -6,7 +6,6 @@ language: en-US
 pathname: ghost-of-tsushima
 category: Gaming
 tags: Review
-filename: Ghost of Tsushima (blog)
 ---
 
 # Gameplay

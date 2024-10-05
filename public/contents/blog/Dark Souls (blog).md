@@ -8,7 +8,6 @@ category: Gaming
 tags:
   - Review
   - GameDesign
-filename: Dark Souls (blog)
 description: Though once a cult classic, the soul-like has become a mainstream genre. I beat its early entry to see its secrets and the reputation of unmerciful difficulty.
 updated: 2024-05-03
 ---

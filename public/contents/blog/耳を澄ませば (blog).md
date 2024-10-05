@@ -6,7 +6,6 @@ language: zh-TW
 pathname: whisper-of-the-heart
 category: Movie
 tags: 
-filename: 耳を澄ませば (blog)
 ---
 
 日前我決定完整把吉卜力作品裡宮崎駿導的全部看過一遍。不到一週前看過<紅の豚>後我覺得就算算上還沒觀賞的部分它也可能是我最喜歡的一部作品，這個想法在<耳をすませば>才看到一半時就改變了。

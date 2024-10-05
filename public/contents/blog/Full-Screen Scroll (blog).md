@@ -7,7 +7,6 @@ pathname: full-screen-scroll
 category: Web Development
 tags:
   - React.js
-filename: Full-Screen Scroll (blog)
 ---
 ## TL;DR:
 

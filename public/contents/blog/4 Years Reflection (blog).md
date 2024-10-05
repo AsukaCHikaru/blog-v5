@@ -1,6 +1,5 @@
 ---
 created: 2024/04/05 19:43
-filename: 4 Years Reflection (blog)
 title: 4 Years Reflection
 description: Another two years of life as a full-time developer has passed. Many things changed and many lessons learned. It's a perfect timing to look back and reflect.
 published: 2024-04-08

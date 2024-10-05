@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { FC } from 'react';
 import styles from '@styles/blog/PostLink.module.css';
-import { PostMetadata } from '@types';
 import { parseDateToEn } from '@utils/dateTimeUtils';
+import { PostMetadata } from '@utils/markdownUtils';
 
 interface Props {
   postMetadata: PostMetadata;

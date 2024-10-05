@@ -8,7 +8,6 @@ category: Web Development
 tags:
   - JavaScript
   - React.js
-filename: Things I Learned After Building 5 React.js Apps (blog)
 ---
 # TLDR:
 

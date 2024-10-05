@@ -10,7 +10,6 @@ tags:
   - HTML
   - TypeScript
   - Express.js
-filename: Refactor Blog - (2) SSR (blog)
 ---
 One of the reasons I choose Gatsby last time I wrote my blog site is to have SSR. SEO matters, isn't it?
 

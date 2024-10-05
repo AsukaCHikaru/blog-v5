@@ -7,7 +7,6 @@ updated: 2024-08-18
 language: en-US
 category: Meta
 pathname: site-patch-notes-2024-redesign
-filename: Site Patch Notes - 2024 Redesign (blog)
 ---
 
 Earlier this year I introduced an overhaul to this site, with the intention to update and refine both its visual style and role. It is now the central hub of all my contents, including blog posts and an about page currently, and many more planned for the future. Visual-wise I aimed to resemble the classic print newspaper style, in a modern fashion with great accessibility.

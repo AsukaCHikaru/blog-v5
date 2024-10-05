@@ -6,7 +6,6 @@ language: zh-TW
 pathname: this-city-raised-madoka
 category: HKT48
 tags: 
-filename: この町が、まどかを育ててた (blog)
 ---
 ![[this-city-raised-madoka_1.jpg]]
 #nullcaption

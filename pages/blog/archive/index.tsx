@@ -1,4 +1,3 @@
-import { PostMetadata } from '@types';
 import { getBlogPostList } from '../../../services/markdownServices';
 import { SiteHead } from '@components/SiteHead';
 import { PostListPage } from '@components/blog/PostListPage';
@@ -9,6 +8,7 @@ import {
 } from '@utils/blogUtils';
 import { useContext, useEffect } from 'react';
 import { SiteContext } from 'pages/_app';
+import { PostMetadata } from '@utils/markdownUtils';
 
 interface Props {
   postList: PostMetadata[];

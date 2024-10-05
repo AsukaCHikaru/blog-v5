@@ -6,7 +6,6 @@ language: zh-TW
 pathname: celeste
 category: Gaming
 tags: Review
-filename: Celeste (blog)
 ---
 我在摸索 Unity3D 時，第一個想做的遊戲是 platformer。做著做著覺得沒什麼手感才想起：我根本不太玩 platformer。想做不是因為自己想玩，是因為這個類型給我一種獨立遊戲感。所以，雖然對 platformer 不是特別有熱情，我仍然玩了兩款名作來體驗與研究。
 

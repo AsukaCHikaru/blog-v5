@@ -1,17 +1,16 @@
-import { PostMetadata } from '@types';
 import {
   getBlogPostContent,
   getBlogPostList,
 } from '../services/markdownServices';
 import { SiteHead } from '@components/SiteHead';
 import { PostDetailPage } from '@components/blog/PostDetailPage';
-import { MarkdownBlock } from 'types/markdown';
 import { useContext, useEffect } from 'react';
 import { SiteContext } from './_app';
 import {
   BlogCategoryList,
   convertPostListToCategories,
 } from '@utils/blogUtils';
+import { MarkdownBlock, PostMetadata } from '@utils/markdownUtils';
 
 interface Props {
   postMetadata: PostMetadata;
@@ -57,7 +56,7 @@ const Home = ({
 export async function getStaticProps() {
   const postList = await getBlogPostList();
   const lastPost = postList[0];
-  const postContent = getBlogPostContent(lastPost.filename);
+  const postContent = getBlogPostContent(lastPost.pathname);
   const last5posts = postList.slice(0, 5);
   const categoryPosts = postList
     .filter(

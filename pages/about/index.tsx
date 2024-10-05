@@ -2,9 +2,9 @@ import { SiteHead } from '@components/SiteHead';
 import { SECTIONS } from 'consts/sections';
 import { FC, useContext, useEffect } from 'react';
 import { getAboutPageContent } from 'services/markdownServices';
-import { MarkdownBlock } from 'types/markdown';
 import { AboutPage } from '@components/about/AboutPage';
 import { SiteContext } from 'pages/_app';
+import { MarkdownBlock } from '@utils/markdownUtils';
 
 interface Props {
   content: MarkdownBlock[];

@@ -7,7 +7,6 @@ pathname: a-rather-easy-way-to-implement-quicksort-in-js
 category: Programming
 tags:
   - Algorithm
-filename: A rather easy way to implement quicksort in JavaScript (blog)
 ---
 Don't use in-place swap.
 

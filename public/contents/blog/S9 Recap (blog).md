@@ -6,7 +6,6 @@ language: zh-TW
 pathname: s9-recap
 category: League of Legends
 tags: esports, TSM
-filename: S9 Recap (blog)
 ---
 # Esports
 

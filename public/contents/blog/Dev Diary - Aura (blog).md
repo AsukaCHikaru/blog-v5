@@ -6,7 +6,6 @@ language: zh-TW
 pathname: dev-diary-aura
 category: Game Development
 tags:
-filename: Dev Diary - Aura (blog)
 ---
 在最近進行的 side project 中刻了一個靈氣(aura)輪子。比我想像中的麻煩，決定動筆記錄一下。
 

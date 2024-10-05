@@ -6,7 +6,6 @@ language: zh-TW
 pathname: the-stone
 category: League of Legends
 tags: 坂本真綾
-filename: The Stone (blog)
 ---
 我還記得第一次玩 Taliyah 的時候。
 

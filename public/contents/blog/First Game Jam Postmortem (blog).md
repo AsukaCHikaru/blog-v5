@@ -9,7 +9,6 @@ tags:
   - Game
   - Design
   - Gamejam
-filename: First Game Jam Postmortem (blog)
 description: I attended a game jam for the first time in my life. It was the best decision I made as an indie game developer in many years.
 updated: 2024-05-03
 ---

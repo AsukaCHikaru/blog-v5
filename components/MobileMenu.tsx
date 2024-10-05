@@ -1,6 +1,5 @@
 import { ReactNode, useContext } from 'react';
 import styles from '@styles/MobileMenu.module.css';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { SiteContext } from 'pages/_app';
 
@@ -9,9 +8,7 @@ interface Props {
 }
 
 export const MobileMenu = ({ onClose }: Props) => {
-  const { pathname } = useRouter();
   const context = useContext(SiteContext);
-
   return (
     <>
       <div className={styles.backdrop} onClick={() => onClose()} />

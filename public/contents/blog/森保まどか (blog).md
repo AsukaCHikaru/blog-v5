@@ -7,7 +7,6 @@ pathname: moriyasumadoka
 category: HKT48
 tags:
   - HKT48
-filename: 森保まどか (blog)
 ---
 
 2015 年，HKT48 連續第二年在總選舉入選十人以上，指原也重新拿回了第一名的寶座。那是 HKT 出道第四年，第五張單曲發售兩個月後。選拔成員多以一期生為主，但不甘曝光量不平衡的二期生推來勢洶洶，三期雙 top 也挾帶強大官推氣勢來襲。

@@ -69,10 +69,10 @@ export const parse = (input: string): MarkdownBlock[] => {
     if (/^#{1,}\s.+$/.test(line)) {
       return parseHeadingBlock(line);
     }
-    return line;
+    return parseParagraphBlock(line);
   });
 
-  return [];
+  return parsed;
 };
 
 export const parseTextBody = (input: string): TextBody[] => {
@@ -150,6 +150,11 @@ export const parseTextBody = (input: string): TextBody[] => {
 
   return result;
 };
+
+const parseParagraphBlock = (input: string): ParagraphBlock => ({
+  type: 'paragraph',
+  body: parseTextBody(input),
+});
 
 const parseHeadingBlock = (input: string): HeadingBlock => {
   const [, hashes, rawBody] = /^(#+)\s(.+)$/.exec(input) || [];

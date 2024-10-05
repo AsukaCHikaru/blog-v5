@@ -1,6 +1,6 @@
 import { Heading } from 'mdast';
 
-type TextBodyStyle = 'plain' | 'srong' | 'italic' | 'code';
+type TextBodyStyle = 'plain' | 'strong' | 'italic' | 'code';
 type TextBody = {
   type: 'textBody';
   style: TextBodyStyle;
@@ -65,33 +65,100 @@ type MarkdownBlock =
 export const parse = (input: string): MarkdownBlock[] => {
   const lines = input.split('\n').filter((line) => line !== '');
 
+  const parsed = lines.map((line) => {
+    if (/^#{1,}\s.+$/.test(line)) {
+      return parseHeadingBlock(line);
+    }
+    return line;
+  });
+
   return [];
 };
 
-class Line {
-  value = '';
-  constructor(input: string) {
-    this.value = input;
-  }
-  checkHeadingBlock(): HeadingBlock | Line {
-    const isHeading = /^(#{1,}).+/.test(this.value);
-    if (!isHeading) {
-      return new Line(this.value);
+export const parseTextBody = (input: string): TextBody[] => {
+  const result = [];
+  let toBeParsed = input;
+  let plainBuffer = '';
+  while (toBeParsed.length > 0) {
+    const findStrong = /^\*{2}([^*]+)\*{2}/.exec(toBeParsed);
+    if (findStrong) {
+      if (plainBuffer.length) {
+        result.push({
+          type: 'textBody',
+          style: 'plain',
+          value: plainBuffer,
+        } satisfies TextBody);
+        plainBuffer = '';
+      }
+      result.push({
+        type: 'textBody',
+        style: 'strong',
+        value: findStrong[1],
+      } satisfies TextBody);
+      toBeParsed = toBeParsed.slice(findStrong[0].length);
+      continue;
     }
-    return {
-      type: 'heading',
-      body: [],
-      level: 1,
-    };
-  }
-}
+    const findItalic = /^\*{1}([^*]+)\*{1}/.exec(toBeParsed);
 
-const checkHeadingBlock = (input: string) => {
-  const isHeading = /^(#{1,}).+/.test(input);
-  if (!isHeading) {
-    return;
+    if (findItalic) {
+      if (plainBuffer.length) {
+        result.push({
+          type: 'textBody',
+          style: 'plain',
+          value: plainBuffer,
+        } satisfies TextBody);
+        plainBuffer = '';
+      }
+      result.push({
+        type: 'textBody',
+        style: 'italic',
+        value: findItalic[1],
+      } satisfies TextBody);
+      toBeParsed = toBeParsed.slice(findItalic[0].length);
+      continue;
+    }
+    const findCode = /^`{1}([^*]+)`{1}/.exec(toBeParsed);
+
+    if (findCode) {
+      if (plainBuffer.length) {
+        result.push({
+          type: 'textBody',
+          style: 'plain',
+          value: plainBuffer,
+        } satisfies TextBody);
+        plainBuffer = '';
+      }
+      result.push({
+        type: 'textBody',
+        style: 'code',
+        value: findCode[1],
+      } satisfies TextBody);
+      toBeParsed = toBeParsed.slice(findCode[0].length);
+      continue;
+    }
+    plainBuffer += toBeParsed[0];
+    toBeParsed = toBeParsed.slice(1);
+    if (plainBuffer.length && !toBeParsed.length) {
+      result.push({
+        type: 'textBody',
+        style: 'plain',
+        value: plainBuffer,
+      } satisfies TextBody);
+      plainBuffer = '';
+    }
   }
+
+  return result;
+};
+
+const parseHeadingBlock = (input: string): HeadingBlock => {
+  const [, hashes, rawBody] = /^(#+)\s(.+)$/.exec(input) || [];
+  const level = hashes.length as 1 | 2 | 3 | 4 | 5 | 6;
+  const body = parseTextBody(rawBody);
+
   return {
     type: 'heading',
+    level,
+    body,
   };
 };

@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { parse } from './markdownParser';
+import { parse, parseTextBody } from './markdownParser';
 
 const file = fs.readFileSync(
   path.resolve(process.cwd(), 'public', 'contents', 'mock', 'parser-tester.md'),
@@ -9,6 +9,83 @@ const file = fs.readFileSync(
 
 describe('markdownParser', () => {
   const parsed = parse(file);
+  describe('parseTextBody', () => {
+    test('parses plain text', () => {
+      expect(parseTextBody('plain text')).toEqual([
+        {
+          type: 'textBody',
+          style: 'plain',
+          value: 'plain text',
+        },
+      ]);
+    });
+    test('parses strong text', () => {
+      expect(parseTextBody('**strong text**')).toEqual([
+        {
+          type: 'textBody',
+          style: 'strong',
+          value: 'strong text',
+        },
+      ]);
+    });
+    test('parses italic text', () => {
+      expect(parseTextBody('*italic text*')).toEqual([
+        {
+          type: 'textBody',
+          style: 'italic',
+          value: 'italic text',
+        },
+      ]);
+    });
+    test('parses code text', () => {
+      expect(parseTextBody('`code text`')).toEqual([
+        {
+          type: 'textBody',
+          style: 'code',
+          value: 'code text',
+        },
+      ]);
+    });
+    test('parse hybrid text', () => {
+      expect(parseTextBody('Plain **strong** *italic* `code` text')).toEqual([
+        {
+          type: 'textBody',
+          style: 'plain',
+          value: 'Plain ',
+        },
+        {
+          type: 'textBody',
+          style: 'strong',
+          value: 'strong',
+        },
+        {
+          type: 'textBody',
+          style: 'plain',
+          value: ' ',
+        },
+        {
+          type: 'textBody',
+          style: 'italic',
+          value: 'italic',
+        },
+        {
+          type: 'textBody',
+          style: 'plain',
+          value: ' ',
+        },
+        {
+          type: 'textBody',
+          style: 'code',
+          value: 'code',
+        },
+        {
+          type: 'textBody',
+          style: 'plain',
+          value: ' text',
+        },
+      ]);
+    });
+  });
   describe('base blocks', () => {
     test('parses paragraph block', () => {
       expect(parsed).toContain({

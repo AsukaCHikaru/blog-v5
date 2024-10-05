@@ -1,0 +1,15 @@
+# v5.9.2
+
+## Features
+
+- Mobile menu animation
+
+## Polish
+
+- Change font file format from .ttf to .woff2
+
+## Chore
+
+- Change node version from 16.19.0 to 20.18.0
+- Remove redundant frontmatter properties from markdown
+- Remove unused environment variables from action

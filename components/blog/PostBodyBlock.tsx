@@ -142,7 +142,7 @@ export const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
         );
       }
 
-      return <span>{item.text}</span>;
+      return <>{item.text}</>;
 
     case 'link':
       return (

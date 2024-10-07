@@ -160,7 +160,7 @@ export const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
       return <strong>{item.text}</strong>;
 
     case 'italic':
-      return <span className={styles.italic}>{item.text}</span>;
+      return <em>{item.text}</em>;
 
     case 'inlineCode':
       return <code className={styles['inline-code']}>{item.text}</code>;

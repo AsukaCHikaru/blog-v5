@@ -92,9 +92,6 @@
   color: var(--light-accent);
   text-decoration: underline;
 }
-.italic {
-  font-style: italic;
-}
 .inline-code {
   color: var(--light);
   padding: 0 2px;

@@ -104,5 +104,27 @@ describe('markdownParser', () => {
         ]),
       );
     });
+    test('parses heading block', () => {
+      expect(parsed).toEqual(
+        expect.arrayContaining([
+          {
+            type: 'heading',
+            level: 1,
+            body: [
+              {
+                type: 'textBody',
+                style: 'plain',
+                value: 'plain ',
+              },
+              {
+                type: 'textBody',
+                stlye: 'strong',
+                value: 'strong',
+              },
+            ],
+          },
+        ]),
+      );
+    });
   });
 });

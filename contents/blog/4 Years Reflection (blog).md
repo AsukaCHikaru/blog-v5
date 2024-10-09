@@ -9,7 +9,7 @@ pathname: 4-years-reflection
 category: Life
 tags:
 ---
-Two years ago, I wrote [2 Years Reflection](https://asukachikaru.com/blog/2-years-reflection) to reflect on working as a full time developer for two years. As I am facing changes exactly four years after the day my developer career started, it seems like a perfect time for another reflection.
+Two years ago, I wrote [2 Years Reflection](https://asukawang.com/blog/2-years-reflection) to reflect on working as a full time developer for two years. As I am facing changes exactly four years after the day my developer career started, it seems like a perfect time for another reflection.
 # The Job
 My employer is okay. Still not satisfied with my salary, but I'm happy with everything else. I learn something every day; I make friends; and there is almost no need for overtime at all, which means I got time to pursue my indie game developer dream.
 

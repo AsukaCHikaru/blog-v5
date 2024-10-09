@@ -23,7 +23,7 @@ Like I mentioned before, for merely starting a server for React, these two seems
 
 ## Serve can do the trick
 
-Literally, [serve](notion://www.notion.so/asukachikaru/%5B%3Chttps://github.com/zeit/serve%3E%5D(%3Chttps://github.com/zeit/serve%3E)).
+Literally, [serve](https://github.com/zeit/serve).
 
 Notice serve needs static files to run, so we need to build it first. Since GAE only runs two scripts, and building takes some time too, so I bound it to `postinstall` instead of `prestart` . By this way, GAE automatically builds right after it installs dependencies.
 

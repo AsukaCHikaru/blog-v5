@@ -10,7 +10,7 @@ tags:
   - TypeScript
   - Webpack
 ---
-Recently, I rewrote my [blog](https://asukachikaru.com/blog) for the second time. Every time, I rewrite to solve particular problems.
+Recently, I rewrote my [blog](https://asukawang.com/blog) for the second time. Every time, I rewrite to solve particular problems.
 
 The previous version's problems are the architecture: I used [Gatsby](https://www.gatsbyjs.com/) for v2, and I didn't enjoy it. There are many plugins that I don't fully understand, and they handle a lot of things. I don't know what's under the hood of my blog while building it.
 

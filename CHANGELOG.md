@@ -1,3 +1,8 @@
+# v5.11.0
+
+## Features
+- Add blog RSS feed
+
 # v5.10.0
 
 ## Features

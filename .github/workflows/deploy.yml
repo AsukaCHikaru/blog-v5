@@ -19,6 +19,8 @@ jobs:
         run: |
           npm ci
           npm run deploy
+      - name: Build RSS
+        run: bun run tools/rss.ts
       - name: Deploy to gh-pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:

@@ -24,15 +24,19 @@
   animation: 0.3s ease-in-out 1 menuOpen;
 }
 
+.menu-section-container {
+  display: flex;
+  border-bottom: solid 1px var(--dark-third);
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 0 8px;
+}
+
 .menu-section-title {
   font-family: 'Gentium Book', serif;
   font-size: 16px;
   line-height: 1;
   padding-bottom: 4px;
-  border-bottom: solid 1px var(--dark-third);
-  width: 100%;
-  display: inline-block;
-  margin: 0 0 8px;
 
   &[data-active='true'] {
     color: var(--dark);

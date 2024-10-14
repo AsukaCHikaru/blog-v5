@@ -30,13 +30,19 @@ export const SiteHeader = ({ onToggleMenu, mobileMenu, isMenuOpen }: Props) => {
             <Link
               key={section.url}
               href={section.url}
-              className={`${styles['section-link']} interactive-color ${
-                isLinkActive(section) ? 'text-color' : ''
-              }`}
+              className={`${styles['section-link']} interactive-color ${isLinkActive(section) ? 'text-color' : ''
+                }`}
             >
               {section.label}
             </Link>
           ))}
+          <Link
+            href="/blog/feed.xml"
+            target="_blank"
+            className={`${styles['section-link']} interactive-color`}
+          >
+            rss
+          </Link>
         </div>
         <button className={styles['menu-button']} onClick={onToggleMenu}>
           {isMenuOpen ? 'close menu' : 'menu'}

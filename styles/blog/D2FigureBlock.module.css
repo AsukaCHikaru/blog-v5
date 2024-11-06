@@ -1,6 +1,5 @@
 .shako-image-fig {
   width: 100%;
-  position: relative;
   text-align: center;
 }
 
@@ -13,12 +12,24 @@
   }
 }
 
+.crystal-sword-family-image-fig {
+  width: 100%;
+  text-align: center;
+
+  > div {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+}
+
 .item-card {
   background-color: #000000d0;
   position: fixed;
   top: 0;
   color: #ffffff;
   padding: 0 5px;
+  font-family: 'Exocet';
 
   font-size: 20px;
   line-height: 22px;

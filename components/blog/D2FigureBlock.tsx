@@ -442,7 +442,9 @@ const ItemCard = ({
       </div>
     ) : null}
     {typeof item.durability === 'number' ? (
-      <div>DURABILITY: {item.durability}</div>
+      <div>
+        DURABILITY: {item.durability} OF {item.durability}
+      </div>
     ) : item.durability === 'indestructible' ? (
       <div>INDESTRUCTIBLE</div>
     ) : null}

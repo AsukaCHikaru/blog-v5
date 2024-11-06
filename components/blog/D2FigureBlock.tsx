@@ -10,37 +10,82 @@ export const D2FigureBlock = ({ children }: { children: ReactNode }) => {
   return null;
 };
 
-const ShakoImage = () => {
-  const [hovering, setHovering] = useState(false);
-  const [hoverPosition, setHoverPosition] = useState({ x: 0, y: 0 });
+const ShakoImage = () => (
+  <figure className={styles['shako-image-fig']}>
+    <HoverableItemImage
+      imageSrc="https://static.d2r.world/img/items/base/cap_hat.jpg"
+      alt=""
+      item={{
+        baseType: 'SHAKO',
+        quality: 'unique',
+        durability: 12,
+        defense: 98,
+        requiredStrength: 50,
+        requiredLevel: 43,
+        identified: false,
+      }}
+    />
+    <figcaption className={styles['figure-caption']}>
+      Figure 1-1: Unidentified unique shako. Hover to show item card
+    </figcaption>
+  </figure>
+);
+
+const HoverableItemImage = ({
+  imageSrc,
+  alt,
+  item,
+}: {
+  imageSrc: string;
+  alt: string;
+  item: {
+    name?: string;
+    baseType: string;
+    quality: 'normal' | 'magic' | 'rare' | 'unique';
+    defense?: number;
+    oneHandDamage?: number;
+    durability: number;
+    requiredStrength?: number;
+    requiredDexterity?: number;
+    requiredLevel?: number;
+    weaponClass?: string;
+    attackSpeed?: string;
+    identified?: boolean;
+  };
+}) => {
+  const [hoverPosition, setHoverPosition] = useState<{
+    x: number;
+    y: number;
+  } | null>(null);
 
   return (
-    <figure className={styles['shako-image-fig']}>
+    <>
       <Image
-        src="https://static.d2r.world/img/items/base/cap_hat.jpg"
-        alt=""
+        src={imageSrc}
+        alt={alt}
         width={120}
         height={120}
-        onMouseEnter={() => setHovering(true)}
-        onMouseLeave={() => setHovering(false)}
+        onMouseLeave={() => setHoverPosition(null)}
         onMouseMove={(e) => setHoverPosition({ x: e.clientX, y: e.clientY })}
       />
-      <figcaption className={styles['figure-caption']}>
-        Figure 1-1: Unidentified unique shako. Hover to show item card
-      </figcaption>
-      {hovering ? (
+      {hoverPosition !== null ? (
         <ItemCard
-          baseType="SHAKO"
-          quality="unique"
-          defense={98}
-          durability={12}
-          requiredStrength={50}
-          requiredLevel={43}
-          identified={false}
+          name={item.name}
+          baseType={item.baseType}
+          quality={item.quality}
+          defense={item.defense}
+          oneHandDamage={item.oneHandDamage}
+          durability={item.durability}
+          requiredStrength={item.requiredStrength}
+          requiredDexterity={item.requiredDexterity}
+          requiredLevel={item.requiredLevel}
+          weaponClass={item.weaponClass}
+          attackSpeed={item.attackSpeed}
+          identified={item.identified}
           floatPosition={hoverPosition}
         />
       ) : null}
-    </figure>
+    </>
   );
 };
 

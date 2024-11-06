@@ -114,7 +114,7 @@
   width: 100%;
   text-align: center;
   
-  > img {
+  & img {
     background-color: #000000;
     padding: 12px;
     box-sizing: content-box;
@@ -162,6 +162,7 @@
   padding: 0 5px;
   font-family: 'Exocet';
   z-index: 1;
+  text-align: center;
 
   font-size: 20px;
   line-height: 22px;

@@ -315,11 +315,6 @@ const SocketItem = ({ caption }: { caption: string }) => (
           affixes: ['SOCKETED (3)'],
         }}
       />
-      <div className={styles['socket-item-socket-container']}>
-        <div className={styles['socket-item-socket']} />
-        <div className={styles['socket-item-socket']} />
-        <div className={styles['socket-item-socket']} />
-      </div>
     </div>
     <figcaption>{caption}</figcaption>
   </figure>
@@ -397,14 +392,24 @@ const HoverableItemImage = ({
 
   return (
     <>
-      <Image
-        src={imageSrc}
-        alt={alt}
-        width={imageSize.width}
-        height={imageSize.height}
+      <div
         onMouseLeave={() => setHoverPosition(null)}
         onMouseMove={(e) => setHoverPosition({ x: e.clientX, y: e.clientY })}
-      />
+      >
+        <Image
+          src={imageSrc}
+          alt={alt}
+          width={imageSize.width}
+          height={imageSize.height}
+        />
+        {item.affixes?.some((affix) => affix.includes('SOCKETED')) ? (
+          <div className={styles['socket-item-socket-container']}>
+            <div className={styles['socket-item-socket']} />
+            <div className={styles['socket-item-socket']} />
+            <div className={styles['socket-item-socket']} />
+          </div>
+        ) : null}
+      </div>
       {hoverPosition !== null ? (
         <ItemCard item={item} floatPosition={hoverPosition} />
       ) : null}

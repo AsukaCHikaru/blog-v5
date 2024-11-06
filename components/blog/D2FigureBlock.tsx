@@ -15,6 +15,13 @@ export const D2FigureBlock = ({ children }: { children: ReactNode }) => {
     return <MagicFindQualityFactorTable />;
   }
 
+  if (children === '::d2-max-socket-number-table-fig') {
+    return <MaxSocketTable />;
+  }
+  if (children === '::d2-socket-number-chance-table-fig') {
+    return <SocketNumberChanceTable />;
+  }
+
   return null;
 };
 
@@ -126,6 +133,82 @@ const MagicFindQualityFactorTable = () => (
     <p>
       For magic items the <strong>Effective MF</strong> equals to MF.
     </p>
+    <figcaption>fig</figcaption>
+  </figure>
+);
+
+const MaxSocketTable = () => (
+  <figure className={styles['table-fig']}>
+    <table border={1}>
+      <thead>
+        <tr>
+          <th>iLvl</th>
+          <th>Max socket number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1-25</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>26-40</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>41-</td>
+          <td>6</td>
+        </tr>
+      </tbody>
+    </table>
+    <figcaption>fig</figcaption>
+  </figure>
+);
+
+const SocketNumberChanceTable = () => (
+  <figure className={styles['table-fig']}>
+    <table border={1}>
+      <thead>
+        <tr>
+          <th>iLvl</th>
+          <th>1S</th>
+          <th>2S</th>
+          <th>3S</th>
+          <th>4S</th>
+          <th>5S</th>
+          <th>6S</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1-25</td>
+          <td>1/6</td>
+          <td>1/6</td>
+          <td>4/6</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>26-40</td>
+          <td>1/6</td>
+          <td>1/6</td>
+          <td>1/6</td>
+          <td>3/6</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>41-</td>
+          <td>1/6</td>
+          <td>1/6</td>
+          <td>1/6</td>
+          <td>1/6</td>
+          <td>1/6</td>
+          <td>1/6</td>
+        </tr>
+      </tbody>
+    </table>
     <figcaption>fig</figcaption>
   </figure>
 );

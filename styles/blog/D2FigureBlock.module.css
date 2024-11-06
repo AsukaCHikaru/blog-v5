@@ -37,6 +37,20 @@
   }
 }
 
+.table-fig {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  > table {
+    border: solid 1px var(--dark);
+
+    & td, th {
+      padding: 5px;
+    }
+  }
+}
+
 .item-card {
   background-color: #000000d0;
   position: fixed;

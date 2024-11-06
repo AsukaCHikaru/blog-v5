@@ -7,6 +7,10 @@ export const D2FigureBlock = ({ children }: { children: ReactNode }) => {
     return <ShakoImage />;
   }
 
+  if (children === '::d2-crystal-sword-family') {
+    return <CrystalSwordFamilyImages />;
+  }
+
   return null;
 };
 
@@ -31,6 +35,84 @@ const ShakoImage = () => (
   </figure>
 );
 
+const CrystalSwordFamilyImages = () => (
+  <figure className={styles['crystal-sword-family-image-fig']}>
+    <div>
+      <HoverableItemImage
+        imageSrc="https://static.d2r.world/img/items/base/crystal_sword.jpg"
+        alt=""
+        item={{
+          baseType: 'CRYSTAL SWORD',
+          quality: 'normal',
+          durability: 20,
+          oneHandDamage: {
+            min: 5,
+            max: 15,
+          },
+          requiredStrength: 43,
+          weaponClass: 'SWORD',
+          attackSpeed: 'FAST',
+        }}
+      />
+      <HoverableItemImage
+        imageSrc="https://static.d2r.world/img/items/base/crystal_sword.jpg"
+        alt=""
+        item={{
+          baseType: 'DIMENSIONAL BLADE',
+          quality: 'normal',
+          durability: 20,
+          oneHandDamage: {
+            min: 15,
+            max: 35,
+          },
+          requiredStrength: 85,
+          requiredDexterity: 60,
+          requiredLevel: 25,
+          weaponClass: 'SWORD',
+          attackSpeed: 'FAST',
+        }}
+      />
+      <HoverableItemImage
+        imageSrc="https://static.d2r.world/img/items/base/crystal_sword.jpg"
+        alt=""
+        item={{
+          baseType: 'PHASE BLADE',
+          quality: 'normal',
+          durability: 'indestructible',
+          oneHandDamage: {
+            min: 31,
+            max: 35,
+          },
+          requiredStrength: 25,
+          requiredDexterity: 136,
+          requiredLevel: 54,
+          weaponClass: 'SWORD',
+          attackSpeed: 'VERY FAST',
+        }}
+      />
+    </div>
+    <figcaption className={styles['figure-caption']}>Figure 1-2</figcaption>
+  </figure>
+);
+
+type Item = {
+  name?: string;
+  baseType: string;
+  quality: 'normal' | 'magic' | 'rare' | 'unique';
+  defense?: number;
+  oneHandDamage?: {
+    min: number;
+    max: number;
+  };
+  durability: number | 'indestructible';
+  requiredStrength?: number;
+  requiredDexterity?: number;
+  requiredLevel?: number;
+  weaponClass?: string;
+  attackSpeed?: string;
+  identified?: boolean;
+};
+
 const HoverableItemImage = ({
   imageSrc,
   alt,
@@ -38,20 +120,7 @@ const HoverableItemImage = ({
 }: {
   imageSrc: string;
   alt: string;
-  item: {
-    name?: string;
-    baseType: string;
-    quality: 'normal' | 'magic' | 'rare' | 'unique';
-    defense?: number;
-    oneHandDamage?: number;
-    durability: number;
-    requiredStrength?: number;
-    requiredDexterity?: number;
-    requiredLevel?: number;
-    weaponClass?: string;
-    attackSpeed?: string;
-    identified?: boolean;
-  };
+  item: Item;
 }) => {
   const [hoverPosition, setHoverPosition] = useState<{
     x: number;
@@ -69,53 +138,17 @@ const HoverableItemImage = ({
         onMouseMove={(e) => setHoverPosition({ x: e.clientX, y: e.clientY })}
       />
       {hoverPosition !== null ? (
-        <ItemCard
-          name={item.name}
-          baseType={item.baseType}
-          quality={item.quality}
-          defense={item.defense}
-          oneHandDamage={item.oneHandDamage}
-          durability={item.durability}
-          requiredStrength={item.requiredStrength}
-          requiredDexterity={item.requiredDexterity}
-          requiredLevel={item.requiredLevel}
-          weaponClass={item.weaponClass}
-          attackSpeed={item.attackSpeed}
-          identified={item.identified}
-          floatPosition={hoverPosition}
-        />
+        <ItemCard item={item} floatPosition={hoverPosition} />
       ) : null}
     </>
   );
 };
 
 const ItemCard = ({
-  name,
-  baseType,
-  quality,
-  defense,
-  oneHandDamage,
-  durability,
-  requiredStrength,
-  requiredDexterity,
-  requiredLevel,
-  weaponClass,
-  attackSpeed,
-  identified,
+  item,
   floatPosition,
 }: {
-  name?: string;
-  baseType: string;
-  quality: 'normal' | 'magic' | 'rare' | 'unique';
-  defense?: number;
-  oneHandDamage?: number;
-  durability: number;
-  requiredStrength?: number;
-  requiredDexterity?: number;
-  requiredLevel?: number;
-  weaponClass?: string;
-  attackSpeed?: string;
-  identified?: boolean;
+  item: Item;
   floatPosition: { x: number; y: number };
 }) => (
   <div
@@ -125,28 +158,40 @@ const ItemCard = ({
       left: `${floatPosition.x + 10}px`,
     }}
   >
-    {name ? (
-      <div className={styles.name} data-quality={quality}>
-        {name}
+    {item.name ? (
+      <div className={styles.name} data-quality={item.quality}>
+        {item.name}
       </div>
     ) : null}
-    <div className={styles['base-type']} data-quality={quality}>
-      {baseType}
+    <div className={styles['base-type']} data-quality={item.quality}>
+      {item.baseType}
     </div>
-    {defense ? <div>DEFENSE: {defense}</div> : null}
-    {oneHandDamage ? <div>ONE-HAND DAMAGE: {oneHandDamage}</div> : null}
-    <div>DURABILITY: {durability}</div>
-    {requiredStrength ? <div>REQUIRED STRENGTH: {requiredStrength}</div> : null}
-    {requiredDexterity ? (
-      <div>REQUIRED DEXTERITY: {requiredDexterity}</div>
-    ) : null}
-    {requiredLevel ? <div>REQUIRED LEVEL: {requiredLevel}</div> : null}
-    {weaponClass && attackSpeed ? (
+    {item.defense ? <div>DEFENSE: {item.defense}</div> : null}
+    {item.oneHandDamage ? (
       <div>
-        {weaponClass} CLASS - {attackSpeed} ATTACK SPEED
+        ONE-HAND DAMAGE: {item.oneHandDamage.min} TO {item.oneHandDamage.max}
       </div>
     ) : null}
-    {identified === false ? (
+    {typeof item.durability === 'number' ? (
+      <div>DURABILITY: {item.durability}</div>
+    ) : (
+      <div>INDESTRUCTIBLE</div>
+    )}
+    {item.requiredStrength ? (
+      <div>REQUIRED STRENGTH: {item.requiredStrength}</div>
+    ) : null}
+    {item.requiredDexterity ? (
+      <div>REQUIRED DEXTERITY: {item.requiredDexterity}</div>
+    ) : null}
+    {item.requiredLevel ? (
+      <div>REQUIRED LEVEL: {item.requiredLevel}</div>
+    ) : null}
+    {item.weaponClass && item.attackSpeed ? (
+      <div>
+        {item.weaponClass} CLASS - {item.attackSpeed} ATTACK SPEED
+      </div>
+    ) : null}
+    {item.identified === false ? (
       <div className={styles.unidentified}>UNIDENTIFIED</div>
     ) : null}
   </div>

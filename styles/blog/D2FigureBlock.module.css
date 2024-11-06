@@ -30,6 +30,7 @@
   color: #ffffff;
   padding: 0 5px;
   font-family: 'Exocet';
+  z-index: 1;
 
   font-size: 20px;
   line-height: 22px;

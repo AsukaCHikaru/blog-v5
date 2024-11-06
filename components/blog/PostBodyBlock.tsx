@@ -7,6 +7,7 @@ import { getImageSnapshotUrl, isImageSnapshot } from '@utils/stringUtils';
 import styles from '@styles/blog/PostBodyBlock.module.css';
 import { convertHeaderLabelToId } from '@utils/blogUtils';
 import { MarkdownBlock, TextBlock } from '@utils/markdownUtils';
+import { D2FigureBlock } from './D2FigureBlock';
 
 interface Props {
   block: MarkdownBlock;
@@ -36,7 +37,7 @@ export const BlockContent: FC<Props> = ({ block }) => {
         return <YoutubeBlock item={block} />;
       }
       return (
-        <div>
+        <figure>
           <Image
             src={'/images/' + block.url}
             alt={block.alt || ''}
@@ -45,11 +46,13 @@ export const BlockContent: FC<Props> = ({ block }) => {
             className={styles.image}
           />
           {block.caption !== '#nullcaption' ? (
-            <span className={`${styles['image-caption']} text-color-second`}>
+            <figcaption
+              className={`${styles['image-caption']} text-color-second`}
+            >
               {block.caption}
-            </span>
+            </figcaption>
           ) : null}
-        </div>
+        </figure>
       );
 
     case 'heading':
@@ -141,7 +144,9 @@ export const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
           />
         );
       }
-
+      if (item.text.startsWith('::d2')) {
+        return <D2FigureBlock>{item.text}</D2FigureBlock>;
+      }
       return <>{item.text}</>;
 
     case 'link':

@@ -1,0 +1,50 @@
+.shako-image-fig {
+  width: 100%;
+  position: relative;
+  text-align: center;
+}
+
+.figure-caption {
+  font-size: 14px;
+  line-height: 1;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+.item-card {
+  background-color: #000000d0;
+  position: fixed;
+  top: 0;
+  color: #ffffff;
+  padding: 0 5px;
+
+  font-size: 20px;
+  line-height: 22px;
+  > div {
+    &::first-letter {
+      font-size: 22px;
+    }
+  }
+}
+
+.base-type,
+.name {
+  &[data-quality='normal'] {
+    color: #ffffff;
+  }
+  &[data-quality='magic'] {
+    color: #6969ff;
+  }
+  &[data-quality='rare'] {
+    color: #ffff64;
+  }
+  &[data-quality='unique'] {
+    color: #c7b377;
+  }
+}
+
+.unidentified {
+  color: #ff4d4d;
+}

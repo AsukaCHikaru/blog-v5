@@ -31,8 +31,52 @@
   > table {
     border: solid 1px var(--dark);
 
-    & td, th {
+    & td,
+    th {
       padding: 5px;
+    }
+  }
+}
+
+.champion-monsters-fig {
+  width: 100%;
+
+  > div {
+    justify-content: center;
+    background-color: #000000;
+
+    @media (min-width: 768px) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.champion-monster-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.champion-monster-img-wrapper {
+  margin: 20px;
+}
+
+.monster-card {
+  text-align: center;
+  color: #c7b377;
+  font-size: 18px;
+  line-height: 22px;
+
+  > p:first-child {
+    margin: 0 auto;
+    width: 180px;
+    font-family: 'Exocet';
+    background-color: #991616;
+
+    &::first-letter {
+      font-size: 22px;
     }
   }
 }
@@ -45,7 +89,8 @@
   > table {
     border: solid 1px var(--dark);
 
-    & td, th {
+    & td,
+    th {
       padding: 5px;
     }
   }

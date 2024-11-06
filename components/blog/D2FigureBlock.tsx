@@ -1,31 +1,40 @@
 import Image from 'next/image';
-import { ReactNode, useState } from 'react';
+import { useMemo, useState } from 'react';
 import styles from '@styles/blog/D2FigureBlock.module.css';
 
-export const D2FigureBlock = ({ children }: { children: ReactNode }) => {
-  if (children === '::d2-shako-unidentified') {
-    return <ShakoImage />;
+export const D2FigureBlock = ({ children }: { children: string }) => {
+  const [blockCode, caption] = useMemo(
+    () => (children.includes('|') ? children.split('|') : [children]),
+    [children],
+  );
+
+  if (blockCode === '::d2-shako-unidentified') {
+    return <ShakoImage caption={caption} />;
   }
 
-  if (children === '::d2-crystal-sword-family') {
-    return <CrystalSwordFamilyImages />;
+  if (blockCode === '::d2-crystal-sword-family') {
+    return <CrystalSwordFamilyImages caption={caption} />;
   }
 
-  if (children === '::d2-mf-quality-factor-table') {
+  if (blockCode === '::d2-monster-champions') {
+    return <ChampionMonsters caption={caption} />;
+  }
+
+  if (blockCode === '::d2-mf-quality-factor-table') {
     return <MagicFindQualityFactorTable />;
   }
 
-  if (children === '::d2-max-socket-number-table-fig') {
+  if (blockCode === '::d2-max-socket-number-table-fig') {
     return <MaxSocketTable />;
   }
-  if (children === '::d2-socket-number-chance-table-fig') {
+  if (blockCode === '::d2-socket-number-chance-table-fig') {
     return <SocketNumberChanceTable />;
   }
 
-  return null;
+  return blockCode;
 };
 
-const ShakoImage = () => (
+const ShakoImage = ({ caption }: { caption: string }) => (
   <figure className={styles['shako-image-fig']}>
     <HoverableItemImage
       imageSrc="https://static.d2r.world/img/items/base/cap_hat.jpg"
@@ -40,13 +49,11 @@ const ShakoImage = () => (
         identified: false,
       }}
     />
-    <figcaption className={styles['figure-caption']}>
-      Figure 1-1: Unidentified unique shako. Hover to show item card
-    </figcaption>
+    <figcaption className={styles['figure-caption']}>{caption}</figcaption>
   </figure>
 );
 
-const CrystalSwordFamilyImages = () => (
+const CrystalSwordFamilyImages = ({ caption }: { caption: string }) => (
   <figure className={styles['crystal-sword-family-image-fig']}>
     <div>
       <HoverableItemImage
@@ -102,7 +109,7 @@ const CrystalSwordFamilyImages = () => (
         }}
       />
     </div>
-    <figcaption className={styles['figure-caption']}>Figure 1-2</figcaption>
+    <figcaption className={styles['figure-caption']}>{caption}</figcaption>
   </figure>
 );
 
@@ -135,6 +142,61 @@ const MagicFindQualityFactorTable = () => (
     </p>
     <figcaption>fig</figcaption>
   </figure>
+);
+
+const ChampionMonsters = ({ caption }: { caption: string }) => (
+  <figure className={styles['champion-monsters-fig']}>
+    <div>
+      <div className={styles['champion-monster-img']}>
+        <MonsterCard
+          name="BLADE EATER"
+          modifiers={['Undead', 'Extra Fast', 'Mana Burn']}
+        />
+        <div className={styles['champion-monster-img-wrapper']}>
+          <Image
+            src="/images/deep-dive-diablo-ii-item-generation-zombie.webp"
+            alt="Champion"
+            width={54}
+            height={118}
+          />
+        </div>
+      </div>
+      <div className={styles['champion-monster-img']}>
+        <MonsterCard name="CORPSEFIRE" modifiers={['Undead', 'Spectral Hit']} />
+        <div className={styles['champion-monster-img-wrapper']}>
+          <Image
+            src="/images/deep-dive-diablo-ii-item-generation-corpsefire.webp"
+            alt="Champion"
+            width={54}
+            height={118}
+          />
+        </div>
+      </div>
+      <div className={styles['champion-monster-img']}>
+        <MonsterCard name="ANDARIEL" modifiers={['Demon']} />
+        <Image
+          src="/images/deep-dive-diablo-ii-item-generation-andariel.webp"
+          alt="Champion"
+          width={172}
+          height={176}
+        />
+      </div>
+    </div>
+    <figcaption className={styles['figure-caption']}>{caption}</figcaption>
+  </figure>
+);
+
+const MonsterCard = ({
+  name,
+  modifiers,
+}: {
+  name: string;
+  modifiers: string[];
+}) => (
+  <div className={styles['monster-card']}>
+    <p className="name">{name}</p>
+    <p className="modifier">{modifiers.join('・')}</p>
+  </div>
 );
 
 const MaxSocketTable = () => (

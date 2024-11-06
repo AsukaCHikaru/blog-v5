@@ -27,6 +27,11 @@ export const D2FigureBlock = ({ children }: { children: string }) => {
   if (blockCode === '::d2-max-socket-number-table-fig') {
     return <MaxSocketTable />;
   }
+
+  if (blockCode === '::d2-quality-check-process') {
+    return <QualityCheckGraph caption={caption} />;
+  }
+
   if (blockCode === '::d2-socket-number-chance-table-fig') {
     return <SocketNumberChanceTable />;
   }
@@ -218,6 +223,20 @@ const MonsterCard = ({
     <p className="name">{name}</p>
     <p className="modifier">{modifiers.join('・')}</p>
   </div>
+);
+
+const QualityCheckGraph = ({ caption }: { caption: string }) => (
+  <figure className={styles['quality-check-process-fig']}>
+    <Image
+      src="/images/deep-dive-diablo-ii-item-generation-quality-check.png"
+      alt=""
+      width={600}
+      height={300}
+    />
+    <figcaption className={`${styles['figure-caption']} text-color-second`}>
+      {caption}
+    </figcaption>
+  </figure>
 );
 
 const MaxSocketTable = () => (

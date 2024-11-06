@@ -11,6 +11,10 @@ export const D2FigureBlock = ({ children }: { children: ReactNode }) => {
     return <CrystalSwordFamilyImages />;
   }
 
+  if (children === '::d2-mf-quality-factor-table') {
+    return <MagicFindQualityFactorTable />;
+  }
+
   return null;
 };
 
@@ -92,6 +96,37 @@ const CrystalSwordFamilyImages = () => (
       />
     </div>
     <figcaption className={styles['figure-caption']}>Figure 1-2</figcaption>
+  </figure>
+);
+
+const MagicFindQualityFactorTable = () => (
+  <figure className={styles['magic-find-quality-factor-table-fig']}>
+    <table border={1}>
+      <thead>
+        <tr>
+          <th>Quality</th>
+          <th>Quality Factor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Unique</td>
+          <td>250</td>
+        </tr>
+        <tr>
+          <td>Set</td>
+          <td>500</td>
+        </tr>
+        <tr>
+          <td>Rare</td>
+          <td>600</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      For magic items the <strong>Effective MF</strong> equals to MF.
+    </p>
+    <figcaption>fig</figcaption>
   </figure>
 );
 

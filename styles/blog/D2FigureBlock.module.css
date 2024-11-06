@@ -1,6 +1,8 @@
 .shako-image-fig {
   width: 100%;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   & img {
     padding: 12px;
@@ -113,6 +115,9 @@
 .magic-item {
   width: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   
   & img {
     background-color: #000000;
@@ -152,6 +157,10 @@
       padding: 5px;
     }
   }
+}
+
+.hoverable-image-wrapper {
+  width: fit-content;
 }
 
 .item-card {

@@ -316,7 +316,7 @@ const SocketItem = ({ caption }: { caption: string }) => (
         }}
       />
     </div>
-    <figcaption>{caption}</figcaption>
+    <figcaption className={styles['figure-caption']}>{caption}</figcaption>
   </figure>
 );
 
@@ -330,7 +330,7 @@ const MagicItem = ({ caption }: { caption: string }) => (
       }}
       alt=""
       item={{
-        baseType: 'HUNTER BOW',
+        baseType: "ARCADIAN HUNTER'S BOW",
         quality: 'magic',
         damage: {
           type: 'two-hand',
@@ -347,7 +347,7 @@ const MagicItem = ({ caption }: { caption: string }) => (
         ],
       }}
     />
-    <figcaption>{caption}</figcaption>
+    <figcaption className={styles['figure-caption']}>{caption}</figcaption>
   </figure>
 );
 
@@ -393,6 +393,7 @@ const HoverableItemImage = ({
   return (
     <>
       <div
+        className={styles['hoverable-image-wrapper']}
         onMouseLeave={() => setHoverPosition(null)}
         onMouseMove={(e) => setHoverPosition({ x: e.clientX, y: e.clientY })}
       >

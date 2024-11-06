@@ -58,7 +58,9 @@ const ShakoImage = ({ caption }: { caption: string }) => (
         identified: false,
       }}
     />
-    <figcaption className={styles['figure-caption']}>{caption}</figcaption>
+    <figcaption className={`${styles['figure-caption']} text-color-second`}>
+      {caption}
+    </figcaption>
   </figure>
 );
 
@@ -124,7 +126,9 @@ const CrystalSwordFamilyImages = ({ caption }: { caption: string }) => (
         }}
       />
     </div>
-    <figcaption className={styles['figure-caption']}>{caption}</figcaption>
+    <figcaption className={`${styles['figure-caption']} text-color-second`}>
+      {caption}
+    </figcaption>
   </figure>
 );
 
@@ -197,7 +201,9 @@ const ChampionMonsters = ({ caption }: { caption: string }) => (
         />
       </div>
     </div>
-    <figcaption className={styles['figure-caption']}>{caption}</figcaption>
+    <figcaption className={`${styles['figure-caption']} text-color-second`}>
+      {caption}
+    </figcaption>
   </figure>
 );
 
@@ -316,7 +322,9 @@ const SocketItem = ({ caption }: { caption: string }) => (
         }}
       />
     </div>
-    <figcaption className={styles['figure-caption']}>{caption}</figcaption>
+    <figcaption className={`${styles['figure-caption']} text-color-second`}>
+      {caption}
+    </figcaption>
   </figure>
 );
 
@@ -347,7 +355,9 @@ const MagicItem = ({ caption }: { caption: string }) => (
         ],
       }}
     />
-    <figcaption className={styles['figure-caption']}>{caption}</figcaption>
+    <figcaption className={`${styles['figure-caption']} text-color-second`}>
+      {caption}
+    </figcaption>
   </figure>
 );
 

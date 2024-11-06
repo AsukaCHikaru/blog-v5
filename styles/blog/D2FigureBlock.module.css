@@ -1,6 +1,12 @@
 .shako-image-fig {
   width: 100%;
   text-align: center;
+
+  & img {
+    padding: 12px;
+    box-sizing: content-box;
+    background-color: #000000;
+  }
 }
 
 .figure-caption {
@@ -20,6 +26,12 @@
     display: flex;
     justify-content: center;
     gap: 12px;
+  }
+
+  & img {
+    padding: 12px;
+    box-sizing: content-box;
+    background-color: #000000;
   }
 }
 
@@ -61,6 +73,52 @@
 
 .champion-monster-img-wrapper {
   margin: 20px;
+}
+
+.socket-item-fig {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.socket-item {
+  width: fit-content;
+  position: relative;
+ 
+  & img {
+    box-sizing: content-box;
+    padding: 12px;
+    background-color: #000000;
+  }
+}
+.socket-item-socket-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.socket-item-socket {
+  border: 2px solid silver;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  opacity: 0.5;
+}
+
+.magic-item {
+  width: 100%;
+  text-align: center;
+  
+  > img {
+    background-color: #000000;
+    padding: 12px;
+    box-sizing: content-box;
+  }
 }
 
 .monster-card {
@@ -132,4 +190,8 @@
 
 .unidentified {
   color: #ff4d4d;
+}
+
+.affix {
+  color: #6969ff;
 }

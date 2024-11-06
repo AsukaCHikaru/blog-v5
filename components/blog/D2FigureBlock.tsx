@@ -31,13 +31,22 @@ export const D2FigureBlock = ({ children }: { children: string }) => {
     return <SocketNumberChanceTable />;
   }
 
+  if (blockCode === '::d2-socket-item') {
+    return <SocketItem caption={caption} />;
+  }
+
+  if (blockCode === '::d2-magic-item') {
+    return <MagicItem caption={caption} />;
+  }
+
   return blockCode;
 };
 
 const ShakoImage = ({ caption }: { caption: string }) => (
   <figure className={styles['shako-image-fig']}>
     <HoverableItemImage
-      imageSrc="https://static.d2r.world/img/items/base/cap_hat.jpg"
+      imageSrc="/images/deep-dive-diablo-ii-item-generation-shako.png"
+      imageSize={{ width: 120, height: 120 }}
       alt=""
       item={{
         baseType: 'SHAKO',
@@ -57,13 +66,15 @@ const CrystalSwordFamilyImages = ({ caption }: { caption: string }) => (
   <figure className={styles['crystal-sword-family-image-fig']}>
     <div>
       <HoverableItemImage
-        imageSrc="https://static.d2r.world/img/items/base/crystal_sword.jpg"
+        imageSrc="/images/deep-dive-diablo-ii-item-generation-crystal-sword.png"
+        imageSize={{ width: 112, height: 168 }}
         alt=""
         item={{
           baseType: 'CRYSTAL SWORD',
           quality: 'normal',
           durability: 20,
-          oneHandDamage: {
+          damage: {
+            type: 'one-hand',
             min: 5,
             max: 15,
           },
@@ -73,13 +84,15 @@ const CrystalSwordFamilyImages = ({ caption }: { caption: string }) => (
         }}
       />
       <HoverableItemImage
-        imageSrc="https://static.d2r.world/img/items/base/crystal_sword.jpg"
+        imageSrc="/images/deep-dive-diablo-ii-item-generation-crystal-sword.png"
+        imageSize={{ width: 112, height: 168 }}
         alt=""
         item={{
           baseType: 'DIMENSIONAL BLADE',
           quality: 'normal',
           durability: 20,
-          oneHandDamage: {
+          damage: {
+            type: 'one-hand',
             min: 15,
             max: 35,
           },
@@ -91,13 +104,15 @@ const CrystalSwordFamilyImages = ({ caption }: { caption: string }) => (
         }}
       />
       <HoverableItemImage
-        imageSrc="https://static.d2r.world/img/items/base/crystal_sword.jpg"
+        imageSrc="/images/deep-dive-diablo-ii-item-generation-crystal-sword.png"
+        imageSize={{ width: 112, height: 168 }}
         alt=""
         item={{
           baseType: 'PHASE BLADE',
           quality: 'normal',
           durability: 'indestructible',
-          oneHandDamage: {
+          damage: {
+            type: 'one-hand',
             min: 31,
             max: 35,
           },
@@ -275,30 +290,103 @@ const SocketNumberChanceTable = () => (
   </figure>
 );
 
+const SocketItem = ({ caption }: { caption: string }) => (
+  <figure className={styles['socket-item-fig']}>
+    <div className={styles['socket-item']}>
+      <HoverableItemImage
+        imageSrc="/images/deep-dive-diablo-ii-item-generation-claymore.png"
+        imageSize={{
+          width: 56,
+          height: 236,
+        }}
+        alt=""
+        item={{
+          baseType: 'CLAYMORE',
+          quality: 'normal',
+          durability: 50,
+          damage: {
+            type: 'two-hand',
+            min: 13,
+            max: 30,
+          },
+          requiredStrength: 47,
+          weaponClass: 'SWORD',
+          attackSpeed: 'FAST',
+          affixes: ['SOCKETED (3)'],
+        }}
+      />
+      <div className={styles['socket-item-socket-container']}>
+        <div className={styles['socket-item-socket']} />
+        <div className={styles['socket-item-socket']} />
+        <div className={styles['socket-item-socket']} />
+      </div>
+    </div>
+    <figcaption>{caption}</figcaption>
+  </figure>
+);
+
+const MagicItem = ({ caption }: { caption: string }) => (
+  <figure className={styles['magic-item']}>
+    <HoverableItemImage
+      imageSrc="/images/deep-dive-diablo-ii-item-generation-hunters-bow.png"
+      imageSize={{
+        width: 112,
+        height: 168,
+      }}
+      alt=""
+      item={{
+        baseType: 'HUNTER BOW',
+        quality: 'magic',
+        damage: {
+          type: 'two-hand',
+          min: 2,
+          max: 6,
+        },
+        requiredDexterity: 28,
+        requiredLevel: 11,
+        weaponClass: 'BOW',
+        attackSpeed: 'FAST',
+        affixes: [
+          '+35% DAMAGE TO DEMONS',
+          '+78 TO ATTACK RATING AGAINST DEMONS',
+        ],
+      }}
+    />
+    <figcaption>{caption}</figcaption>
+  </figure>
+);
+
 type Item = {
   name?: string;
   baseType: string;
   quality: 'normal' | 'magic' | 'rare' | 'unique';
   defense?: number;
-  oneHandDamage?: {
+  damage?: {
+    type: 'one-hand' | 'two-hand';
     min: number;
     max: number;
   };
-  durability: number | 'indestructible';
+  durability?: number | 'indestructible';
   requiredStrength?: number;
   requiredDexterity?: number;
   requiredLevel?: number;
   weaponClass?: string;
   attackSpeed?: string;
   identified?: boolean;
+  affixes?: string[];
 };
 
 const HoverableItemImage = ({
   imageSrc,
+  imageSize,
   alt,
   item,
 }: {
   imageSrc: string;
+  imageSize: {
+    width: number;
+    height: number;
+  };
   alt: string;
   item: Item;
 }) => {
@@ -312,8 +400,8 @@ const HoverableItemImage = ({
       <Image
         src={imageSrc}
         alt={alt}
-        width={120}
-        height={120}
+        width={imageSize.width}
+        height={imageSize.height}
         onMouseLeave={() => setHoverPosition(null)}
         onMouseMove={(e) => setHoverPosition({ x: e.clientX, y: e.clientY })}
       />
@@ -347,16 +435,17 @@ const ItemCard = ({
       {item.baseType}
     </div>
     {item.defense ? <div>DEFENSE: {item.defense}</div> : null}
-    {item.oneHandDamage ? (
+    {item.damage ? (
       <div>
-        ONE-HAND DAMAGE: {item.oneHandDamage.min} TO {item.oneHandDamage.max}
+        {item.damage.type.toUpperCase()} DAMAGE: {item.damage.min} TO{' '}
+        {item.damage.max}
       </div>
     ) : null}
     {typeof item.durability === 'number' ? (
       <div>DURABILITY: {item.durability}</div>
-    ) : (
+    ) : item.durability === 'indestructible' ? (
       <div>INDESTRUCTIBLE</div>
-    )}
+    ) : null}
     {item.requiredStrength ? (
       <div>REQUIRED STRENGTH: {item.requiredStrength}</div>
     ) : null}
@@ -374,5 +463,12 @@ const ItemCard = ({
     {item.identified === false ? (
       <div className={styles.unidentified}>UNIDENTIFIED</div>
     ) : null}
+    {item.affixes
+      ? item.affixes.map((affix) => (
+          <div key={affix} className={styles.affix}>
+            {affix}
+          </div>
+        ))
+      : null}
   </div>
 );

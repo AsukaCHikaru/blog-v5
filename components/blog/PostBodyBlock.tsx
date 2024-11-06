@@ -8,6 +8,7 @@ import styles from '@styles/blog/PostBodyBlock.module.css';
 import { convertHeaderLabelToId } from '@utils/blogUtils';
 import { MarkdownBlock, TextBlock } from '@utils/markdownUtils';
 import { D2FigureBlock } from './D2FigureBlock';
+import { MathJax } from 'better-react-mathjax';
 
 interface Props {
   block: MarkdownBlock;
@@ -146,6 +147,9 @@ export const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
       }
       if (item.text.startsWith('::d2')) {
         return <D2FigureBlock>{item.text}</D2FigureBlock>;
+      }
+      if (item.text.startsWith('$$')) {
+        return <MathJax>{item.text}</MathJax>;
       }
       return <>{item.text}</>;
 

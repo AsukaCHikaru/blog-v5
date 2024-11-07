@@ -209,6 +209,9 @@
   &[data-quality='unique'] {
     color: #c7b377;
   }
+  &[data-quality='socketed'] {
+    color: #696969;
+  }
 }
 
 .unidentified {

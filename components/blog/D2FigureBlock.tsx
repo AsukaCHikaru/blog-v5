@@ -327,7 +327,7 @@ const SocketItem = ({ caption }: { caption: string }) => (
         alt=""
         item={{
           baseType: 'CLAYMORE',
-          quality: 'normal',
+          quality: 'socketed',
           durability: 50,
           damage: {
             type: 'two-hand',
@@ -383,7 +383,7 @@ const MagicItem = ({ caption }: { caption: string }) => (
 type Item = {
   name?: string;
   baseType: string;
-  quality: 'normal' | 'magic' | 'rare' | 'unique';
+  quality: 'normal' | 'magic' | 'rare' | 'unique' | 'socketed';
   defense?: number;
   damage?: {
     type: 'one-hand' | 'two-hand';

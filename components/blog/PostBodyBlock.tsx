@@ -148,9 +148,6 @@ export const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
       if (item.text.startsWith('::d2')) {
         return <D2FigureBlock>{item.text}</D2FigureBlock>;
       }
-      if (item.text.startsWith('$$')) {
-        return <MathJax>{item.text}</MathJax>;
-      }
       return <>{item.text}</>;
 
     case 'link':

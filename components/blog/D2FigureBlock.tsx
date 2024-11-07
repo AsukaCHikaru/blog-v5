@@ -48,7 +48,7 @@ export const D2FigureBlock = ({ children }: { children: string }) => {
 };
 
 const ShakoImage = ({ caption }: { caption: string }) => (
-  <figure className={styles['shako-image-fig']}>
+  <figure className={styles.figure}>
     <HoverableItemImage
       imageSrc="/images/deep-dive-diablo-ii-item-generation-shako.png"
       imageSize={{ width: 120, height: 120 }}
@@ -63,15 +63,13 @@ const ShakoImage = ({ caption }: { caption: string }) => (
         identified: false,
       }}
     />
-    <figcaption className={`${styles['figure-caption']} text-color-second`}>
-      {caption}
-    </figcaption>
+    <figcaption className={styles['figure-caption']}>{caption}</figcaption>
   </figure>
 );
 
 const CrystalSwordFamilyImages = ({ caption }: { caption: string }) => (
-  <figure className={styles['crystal-sword-family-image-fig']}>
-    <div>
+  <figure className={styles.figure}>
+    <div className={styles['crystal-sword-family-image-container']}>
       <HoverableItemImage
         imageSrc="/images/deep-dive-diablo-ii-item-generation-crystal-sword.png"
         imageSize={{ width: 112, height: 168 }}
@@ -131,14 +129,12 @@ const CrystalSwordFamilyImages = ({ caption }: { caption: string }) => (
         }}
       />
     </div>
-    <figcaption className={`${styles['figure-caption']} text-color-second`}>
-      {caption}
-    </figcaption>
+    <figcaption className={styles['figure-caption']}>{caption}</figcaption>
   </figure>
 );
 
 const MagicFindQualityFactorTable = () => (
-  <figure className={styles['magic-find-quality-factor-table-fig']}>
+  <figure className={styles.figure}>
     <table border={1}>
       <thead>
         <tr>
@@ -169,8 +165,8 @@ const MagicFindQualityFactorTable = () => (
 );
 
 const ChampionMonsters = ({ caption }: { caption: string }) => (
-  <figure className={styles['champion-monsters-fig']}>
-    <div>
+  <figure className={styles.figure}>
+    <div className={styles['champion-monsters-img-container']}>
       <div className={styles['champion-monster-img']}>
         <MonsterCard
           name="BLADE EATER"
@@ -206,9 +202,7 @@ const ChampionMonsters = ({ caption }: { caption: string }) => (
         />
       </div>
     </div>
-    <figcaption className={`${styles['figure-caption']} text-color-second`}>
-      {caption}
-    </figcaption>
+    <figcaption className={styles['figure-caption']}>{caption}</figcaption>
   </figure>
 );
 
@@ -220,27 +214,27 @@ const MonsterCard = ({
   modifiers: string[];
 }) => (
   <div className={styles['monster-card']}>
-    <p className="name">{name}</p>
-    <p className="modifier">{modifiers.join('・')}</p>
+    <p>{name}</p>
+    <p>{modifiers.join('・')}</p>
   </div>
 );
 
 const QualityCheckGraph = ({ caption }: { caption: string }) => (
-  <figure className={styles['quality-check-process-fig']}>
-    <Image
-      src="/images/deep-dive-diablo-ii-item-generation-quality-check.png"
-      alt=""
-      width={600}
-      height={300}
-    />
-    <figcaption className={`${styles['figure-caption']} text-color-second`}>
-      {caption}
-    </figcaption>
+  <figure className={styles.figure}>
+    <div className={styles['quality-check-process-graph-wrapper']}>
+      <Image
+        src="/images/deep-dive-diablo-ii-item-generation-quality-check.png"
+        alt=""
+        width={600}
+        height={300}
+      />
+    </div>
+    <figcaption className={styles['figure-caption']}>{caption}</figcaption>
   </figure>
 );
 
 const MaxSocketTable = () => (
-  <figure className={styles['table-fig']}>
+  <figure className={styles.figure}>
     <table border={1}>
       <thead>
         <tr>
@@ -268,7 +262,7 @@ const MaxSocketTable = () => (
 );
 
 const SocketNumberChanceTable = () => (
-  <figure className={styles['table-fig']}>
+  <figure className={styles.figure}>
     <table border={1}>
       <thead>
         <tr>
@@ -316,39 +310,35 @@ const SocketNumberChanceTable = () => (
 );
 
 const SocketItem = ({ caption }: { caption: string }) => (
-  <figure className={styles['socket-item-fig']}>
-    <div className={styles['socket-item']}>
-      <HoverableItemImage
-        imageSrc="/images/deep-dive-diablo-ii-item-generation-claymore.png"
-        imageSize={{
-          width: 56,
-          height: 236,
-        }}
-        alt=""
-        item={{
-          baseType: 'CLAYMORE',
-          quality: 'socketed',
-          durability: 50,
-          damage: {
-            type: 'two-hand',
-            min: 13,
-            max: 30,
-          },
-          requiredStrength: 47,
-          weaponClass: 'SWORD',
-          attackSpeed: 'FAST',
-          affixes: ['SOCKETED (3)'],
-        }}
-      />
-    </div>
-    <figcaption className={`${styles['figure-caption']} text-color-second`}>
-      {caption}
-    </figcaption>
+  <figure className={styles.figure}>
+    <HoverableItemImage
+      imageSrc="/images/deep-dive-diablo-ii-item-generation-claymore.png"
+      imageSize={{
+        width: 56,
+        height: 236,
+      }}
+      alt=""
+      item={{
+        baseType: 'CLAYMORE',
+        quality: 'socketed',
+        durability: 50,
+        damage: {
+          type: 'two-hand',
+          min: 13,
+          max: 30,
+        },
+        requiredStrength: 47,
+        weaponClass: 'SWORD',
+        attackSpeed: 'FAST',
+        affixes: ['SOCKETED (3)'],
+      }}
+    />
+    <figcaption className={styles['figure-caption']}>{caption}</figcaption>
   </figure>
 );
 
 const MagicItem = ({ caption }: { caption: string }) => (
-  <figure className={styles['magic-item']}>
+  <figure className={styles.figure}>
     <HoverableItemImage
       imageSrc="/images/deep-dive-diablo-ii-item-generation-hunters-bow.png"
       imageSize={{
@@ -374,9 +364,7 @@ const MagicItem = ({ caption }: { caption: string }) => (
         ],
       }}
     />
-    <figcaption className={`${styles['figure-caption']} text-color-second`}>
-      {caption}
-    </figcaption>
+    <figcaption className={styles['figure-caption']}>{caption}</figcaption>
   </figure>
 );
 

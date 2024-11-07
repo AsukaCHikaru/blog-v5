@@ -1,50 +1,10 @@
-.shako-image-fig {
+.figure {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  & img {
-    padding: 12px;
-    box-sizing: content-box;
-    background-color: #000000;
-  }
-}
-
-.figure-caption {
-  font-size: 16px;
-  line-height: 1;
-  text-align: center;
-  margin-top: 4px;
-
-  @media (min-width: 768px) {
-    font-size: 18px;
-  }
-}
-
-.crystal-sword-family-image-fig {
-  width: 100%;
-  text-align: center;
-
-  > div {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-  }
-
-  & img {
-    padding: 12px;
-    box-sizing: content-box;
-    background-color: #000000;
-  }
-}
-
-.magic-find-quality-factor-table-fig {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  > table {
+  & table {
     border: solid 1px var(--dark);
 
     & td,
@@ -53,48 +13,72 @@
     }
   }
 }
+.figure-caption {
+  font-size: 16px;
+  line-height: 1;
+  text-align: center;
+  margin-top: 4px;
+  color: var(--dark-second);
 
-.champion-monsters-fig {
-  width: 100%;
-
-  > div {
-    justify-content: center;
-    background-color: #000000;
-
-    @media (min-width: 768px) {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-    }
+  @media (min-width: 768px) {
+    font-size: 18px;
   }
 }
 
+.crystal-sword-family-image-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.champion-monsters-img-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #000000;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 .champion-monster-img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
-
 .champion-monster-img-wrapper {
   margin: 20px;
 }
+.monster-card {
+  text-align: center;
+  color: #c7b377;
+  font-size: 16px;
+  line-height: 22px;
 
-.socket-item-fig {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.socket-item {
-  width: fit-content;
-  position: relative;
+  > p:first-child {
+    margin: 0 auto;
+    width: 160px;
+    font-family: 'Exocet';
+    background-color: #7d1313;
 
-  & img {
-    box-sizing: content-box;
-    padding: 12px;
-    background-color: #000000;
+    &::first-letter {
+      font-size: 22px;
+    }
+  }
+
+  > p:last-child {
+    font-size: 14px;
   }
 }
+
 .socket-item-socket-container {
   position: absolute;
   top: 0;
@@ -114,70 +98,31 @@
   opacity: 0.5;
 }
 
-.quality-check-process-fig {
-  width: 100%;
-  text-align: center;
-
-  & img {
+.quality-check-process-graph-wrapper {
+   & img {
     max-width: 100%;
     height: auto;
     object-fit: contain;
   }
 }
 
-.magic-item {
-  width: 100%;
-  text-align: center;
+.hoverable-image-wrapper {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  background-color: #000000;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 
-  & img {
-    background-color: #000000;
+  > img {
     padding: 12px;
     box-sizing: content-box;
   }
 }
 
-.monster-card {
-  text-align: center;
-  color: #c7b377;
-  font-size: 18px;
-  line-height: 22px;
-
-  > p:first-child {
-    margin: 0 auto;
-    width: 180px;
-    font-family: 'Exocet';
-    background-color: #991616;
-
-    &::first-letter {
-      font-size: 22px;
-    }
-  }
-}
-
-.table-fig {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  > table {
-    border: solid 1px var(--dark);
-
-    & td,
-    th {
-      padding: 5px;
-    }
-  }
-}
-
-.hoverable-image-wrapper {
-  width: fit-content;
-}
-
 .item-card {
-  background-color: #000000d0;
+  background-color: #000000e0;
   position: fixed;
   top: 0;
   color: #ffffff;
@@ -186,11 +131,11 @@
   z-index: 1;
   text-align: center;
 
-  font-size: 20px;
-  line-height: 22px;
+  font-size: 18px;
+  line-height: 24px;
   > div {
     &::first-letter {
-      font-size: 22px;
+      font-size: 24px;
     }
   }
 }

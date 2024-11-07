@@ -16,6 +16,38 @@ export const D2FigureBlock = ({ children }: { children: string }) => {
     return <CrystalSwordFamilyImages caption={caption} />;
   }
 
+  if (blockCode === '::d2-pinball') {
+    return (
+      <figure className={styles.figure}>
+        <div className={styles['image-graph']}>
+          <Image
+            src="/images/under-the-hood-diablo-ii-item-generation-pinball-machine.jpg"
+            alt=""
+            width={600}
+            height={600}
+          />
+        </div>
+        <figcaption className={styles['figure-caption']}>{caption}</figcaption>
+      </figure>
+    );
+  }
+
+  if (blockCode === '::d2-pinball-list') {
+    return (
+      <figure className={styles.figure}>
+        <div className={styles['image-graph']}>
+          <Image
+            src="/images/under-the-hood-diablo-ii-item-generation-pinball-machine-fallback-scheme.jpg"
+            alt=""
+            width={600}
+            height={600}
+          />
+        </div>
+        <figcaption className={styles['figure-caption']}>{caption}</figcaption>
+      </figure>
+    );
+  }
+
   if (blockCode === '::d2-monster-champions') {
     return <ChampionMonsters caption={caption} />;
   }
@@ -50,7 +82,7 @@ export const D2FigureBlock = ({ children }: { children: string }) => {
 const ShakoImage = ({ caption }: { caption: string }) => (
   <figure className={styles.figure}>
     <HoverableItemImage
-      imageSrc="/images/deep-dive-diablo-ii-item-generation-shako.png"
+      imageSrc="/images/under-the-hood-diablo-ii-item-generation-shako.png"
       imageSize={{ width: 120, height: 120 }}
       alt=""
       item={{
@@ -71,7 +103,7 @@ const CrystalSwordFamilyImages = ({ caption }: { caption: string }) => (
   <figure className={styles.figure}>
     <div className={styles['crystal-sword-family-image-container']}>
       <HoverableItemImage
-        imageSrc="/images/deep-dive-diablo-ii-item-generation-crystal-sword.png"
+        imageSrc="/images/under-the-hood-diablo-ii-item-generation-crystal-sword.png"
         imageSize={{ width: 112, height: 168 }}
         alt=""
         item={{
@@ -89,7 +121,7 @@ const CrystalSwordFamilyImages = ({ caption }: { caption: string }) => (
         }}
       />
       <HoverableItemImage
-        imageSrc="/images/deep-dive-diablo-ii-item-generation-crystal-sword.png"
+        imageSrc="/images/under-the-hood-diablo-ii-item-generation-crystal-sword.png"
         imageSize={{ width: 112, height: 168 }}
         alt=""
         item={{
@@ -109,7 +141,7 @@ const CrystalSwordFamilyImages = ({ caption }: { caption: string }) => (
         }}
       />
       <HoverableItemImage
-        imageSrc="/images/deep-dive-diablo-ii-item-generation-crystal-sword.png"
+        imageSrc="/images/under-the-hood-diablo-ii-item-generation-crystal-sword.png"
         imageSize={{ width: 112, height: 168 }}
         alt=""
         item={{
@@ -174,7 +206,7 @@ const ChampionMonsters = ({ caption }: { caption: string }) => (
         />
         <div className={styles['champion-monster-img-wrapper']}>
           <Image
-            src="/images/deep-dive-diablo-ii-item-generation-zombie.webp"
+            src="/images/under-the-hood-diablo-ii-item-generation-zombie.webp"
             alt="Champion"
             width={54}
             height={118}
@@ -185,7 +217,7 @@ const ChampionMonsters = ({ caption }: { caption: string }) => (
         <MonsterCard name="CORPSEFIRE" modifiers={['Undead', 'Spectral Hit']} />
         <div className={styles['champion-monster-img-wrapper']}>
           <Image
-            src="/images/deep-dive-diablo-ii-item-generation-corpsefire.webp"
+            src="/images/under-the-hood-diablo-ii-item-generation-corpsefire.webp"
             alt="Champion"
             width={54}
             height={118}
@@ -195,7 +227,7 @@ const ChampionMonsters = ({ caption }: { caption: string }) => (
       <div className={styles['champion-monster-img']}>
         <MonsterCard name="ANDARIEL" modifiers={['Demon']} />
         <Image
-          src="/images/deep-dive-diablo-ii-item-generation-andariel.webp"
+          src="/images/under-the-hood-diablo-ii-item-generation-andariel.webp"
           alt="Champion"
           width={172}
           height={176}
@@ -221,9 +253,9 @@ const MonsterCard = ({
 
 const QualityCheckGraph = ({ caption }: { caption: string }) => (
   <figure className={styles.figure}>
-    <div className={styles['quality-check-process-graph-wrapper']}>
+    <div className={styles['image-graph']}>
       <Image
-        src="/images/deep-dive-diablo-ii-item-generation-quality-check.png"
+        src="/images/under-the-hood-diablo-ii-item-generation-quality-check.png"
         alt=""
         width={600}
         height={300}
@@ -312,7 +344,7 @@ const SocketNumberChanceTable = () => (
 const SocketItem = ({ caption }: { caption: string }) => (
   <figure className={styles.figure}>
     <HoverableItemImage
-      imageSrc="/images/deep-dive-diablo-ii-item-generation-claymore.png"
+      imageSrc="/images/under-the-hood-diablo-ii-item-generation-claymore.png"
       imageSize={{
         width: 56,
         height: 236,
@@ -340,7 +372,7 @@ const SocketItem = ({ caption }: { caption: string }) => (
 const MagicItem = ({ caption }: { caption: string }) => (
   <figure className={styles.figure}>
     <HoverableItemImage
-      imageSrc="/images/deep-dive-diablo-ii-item-generation-hunters-bow.png"
+      imageSrc="/images/under-the-hood-diablo-ii-item-generation-hunters-bow.png"
       imageSize={{
         width: 112,
         height: 168,

@@ -48,6 +48,10 @@ export const D2FigureBlock = ({ children }: { children: string }) => {
     );
   }
 
+  if (blockCode === '::d2-diadem-set-unique') {
+    return <DiademImages caption={caption} />;
+  }
+
   if (blockCode === '::d2-monster-champions') {
     return <ChampionMonsters caption={caption} />;
   }
@@ -101,7 +105,7 @@ const ShakoImage = ({ caption }: { caption: string }) => (
 
 const CrystalSwordFamilyImages = ({ caption }: { caption: string }) => (
   <figure className={styles.figure}>
-    <div className={styles['crystal-sword-family-image-container']}>
+    <div className={styles['item-family-image-container']}>
       <HoverableItemImage
         imageSrc="/images/under-the-hood-diablo-ii-item-generation-crystal-sword.png"
         imageSize={{ width: 112, height: 168 }}
@@ -158,6 +162,65 @@ const CrystalSwordFamilyImages = ({ caption }: { caption: string }) => (
           requiredLevel: 54,
           weaponClass: 'SWORD',
           attackSpeed: 'VERY FAST',
+        }}
+      />
+    </div>
+    <figcaption className={styles['figure-caption']}>{caption}</figcaption>
+  </figure>
+);
+
+const DiademImages = ({ caption }: { caption: string }) => (
+  <figure className={styles.figure}>
+    <div className={styles['item-family-image-container']}>
+      <HoverableItemImage
+        imageSrc="/images/under-the-hood-diablo-ii-item-generation-diadem.png"
+        imageSize={{ width: 112, height: 112 }}
+        alt=""
+        item={{
+          baseType: 'DIADEM',
+          quality: 'normal',
+          durability: 20,
+          defense: 50,
+          requiredLevel: 64,
+        }}
+      />
+      <HoverableItemImage
+        imageSrc="/images/under-the-hood-diablo-ii-item-generation-diadem.png"
+        imageSize={{ width: 112, height: 112 }}
+        alt=""
+        item={{
+          name: "M'avina's True Sight",
+          baseType: 'DIADEM',
+          quality: 'set',
+          durability: 20,
+          defense: 200,
+          requiredLevel: 64,
+          affixes: [
+            '+30% INCREASED ATTACK SPEED',
+            '+150 DEFENSE',
+            'REPLENISH LIFE +10',
+            '+25 TO MANA',
+          ],
+        }}
+      />
+      <HoverableItemImage
+        imageSrc="/images/under-the-hood-diablo-ii-item-generation-diadem.png"
+        imageSize={{ width: 112, height: 112 }}
+        alt=""
+        item={{
+          name: "Griffon's Eye",
+          baseType: 'DIADEM',
+          quality: 'unique',
+          durability: 20,
+          defense: 260,
+          requiredLevel: 76,
+          affixes: [
+            '+1 TO ALL SKILLS',
+            '+25% FASTER CAST RATE',
+            '-15% TO ENEMY LIGHTNING RESISTANCE',
+            '+11% TO LIGHTNING SKILL DAMAGE',
+            '+200 DEFENSE',
+          ],
         }}
       />
     </div>
@@ -403,7 +466,7 @@ const MagicItem = ({ caption }: { caption: string }) => (
 type Item = {
   name?: string;
   baseType: string;
-  quality: 'normal' | 'magic' | 'rare' | 'unique' | 'socketed';
+  quality: 'normal' | 'magic' | 'rare' | 'unique' | 'socketed' | 'set';
   defense?: number;
   damage?: {
     type: 'one-hand' | 'two-hand';

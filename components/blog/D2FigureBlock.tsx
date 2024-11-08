@@ -511,18 +511,16 @@ const HoverableItemImage = ({
   alt: string;
   item: Item;
 }) => {
-  const [hoverPosition, setHoverPosition] = useState<{
-    x: number;
-    y: number;
-  } | null>(null);
+  const [isHovering, setIsHovering] = useState(false);
 
   return (
     <>
       <div
         className={styles['hoverable-image-wrapper']}
-        onMouseLeave={() => setHoverPosition(null)}
-        onMouseMove={(e) => setHoverPosition({ x: e.clientX, y: e.clientY })}
+        onMouseLeave={() => setIsHovering(false)}
+        onMouseEnter={() => setIsHovering(true)}
       >
+        {isHovering ? <ItemCard item={item} /> : null}
         <Image
           src={imageSrc}
           alt={alt}
@@ -537,27 +535,12 @@ const HoverableItemImage = ({
           </div>
         ) : null}
       </div>
-      {hoverPosition !== null ? (
-        <ItemCard item={item} floatPosition={hoverPosition} />
-      ) : null}
     </>
   );
 };
 
-const ItemCard = ({
-  item,
-  floatPosition,
-}: {
-  item: Item;
-  floatPosition: { x: number; y: number };
-}) => (
-  <div
-    className={styles['item-card']}
-    style={{
-      top: `${floatPosition.y - 5}px`,
-      left: `${floatPosition.x + 10}px`,
-    }}
-  >
+const ItemCard = ({ item }: { item: Item }) => (
+  <div className={styles['item-card']}>
     {item.name ? (
       <div className={styles.name} data-quality={item.quality}>
         {item.name}

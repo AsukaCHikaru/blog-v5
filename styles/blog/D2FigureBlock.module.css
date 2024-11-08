@@ -123,8 +123,10 @@
 
 .item-card {
   background-color: #000000e0;
-  position: fixed;
-  top: 0;
+  position: absolute;
+  bottom: calc(100% + 4px);
+  width: max-content;
+  max-width: calc(100vw - 24px);
   color: #ffffff;
   padding: 0 5px;
   font-family: 'Exocet';

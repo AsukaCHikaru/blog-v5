@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ReactNode, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import styles from '@styles/blog/D2FigureBlock.module.css';
 
 export const D2FigureBlock = ({ children }: { children: string }) => {
@@ -50,13 +50,13 @@ export const D2FigureBlock = ({ children }: { children: string }) => {
     case '::d2-monster-champions':
       return <ChampionMonsters caption={caption} />;
     case '::d2-mf-quality-factor-table':
-      return <MagicFindQualityFactorTable />;
+      return <MagicFindQualityFactorTable caption={caption} />;
     case '::d2-max-socket-number-table-fig':
-      return <MaxSocketTable />;
+      return <MaxSocketTable caption={caption} />;
     case '::d2-quality-check-process':
       return <QualityCheckGraph caption={caption} />;
     case '::d2-socket-number-chance-table-fig':
-      return <SocketNumberChanceTable />;
+      return <SocketNumberChanceTable caption={caption} />;
     case '::d2-socket-item':
       return <SocketItem caption={caption} />;
     case '::d2-magic-item':
@@ -223,7 +223,7 @@ const DiademImages = ({ caption }: { caption: string }) => (
   </figure>
 );
 
-const MagicFindQualityFactorTable = () => (
+const MagicFindQualityFactorTable = ({ caption }: { caption: string }) => (
   <figure className={styles.figure}>
     <table border={1}>
       <thead>
@@ -250,7 +250,7 @@ const MagicFindQualityFactorTable = () => (
     <p>
       For magic items the <strong>Effective MF</strong> equals to MF.
     </p>
-    <figcaption>fig</figcaption>
+    <figcaption>{caption}</figcaption>
   </figure>
 );
 
@@ -323,7 +323,7 @@ const QualityCheckGraph = ({ caption }: { caption: string }) => (
   </figure>
 );
 
-const MaxSocketTable = () => (
+const MaxSocketTable = ({ caption }: { caption: string }) => (
   <figure className={styles.figure}>
     <table border={1}>
       <thead>
@@ -347,11 +347,11 @@ const MaxSocketTable = () => (
         </tr>
       </tbody>
     </table>
-    <figcaption>fig</figcaption>
+    <figcaption>{caption}</figcaption>
   </figure>
 );
 
-const SocketNumberChanceTable = () => (
+const SocketNumberChanceTable = ({ caption }: { caption: string }) => (
   <figure className={styles.figure}>
     <table border={1}>
       <thead>
@@ -395,7 +395,7 @@ const SocketNumberChanceTable = () => (
         </tr>
       </tbody>
     </table>
-    <figcaption>fig</figcaption>
+    <figcaption>{caption}</figcaption>
   </figure>
 );
 

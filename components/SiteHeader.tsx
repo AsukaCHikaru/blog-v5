@@ -30,8 +30,9 @@ export const SiteHeader = ({ onToggleMenu, mobileMenu, isMenuOpen }: Props) => {
             <Link
               key={section.url}
               href={section.url}
-              className={`${styles['section-link']} interactive-color ${isLinkActive(section) ? 'text-color' : ''
-                }`}
+              className={`${styles['section-link']} interactive-color ${
+                isLinkActive(section) ? 'text-color' : ''
+              }`}
             >
               {section.label}
             </Link>

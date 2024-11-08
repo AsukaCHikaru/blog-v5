@@ -41,8 +41,9 @@ const generateFeedData = async () => {
     .map(
       (blog) => `<item>
 <title>${blog.title}</title>
-<link>https://asukawang.com/blog/${blog.pathname}</link>${blog.description ? `<description>${blog.description}</description>` : ''
-        }
+<link>https://asukawang.com/blog/${blog.pathname}</link>${
+        blog.description ? `<description>${blog.description}</description>` : ''
+      }
 <pubDate>${new Date(blog.publishDate).toUTCString()}</pubDate>
 <guid>https://asukawang.com/blog/${blog.pathname}</guid></item>`,
     )

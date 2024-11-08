@@ -20,8 +20,8 @@ export const D2FigureBlock = ({ children }: { children: string }) => {
             <Image
               src="/images/under-the-hood-diablo-ii-item-generation-pinball-machine.jpg"
               alt=""
-              width={600}
-              height={600}
+              width={450}
+              height={450}
             />
           </div>
           <figcaption className={styles['figure-caption']}>
@@ -36,8 +36,8 @@ export const D2FigureBlock = ({ children }: { children: string }) => {
             <Image
               src="/images/under-the-hood-diablo-ii-item-generation-pinball-machine-fallback-scheme.jpg"
               alt=""
-              width={600}
-              height={600}
+              width={450}
+              height={450}
             />
           </div>
           <figcaption className={styles['figure-caption']}>

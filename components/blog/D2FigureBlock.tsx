@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useMemo, useState } from 'react';
+import { ReactNode, useMemo, useState } from 'react';
 import styles from '@styles/blog/D2FigureBlock.module.css';
 
 export const D2FigureBlock = ({ children }: { children: string }) => {
@@ -543,68 +543,77 @@ const ItemCard = ({ item }: { item: Item }) => (
   <div className={styles['item-card']}>
     {item.name ? (
       <div className={styles.name} data-quality={item.quality}>
-        {item.name}
+        <ItemCardLabel>{item.name}</ItemCardLabel>
       </div>
     ) : null}
     <div className={styles['base-type']} data-quality={item.quality}>
-      {item.baseType}
+      <ItemCardLabel>{item.baseType}</ItemCardLabel>
     </div>
     {item.defense ? (
-      <div>
-        DEFENSE:{' '}
+      <div className={styles.defense}>
+        <ItemCardLabel>DEFENSE: </ItemCardLabel>
         <span
-          className={
+          className={`${
             item.affixes?.some((affix) => /\+\d+\sDEFENSE/.test(affix))
               ? styles.affix
               : undefined
-          }
+          } ${styles['item-card-label-big']}`}
         >
-          {item.defense}
+          {`${item.defense}`}
         </span>
       </div>
     ) : null}
     {item.damage ? (
-      <div>
-        {item.damage.type.toUpperCase()} DAMAGE: {item.damage.min} TO{' '}
-        {item.damage.max}
-      </div>
+      <ItemCardLabel>
+        {`${item.damage.type.toUpperCase()} DAMAGE: ${item.damage.min} TO ${
+          item.damage.max
+        }`}
+      </ItemCardLabel>
     ) : null}
     {typeof item.durability === 'number' ? (
-      <div>
-        DURABILITY: {item.durability} OF {item.durability}
-      </div>
+      <ItemCardLabel>
+        {`DURABILITY: ${item.durability} OF ${item.durability}`}
+      </ItemCardLabel>
     ) : item.durability === 'indestructible' ? (
-      <div>INDESTRUCTIBLE</div>
+      <ItemCardLabel>INDESTRUCTIBLE</ItemCardLabel>
     ) : null}
     {item.requiredStrength ? (
-      <div>REQUIRED STRENGTH: {item.requiredStrength}</div>
+      <ItemCardLabel>
+        {`REQUIRED STRENGTH: ${item.requiredStrength}`}
+      </ItemCardLabel>
     ) : null}
     {item.requiredDexterity ? (
-      <div>REQUIRED DEXTERITY: {item.requiredDexterity}</div>
+      <ItemCardLabel>
+        {`REQUIRED DEXTERITY: ${item.requiredDexterity}`}
+      </ItemCardLabel>
     ) : null}
     {item.requiredLevel ? (
-      <div>REQUIRED LEVEL: {item.requiredLevel}</div>
+      <ItemCardLabel>{`REQUIRED LEVEL: ${item.requiredLevel}`}</ItemCardLabel>
     ) : null}
     {item.weaponClass && item.attackSpeed ? (
-      <div>
-        {item.weaponClass} CLASS - {item.attackSpeed} ATTACK SPEED
-      </div>
+      <ItemCardLabel>
+        {`${item.weaponClass} CLASS - ${item.attackSpeed} ATTACK SPEED`}
+      </ItemCardLabel>
     ) : null}
     {item.identified === false ? (
-      <div className={styles.unidentified}>UNIDENTIFIED</div>
+      <ItemCardLabel className={styles.unidentified}>
+        UNIDENTIFIED
+      </ItemCardLabel>
     ) : null}
     {item.affixes
       ? item.affixes.map((affix) => (
-          <div key={affix} className={styles.affix}>
+          <ItemCardLabel key={affix} className={styles.affix}>
             {affix}
-          </div>
+          </ItemCardLabel>
         ))
       : null}
     {item.set ? (
       <>
-        <div className={styles['set-name']}>{item.set.name}</div>
+        <ItemCardLabel className={styles['set-name']}>
+          {item.set.name}
+        </ItemCardLabel>
         {item.set.pieces.map((piece) => (
-          <div
+          <ItemCardLabel
             key={piece}
             className={
               piece === item.name
@@ -613,9 +622,37 @@ const ItemCard = ({ item }: { item: Item }) => (
             }
           >
             {piece}
-          </div>
+          </ItemCardLabel>
         ))}
       </>
     ) : null}
+  </div>
+);
+
+const ItemCardLabel = ({
+  children,
+  className,
+}: {
+  children: string;
+  className?: string;
+}) => (
+  <div>
+    {children.split(/\s/).map((str) => (
+      <>
+        <span
+          key={str}
+          className={`${
+            /\d/.test(str)
+              ? styles['item-card-label-big']
+              : /(TO)|(OF)/.test(str)
+              ? styles['item-card-label-small']
+              : styles['item-card-label']
+          } ${className || ''}`}
+        >
+          {str}
+        </span>
+        <span> </span>
+      </>
+    ))}
   </div>
 );

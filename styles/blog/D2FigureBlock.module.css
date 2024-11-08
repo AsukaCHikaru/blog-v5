@@ -60,8 +60,8 @@
 .monster-card {
   text-align: center;
   color: #c7b377;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 18px;
+  line-height: 24px;
 
   > p:first-child {
     margin: 0 auto;
@@ -70,7 +70,7 @@
     background-color: #7d1313;
 
     &::first-letter {
-      font-size: 22px;
+      font-size: 24px;
     }
   }
 
@@ -132,15 +132,23 @@
   font-family: 'Exocet';
   z-index: 1;
   text-align: center;
-
+}
+.item-card-label {
+  display: inline-block;
   font-size: 18px;
   line-height: 24px;
-  > div {
-    &::first-letter {
-      font-size: 24px;
-    }
+
+  &::first-letter{
+    font-size: 24px;
   }
 }
+.item-card-label-big {
+  font-size: 24px;
+}
+.item-card-label-small {
+  font-size: 18px;
+}
+
 
 .base-type,
 .name {
@@ -162,6 +170,11 @@
   &[data-quality='socketed'] {
     color: #696969;
   }
+}
+
+.defense {
+  display: flex;
+  justify-content: center;
 }
 
 .unidentified {

@@ -287,16 +287,16 @@ const ChampionMonsters = ({ caption }: { caption: string }) => (
     <div className={styles['champion-monsters-img-container']}>
       <div className={styles['champion-monster-img']}>
         <MonsterCard
-          name="CHAMPION TAINTED"
+          name="CHAMPION FALLEN"
           modifiers={['Demon']}
           quality="magic"
         />
         <div className={styles['champion-monster-img-wrapper']}>
           <Image
-            src="/images/under-the-hood-diablo-ii-item-generation-tainted.webp"
+            src="/images/under-the-hood-diablo-ii-item-generation-fallen.webp"
             alt="Champion"
-            width={134}
-            height={154}
+            width={74}
+            height={122}
           />
         </div>
       </div>

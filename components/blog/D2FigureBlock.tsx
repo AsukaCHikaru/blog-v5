@@ -247,10 +247,7 @@ const MagicFindQualityFactorTable = ({ caption }: { caption: string }) => (
         </tr>
       </tbody>
     </table>
-    <p>
-      For magic items the <strong>Effective MF</strong> equals to MF.
-    </p>
-    <figcaption>{caption}</figcaption>
+    <figcaption className={styles['figure-caption']}>{caption}</figcaption>
   </figure>
 );
 
@@ -259,20 +256,25 @@ const ChampionMonsters = ({ caption }: { caption: string }) => (
     <div className={styles['champion-monsters-img-container']}>
       <div className={styles['champion-monster-img']}>
         <MonsterCard
-          name="BLADE EATER"
-          modifiers={['Undead', 'Extra Fast', 'Mana Burn']}
+          name="CHAMPION TAINTED"
+          modifiers={['Demon']}
+          quality="magic"
         />
         <div className={styles['champion-monster-img-wrapper']}>
           <Image
-            src="/images/under-the-hood-diablo-ii-item-generation-zombie.webp"
+            src="/images/under-the-hood-diablo-ii-item-generation-tainted.webp"
             alt="Champion"
-            width={54}
-            height={118}
+            width={134}
+            height={154}
           />
         </div>
       </div>
       <div className={styles['champion-monster-img']}>
-        <MonsterCard name="CORPSEFIRE" modifiers={['Undead', 'Spectral Hit']} />
+        <MonsterCard
+          name="CORPSEFIRE"
+          modifiers={['Undead', 'Spectral Hit']}
+          quality="unique"
+        />
         <div className={styles['champion-monster-img-wrapper']}>
           <Image
             src="/images/under-the-hood-diablo-ii-item-generation-corpsefire.webp"
@@ -283,7 +285,7 @@ const ChampionMonsters = ({ caption }: { caption: string }) => (
         </div>
       </div>
       <div className={styles['champion-monster-img']}>
-        <MonsterCard name="ANDARIEL" modifiers={['Demon']} />
+        <MonsterCard name="ANDARIEL" modifiers={['Demon']} quality="unique" />
         <Image
           src="/images/under-the-hood-diablo-ii-item-generation-andariel.webp"
           alt="Champion"
@@ -299,11 +301,13 @@ const ChampionMonsters = ({ caption }: { caption: string }) => (
 const MonsterCard = ({
   name,
   modifiers,
+  quality,
 }: {
   name: string;
   modifiers: string[];
+  quality: 'magic' | 'unique';
 }) => (
-  <div className={styles['monster-card']}>
+  <div className={styles['monster-card']} data-quality={quality}>
     <p>{name}</p>
     <p>{modifiers.join('・')}</p>
   </div>
@@ -347,7 +351,7 @@ const MaxSocketTable = ({ caption }: { caption: string }) => (
         </tr>
       </tbody>
     </table>
-    <figcaption>{caption}</figcaption>
+    <figcaption className={styles['figure-caption']}>{caption}</figcaption>
   </figure>
 );
 
@@ -395,7 +399,7 @@ const SocketNumberChanceTable = ({ caption }: { caption: string }) => (
         </tr>
       </tbody>
     </table>
-    <figcaption>{caption}</figcaption>
+    <figcaption className={styles['figure-caption']}>{caption}</figcaption>
   </figure>
 );
 

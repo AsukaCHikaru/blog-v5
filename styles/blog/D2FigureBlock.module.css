@@ -99,7 +99,7 @@
 }
 
 .image-graph {
-   & img {
+  & img {
     max-width: 100%;
     height: auto;
     object-fit: contain;
@@ -152,7 +152,7 @@
     color: #ffff64;
   }
   &[data-quality='set'] {
-    color: #00FF00;
+    color: #00ff00;
   }
   &[data-quality='unique'] {
     color: #c7b377;
@@ -168,4 +168,15 @@
 
 .affix {
   color: #6969ff;
+}
+
+.set-name {
+  color: #c7b377;
+  margin-top: 24px;
+}
+.set-piece-acquired {
+  color: #00ff00;
+}
+.set-piece-not-acquired {
+  color: #ff4d4d;
 }

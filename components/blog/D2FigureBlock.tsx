@@ -189,7 +189,7 @@ const DiademImages = ({ caption }: { caption: string }) => (
         imageSize={{ width: 112, height: 112 }}
         alt=""
         item={{
-          name: "M'avina's True Sight",
+          name: "M'AVINA'S TRUE SIGHT",
           baseType: 'DIADEM',
           quality: 'set',
           durability: 20,
@@ -201,6 +201,16 @@ const DiademImages = ({ caption }: { caption: string }) => (
             'REPLENISH LIFE +10',
             '+25 TO MANA',
           ],
+          set: {
+            name: "M'AVINA'S BATTLE HYMN",
+            pieces: [
+              "M'AVINA'S CASTER",
+              "M'AVINA'S TENET",
+              "M'AVINA'S CLUTCH",
+              "M'AVINA'S EMBRACE",
+              "M'AVINA'S TRUE SIGHT",
+            ],
+          },
         }}
       />
       <HoverableItemImage
@@ -481,6 +491,10 @@ type Item = {
   attackSpeed?: string;
   identified?: boolean;
   affixes?: string[];
+  set?: {
+    name: string;
+    pieces: string[];
+  };
 };
 
 const HoverableItemImage = ({
@@ -552,7 +566,20 @@ const ItemCard = ({
     <div className={styles['base-type']} data-quality={item.quality}>
       {item.baseType}
     </div>
-    {item.defense ? <div>DEFENSE: {item.defense}</div> : null}
+    {item.defense ? (
+      <div>
+        DEFENSE:{' '}
+        <span
+          className={
+            item.affixes?.some((affix) => /\+\d+\sDEFENSE/.test(affix))
+              ? styles.affix
+              : undefined
+          }
+        >
+          {item.defense}
+        </span>
+      </div>
+    ) : null}
     {item.damage ? (
       <div>
         {item.damage.type.toUpperCase()} DAMAGE: {item.damage.min} TO{' '}
@@ -590,5 +617,22 @@ const ItemCard = ({
           </div>
         ))
       : null}
+    {item.set ? (
+      <>
+        <div className={styles['set-name']}>{item.set.name}</div>
+        {item.set.pieces.map((piece) => (
+          <div
+            key={piece}
+            className={
+              piece === item.name
+                ? styles['set-piece-acquired']
+                : styles['set-piece-not-acquired']
+            }
+          >
+            {piece}
+          </div>
+        ))}
+      </>
+    ) : null}
   </div>
 );

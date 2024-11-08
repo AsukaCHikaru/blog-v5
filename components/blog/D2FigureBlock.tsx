@@ -8,79 +8,64 @@ export const D2FigureBlock = ({ children }: { children: string }) => {
     [children],
   );
 
-  if (blockCode === '::d2-shako-unidentified') {
-    return <ShakoImage caption={caption} />;
-  }
-
-  if (blockCode === '::d2-crystal-sword-family') {
-    return <CrystalSwordFamilyImages caption={caption} />;
-  }
-
-  if (blockCode === '::d2-pinball') {
-    return (
-      <figure className={styles.figure}>
-        <div className={styles['image-graph']}>
-          <Image
-            src="/images/under-the-hood-diablo-ii-item-generation-pinball-machine.jpg"
-            alt=""
-            width={600}
-            height={600}
-          />
-        </div>
+  switch (blockCode) {
+    case '::d2-shako-unidentified':
+      return <ShakoImage caption={caption} />;
+    case '::d2-crystal-sword-family':
+      return <CrystalSwordFamilyImages caption={caption} />;
+    case '::d2-pinball':
+      return (
+        <figure className={styles.figure}>
+          <div className={styles['image-graph']}>
+            <Image
+              src="/images/under-the-hood-diablo-ii-item-generation-pinball-machine.jpg"
+              alt=""
+              width={600}
+              height={600}
+            />
+          </div>
+          <figcaption className={styles['figure-caption']}>
+            {caption}
+          </figcaption>
+        </figure>
+      );
+    case '::d2-pinball-list':
+      return (
+        <figure className={styles.figure}>
+          <div className={styles['image-graph']}>
+            <Image
+              src="/images/under-the-hood-diablo-ii-item-generation-pinball-machine-fallback-scheme.jpg"
+              alt=""
+              width={600}
+              height={600}
+            />
+          </div>
+          <figcaption className={styles['figure-caption']}>
+            {caption}
+          </figcaption>
+        </figure>
+      );
+    case '::d2-diadem-set-unique':
+      return <DiademImages caption={caption} />;
+    case '::d2-monster-champions':
+      return <ChampionMonsters caption={caption} />;
+    case '::d2-mf-quality-factor-table':
+      return <MagicFindQualityFactorTable />;
+    case '::d2-max-socket-number-table-fig':
+      return <MaxSocketTable />;
+    case '::d2-quality-check-process':
+      return <QualityCheckGraph caption={caption} />;
+    case '::d2-socket-number-chance-table-fig':
+      return <SocketNumberChanceTable />;
+    case '::d2-socket-item':
+      return <SocketItem caption={caption} />;
+    case '::d2-magic-item':
+      return <MagicItem caption={caption} />;
+    default:
+      return (
         <figcaption className={styles['figure-caption']}>{caption}</figcaption>
-      </figure>
-    );
+      );
   }
-
-  if (blockCode === '::d2-pinball-list') {
-    return (
-      <figure className={styles.figure}>
-        <div className={styles['image-graph']}>
-          <Image
-            src="/images/under-the-hood-diablo-ii-item-generation-pinball-machine-fallback-scheme.jpg"
-            alt=""
-            width={600}
-            height={600}
-          />
-        </div>
-        <figcaption className={styles['figure-caption']}>{caption}</figcaption>
-      </figure>
-    );
-  }
-
-  if (blockCode === '::d2-diadem-set-unique') {
-    return <DiademImages caption={caption} />;
-  }
-
-  if (blockCode === '::d2-monster-champions') {
-    return <ChampionMonsters caption={caption} />;
-  }
-
-  if (blockCode === '::d2-mf-quality-factor-table') {
-    return <MagicFindQualityFactorTable />;
-  }
-
-  if (blockCode === '::d2-max-socket-number-table-fig') {
-    return <MaxSocketTable />;
-  }
-
-  if (blockCode === '::d2-quality-check-process') {
-    return <QualityCheckGraph caption={caption} />;
-  }
-
-  if (blockCode === '::d2-socket-number-chance-table-fig') {
-    return <SocketNumberChanceTable />;
-  }
-
-  if (blockCode === '::d2-socket-item') {
-    return <SocketItem caption={caption} />;
-  }
-
-  if (blockCode === '::d2-magic-item') {
-    return <MagicItem caption={caption} />;
-  }
-
-  return blockCode;
 };
 
 const ShakoImage = ({ caption }: { caption: string }) => (

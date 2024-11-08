@@ -14,10 +14,10 @@
   font-family: 'Noto Serif JP', serif;
   font-size: 32px;
   font-weight: 200;
-  line-height: 1;
+  line-height: 1.2;
 
   @media (min-width: 768px) {
-    margin: 8px 0 24px;
+    margin: 8px 0 40px;
     font-size: 72px;
   }
 }

@@ -665,7 +665,7 @@ const ItemCardLabel = ({
           className={`${
             /\d/.test(str)
               ? styles['item-card-label-big']
-              : /(TO)|(OF)|(AFTER)|(EACH)/.test(str)
+              : /^(TO)|(OF)|(AFTER)|(EACH)$/.test(str)
               ? styles['item-card-label-small']
               : styles['item-card-label']
           } ${className || ''}`}

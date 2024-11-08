@@ -61,6 +61,37 @@ export const D2FigureBlock = ({ children }: { children: string }) => {
       return <SocketItem caption={caption} />;
     case '::d2-magic-item':
       return <MagicItem caption={caption} />;
+    case '::d2-magic-item-two-affixes':
+      return (
+        <figure className={styles.figure}>
+          <HoverableItemImage
+            imageSrc="/images/under-the-hood-diablo-ii-item-generation-grimwand.png"
+            imageSize={{ width: 84, height: 168 }}
+            alt=""
+            item={{
+              baseType: 'VICTORIOUS GRIM WAND OF BRILLIANCE',
+              quality: 'magic',
+              damage: {
+                type: 'one-hand',
+                min: 5,
+                max: 11,
+              },
+              durability: 15,
+              requiredLevel: 12,
+              weaponClass: 'STAFF',
+              attackSpeed: 'FAST',
+              affixes: [
+                '+9 TO ENERGY',
+                '+5 TO MANA AFTER EACH KILL',
+                '+50% DAMAGE TO UNDEAD',
+              ],
+            }}
+          />
+          <figcaption className={styles['figure-caption']}>
+            {caption}
+          </figcaption>
+        </figure>
+      );
     default:
       return (
         <figcaption className={styles['figure-caption']}>{caption}</figcaption>
@@ -634,7 +665,7 @@ const ItemCardLabel = ({
           className={`${
             /\d/.test(str)
               ? styles['item-card-label-big']
-              : /(TO)|(OF)/.test(str)
+              : /(TO)|(OF)|(AFTER)|(EACH)/.test(str)
               ? styles['item-card-label-small']
               : styles['item-card-label']
           } ${className || ''}`}

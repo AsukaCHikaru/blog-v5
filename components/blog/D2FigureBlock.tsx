@@ -527,7 +527,8 @@ const HoverableItemImage = ({
           width={imageSize.width}
           height={imageSize.height}
         />
-        {item.affixes?.some((affix) => affix.includes('SOCKETED')) ? (
+        {isHovering &&
+        item.affixes?.some((affix) => affix.includes('SOCKETED')) ? (
           <div className={styles['socket-item-socket-container']}>
             <div className={styles['socket-item-socket']} />
             <div className={styles['socket-item-socket']} />

@@ -45,7 +45,7 @@ export const BlockContent: FC<Props> = ({ block }) => {
             height={400}
             className={styles.image}
           />
-          {block.caption !== '#nullcaption' ? (
+          {block.caption ? (
             <figcaption
               className={`${styles['image-caption']} text-color-second`}
             >

@@ -6,6 +6,7 @@ import {
   readFileSync,
   renameSync,
   rmSync,
+  existsSync,
 } from 'fs';
 import { resolve } from 'path';
 
@@ -17,6 +18,14 @@ const localBlogFolderPath = resolve(
   'contents',
   'blog',
 );
+
+const checkSymlinkExist = () => {
+  if (existsSync(localBlogFolderPath)) {
+    return;
+  }
+  console.log('Blog folder symbolic link not found');
+  process.exit(0);
+};
 
 const getMarkdownFileList = (blogFolderPath: string) => {
   const markdownFiles = readdirSync(
@@ -49,6 +58,10 @@ const renameLocalBlogFiles = (blogFolderPath: string) => {
   });
 };
 
+checkSymlinkExist();
 clearFolder(localBlogFolderPath);
+console.log('Copying post files...');
 copyFiles(sourceBlogFolderPath, localBlogFolderPath);
+console.log('Renaming post files...');
 renameLocalBlogFiles(localBlogFolderPath);
+console.log('Completed!');

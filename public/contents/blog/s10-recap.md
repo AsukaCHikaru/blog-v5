@@ -134,7 +134,7 @@ I like to use the ult to help skirmish, dish out damage when I'm still rotating.
 
 Caitlyn's attack speed scale is relatively low, so her playstyle is not orbwalk and crazy damages like Xayah or Ashe. She actually has good burst potential, but it depends on if you have headshots on the intended target. Getting used to such "One shot, one kill" playstyle is a path you can't avoid when trying to be good at Caitlyn. When you know how to use your W and E properly, alone side the long-range, you can toy your enemies.
 
-![[s10-recap_1.gif]]
+![](s10-recap_1.gif)
 
 # 1 games, 10 years
 

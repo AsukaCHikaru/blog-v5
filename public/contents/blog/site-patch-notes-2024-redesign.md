@@ -35,8 +35,7 @@ The idea of making my blog newspaper style emerged from late last year. It has a
 
 My first source of inspirations were Pinterest and other blogs that shares my ideal style. From them I managed to find some common parts that seemed suit my needs; but however I reordered those components with minor adjustments, wishing to bump into a good draft, they never felt right. I realized that blindly copying without understanding the fundamentals of a newspaper design would lead me nowhere.
 
-![[site-patch-notes-2024-redesign_1.png]]
-My Pinterest pins of classic newspapers.
+![](site-patch-notes-2024-redesign_1.png "My Pinterest pins of classic newspapers.")
 
 So started the journey of looking for newspaper design guidance. Books about layout and typography become the top priority every time I see a book store. With that mission bore in my mind, however, I still struggled to find the "right" material on this topic. It seemed like the visual design of newspaper -- especially the ones with western classic print style -- was such a specific topic, it's hard to find a devoted resource about it -- at least in Japan.
 

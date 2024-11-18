@@ -9,7 +9,7 @@ category: League of Legends
 
 日前，LS 發現了 leaague 遊戲中一個關於他的彩蛋：在商店中搜尋 "ls" 或是 "last shadow"時，搜尋結果會出現 Liandry's Anguish 與 Morellonomicon 兩個道具。當下，他立刻激動無比，幾近哽咽。
 
-![[immortal_1.png]]
+![](immortal_1.png)
 
 要了解這件事的來由需要一些背景知識：LS, aka "Last Shadow"，知名 League of Legends 分析師/ 教練/ 評論家。一度面臨收入危機時因業餘 league 教學影片獲得巨大反響得到歐洲戰隊 Supa Hot Crew 教練職位，之後活躍於 league 電競業界至今。執教風格為追求低風險與無失誤，推崇「完美的正規打法」。
 

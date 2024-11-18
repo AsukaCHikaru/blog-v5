@@ -11,7 +11,7 @@ category: Life
 
 The sunshine shed through the wagon glass when the elevator arose above the surface. Before my eyes was the _Rådhuspladsen_ — city hall square in Danish — which was the name of the subway station too. The city hall itself was in backlight, the sky behind it blinding. It was nine in the morning, we just entered the center part of Copenhagen. We had already spent two hours in this country, changed from the pajamas for a thirteen hours flight to proper clothes, a quick coffee in the airport, then finally a train ride to the city. But it was finally at this moment, I truly felt I arrived in Europe. The ground of the square was paved in stones, speaking foreignness and — matching my imagination — Europe.
 
-![[a-peek-of-the-world_1.jpeg]]
+![](a-peek-of-the-world_1.jpeg)
 
 # Happiness
 
@@ -21,7 +21,7 @@ The game of life in Asia plays in different rules, though. I doubt if I ever wil
 
 In the happiness museum there was a room captioned "Happiness around the world", every part of it except the floor was covered with post-its. Thousands of post-its in the whole room. The gimmick is simple: you take a pen and a piece of post-it freely provided in the room, write down what happiness means to you, then post it in the room. It was both astounding and inspiring to see literally what happiness means for people around the world.
 
-![[a-peek-of-the-world_2.jpeg]]
+![](a-peek-of-the-world_2.jpeg)
 
 I wrote down "loved ones and hobby time". If someone notice mine I hope it made them smile.
 
@@ -37,7 +37,7 @@ Regardless of all the pleasure I found in London, however, I believe I would be 
 
 Visiting London after Copenhagen probably made it worse. I didn’t notice it in Denmark, but even at Indre by — the heart of the City of Copenhagen, the pace of everything was way slower. While also being the city I visited for the first time, I had more time and space to collect myself. I was a mere traveler, but I felt I could find my little place in there.
 
-![[a-peek-of-the-world_3.jpeg]]
+![](a-peek-of-the-world_3.jpeg)
 
 # Experience
 

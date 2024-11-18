@@ -16,7 +16,7 @@ In my latest project [CHIKA Music Awards 2020](https://2020.musicawards.asukach
 
 First, let's talk about the definition of full-screen scrolling. In short, it looks like this:
 
-![[full-screen-scroll_1.gif]]
+![](full-screen-scroll_1.gif)
 
 And the literal definition of full-screen scrolling includes the below specs:
 

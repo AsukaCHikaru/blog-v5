@@ -15,7 +15,7 @@ export const getBlogPostList = async () => {
   const allPostsData = fileNames
     .map((fileName) => {
       const markdown = fs.readFileSync(
-        postFolderPath + '/' + fileName,
+        resolve(postFolderPath, fileName),
         'utf-8',
       );
       const { frontmatter } = parseMarkdown(markdown);
@@ -33,27 +33,7 @@ export const getBlogPostList = async () => {
 };
 
 export const getBlogPostContent = (pathname: string) => {
-  const postFolderPath = resolve(CONTENTS_PATH, 'blog');
-  const fileNames = fs
-    .readdirSync(postFolderPath)
-    .filter((name) => name.endsWith('.md'));
-  const allPostsData = fileNames.map((fileName) => {
-    const markdown = fs.readFileSync(postFolderPath + '/' + fileName, 'utf-8');
-    const { frontmatter } = parseMarkdown(markdown);
-    const postMetadata = convertFrontmatterToMetadata(frontmatter);
-
-    return { ...postMetadata, fileName };
-  });
-
-  const postFileName = allPostsData.find(
-    (post) => post.pathname === pathname,
-  )?.fileName;
-
-  if (!postFileName) {
-    throw new Error('Post not found!');
-  }
-
-  const postPath = resolve(CONTENTS_PATH, 'blog', postFileName);
+  const postPath = resolve(CONTENTS_PATH, 'blog', `${pathname}.md`);
   const markdown = fs.readFileSync(postPath, 'utf-8');
   const { content } = parseMarkdown(markdown);
 

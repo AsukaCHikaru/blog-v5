@@ -8,7 +8,6 @@ import styles from '@styles/blog/PostBodyBlock.module.css';
 import { convertHeaderLabelToId } from '@utils/blogUtils';
 import { MarkdownBlock, TextBlock } from '@utils/markdownUtils';
 import { D2FigureBlock } from './D2FigureBlock';
-import { MathJax } from 'better-react-mathjax';
 
 interface Props {
   block: MarkdownBlock;

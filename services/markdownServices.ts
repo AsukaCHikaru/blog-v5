@@ -50,14 +50,3 @@ export const getAboutPageContent = async () => {
 
   return { content, frontmatter };
 };
-
-export const getSnapshotPageContent = async () => {
-  const contentPath = resolve(CONTENTS_PATH, 'snapshot');
-  const filePath = fs
-    .readdirSync(contentPath)
-    .filter((name) => name.endsWith('.md'))?.[0];
-  const markdown = fs.readFileSync(contentPath + '/' + filePath, 'utf-8');
-  const { frontmatter, content } = parseMarkdown(markdown);
-
-  return { content, frontmatter };
-};

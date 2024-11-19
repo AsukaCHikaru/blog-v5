@@ -3,7 +3,6 @@ import { CodeBlock } from './CodeBlock';
 import Image from 'next/image';
 import { YoutubeBlock } from './YoutubeBlock';
 import { QuoteBlock } from './QuoteBlock';
-import { getImageSnapshotUrl, isImageSnapshot } from '@utils/stringUtils';
 import styles from '@styles/blog/PostBodyBlock.module.css';
 import { convertHeaderLabelToId } from '@utils/blogUtils';
 import { MarkdownBlock, TextBlock } from '@utils/markdownUtils';
@@ -133,17 +132,6 @@ interface RichTextItemProps {
 export const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
   switch (item.type) {
     case 'plain':
-      if (isImageSnapshot(item.text)) {
-        return (
-          <Image
-            className={styles['snapshot-image']}
-            src={getImageSnapshotUrl(item.text)}
-            alt="" // TODO
-            width={500}
-            height={500}
-          />
-        );
-      }
       if (item.text.startsWith('::d2')) {
         return <D2FigureBlock>{item.text}</D2FigureBlock>;
       }

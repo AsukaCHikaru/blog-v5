@@ -41,11 +41,8 @@ export const getBlogPostContent = (pathname: string) => {
 };
 
 export const getAboutPageContent = async () => {
-  const contentPath = resolve(CONTENTS_PATH, 'about');
-  const filePath = fs
-    .readdirSync(contentPath)
-    .filter((name) => name.endsWith('.md'))?.[0];
-  const markdown = fs.readFileSync(contentPath + '/' + filePath, 'utf-8');
+  const filePath = resolve(CONTENTS_PATH, 'about', 'about-page.md');
+  const markdown = fs.readFileSync(filePath, 'utf-8');
   const { frontmatter, content } = parseMarkdown(markdown);
 
   return { content, frontmatter };

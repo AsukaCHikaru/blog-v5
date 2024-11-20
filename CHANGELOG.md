@@ -1,3 +1,11 @@
+# v5.11.1
+
+## Polish
+
+- Improved markdown fetch logic
+- Updated markdown contents
+- Removed workaround for image caption
+
 # v5.11.0
 
 ## Features

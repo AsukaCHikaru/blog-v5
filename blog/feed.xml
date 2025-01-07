@@ -4,7 +4,12 @@
 <link>https://asukawang.com</link>
 <description>Asuka Wang's blog</description>
 <language>en-US</language>
-<lastBuildDate>Sat, 04 Jan 2025 08:11:14 GMT</lastBuildDate>
+<lastBuildDate>Tue, 07 Jan 2025 13:25:46 GMT</lastBuildDate>
+<item>
+<title>S14 Recap</title>
+<link>https://asukawang.com/blog/s14-recap</link><description>I did not play a lot of league during 2024, but I had many unforgettable moments nonetheless.</description>
+<pubDate>Tue, 07 Jan 2025 00:00:00 GMT</pubDate>
+<guid>https://asukawang.com/blog/s14-recap</guid></item>
 <item>
 <title>Thoughts on Building a Game with XState</title>
 <link>https://asukawang.com/blog/thoughts-on-building-a-game-with-xstate</link><description>After hearing about XState's good reputation for years, I used it to build the prototype for my game. These are my thoughts.</description>

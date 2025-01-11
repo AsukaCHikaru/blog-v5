@@ -149,7 +149,7 @@ const parseParagraphContent = (content: Paragraph): MarkdownBlock => {
     content.children[0].type === 'text' &&
     /^!\[\[.+\]\]/.test(content.children[0].value)
   ) {
-    const match = /^!\[\[(.+)\]\]\n(.*)$/.exec(content.children[0].value);
+    const match = /^!\[\[(.+)\]\]\n?(.*)$/.exec(content.children[0].value);
     if (match?.length) {
       return {
         type: 'image',

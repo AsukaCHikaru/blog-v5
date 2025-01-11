@@ -5,6 +5,7 @@ published: 2020-02-18
 language: zh-TW
 pathname: s9-recap
 category: League of Legends
+description: 第一次現場觀看 MSI 以及 LCS，又換路換到 AD，第九季確實是立下許多里程碑的一個賽季。
 ---
 
 # Esports

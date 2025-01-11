@@ -5,7 +5,7 @@ published: 2022-04-07
 language: en-US
 pathname: 2-years-reflection
 category: Life
-description:
+description: Two years has passed since I started working as a front-end developer, the profession I dreamed and chased for.
 ---
 
 It has been two years since I became a full-time front-end developer.

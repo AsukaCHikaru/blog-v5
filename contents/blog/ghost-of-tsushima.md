@@ -5,6 +5,7 @@ published: 2022-01-07
 language: en-US
 pathname: ghost-of-tsushima
 category: Gaming
+description: The island of Tsushima in Kamakura period created by Sucker Punch was authentic and full of surprises, and they made sure the immersion works well.
 ---
 
 # Gameplay

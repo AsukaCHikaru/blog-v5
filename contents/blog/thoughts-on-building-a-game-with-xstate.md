@@ -2,8 +2,8 @@
 created: 2024/12/26 15:24
 title: Thoughts on Building a Game with XState
 description: After hearing about XState's good reputation for years, I used it to build the prototype for my game. These are my thoughts.
-published: 2025-01-03
-updated: 2025-01-03
+published: 2025-01-04
+updated: 2025-01-04
 language: en-US
 category: Game Development
 pathname: thoughts-on-building-a-game-with-xstate

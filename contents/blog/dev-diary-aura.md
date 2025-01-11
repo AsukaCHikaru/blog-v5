@@ -5,6 +5,7 @@ published: 2018-05-28
 language: zh-TW
 pathname: dev-diary-aura
 category: Game Development
+description: 我嘗試了自己設計並實裝靈氣系統。它也許不顯眼，但絕不簡單。
 ---
 
 在最近進行的 side project 中刻了一個靈氣(aura)輪子。比我想像中的麻煩，決定動筆記錄一下。

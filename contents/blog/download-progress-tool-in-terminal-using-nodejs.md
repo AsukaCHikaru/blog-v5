@@ -5,6 +5,7 @@ published: 2019-06-07
 language: en-US
 pathname: download-progress-tool-in-terminal-using-nodejs
 category: Programming
+description:
 ---
 
 # TL;DR:

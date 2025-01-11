@@ -4,16 +4,16 @@
 <link>https://asukawang.com</link>
 <description>Asuka Wang's blog</description>
 <language>en-US</language>
-<lastBuildDate>Tue, 07 Jan 2025 13:25:46 GMT</lastBuildDate>
+<lastBuildDate>Sat, 11 Jan 2025 07:54:25 GMT</lastBuildDate>
 <item>
 <title>S14 Recap</title>
-<link>https://asukawang.com/blog/s14-recap</link><description>I did not play a lot of league during 2024, but I had many unforgettable moments nonetheless.</description>
+<link>https://asukawang.com/blog/s14-recap</link><description>I did not play a lot of league during 2024, but I had a few unforgettable moments nonetheless.</description>
 <pubDate>Tue, 07 Jan 2025 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/s14-recap</guid></item>
 <item>
 <title>Thoughts on Building a Game with XState</title>
 <link>https://asukawang.com/blog/thoughts-on-building-a-game-with-xstate</link><description>After hearing about XState's good reputation for years, I used it to build the prototype for my game. These are my thoughts.</description>
-<pubDate>Fri, 03 Jan 2025 00:00:00 GMT</pubDate>
+<pubDate>Sat, 04 Jan 2025 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/thoughts-on-building-a-game-with-xstate</guid></item>
 <item>
 <title>Under the Hood: Diablo II Item Generation</title>
@@ -77,72 +77,72 @@
 <guid>https://asukawang.com/blog/dark-souls</guid></item>
 <item>
 <title>2 Years Reflection</title>
-<link>https://asukawang.com/blog/2-years-reflection</link>
+<link>https://asukawang.com/blog/2-years-reflection</link><description>Two years has passed since I started working as a front-end developer, the profession I dreamed and chased for.</description>
 <pubDate>Thu, 07 Apr 2022 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/2-years-reflection</guid></item>
 <item>
 <title>Ghost of Tsushima</title>
-<link>https://asukawang.com/blog/ghost-of-tsushima</link>
+<link>https://asukawang.com/blog/ghost-of-tsushima</link><description>The island of Tsushima in Kamakura period created by Sucker Punch was authentic and full of surprises, and they made sure the immersion works well.</description>
 <pubDate>Fri, 07 Jan 2022 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/ghost-of-tsushima</guid></item>
 <item>
 <title>God of War (2018)</title>
-<link>https://asukawang.com/blog/god-of-war-2018</link>
+<link>https://asukawang.com/blog/god-of-war-2018</link><description>Like the developers, Kratos entered a new stage of his life, and the lessons he learned are beautifully written and shown in a masterpiece of narrative.</description>
 <pubDate>Thu, 06 Jan 2022 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/god-of-war-2018</guid></item>
 <item>
 <title>Hades</title>
-<link>https://asukawang.com/blog/hades</link>
+<link>https://asukawang.com/blog/hades</link><description>I gave the acclaimed hack and slash roguelike a try, and it became one of the best game I've ever played.</description>
 <pubDate>Wed, 05 Jan 2022 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/hades</guid></item>
 <item>
 <title>森保まどか</title>
-<link>https://asukawang.com/blog/moriyasumadoka</link>
+<link>https://asukawang.com/blog/moriyasumadoka</link><description>我見證了一段圓滿偶像生涯的結束，也有幸經驗了我所知最圓滿的偶像宅的退隱。</description>
 <pubDate>Tue, 08 Jun 2021 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/moriyasumadoka</guid></item>
 <item>
 <title>Refactor Blog: (3) Headless CMS</title>
-<link>https://asukawang.com/blog/refactor-blog-3-headless-cms</link>
+<link>https://asukawang.com/blog/refactor-blog-3-headless-cms</link><description>In the final step of the annual blog refactoring, I introduced the usage of headless CMS.</description>
 <pubDate>Sun, 28 Mar 2021 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/refactor-blog-3-headless-cms</guid></item>
 <item>
 <title>Refactor Blog: (2) SSR</title>
-<link>https://asukawang.com/blog/refactor-blog-2-ssr</link>
+<link>https://asukawang.com/blog/refactor-blog-2-ssr</link><description>After the Webpack setup for this site, I also implemented server-side-rendering from scratch.</description>
 <pubDate>Fri, 26 Mar 2021 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/refactor-blog-2-ssr</guid></item>
 <item>
 <title>Immortal</title>
-<link>https://asukawang.com/blog/immortal</link>
+<link>https://asukawang.com/blog/immortal</link><description>"Immortal" 有數種含義，我藉由一則 league 的軼聞對其中一種含義得到更多理解。</description>
 <pubDate>Fri, 12 Mar 2021 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/immortal</guid></item>
 <item>
 <title>Refactor Blog: (1) Webpack</title>
-<link>https://asukawang.com/blog/refactor-blog-1-webpack</link>
+<link>https://asukawang.com/blog/refactor-blog-1-webpack</link><description>In this year's annual blog refactoring, I withdrew from using boilerplate build tools and configured Webpack myself.</description>
 <pubDate>Tue, 09 Mar 2021 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/refactor-blog-1-webpack</guid></item>
 <item>
 <title>Full-Screen Scroll</title>
-<link>https://asukawang.com/blog/full-screen-scroll</link>
+<link>https://asukawang.com/blog/full-screen-scroll</link><description>Research notes of implementing full-screen scroll animation.</description>
 <pubDate>Thu, 11 Feb 2021 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/full-screen-scroll</guid></item>
 <item>
 <title>S10 Recap</title>
-<link>https://asukawang.com/blog/s10-recap</link>
+<link>https://asukawang.com/blog/s10-recap</link><description>Season 10 was the most eventful league season for me, as I witnessed the rise and fall of a successful team as part of it.</description>
 <pubDate>Fri, 08 Jan 2021 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/s10-recap</guid></item>
 <item>
 <title>Unity Dev Memo (2)</title>
-<link>https://asukawang.com/blog/unity-dev-memo-2</link>
+<link>https://asukawang.com/blog/unity-dev-memo-2</link><description>關於 Unity3D 內 raycast 的研究筆記。</description>
 <pubDate>Sun, 04 Oct 2020 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/unity-dev-memo-2</guid></item>
 <item>
 <title>Celeste</title>
-<link>https://asukawang.com/blog/celeste</link>
+<link>https://asukawang.com/blog/celeste</link><description>「如何面對失敗」是人生重要的課題之一，而 Celete 以極為優秀的敘事結合遊戲玩法做出了漂亮的回答。</description>
 <pubDate>Sun, 31 May 2020 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/celeste</guid></item>
 <item>
 <title>A Taste of Competitive Gaming</title>
-<link>https://asukawang.com/blog/a-taste-of-competitive-gaming</link>
+<link>https://asukawang.com/blog/a-taste-of-competitive-gaming</link><description>Thanks to Clash, I got to have a taste of playing organized League of Legends, and it felt amazing.</description>
 <pubDate>Wed, 13 May 2020 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/a-taste-of-competitive-gaming</guid></item>
 <item>
@@ -152,22 +152,22 @@
 <guid>https://asukawang.com/blog/use-npm-package-commands-in-fish-shell</guid></item>
 <item>
 <title>Frostpunk</title>
-<link>https://asukawang.com/blog/frostpunk</link>
+<link>https://asukawang.com/blog/frostpunk</link><description>Frostpunk 是另一個以道德窘境逼迫玩家做出選擇為主體的作品，但當情況不再危急，道德也就不受挑戰了。</description>
 <pubDate>Tue, 14 Apr 2020 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/frostpunk</guid></item>
 <item>
 <title>Red Dead Redemption 2</title>
-<link>https://asukawang.com/blog/red-dead-redemption-2</link>
+<link>https://asukawang.com/blog/red-dead-redemption-2</link><description>RDR2 細火慢燉地讓玩家見證兩名牛仔的人生起伏，鮮有激情，更多無奈與身不由己。</description>
 <pubDate>Wed, 01 Apr 2020 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/red-dead-redemption-2</guid></item>
 <item>
 <title>Unity Dev Memo (1)</title>
-<link>https://asukawang.com/blog/unity-dev-memo-1</link>
+<link>https://asukawang.com/blog/unity-dev-memo-1</link><description>關於 Unity3D 物體移動，腳本執行順序以及 Hitbox 的筆記。</description>
 <pubDate>Sun, 08 Mar 2020 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/unity-dev-memo-1</guid></item>
 <item>
 <title>S9 Recap</title>
-<link>https://asukawang.com/blog/s9-recap</link>
+<link>https://asukawang.com/blog/s9-recap</link><description>第一次現場觀看 MSI 以及 LCS，又換路換到 AD，第九季確實是立下許多里程碑的一個賽季。</description>
 <pubDate>Tue, 18 Feb 2020 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/s9-recap</guid></item>
 <item>
@@ -177,7 +177,7 @@
 <guid>https://asukawang.com/blog/deploying-react-app-on-gae</guid></item>
 <item>
 <title>City of Stars</title>
-<link>https://asukawang.com/blog/city-of-stars</link>
+<link>https://asukawang.com/blog/city-of-stars</link><description>去了一趟夢想之都，不為了追夢，但仍然得到許多反思。</description>
 <pubDate>Thu, 12 Sep 2019 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/city-of-stars</guid></item>
 <item>
@@ -192,77 +192,77 @@
 <guid>https://asukawang.com/blog/download-progress-tool-in-terminal-using-nodejs</guid></item>
 <item>
 <title>A Rather Easy Way to Implement Quicksort in JavaScript</title>
-<link>https://asukawang.com/blog/a-rather-easy-way-to-implement-quicksort-in-js</link>
+<link>https://asukawang.com/blog/a-rather-easy-way-to-implement-quicksort-in-js</link><description>My attempt to implement quicksort.</description>
 <pubDate>Thu, 23 May 2019 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/a-rather-easy-way-to-implement-quicksort-in-js</guid></item>
 <item>
 <title>Devotion</title>
-<link>https://asukawang.com/blog/devotion</link>
+<link>https://asukawang.com/blog/devotion</link><description>還願說了一個好故事，並藉由優秀的遊戲製作來凸顯其優勢。</description>
 <pubDate>Mon, 04 Mar 2019 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/devotion</guid></item>
 <item>
 <title>Zelda: Breath of the Wild</title>
-<link>https://asukawang.com/blog/zelda-botw</link>
+<link>https://asukawang.com/blog/zelda-botw</link><description>荒野之息是史上最優秀的開放世界遊戲，但荒野並不是我最喜愛的遊戲元素之一。</description>
 <pubDate>Sun, 16 Dec 2018 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/zelda-botw</guid></item>
 <item>
 <title>淺談劇場</title>
-<link>https://asukawang.com/blog/hkt-theaters</link>
+<link>https://asukawang.com/blog/hkt-theaters</link><description>對 HKT48 至今四個劇場的感想。</description>
 <pubDate>Sun, 30 Sep 2018 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/hkt-theaters</guid></item>
 <item>
 <title>所以，FEDC</title>
-<link>https://asukawang.com/blog/so-fedc</link>
+<link>https://asukawang.com/blog/so-fedc</link><description>我逼著自己參加了遠超我當時程度的前端技術研討會，結果得到了遠超講題內容的收穫。</description>
 <pubDate>Tue, 17 Jul 2018 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/so-fedc</guid></item>
 <item>
 <title>Dev Diary: Aura</title>
-<link>https://asukawang.com/blog/dev-diary-aura</link>
+<link>https://asukawang.com/blog/dev-diary-aura</link><description>我嘗試了自己設計並實裝靈氣系統。它也許不顯眼，但絕不簡單。</description>
 <pubDate>Mon, 28 May 2018 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/dev-diary-aura</guid></item>
 <item>
 <title>Day of Destiny</title>
-<link>https://asukawang.com/blog/day-of-destiny</link>
+<link>https://asukawang.com/blog/day-of-destiny</link><description>在歷經五年十個月以及一百一十四場公演之後，我迎來了偶像宅生涯的巔峰。</description>
 <pubDate>Sun, 17 Sep 2017 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/day-of-destiny</guid></item>
 <item>
 <title>The Stone</title>
-<link>https://asukawang.com/blog/the-stone</link>
+<link>https://asukawang.com/blog/the-stone</link><description>Taliyah 是我近來最喜愛的角色之一，而一切冥冥之中早已注定。</description>
 <pubDate>Mon, 01 May 2017 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/the-stone</guid></item>
 <item>
 <title>Spring Finals</title>
-<link>https://asukawang.com/blog/spring-finals</link>
+<link>https://asukawang.com/blog/spring-finals</link><description>TSM第五度奪下NA LCS冠軍，我對他們抱持著高度期待。</description>
 <pubDate>Mon, 24 Apr 2017 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/spring-finals</guid></item>
 <item>
 <title>Farewell, Battle.Net</title>
-<link>https://asukawang.com/blog/farewell-battle-net</link>
+<link>https://asukawang.com/blog/farewell-battle-net</link><description>當我重新審視自己與剛畫下休止符的 Battle.Net 走過的足跡，才發現自己見證並參與了歷史。</description>
 <pubDate>Mon, 27 Mar 2017 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/farewell-battle-net</guid></item>
 <item>
 <title>卒業</title>
-<link>https://asukawang.com/blog/sotsugyo</link>
+<link>https://asukawang.com/blog/sotsugyo</link><description>人生中充滿悲歡離合，而我不禁讚嘆日文如何描述離別，以及其中的美麗。</description>
 <pubDate>Tue, 17 Jan 2017 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/sotsugyo</guid></item>
 <item>
 <title>ジブリ</title>
-<link>https://asukawang.com/blog/ghibli</link>
+<link>https://asukawang.com/blog/ghibli</link><description>我進行了一次遲來的吉卜力補習，認識了許多我喜歡以及不喜歡的作品。</description>
 <pubDate>Tue, 10 Jan 2017 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/ghibli</guid></item>
 <item>
 <title>耳を澄ませば</title>
-<link>https://asukawang.com/blog/whisper-of-the-heart</link>
+<link>https://asukawang.com/blog/whisper-of-the-heart</link><description>我做了一個夢，夢裡我回到了學生時代，還抱著寫作的夢想。</description>
 <pubDate>Tue, 27 Dec 2016 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/whisper-of-the-heart</guid></item>
 <item>
 <title>Road to plat</title>
-<link>https://asukawang.com/blog/road-to-plat</link>
+<link>https://asukawang.com/blog/road-to-plat</link><description>歷時六年，在漂泊到第三個伺服器之後，我終於達成了曾一度放棄過的目標。</description>
 <pubDate>Wed, 16 Nov 2016 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/road-to-plat</guid></item>
 <item>
 <title>この町が、まどかを育ててた</title>
-<link>https://asukawang.com/blog/this-city-raised-madoka</link>
+<link>https://asukawang.com/blog/this-city-raised-madoka</link><description>一時興起，去了一趟長崎，那個把まどか養育成人的城市。</description>
 <pubDate>Wed, 16 Nov 2016 00:00:00 GMT</pubDate>
 <guid>https://asukawang.com/blog/this-city-raised-madoka</guid></item>
 </channel>

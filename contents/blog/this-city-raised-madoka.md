@@ -5,6 +5,7 @@ published: 2016-11-16
 language: zh-TW
 pathname: this-city-raised-madoka
 category: HKT48
+description: 一時興起，去了一趟長崎，那個把まどか養育成人的城市。
 ---
 
 ![](this-city-raised-madoka_1.jpg)

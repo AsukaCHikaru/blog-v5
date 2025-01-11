@@ -5,6 +5,7 @@ published: 2020-04-01
 language: zh-TW
 pathname: red-dead-redemption-2
 category: Gaming
+description: RDR2 細火慢燉地讓玩家見證兩名牛仔的人生起伏，鮮有激情，更多無奈與身不由己。
 ---
 
 終於打完了 RDR2 的劇情模式。線上模式只玩過一次，收集完成度還沒開始，不敢說足夠體驗了這個遊戲，但劇情後段直到結局累積起來的餘韻實在強烈，不得不記錄以宣洩一番。

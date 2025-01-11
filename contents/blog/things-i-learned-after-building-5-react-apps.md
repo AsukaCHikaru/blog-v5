@@ -5,6 +5,7 @@ published: 2019-08-08
 language: en-US
 pathname: things-i-learned-after-building-5-react-apps
 category: Web Development
+description:
 ---
 
 # TLDR:

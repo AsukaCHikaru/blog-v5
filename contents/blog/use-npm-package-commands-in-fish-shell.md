@@ -5,6 +5,7 @@ published: 2020-04-20
 language: en-US
 pathname: use-npm-package-commands-in-fish-shell
 category: Programming
+description:
 ---
 
 # TL;DR:

@@ -22,7 +22,7 @@
   }
 
   > a {
-    font-family: 'Gentium';
+    font-family: 'Gentium Plus';
     color: var(--dark);
     font-size: 20px;
     text-decoration: underline;
@@ -100,7 +100,7 @@
 }
 
 .card-description {
-  font-family: 'Gentium';
+  font-family: 'Gentium Plus';
   font-size: 16px;
   line-height: 20px;
   margin-bottom: 12px;

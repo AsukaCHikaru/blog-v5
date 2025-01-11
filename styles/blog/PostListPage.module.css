@@ -2,7 +2,7 @@
   font-size: var(--fb8);
   margin: 0 0 var(--fb8);
   line-height: 1;
-  font-family: 'Gentium', serif;
+  font-family: 'Gentium Plus', serif;
 
   &[data-archive='true'] {
     font-family: 'Noto Serif JP', serif;

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build && next export && subfont out/index.html -ir",
     "deploy": "npm run build && touch ./out/.nojekyll && echo asukawang.com > ./out/CNAME",
     "start": "next start",
     "lint": "next lint",

@@ -5,6 +5,7 @@ published: 2021-03-26
 language: en-US
 pathname: refactor-blog-2-ssr
 category: Meta
+description: After the Webpack setup for this site, I also implemented server-side-rendering from scratch.
 ---
 
 One of the reasons I choose Gatsby last time I wrote my blog site is to have SSR. SEO matters, isn't it?

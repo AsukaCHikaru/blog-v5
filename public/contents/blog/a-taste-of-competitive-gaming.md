@@ -5,6 +5,7 @@ published: 2020-05-13
 language: en-US
 pathname: a-taste-of-competitive-gaming
 category: League of Legends
+description: Thanks to Clash, I got to have a taste of playing organized League of Legends, and it felt amazing.
 ---
 
 I've never reached the level of skill required to be in competitive gaming in the past, nor do I expect myself to achieve it in the future. Of course, as such a fan of traditional sports and esports, I sometimes dream of teammates I can rely on to play with, to fully enjoy fighting, communicating, and competing with companions.

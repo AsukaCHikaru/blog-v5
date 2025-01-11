@@ -5,6 +5,7 @@ published: 2021-02-11
 language: en-US
 pathname: full-screen-scroll
 category: Web Development
+description: Research notes of implementing full-screen scroll animation.
 ---
 
 ## TL;DR:

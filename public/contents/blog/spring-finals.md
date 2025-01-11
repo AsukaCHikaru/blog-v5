@@ -5,6 +5,7 @@ published: 2017-04-24
 language: zh-TW
 pathname: spring-finals
 category: League of Legends
+description: TSM第五度奪下NA LCS冠軍，我對他們抱持著高度期待。
 ---
 
 寫在 TSM 擊敗 C9，第五度贏得 NALCS Championship 之後。

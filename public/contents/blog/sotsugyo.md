@@ -5,6 +5,7 @@ published: 2017-01-17
 language: zh-TW
 pathname: sotsugyo
 category: Life
+description: 人生中充滿悲歡離合，而我不禁讚嘆日文如何描述離別，以及其中的美麗。
 ---
 
 一直覺得「畢業(卒業)」是個很漂亮的講法。

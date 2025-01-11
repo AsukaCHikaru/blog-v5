@@ -5,6 +5,7 @@ published: 2018-09-30
 language: zh-TW
 pathname: hkt-theaters
 category: HKT48
+description: 對 HKT48 至今四個劇場的感想。
 ---
 
 簡單談談 HKT 的四個劇場。

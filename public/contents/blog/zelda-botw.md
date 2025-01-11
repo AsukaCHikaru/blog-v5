@@ -5,8 +5,8 @@ published: 2018-12-16
 language: zh-TW
 pathname: zelda-botw
 category: Gaming
+description: 荒野之息是史上最優秀的開放世界遊戲，但荒野並不是我最喜愛的遊戲元素之一。
 ---
-
 先說結論，我並不享受這個遊戲。
 
 BOTW 是我玩過最有意思的開放世界之一。 它真正地貫徹了「開放世界」這四個字，營造了一個玩家可以自由互動、體驗與生活的世界。

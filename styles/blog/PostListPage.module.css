@@ -5,8 +5,8 @@
   font-family: 'Gentium', serif;
 
   &[data-archive='true'] {
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: 100;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 200;
   }
 
   @media (min-width: 768px) {

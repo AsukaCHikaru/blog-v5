@@ -28,7 +28,7 @@ export const PostListPage: FC<Props> = ({ postList, category }) => {
   return (
     <MainContent>
       <h1 className={styles.header} data-archive={category === undefined}>
-        {category || 'ARCHIVE'}
+        {category || 'Blog'}
       </h1>
       <div className={styles['main-content']}>
         {postTileList.map((row, i) => (

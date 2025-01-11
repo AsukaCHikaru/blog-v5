@@ -1,33 +1,28 @@
-import {
-  getBlogPostContent,
-  getBlogPostList,
-} from '../../services/markdownServices';
+import { getBlogPostList } from '../../services/markdownServices';
 import { SiteHead } from '@components/SiteHead';
-import { PostDetailPage } from '@components/blog/PostDetailPage';
-import { SECTIONS } from 'consts/sections';
 import { useContext, useEffect } from 'react';
 import { SiteContext } from 'pages/_app';
 import {
   BlogCategoryList,
   convertPostListToCategories,
 } from '@utils/blogUtils';
-import { MarkdownBlock, PostMetadata } from '@utils/markdownUtils';
+import { PostMetadata } from '@utils/markdownUtils';
+import { PostListPage } from '@components/blog/PostListPage';
+import { useSearchParams } from 'next/navigation';
 
 interface Props {
-  postMetadata: PostMetadata;
-  postContent: MarkdownBlock[];
-  last5posts: PostMetadata[];
-  categoryPosts: PostMetadata[];
+  postList: PostMetadata[];
   categories: BlogCategoryList;
 }
 
-const Home = ({
-  postMetadata,
-  postContent,
-  last5posts,
-  categoryPosts = [],
-  categories,
-}: Props) => {
+const Home = ({ postList, categories }: Props) => {
+  const params = useSearchParams();
+  const categoryQuery = params.get('category') ?? undefined;
+  const filteredList = categoryQuery
+    ? postList.filter(
+        (post) => post.category.toLowerCase() === categoryQuery?.toLowerCase(),
+      )
+    : postList;
   const context = useContext(SiteContext);
 
   useEffect(() => {
@@ -45,39 +40,18 @@ const Home = ({
     <>
       <SiteHead
         title="Blog | Asuka Wang"
-        description={SECTIONS.BLOG.description}
+        description="Essays, reviews and notes."
       />
-      <PostDetailPage
-        postContent={postContent}
-        postMetadata={postMetadata}
-        last5posts={last5posts}
-        categoryPosts={categoryPosts}
-      />
+      <PostListPage postList={filteredList} category={categoryQuery} />
     </>
   );
 };
-
 export async function getStaticProps() {
   const postList = await getBlogPostList();
-  const lastPost = postList[0];
-  const postContent = getBlogPostContent(lastPost.pathname);
-  const last5posts = postList.slice(0, 5);
-  const categoryPosts = postList
-    .filter(
-      (post) =>
-        post.category === lastPost.category &&
-        post.id !== lastPost.id &&
-        post.description,
-    )
-    .slice(0, 5);
   const categories = convertPostListToCategories(postList);
-
   return {
     props: {
-      postMetadata: lastPost,
-      postContent,
-      last5posts,
-      categoryPosts,
+      postList,
       categories,
     },
   };

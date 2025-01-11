@@ -1,3 +1,7 @@
+# v5.11.2
+
+- Show blog post list at /blog
+
 # v5.11.1
 
 ## Polish

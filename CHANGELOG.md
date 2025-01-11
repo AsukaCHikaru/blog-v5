@@ -1,3 +1,11 @@
+# v5.12.0
+
+## Polish
+
+- Subset font files for better loading performance
+  - For latin-only fonts, subset with unicode range from U+0020 to 00BF
+  - For CJK fonts, from U+0030 to 312F, 3300 to 9FFF, F900 to FAFF
+
 # v5.11.2
 
 - Show blog post list at /blog

@@ -37,11 +37,16 @@ export const PostDetailPage: FC<Props> = ({
           title={postMetadata.title}
           description={postMetadata.description}
           publishDate={postMetadata.publishDate}
+          isCJK={postMetadata.language !== 'en-US'}
         />
       </FullContent>
       <MainContent>
         {postContent.map((block, i) => (
-          <PostBodyBlock block={block} key={i} />
+          <PostBodyBlock
+            block={block}
+            key={i}
+            isCJK={postMetadata.language !== 'en-US'}
+          />
         ))}
         <div className={styles['additional-list-container']}>
           {categoryPosts.length ? (
@@ -54,7 +59,12 @@ export const PostDetailPage: FC<Props> = ({
         </div>
       </MainContent>
       <RightPanel>
-        {headers.length ? <TableOfContentColumn list={headers} /> : null}
+        {headers.length ? (
+          <TableOfContentColumn
+            list={headers}
+            isCJK={postMetadata.language !== 'en-US'}
+          />
+        ) : null}
       </RightPanel>
     </>
   );

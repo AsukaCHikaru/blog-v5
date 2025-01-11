@@ -32,7 +32,12 @@ export const AdditionalPostList = ({
 const PostCard = ({ post }: { post: PostMetadata }) => (
   <Link className={styles.card} href={`/blog/${post.pathname}`}>
     <div>
-      <div className={styles['card-title']}>{post.title}</div>
+      <div
+        className={styles['card-title']}
+        data-cjk={post.language !== 'en-US'}
+      >
+        {post.title}
+      </div>
       {post.description ? (
         <div className={styles['card-description']}>{post.description}</div>
       ) : null}

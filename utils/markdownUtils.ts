@@ -11,6 +11,7 @@ export type PostMetadata = {
   publishDate: string;
   pathname: string;
   description?: string; // TODO: remove optional after description for all posts are completed
+  language: string;
 };
 
 export type CategoryList = {
@@ -252,6 +253,7 @@ export const convertFrontmatterToMetadata = (
     tags: frontmatter.tags?.split(/,\s?/) || [],
     publishDate: frontmatter.published,
     pathname: frontmatter.pathname,
+    language: frontmatter.language,
   };
   return postMetadata;
 };

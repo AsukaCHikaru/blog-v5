@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build && next export && subfont out/index.html -ir",
     "deploy": "npm run build && touch ./out/.nojekyll && echo asukawang.com > ./out/CNAME",
     "start": "next start",
     "lint": "next lint",
@@ -44,6 +44,7 @@
     "postcss-import": "^16.1.0",
     "postcss-nested": "^6.2.0",
     "prettier": "^2.8.8",
-    "serve": "^14.1.2"
+    "serve": "^14.1.2",
+    "subfont": "^7.2.1"
   }
 }

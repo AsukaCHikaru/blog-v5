@@ -8,9 +8,10 @@ const DESKTOP_HEADER_MARGIN_TOP = 20;
 
 interface Props {
   list: HeadingBlock[];
+  isCJK: boolean;
 }
 
-export const TableOfContentColumn: FC<Props> = ({ list }) => {
+export const TableOfContentColumn: FC<Props> = ({ list, isCJK }) => {
   const handleLinkClick = useCallback((query: string) => {
     const targetHeader = document.querySelector(`#${query}`);
     if (!targetHeader) {
@@ -37,6 +38,7 @@ export const TableOfContentColumn: FC<Props> = ({ list }) => {
               key={header.children[0].text}
               onClick={() => handleLinkClick(query)}
               indent={header.depth - 1}
+              isCJK={isCJK}
             >
               {text}
             </HeaderLink>
@@ -51,7 +53,8 @@ const HeaderLink: FC<{
   onClick: () => void;
   children: ReactNode;
   indent: number;
-}> = ({ onClick, children, indent }) => {
+  isCJK: boolean;
+}> = ({ onClick, children, indent, isCJK }) => {
   return (
     <li className={styles.li}>
       {Array(indent)
@@ -59,7 +62,12 @@ const HeaderLink: FC<{
         .map((_, i) => (
           <div className={styles.indent} key={i} />
         ))}
-      <button role="link" className={styles.link} onClick={onClick}>
+      <button
+        role="link"
+        className={styles.link}
+        onClick={onClick}
+        data-cjk={isCJK}
+      >
         {children}
       </button>
     </li>

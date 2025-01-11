@@ -12,7 +12,7 @@
 }
 
 .category-link {
-  font-family: 'Noto Serif JP', serif;
+  font-family: 'Noto Sans', sans-serif;
   font-size: 16px;
   line-height: 20px;
 
@@ -22,7 +22,7 @@
   }
 
   > a {
-    font-family: 'Gentium';
+    font-family: 'Gentium Plus';
     color: var(--dark);
     font-size: 20px;
     text-decoration: underline;
@@ -93,6 +93,10 @@
   font-weight: 200;
   margin-bottom: 12px;
 
+  &[data-cjk='true'] {
+    font-family: 'Noto Serif JP CJK', 'Noto Serif JP', serif;
+  }
+
   @media (min-width: 768px) {
     font-size: 24px;
     line-height: 28px;
@@ -100,7 +104,7 @@
 }
 
 .card-description {
-  font-family: 'Gentium';
+  font-family: 'Gentium Plus';
   font-size: 16px;
   line-height: 20px;
   margin-bottom: 12px;

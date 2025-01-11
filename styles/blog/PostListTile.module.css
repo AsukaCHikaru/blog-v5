@@ -41,10 +41,14 @@
   font-size: 28px;
   line-height: 36px;
   font-weight: 200;
+
+  &[data-cjk="true"] {
+    font-family: 'Noto Serif JP CJK', 'Noto Serif JP', serif;
+  }
 }
 
 .description {
-  font-family: 'Gentium', serif;
+  font-family: 'Gentium Plus', serif;
   font-style: italic;
   font-size: 18px;
   line-height: 22px;

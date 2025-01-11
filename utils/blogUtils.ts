@@ -8,6 +8,7 @@ export type PostTile = {
   description: string;
   publishDate: string;
   pathname: string;
+  language: string;
 };
 
 const TITLE_SIZE_2_THRESHOLD = 30;
@@ -63,6 +64,7 @@ const convertPostMetadataToTile = (post: PostMetadata): PostTile => ({
   description: post.description || '',
   publishDate: post.publishDate,
   pathname: post.pathname,
+  language: post.language,
 });
 
 export const convertHeaderLabelToId = (header: HeadingBlock) =>

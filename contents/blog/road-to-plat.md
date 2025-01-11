@@ -1,7 +1,7 @@
 ---
 created: 2023/06/01 21:45
 title: Road to plat
-published: 2016-11-16
+published: 2016-11-06
 language: zh-TW
 pathname: road-to-plat
 category: League of Legends

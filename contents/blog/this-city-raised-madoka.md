@@ -1,7 +1,7 @@
 ---
 created: 2023/06/01 21:55
 title: この町が、まどかを育ててた
-published: 2016-11-16
+published: 2016-11-21
 language: zh-TW
 pathname: this-city-raised-madoka
 category: HKT48

@@ -1,35 +1,45 @@
 @font-face {
   font-family: 'Gentium Plus Book';
-  src: url('/fonts/GentiumBookPlus_Regular.woff2') format('woff2');
+  src: url('/fonts/subset_extended_latin_GentiumBookPlus_Regular.woff2') format('woff2');
   font-weight: 400;
 }
 @font-face {
   font-family: 'Gentium Plus Book';
-  src: url('/fonts/GentiumBookPlus_Bold.woff2') format('woff2');
+  src: url('/fonts/subset_extended_latin_GentiumBookPlus_Bold.woff2') format('woff2');
   font-weight: 700;
 }
 @font-face {
   font-family: 'Gentium Plus';
-  src: url('/fonts/GentiumPlus_Italic.woff2') format('woff2');
+  src: url('/fonts/subset_extended_latin_GentiumPlus_Italic.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Noto Sans';
-  src: url('/fonts/NotoSans_Thin.woff2') format('woff2');
+  src: url('/fonts/subset_latin_NotoSans_Thin.woff2') format('woff2');
   font-weight: 100;
 }
 @font-face {
   font-family: 'Noto Serif JP';
-  src: url('/fonts/NotoSerifJP_ExtraLight.woff2') format('woff2');
+  src: url('/fonts/subset_extended_latin_NotoSerifJP_ExtraLight.woff2') format('woff2');
   font-weight: 200;
 }
 @font-face {
   font-family: 'Noto Serif JP';
-  src: url('/fonts/NotoSerifJP_Regular.woff2') format('woff2');
+  src: url('/fonts/subset_extended_latin_NotoSerifJP_Regular.woff2') format('woff2');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Noto Serif JP CJK';
+  src: url('/fonts/subset_cjk_NotoSerifJP_ExtraLight.woff2') format('woff2');
+  font-weight: 200;
+}
+@font-face {
+  font-family: 'Noto Serif JP CJK';
+  src: url('/fonts/subset_cjk_NotoSerifJP_Regular.woff2') format('woff2');
   font-weight: 400;
 }
 @font-face {
   font-family: 'Noto Serif JP';
-  src: url('/fonts/NotoSerifJP_Bold.woff2') format('woff2');
+  src: url('/fonts/subset_latin_NotoSerifJP_Bold.woff2') format('woff2');
   font-weight: 800;
 }
 @font-face {

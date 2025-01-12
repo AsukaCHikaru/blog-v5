@@ -7,21 +7,17 @@ interface Props {
   title: string;
   description?: string;
   publishDate: string;
-  isCJK: boolean;
 }
 
 export const PostDetailPageHeader: FC<Props> = ({
   title,
   description,
   publishDate,
-  isCJK,
 }) => {
   return (
     <div className={styles.container}>
       <MainContent>
-        <h1 className={styles.title} data-cjk={isCJK}>
-          {title}
-        </h1>
+        <h1 className={styles.title}>{title}</h1>
         {description ? (
           <h2 className={styles.description}>{description}</h2>
         ) : null}

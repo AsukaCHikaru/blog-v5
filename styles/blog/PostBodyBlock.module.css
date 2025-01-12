@@ -4,10 +4,6 @@
   font-size: 16px;
   line-height: 22px;
 
-  &[data-cjk='true'] {
-    font-family: 'Gentium Plus Book', 'Noto Serif JP CJK', 'Noto Serif JP', serif;
-  }
-
   &:last-child {
     margin-bottom: 0;
   }

@@ -20,11 +20,11 @@ export const AboutPage = ({ content }: { content: MarkdownBlock[] }) => {
       </FullContent>
       <MainContent>
         {content.map((block, i) => (
-          <PostBodyBlock block={block} key={i} isCJK={false} />
+          <PostBodyBlock block={block} key={i} />
         ))}
       </MainContent>
       <RightPanel>
-        <TableOfContentColumn list={headers} isCJK={false} />
+        <TableOfContentColumn list={headers} />
       </RightPanel>
     </>
   );

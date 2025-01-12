@@ -10,13 +10,12 @@ import { D2FigureBlock } from './D2FigureBlock';
 
 interface Props {
   block: MarkdownBlock;
-  isCJK: boolean;
 }
 
-export const PostBodyBlock: FC<Props> = ({ block, isCJK }) => {
+export const PostBodyBlock: FC<Props> = ({ block }) => {
   return (
-    <div className={styles.wrapper} data-cjk={isCJK}>
-      <BlockContent block={block} isCJK={isCJK} />
+    <div className={styles.wrapper}>
+      <BlockContent block={block} />
     </div>
   );
 };

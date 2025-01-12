@@ -10,9 +10,7 @@ export const PostListTile = ({ postTile }: { postTile: PostTile }) => (
     className={styles.container}
   >
     <div>
-      <div className={styles.title} data-cjk={postTile.language !== 'en-US'}>
-        {postTile.title}
-      </div>
+      <div className={styles.title}>{postTile.title}</div>
       <div className={styles.description}>{postTile.description}</div>
     </div>
     <div className={styles['publish-date']}>

@@ -37,13 +37,13 @@
   font-family: 'Noto Serif JP CJK';
   src: url('/fonts/subset_cjk_NotoSerifJP_ExtraLight.woff2') format('woff2');
   font-weight: 200;
-  unicode-range: U+0030-312F, U+3300-9FFF, U+F900-FAFF;
+  unicode-range: U+3000-312F, U+3300-9FFF, U+F900-FAFF;
 }
 @font-face {
   font-family: 'Noto Serif JP CJK';
   src: url('/fonts/subset_cjk_NotoSerifJP_Regular.woff2') format('woff2');
   font-weight: 400;
-  unicode-range: U+0030-312F, U+3300-9FFF, U+F900-FAFF;
+  unicode-range: U+3000-312F, U+3300-9FFF, U+F900-FAFF;
 }
 @font-face {
   font-family: 'Noto Serif JP';

@@ -1,3 +1,9 @@
+# v5.12.2
+
+## Bug fixes
+
+- Fixed issue of subfont build failures when the same font faces with different unicode ranges are used
+
 # v5.12.1
 
 ## Refactor

@@ -1,3 +1,9 @@
+# v5.12.3
+
+## Bug fixes
+
+- Fixed issue that cjk fonts used unicode-range from 0030 instead of 3000
+
 # v5.12.2
 
 ## Bug fixes
@@ -16,7 +22,7 @@
 
 - Subset font files for better loading performance
   - For latin-only fonts, subset with unicode range from U+0020 to 00BF
-  - For CJK fonts, from U+0030 to 312F, 3300 to 9FFF, F900 to FAFF
+  - For CJK fonts, from U+3000 to 312F, 3300 to 9FFF, F900 to FAFF
 
 # v5.11.2
 

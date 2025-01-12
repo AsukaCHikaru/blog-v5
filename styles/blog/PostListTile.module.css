@@ -37,7 +37,7 @@
 
 .title {
   margin-bottom: 12px;
-  font-family: 'Noto Serif JP', serif;
+  font-family: 'Noto Serif JP CJK', 'Noto Serif JP', serif;
   font-size: 28px;
   line-height: 36px;
   font-weight: 200;

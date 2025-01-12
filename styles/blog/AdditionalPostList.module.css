@@ -87,7 +87,7 @@
 }
 
 .card-title {
-  font-family: 'Noto Serif JP', serif;
+  font-family: 'Noto Serif JP CJK', 'Noto Serif JP', serif;
   font-size: 20px;
   line-height: 24px;
   font-weight: 200;

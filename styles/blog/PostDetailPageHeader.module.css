@@ -11,7 +11,7 @@
 
 .title {
   margin: 20px 0;
-  font-family: 'Noto Serif JP', serif;
+  font-family: 'Noto Serif JP CJK', 'Noto Serif JP', serif;
   font-size: 32px;
   font-weight: 200;
   line-height: 1.2;

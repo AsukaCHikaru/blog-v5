@@ -1,3 +1,9 @@
+# v5.12.1
+
+## Refactor
+
+- Use unicode-range instead of manually set font language
+
 # v5.12.0
 
 ## Polish

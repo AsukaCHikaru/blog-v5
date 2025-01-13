@@ -1,7 +1,7 @@
 ---
 created: 2024/12/31 15:24
 title: A Redemption Three Years Later
-description: CD PROJECT RED made a promise about Night City, which they broke. Three years later they had another attempt, and to me, it was their redemption.
+description: CD PROJEKT RED made a promise about Night City, which they broke. Three years later they had another attempt, and to me, it was their redemption.
 published: 2025-01-13
 updated: 2025-01-13
 language: en-US
@@ -46,4 +46,4 @@ Players were given choices to decide Songbird's fate, however. Unlike almost eve
 # Redemption of the broken promise
 Most of the Night City, even with the 2.0 updates, did not impress me much, but I loved every second in the Dogtown; the immersion, atmosphere, and all the characters kept me thinking about nothing but them for days, even after witnessing their demises. Before writing this review, I rewatched the trailers CDPR released before the main game was published, and the promise of Night City shown, even after four years of upgrades, was so much more than what it was in reality. Since CDPR had previously announced that there won't be another expansion, it is a matter of fact that, at lease in the game of Cyberpunk 2077, that promise has been broken. Some people are upset about it—rightfully so—but I just felt it was such a shame, because that promise seemed to be a hell of a game. 
 
-But, with all of the work put into Phantom Liberty, in my eyes CD PROJECT RED has already redeemed themselves over the broken promise. I finally got to take a glimpse of what it was supposed to feel like to be a dreamer in the city of dreams, and I enjoyed it immensely. My faith in CDPR has been restored, and if the goodies are tempting enough, I may still preorder their next game.
+But, with all of the work put into Phantom Liberty, in my eyes CD PROJEK T RED has already redeemed themselves over the broken promise. I finally got to take a glimpse of what it was supposed to feel like to be a dreamer in the city of dreams, and I enjoyed it immensely. My faith in CDPR has been restored, and if the goodies are tempting enough, I may still preorder their next game.

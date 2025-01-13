@@ -36,7 +36,7 @@ export const BlockContent: FC<Props> = ({ block }) => {
         return <YoutubeBlock item={block} />;
       }
       return (
-        <figure>
+        <figure className={styles.figure}>
           <Image
             src={'/images/' + block.url}
             alt={block.alt || ''}

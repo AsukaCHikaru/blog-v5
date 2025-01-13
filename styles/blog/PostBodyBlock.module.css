@@ -10,12 +10,16 @@
 
   &:has(img) {
     display: flex;
+    justify-content: center;
   }
 
   @media (min-width: 768px) {
     font-size: 20px;
     line-height: 27px;
   }
+}
+.figure {
+  width: 100%;
 }
 .image {
   margin: auto;

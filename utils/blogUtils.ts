@@ -10,8 +10,7 @@ export type PostTile = {
   pathname: string;
 };
 
-const TITLE_SIZE_2_THRESHOLD = 30;
-const DESCRIPTION_SIZE_2_THRESHOLD = 160;
+const TILE_SIZE_2_THRESHOLD = 160;
 
 export const generatePostTileList = (
   posts: PostMetadata[],
@@ -55,8 +54,8 @@ export const generatePostTileList = (
 
 const convertPostMetadataToTile = (post: PostMetadata): PostTile => ({
   size:
-    post.title.length > TITLE_SIZE_2_THRESHOLD ||
-    (post.description || '').length > DESCRIPTION_SIZE_2_THRESHOLD
+    post.title.length * 2.5 + (post.description || '').length >
+    TILE_SIZE_2_THRESHOLD
       ? 2
       : 1,
   title: post.title,

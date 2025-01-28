@@ -35,26 +35,27 @@ export const BlockContent: FC<Props> = ({ block }) => {
       if (/youtube\.com/.test(block.url) || /youtu\.be/.test(block.url)) {
         return <YoutubeBlock item={block} />;
       }
-      if (block.url.endsWith('.mp4')) {
-        return (
-          <video
-            src={'/images/' + block.url}
-            controls={false}
-            autoPlay={true}
-            loop={true}
-            muted={true}
-          />
-        );
-      }
+
       return (
         <figure className={styles.figure}>
-          <Image
-            src={'/images/' + block.url}
-            alt={block.alt || ''}
-            width={600}
-            height={400}
-            className={styles.image}
-          />
+          {block.url.endsWith('.mp4') ? (
+            <video
+              src={'/images/' + block.url}
+              controls={false}
+              autoPlay={true}
+              loop={true}
+              muted={true}
+              className={styles.video}
+            />
+          ) : (
+            <Image
+              src={'/images/' + block.url}
+              alt={block.alt || ''}
+              width={600}
+              height={400}
+              className={styles.image}
+            />
+          )}
           {block.caption ? (
             <figcaption
               className={`${styles['image-caption']} text-color-second`}

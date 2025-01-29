@@ -46,6 +46,7 @@ export const BlockContent: FC<Props> = ({ block }) => {
               loop={true}
               muted={true}
               className={styles.video}
+              playsInline={true}
             />
           ) : (
             <Image

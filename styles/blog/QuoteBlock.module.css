@@ -1,11 +1,47 @@
-.container {
-  margin: 2rem 0;
-  text-align: center;
+.quoteblock {
+  margin: 4rem 0;
   white-space: pre-wrap;
-  text-wrap: balance;
-}
-.wrapper {
   position: relative;
+  position: relative;
+  padding: 0 1.5rem;
+  font-size: 20px;
+  line-height: 27px;
+
+  &::before {
+    content: '“';
+    position: absolute;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    top: -2rem;
+    left: 0;
+  }
+  &::after {
+    content: '”';
+    position: absolute;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    bottom: -2rem;
+    right: 0;
+  }
+
+  > p:not(:first-child) {
+    margin-top: 1rem;
+  }
+  > p:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+    line-height: 32px;
+
+    p:not(:first-child) {
+      margin-top: 1.5rem;
+    }
+    p:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+  }
 }
 .quote-mark-start {
   position: absolute;

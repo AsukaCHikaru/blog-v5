@@ -6,7 +6,8 @@ published: 2024-04-21
 updated: 2024-05-03
 language: en-US
 pathname: godot-essentials
-category: Game Development
+category: note
+topic: game development
 ---
 
 I chose Godot as the game engine for my last project, instead of Unity3D, the engine I have been using for the last five years. This was my first Godot project ever.

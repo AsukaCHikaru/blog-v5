@@ -4,8 +4,9 @@ title: "Refactor Blog: (3) Headless CMS"
 published: 2021-03-28
 language: en-US
 pathname: refactor-blog-3-headless-cms
-category: Meta
 description: In the final step of the annual blog refactoring, I introduced the usage of headless CMS.
+category: retrospective
+topic: web development
 ---
 
 Building my blog from scratch means dealing with content management by myself: the APIs, the server, and the databases. Each task would be a new challenge for me and likely cost more time than the whole blog building.

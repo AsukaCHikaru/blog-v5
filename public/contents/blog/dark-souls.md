@@ -4,9 +4,10 @@ title: Dark Souls
 published: 2022-07-19
 language: en-US
 pathname: dark-souls
-category: Gaming
 description: Though once a cult classic, the soul-like has become a mainstream genre. I beat its early entry to see its secrets and the reputation of unmerciful difficulty.
 updated: 2024-05-03
+category: review
+topic: gaming
 ---
 
 Dark Souls is a critically acclaimed game. It also has a reputation for being unreasonably difficult.

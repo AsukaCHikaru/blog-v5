@@ -4,8 +4,9 @@ title: Frostpunk
 published: 2020-04-14
 language: zh-TW
 pathname: frostpunk
-category: Gaming
 description: Frostpunk 是另一個以道德窘境逼迫玩家做出選擇為主體的作品，但當情況不再危急，道德也就不受挑戰了。
+category: review
+topic: gaming
 ---
 
 作為一個遊戲來說，Frostpunk 的概念與其開發團隊 11 bit Studios 的另一款名作 This War of Mine 很像：本質上都是資源管理遊戲。遊戲會把你丟到資源不足的環境，然後給你很多可以補給資源但是具備道德疑慮的選項，讓玩家在「道德」與「目標」之間做出選擇。有點類似電車難題，是要堅持人道選擇讓大多數人過苦日子，還是犧牲少數人換取更大的利益？

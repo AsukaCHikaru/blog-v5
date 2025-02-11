@@ -4,8 +4,9 @@ title: The Stone
 published: 2017-05-01
 language: zh-TW
 pathname: the-stone
-category: League of Legends
 description: Taliyah 是我近來最喜愛的角色之一，而一切冥冥之中早已注定。
+category: essay
+topic: gaming
 ---
 
 我還記得第一次玩 Taliyah 的時候。

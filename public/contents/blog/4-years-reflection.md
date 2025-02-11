@@ -6,7 +6,8 @@ published: 2024-04-08
 updated: 2024-05-03
 language: en-US
 pathname: 4-years-reflection
-category: Life
+category: retrospective
+topic: career
 ---
 
 Two years ago, I wrote [2 Years Reflection](https://asukawang.com/blog/2-years-reflection) to reflect on working as a full time developer for two years. As I am facing changes exactly four years after the day my developer career started, it seems like a perfect time for another reflection.

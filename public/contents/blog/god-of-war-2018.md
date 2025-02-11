@@ -4,8 +4,9 @@ title: God of War (2018)
 published: 2022-01-06
 language: en-US
 pathname: god-of-war-2018
-category: Gaming
 description: Like the developers, Kratos entered a new stage of his life, and the lessons he learned are beautifully written and shown in a masterpiece of narrative.
+category: review
+topic: gaming
 ---
 
 # Narrative

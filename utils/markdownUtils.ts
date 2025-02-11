@@ -209,13 +209,9 @@ const parseRawContent = (rawContent: Content[]): MarkdownBlock[] => {
     if (content.type === 'blockquote') {
       result.push({
         type: 'quote',
-        children: parseTextBlock(
-          (
-            content.children.filter(
-              (c) => c.type === 'paragraph',
-            )[0] as Paragraph
-          ).children,
-        ),
+        children: content.children
+          .filter((c) => c.type === 'paragraph')
+          .flatMap((c) => parseTextBlock(c.children)),
       });
     }
 

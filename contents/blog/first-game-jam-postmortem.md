@@ -4,9 +4,10 @@ title: First Game Jam Postmortem
 published: 2023-05-23
 language: en-US
 pathname: first-game-jam-postmortem
-category: Game Development
 description: I attended a game jam for the first time in my life. It was the best decision I made as an indie game developer in many years.
 updated: 2024-05-03
+category: retrospective
+topic: game development
 ---
 
 I joined [Gamedev.js Jam 2023](https://itch.io/jam/gamedevjs-2023). The first game jam I've ever attended.
@@ -66,11 +67,9 @@ Later, my friends also said that they had fun, with reactions I aimed for while 
 
 > I work twelve hours a day and my save is dropping still??
 
-> I quit to exercise for helping my health
-> and my savings are gone in less than two weeks
+> I quit to exercise for helping my health and my savings are gone in less than two weeks
 
-> Is that how you are supposed to feel with a minimal wage?
-> I know both my health and mental need help but I can't afford to quit
+> Is that how you are supposed to feel with a minimal wage? I know both my health and mental need help but I can't afford to quit
 
 Their overall review may be biased (love ya hommies), but the reactions were not. My gameplay worked the way I wanted. People played my game and they had fun. It was a magical moment.
 

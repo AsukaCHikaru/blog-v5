@@ -4,8 +4,9 @@ title: Hades
 published: 2022-01-05
 language: en-US
 pathname: hades
-category: Gaming
 description: I gave the acclaimed hack and slash roguelike a try, and it became one of the best game I've ever played.
+category: review
+topic: gaming
 ---
 
 For the film industry, there is a “Best Picture” award.

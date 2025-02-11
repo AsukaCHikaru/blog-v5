@@ -4,8 +4,9 @@ title: A Rather Easy Way to Implement Quicksort in JavaScript
 published: 2019-05-23
 language: en-US
 pathname: a-rather-easy-way-to-implement-quicksort-in-js
-category: Programming
 description: My attempt to implement quicksort.
+category: note
+topic: programming
 ---
 
 Don't use in-place swap.

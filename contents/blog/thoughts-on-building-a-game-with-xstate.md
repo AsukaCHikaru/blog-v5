@@ -5,9 +5,11 @@ description: After hearing about XState's good reputation for years, I used it t
 published: 2025-01-04
 updated: 2025-01-04
 language: en-US
-category: Game Development
 pathname: thoughts-on-building-a-game-with-xstate
+category: note
+topic: game development
 ---
+
 For the prototyping of [Project Fiddlesticks](https://grapegummygames.itch.io/project-fiddlesticks), my latest indie game project, I used [React](https://react.dev) and [XState](https://xstate.js.org/) as the building blocks. Finite state machines are essential components in games, and for a few years I have heard a lot of good things about XState as a finite state machine library; this is my first time using it, and it lived up to its reputation. After finishing the prototype, I decided to write up my thoughts on using XState in game development.
 
 # Head first XState
@@ -19,7 +21,7 @@ const mobStateMachine = setup({
   types: {
     context: {} as { hp: number; maxHp: number },
     input: {} as { maxHp: number },
-    events: {} as { type: "damage", damage: number },
+    events: {} as { type: "damage"; damage: number },
   },
 }).createMachine({
   id: "mobState",
@@ -29,18 +31,17 @@ const mobStateMachine = setup({
     maxHp: input.maxHp,
   }),
   states: {
-    "alive": {
+    alive: {
       on: {
-        "damage": {
+        damage: {
           target: "hit",
           actions: assign({
-            hp: ({ context, event }) =>
-              Math.max(context.hp - event.damage, 0),
+            hp: ({ context, event }) => Math.max(context.hp - event.damage, 0),
           }),
         },
-      }
+      },
     },
-    "hit": {
+    hit: {
       always: [
         {
           target: "alive",
@@ -52,7 +53,7 @@ const mobStateMachine = setup({
         },
       ],
     },
-    "dead": {
+    dead: {
       type: "final",
     },
   },
@@ -65,7 +66,7 @@ A working actor for above state machine model looks like this:
 
 ```ts
 const mobActor = createActor(mobStateMachine, {
-  input: { maxHp: 5 }
+  input: { maxHp: 5 },
 });
 mobActor.start();
 
@@ -84,20 +85,25 @@ console.log("mob hp:", mobActor.getSnapshot().context.hp); // "mob hp: 0"
 ```
 
 # Robust, precise
+
 Writing entity behavior in XState is straightforward, and after getting a grasp of it, fast. The event-based transitions guarantees that all behavior changes are predictable and traceable, which significantly reduces the cognition load during development. The eventless transitions, such as `always` or `after`, on the other hand, while demand more awareness, make it simple and natural for describing conversion states.
 
 XState provides abundant APIs, which enables creating the entire entity behavior in the state machine model, while exposing only the `send` API, which listens to nothing but the intended events for the current state. The encapsulation of logics makes the state machine robust, which is perhaps my favorite part of XState.
 
 # Context-rich
+
 Finite state machine is the backbone of an entity, but in a real game, an entity is more than just its states. For a killable mob, unless all attacks are instant-deaths such as spikes in _Mega Man_, a `hp` property would be necessary.
 
 XState provides a **contexts** API to integrate properties that changes with state changes or cause state changes, in the state machine itself. This is the integral component that enables the creation of the entire behavior model in XState.
 
 # Solid hierarchy
+
 Some state machines are designed to interact with one another, whether as siblings or parent-child. XState has it covered with the `spawn` API for vertical hierarchy, or the `system` API for more general communication among actors. This feature further improves encapsulation by eliminating unnecessary event calls from the user side. It took me a while to comprehend how the actors are supposed to communicate, but the design assures safety and structure.
 
 # It reacts well
+
 It might be easy to take it granted for libraries providing sufficient integration with React, but I really appreciate the native support for React from the [@xstate/react](https://stately.ai/docs/xstate-react) package, which makes using XState in React a walk in the park.
 
 # Conclusion
+
 Creating a game with XState was enjoyable, and I plan to continue using it, possibly even for my future projects.

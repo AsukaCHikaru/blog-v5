@@ -4,8 +4,9 @@ title: S10 Recap
 published: 2021-01-08
 language: en-US
 pathname: s10-recap
-category: League of Legends
 description: Season 10 was the most eventful league season for me, as I witnessed the rise and fall of a successful team as part of it.
+category: retrospective
+topic: gaming
 ---
 
 # TSM

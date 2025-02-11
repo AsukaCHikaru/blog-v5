@@ -4,9 +4,10 @@ title: Next.js App Font Not Loaded on Remote Machine Issue
 published: 2023-06-05
 language: en-US
 pathname: nextjs-app-font-not-loaded-on-remote-machine-issue
-category: Web Development
 description: Debugging note of a source loading issue that never reproduces on the dev machine.
 updated: 2025-01-11
+category: research
+topic: web development
 ---
 
 # TL;DR

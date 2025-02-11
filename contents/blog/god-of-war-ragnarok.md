@@ -4,9 +4,10 @@ title: God of War Ragnarök
 published: 2022-11-19
 language: en-US
 pathname: god-of-war-ragnarok
-category: Gaming
 description: As a successor of a game with solid gameplay and extraordinary narrative, God of War Ragnarök made attempts to be something better on many aspects. Some of them were great, some others were not.
 updated: 2024-05-03
+category: review
+topic: gaming
 ---
 
 God of War Ragnarök feels like a bigger [God of War 2018](https://asukawang.com/blog/god-of-war-2018) — more weapons, more companions, more characters, and a longer story. Gameplay-wise, I am happy with these added contents. Narrative-wise, not so much

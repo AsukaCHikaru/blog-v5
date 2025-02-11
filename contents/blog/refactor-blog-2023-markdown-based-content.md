@@ -4,9 +4,10 @@ title: "Refactor Blog 2023: Markdown Based Content"
 published: 2023-06-19
 language: en-US
 pathname: refactor-blog-2023-markdown-based-content
-category: Meta
 description: Embracing a different approach toward my own data, I made a change to the content hosting method of my blog.
 updated: 2024-05-03
+category: retrospective
+topic: meta
 ---
 
 I changed the content hosting of this blog from notion (notion API) to markdown files.

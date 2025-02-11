@@ -4,8 +4,9 @@ title: Road to plat
 published: 2016-11-06
 language: zh-TW
 pathname: road-to-plat
-category: League of Legends
 description: 歷時六年，在漂泊到第三個伺服器之後，我終於達成了曾一度放棄過的目標。
+category: retrospective
+topic: gaming
 ---
 
 2016/11/5，我上白金了。稍微意外地，這是玩 LOL 六年來第一次。我雖然不是什麼每天都要打三場的重度玩家，但好歹也持續玩了六年，對各種職業隊伍更是如數家珍，可以算是個標準的 LOL 迷了。但事實就是這樣，我也不想說什麼之前我也做得到只是沒盡力的屁話。從技術上，心態上，理解上，對遊戲的熱情各方面來說，S6 是我第一次能夠攀上白金門檻。

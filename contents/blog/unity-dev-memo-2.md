@@ -4,8 +4,9 @@ title: Unity Dev Memo (2)
 published: 2020-10-04
 language: zh-TW
 pathname: unity-dev-memo-2
-category: Game Development
 description: 關於 Unity3D 內 raycast 的研究筆記。
+category: note
+topic: game development
 ---
 
 ## Raycast

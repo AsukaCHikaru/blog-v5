@@ -4,8 +4,9 @@ title: City of Stars
 published: 2019-09-12
 language: zh-TW
 pathname: city-of-stars
-category: Life
 description: 去了一趟夢想之都，不為了追夢，但仍然得到許多反思。
+category: essay
+topic: travel
 ---
 
 去了一趟 LA。

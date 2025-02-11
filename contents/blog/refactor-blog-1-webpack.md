@@ -4,8 +4,9 @@ title: "Refactor Blog: (1) Webpack"
 published: 2021-03-09
 language: en-US
 pathname: refactor-blog-1-webpack
-category: Meta
 description: In this year's annual blog refactoring, I withdrew from using boilerplate build tools and configured Webpack myself.
+category: retrospective
+topic: web development
 ---
 
 Recently, I rewrote my [blog](https://asukawang.com/blog) for the second time. Every time, I rewrite to solve particular problems.

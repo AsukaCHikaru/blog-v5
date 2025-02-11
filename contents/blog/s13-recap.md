@@ -3,10 +3,11 @@ created: 2024/01/07 10:12
 title: S13 Recap
 published: 2024-01-23
 pathname: s13-recap
-category: League of Legends
 description: After a three years gap, I'm back to league.
 updated: 2024-05-03
 language: en-US
+category: retrospective
+topic: gaming
 ---
 
 The last time I wrote a recap for my League of Legends season was 3 years ago. The reason is simple: I haven't been playing much.

@@ -4,8 +4,9 @@ title: 森保まどか
 published: 2021-06-08
 language: zh-TW
 pathname: moriyasumadoka
-category: HKT48
 description: 我見證了一段圓滿偶像生涯的結束，也有幸經驗了我所知最圓滿的偶像宅的退隱。
+category: retrospective
+topic: HKT48
 ---
 
 2015 年，HKT48 連續第二年在總選舉入選十人以上，指原也重新拿回了第一名的寶座。那是 HKT 出道第四年，第五張單曲發售兩個月後。選拔成員多以一期生為主，但不甘曝光量不平衡的二期生推來勢洶洶，三期雙 top 也挾帶強大官推氣勢來襲。

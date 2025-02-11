@@ -7,6 +7,7 @@ export type PostMetadata = {
   id: string;
   title: string;
   category: string;
+  topic: string;
   tags: string[];
   publishDate: string;
   pathname: string;
@@ -245,6 +246,7 @@ export const convertFrontmatterToMetadata = (
     title: frontmatter.title,
     description: frontmatter.description || '',
     category: frontmatter.category,
+    topic: frontmatter.topic,
     tags: frontmatter.tags?.split(/,\s?/) || [],
     publishDate: frontmatter.published,
     pathname: frontmatter.pathname,

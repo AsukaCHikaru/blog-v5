@@ -6,21 +6,22 @@
   font-size: 20px;
   line-height: 27px;
 
-  &::before {
+  > p:first-child::before {
     content: '“';
     position: absolute;
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-    top: -2rem;
+    top: -1rem;
     left: 0;
-  }
-  &::after {
-    content: '”';
-    position: absolute;
     font-size: 1.875rem;
     line-height: 2.25rem;
+  }
+  > p:last-child::after {
+    content: '”';
+    display: inline;
+    padding-left: 0.5rem;
+    position: relative;
     bottom: -2rem;
-    right: 0;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 
   > p:not(:first-child) {

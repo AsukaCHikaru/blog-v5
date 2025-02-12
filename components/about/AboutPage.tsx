@@ -19,9 +19,11 @@ export const AboutPage = ({ content }: { content: MarkdownBlock[] }) => {
         </div>
       </FullContent>
       <MainContent>
-        {content.map((block, i) => (
-          <PostBodyBlock block={block} key={i} />
-        ))}
+        <article className={styles.article}>
+          {content.map((block, i) => (
+            <PostBodyBlock block={block} key={i} />
+          ))}
+        </article>
       </MainContent>
       <RightPanel>
         <TableOfContentColumn list={headers} />

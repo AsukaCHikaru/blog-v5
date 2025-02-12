@@ -12,23 +12,19 @@ interface Props {
   block: MarkdownBlock;
 }
 
-export const PostBodyBlock: FC<Props> = ({ block }) => {
-  return (
-    <div className={styles.wrapper}>
-      <BlockContent block={block} />
-    </div>
-  );
-};
+export const PostBodyBlock: FC<Props> = ({ block }) => (
+  <BlockContent block={block} />
+);
 
-export const BlockContent: FC<Props> = ({ block }) => {
+const BlockContent: FC<Props> = ({ block }) => {
   switch (block.type) {
     case 'paragraph':
       return (
-        <>
+        <p>
           {block.children.map((child, i) => (
             <RichTextItem key={i} item={child} />
           ))}
-        </>
+        </p>
       );
 
     case 'image':

@@ -18,3 +18,21 @@
     grid-column: 2 / span 4;
   }
 }
+
+.article {
+  font-family: 'Noto Serif JP CJK', 'Gentium Plus Book', 'Noto Serif JP', serif;
+  font-size: 16px;
+  line-height: 22px;
+
+  & > * {
+    margin-bottom: 20px;
+  }
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+    line-height: 27px;
+  }
+}

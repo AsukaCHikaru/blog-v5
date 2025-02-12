@@ -1,24 +1,3 @@
-.wrapper {
-  margin-bottom: 20px;
-  font-family: 'Noto Serif JP CJK', 'Gentium Plus Book', 'Noto Serif JP', serif;
-  font-size: 16px;
-  line-height: 22px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  &:has(img) {
-    display: flex;
-    justify-content: center;
-  }
-
-  @media (min-width: 768px) {
-    font-size: 20px;
-    line-height: 27px;
-
-  }
-}
 .figure {
   width: 100%;
 }

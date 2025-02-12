@@ -40,9 +40,11 @@ export const PostDetailPage: FC<Props> = ({
         />
       </FullContent>
       <MainContent>
-        {postContent.map((block, i) => (
-          <PostBodyBlock block={block} key={i} />
-        ))}
+        <article className={styles.article}>
+          {postContent.map((block, i) => (
+            <PostBodyBlock block={block} key={i} />
+          ))}
+        </article>
         <div className={styles['additional-list-container']}>
           {categoryPosts.length ? (
             <AdditionalPostList

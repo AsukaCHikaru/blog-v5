@@ -13,6 +13,7 @@
 
 .category-link {
   font-family: 'Noto Sans', sans-serif;
+  font-weight: 100;
   font-size: 16px;
   line-height: 20px;
 
@@ -21,7 +22,7 @@
     line-height: 24px;
   }
 
-  > a {
+  >a {
     font-family: 'Gentium Plus';
     color: var(--dark);
     font-size: 20px;

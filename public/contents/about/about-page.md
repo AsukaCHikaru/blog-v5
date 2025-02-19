@@ -52,3 +52,5 @@ The current iteration of this site is hosted on GitHub Pages, built with Next.js
 # Contact
 - asuka@asukawang.com
 - https://bsky.app/profile/asukawang.com
+# Resume
+- [Link](https://asukawang.com/resume)

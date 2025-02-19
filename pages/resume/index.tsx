@@ -3,6 +3,16 @@ import styles from '@styles/resume/Resume.module.css';
 
 const Resume = () => (
   <MainContent>
+    <p className={styles.pdfLink}>
+      PDFバージョンは
+      <a
+        href="/asuka-wang_resume_ja.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        こちら
+      </a>
+    </p>
     <main className={styles.main}>
       <section>
         <h1>王 宏貿 (Asuka Wang)</h1>

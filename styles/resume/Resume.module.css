@@ -87,3 +87,13 @@
     }
   }
 }
+
+.pdfLink {
+  margin-bottom: 40px;
+  font-family: 'Noto Serif JP CJK', 'Noto Serif JP', serif;
+
+  & a {
+    color: var(--light-accent);
+    text-decoration: underline;
+  }
+}

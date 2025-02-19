@@ -2,7 +2,7 @@
 created: 2023/09/08 22:11
 category: "[[-043 Side Project Memo]]"
 ---
-Last updated: November 2024
+Last updated: February 2025
 
 Hello! I'm Asuka. I love creating things.
 
@@ -16,7 +16,7 @@ Video gaming has always been my biggest passion since I was a child, and game de
 
 I speak fluent Mandarin, Japanese and English. Out of these three, English is my favorite. At the moment I'm learning Spanish, aiming to become proficient in three of the world's most widely spoken languages.
 
-I've always had a deep passion for expressing myself through turning my ideas into reality, which is the major reason why I'm into web development. I also enjoy writing (and recently photography.)
+I've always had a deep passion for expressing myself through turning my ideas into reality, which is the major reason why I'm into web development. I also enjoy [writing](https://asukawang.com/blog/blogging-and-digital-gardening).
 
 I love making lists, so I'll tell you more about myself with lists below:
 ## Favorite Games
@@ -32,7 +32,7 @@ I love making lists, so I'll tell you more about myself with lists below:
 - Lose Yourself
 ## Next Travel Destination Candidates
 - New York City, United States
-- Dallas, United States
+- Denver, United States
 - Amsterdam, Netherlands
 - Krakow, Poland
 ## Random Facts

@@ -151,8 +151,8 @@ export const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
         <a
           href={item.url}
           className={styles.link}
-          rel="noreferrer noopener"
-          target="_blank"
+          rel={item.url.startsWith('/') ? undefined : 'noreferrer noopener'}
+          target={item.url.startsWith('/') ? undefined : '_blank'}
         >
           {item.text}
         </a>

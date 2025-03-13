@@ -10,7 +10,7 @@ pathname: observation-on-programming-with-ai
 topic: programming
 thumbnail:
 ---
-The communities of software developers–at least some members of them–have been wrapped in the dread of being replaced, since generative large-language-models (LLMs) and their applications on programming emerged. One’s opinion on if this statement stands may vary, but it is difficult to argue that generative LLMs is and will continue to be part of programming.
+The communities of software developers–at least some members of them–have been wrapped in the dread of being replaced, since generative large-language-models (LLMs) and their applications on programming emerged. One’s opinion on if this statement stands may vary, but it is difficult to deny that generative LLMs is and will continue to be part of programming.
 
 I believe such events have already happened before, and the programming as we know of is the aftermath of them: assembly emerged so people didn’t have to write machine code; high-level languages emerged so people can write in English-like syntaxes; code completion emerged so people didn’t have to remember the spell of every single API.
 

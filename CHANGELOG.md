@@ -1,3 +1,9 @@
+# v5.12.4
+
+## Feature
+
+- Remove table of contents
+
 # v5.12.3
 
 ## Bug fixes

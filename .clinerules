@@ -1,0 +1,22 @@
+# Project Guidelines
+
+- Maintain changelog entries in CHANGELOG.md
+
+## Code Style & Patterns
+
+- Prefer composition over inheritance
+- Use repository pattern for data access
+- For modules in utils/ and lib/, use functional programming practices
+
+## Testing Standards
+
+- Unit tests required for business logic, especially for all modules in utils/ and lib/
+
+## Project Context
+
+- This is a next.js-based application. Use convention next.js practices
+- This is a personal blog web site built with next.js, with contents in public/contents/ in the form of markdown
+- This project use node and npm
+- Respect eslint and prettier
+- For tests, respect jest convention practices
+- Use fish shell

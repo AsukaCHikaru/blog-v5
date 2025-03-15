@@ -48,8 +48,33 @@ describe('Markdown Parser', () => {
         expect(parseBlock(input)).toEqual(expected);
       });
 
-      test('parses paragraph with italic text', () => {
+      test('parses paragraph with italic text using asterisks', () => {
         const input = 'This is *italic* text';
+        const expected: ParagraphBlock = {
+          type: 'paragraph',
+          body: [
+            {
+              type: 'textBody',
+              style: 'plain',
+              value: 'This is ',
+            },
+            {
+              type: 'textBody',
+              style: 'italic',
+              value: 'italic',
+            },
+            {
+              type: 'textBody',
+              style: 'plain',
+              value: ' text',
+            },
+          ],
+        };
+        expect(parseBlock(input)).toEqual(expected);
+      });
+
+      test('parses paragraph with italic text using underscores', () => {
+        const input = 'This is _italic_ text';
         const expected: ParagraphBlock = {
           type: 'paragraph',
           body: [
@@ -99,7 +124,8 @@ describe('Markdown Parser', () => {
       });
 
       test('parses paragraph with mixed styles', () => {
-        const input = 'This is **strong** and *italic* and `code` text';
+        const input =
+          'This is **strong** and *italic* and _also italic_ and `code` text';
         const expected: ParagraphBlock = {
           type: 'paragraph',
           body: [
@@ -122,6 +148,16 @@ describe('Markdown Parser', () => {
               type: 'textBody',
               style: 'italic',
               value: 'italic',
+            },
+            {
+              type: 'textBody',
+              style: 'plain',
+              value: ' and ',
+            },
+            {
+              type: 'textBody',
+              style: 'italic',
+              value: 'also italic',
             },
             {
               type: 'textBody',
@@ -311,7 +347,7 @@ describe('Markdown Parser', () => {
           expect(parseBlock(input)).toEqual(expected);
         });
 
-        test('handles unclosed italic style', () => {
+        test('handles unclosed italic style with asterisk', () => {
           const input = 'This is *unclosed italic';
           const expected: ParagraphBlock = {
             type: 'paragraph',
@@ -325,6 +361,26 @@ describe('Markdown Parser', () => {
                 type: 'textBody',
                 style: 'plain',
                 value: '*unclosed italic',
+              },
+            ],
+          };
+          expect(parseBlock(input)).toEqual(expected);
+        });
+
+        test('handles unclosed italic style with underscore', () => {
+          const input = 'This is _unclosed italic';
+          const expected: ParagraphBlock = {
+            type: 'paragraph',
+            body: [
+              {
+                type: 'textBody',
+                style: 'plain',
+                value: 'This is ',
+              },
+              {
+                type: 'textBody',
+                style: 'plain',
+                value: '_unclosed italic',
               },
             ],
           };

@@ -172,10 +172,17 @@ function parseTextStyle(text: string): (TextBody | Link)[] {
   return tokens;
 }
 
-function identifyBlockType(line: string): {
-  type: 'paragraph' | 'heading' | 'quote';
-  level?: number;
-} {
+function identifyBlockType(line: string):
+  | {
+      type: 'heading';
+      level: number;
+    }
+  | {
+      type: 'quote';
+    }
+  | {
+      type: 'paragraph';
+    } {
   if (line.startsWith('#')) {
     const match = line.match(/^(#{1,6})\s+/);
     if (match) {

@@ -33,86 +33,142 @@ function parseTextStyle(text: string): (TextBody | Link)[] {
   let currentText = '';
   let i = 0;
 
+  const flushCurrentText = () => {
+    if (currentText) {
+      tokens.push({ type: 'textBody', style: 'plain', value: currentText });
+      currentText = '';
+    }
+  };
+
   while (i < text.length) {
     if (text[i] === '*' && text[i + 1] === '*') {
       // Handle strong text
-      if (currentText) {
-        tokens.push({ type: 'textBody', style: 'plain', value: currentText });
-        currentText = '';
-      }
+      flushCurrentText();
       i += 2;
       let strongText = '';
-      while (i < text.length && !(text[i] === '*' && text[i + 1] === '*')) {
+      let foundClosing = false;
+      while (i < text.length) {
+        if (text[i] === '*' && text[i + 1] === '*') {
+          foundClosing = true;
+          break;
+        }
         strongText += text[i];
         i++;
       }
-      tokens.push({ type: 'textBody', style: 'strong', value: strongText });
-      i += 2;
+      if (foundClosing) {
+        tokens.push({ type: 'textBody', style: 'strong', value: strongText });
+        i += 2;
+      } else {
+        currentText += '**' + strongText;
+      }
     } else if (text[i] === '*') {
       // Handle italic text
-      if (currentText) {
-        tokens.push({ type: 'textBody', style: 'plain', value: currentText });
-        currentText = '';
-      }
+      flushCurrentText();
       i++;
       let italicText = '';
-      while (i < text.length && text[i] !== '*') {
+      let foundClosing = false;
+      while (i < text.length) {
+        if (text[i] === '*') {
+          foundClosing = true;
+          break;
+        }
         italicText += text[i];
         i++;
       }
-      tokens.push({ type: 'textBody', style: 'italic', value: italicText });
-      i++;
+      if (foundClosing) {
+        tokens.push({ type: 'textBody', style: 'italic', value: italicText });
+        i++;
+      } else {
+        currentText += '*' + italicText;
+      }
     } else if (text[i] === '`') {
       // Handle code text
-      if (currentText) {
-        tokens.push({ type: 'textBody', style: 'plain', value: currentText });
-        currentText = '';
-      }
+      flushCurrentText();
       i++;
       let codeText = '';
-      while (i < text.length && text[i] !== '`') {
+      let foundClosing = false;
+      while (i < text.length) {
+        if (text[i] === '`') {
+          foundClosing = true;
+          break;
+        }
         codeText += text[i];
         i++;
       }
-      tokens.push({ type: 'textBody', style: 'code', value: codeText });
-      i++;
+      if (foundClosing) {
+        tokens.push({ type: 'textBody', style: 'code', value: codeText });
+        i++;
+      } else {
+        currentText += '`' + codeText;
+      }
     } else if (text[i] === '[') {
       // Handle link
-      if (currentText) {
-        tokens.push({ type: 'textBody', style: 'plain', value: currentText });
-        currentText = '';
-      }
+      flushCurrentText();
+      const startIndex = i;
       i++;
       let linkText = '';
-      while (i < text.length && text[i] !== ']') {
+      let foundClosing = false;
+      while (i < text.length) {
+        if (text[i] === ']') {
+          foundClosing = true;
+          break;
+        }
         linkText += text[i];
         i++;
       }
-      i++; // Skip ]
-      if (text[i] === '(') {
-        i++;
+
+      if (foundClosing && i + 1 < text.length && text[i + 1] === '(') {
+        i += 2; // Skip ] and (
         let url = '';
-        while (i < text.length && text[i] !== ')') {
+        let foundUrl = false;
+        while (i < text.length) {
+          if (text[i] === ')') {
+            foundUrl = true;
+            break;
+          }
           url += text[i];
           i++;
         }
-        tokens.push({
-          type: 'link',
-          body: [{ type: 'textBody', style: 'plain', value: linkText }],
-          url,
-        });
+        if (foundUrl) {
+          tokens.push({
+            type: 'link',
+            body: [{ type: 'textBody', style: 'plain', value: linkText }],
+            url,
+          });
+          i++;
+        } else {
+          currentText += text.substring(startIndex, i);
+        }
+      } else {
+        currentText += text.substring(startIndex, i + (foundClosing ? 1 : 0));
       }
+    } else if (text[i] === '_') {
+      // Handle underscore as italic
+      flushCurrentText();
       i++;
+      let italicText = '';
+      let foundClosing = false;
+      while (i < text.length) {
+        if (text[i] === '_') {
+          foundClosing = true;
+          break;
+        }
+        italicText += text[i];
+        i++;
+      }
+      if (foundClosing) {
+        tokens.push({ type: 'textBody', style: 'italic', value: italicText });
+        i++;
+      } else {
+        currentText += '_' + italicText;
+      }
     } else {
       currentText += text[i];
       i++;
     }
   }
 
-  if (currentText) {
-    tokens.push({ type: 'textBody', style: 'plain', value: currentText });
-  }
-
+  flushCurrentText();
   return tokens;
 }
 
@@ -121,12 +177,12 @@ function identifyBlockType(line: string): {
   level?: number;
 } {
   if (line.startsWith('#')) {
-    const match = line.match(/^(#{1,6})\s/);
+    const match = line.match(/^(#{1,6})\s+/);
     if (match) {
       return { type: 'heading', level: match[1].length };
     }
   }
-  if (line.startsWith('> ')) {
+  if (line.startsWith('>')) {
     return { type: 'quote' };
   }
   return { type: 'paragraph' };
@@ -151,11 +207,15 @@ export function parseBlock(markdown: string): Block {
       .split('\n')
       .map((line) => line.replace(/^>\s?/, ''))
       .join('\n');
+    const body = parseTextStyle(content).filter(
+      (token): token is TextBody => token.type === 'textBody',
+    );
     return {
       type: 'quote',
-      body: parseTextStyle(content).filter(
-        (token): token is TextBody => token.type === 'textBody',
-      ),
+      body:
+        body.length === 0
+          ? [{ type: 'textBody', style: 'plain', value: '' }]
+          : body,
     };
   }
 

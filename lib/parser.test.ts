@@ -280,9 +280,189 @@ describe('Markdown Parser', () => {
         };
         expect(parseBlock(input)).toEqual(expected);
       });
+
+      describe('Edge Cases', () => {
+        test('handles empty text', () => {
+          const input = '';
+          const expected: ParagraphBlock = {
+            type: 'paragraph',
+            body: [],
+          };
+          expect(parseBlock(input)).toEqual(expected);
+        });
+
+        test('handles unclosed strong style', () => {
+          const input = 'This is **unclosed strong';
+          const expected: ParagraphBlock = {
+            type: 'paragraph',
+            body: [
+              {
+                type: 'textBody',
+                style: 'plain',
+                value: 'This is ',
+              },
+              {
+                type: 'textBody',
+                style: 'plain',
+                value: '**unclosed strong',
+              },
+            ],
+          };
+          expect(parseBlock(input)).toEqual(expected);
+        });
+
+        test('handles unclosed italic style', () => {
+          const input = 'This is *unclosed italic';
+          const expected: ParagraphBlock = {
+            type: 'paragraph',
+            body: [
+              {
+                type: 'textBody',
+                style: 'plain',
+                value: 'This is ',
+              },
+              {
+                type: 'textBody',
+                style: 'plain',
+                value: '*unclosed italic',
+              },
+            ],
+          };
+          expect(parseBlock(input)).toEqual(expected);
+        });
+
+        test('handles unclosed code style', () => {
+          const input = 'This is `unclosed code';
+          const expected: ParagraphBlock = {
+            type: 'paragraph',
+            body: [
+              {
+                type: 'textBody',
+                style: 'plain',
+                value: 'This is ',
+              },
+              {
+                type: 'textBody',
+                style: 'plain',
+                value: '`unclosed code',
+              },
+            ],
+          };
+          expect(parseBlock(input)).toEqual(expected);
+        });
+
+        test('handles malformed link', () => {
+          const input = 'This is a [broken link](';
+          const expected: ParagraphBlock = {
+            type: 'paragraph',
+            body: [
+              {
+                type: 'textBody',
+                style: 'plain',
+                value: 'This is a ',
+              },
+              {
+                type: 'textBody',
+                style: 'plain',
+                value: '[broken link](',
+              },
+            ],
+          };
+          expect(parseBlock(input)).toEqual(expected);
+        });
+
+        test('handles nested styles', () => {
+          const input = 'This is **strong *with italic* inside**';
+          const expected: ParagraphBlock = {
+            type: 'paragraph',
+            body: [
+              {
+                type: 'textBody',
+                style: 'plain',
+                value: 'This is ',
+              },
+              {
+                type: 'textBody',
+                style: 'strong',
+                value: 'strong *with italic* inside',
+              },
+            ],
+          };
+          expect(parseBlock(input)).toEqual(expected);
+        });
+
+        test('handles multiple consecutive styles', () => {
+          const input = '**strong**_italic_`code`';
+          const expected: ParagraphBlock = {
+            type: 'paragraph',
+            body: [
+              {
+                type: 'textBody',
+                style: 'strong',
+                value: 'strong',
+              },
+              {
+                type: 'textBody',
+                style: 'italic',
+                value: 'italic',
+              },
+              {
+                type: 'textBody',
+                style: 'code',
+                value: 'code',
+              },
+            ],
+          };
+          expect(parseBlock(input)).toEqual(expected);
+        });
+
+        test('handles heading with no content', () => {
+          const input = '#';
+          const expected: ParagraphBlock = {
+            type: 'paragraph',
+            body: [
+              {
+                type: 'textBody',
+                style: 'plain',
+                value: '#',
+              },
+            ],
+          };
+          expect(parseBlock(input)).toEqual(expected);
+        });
+
+        test('handles quote with no content', () => {
+          const input = '>';
+          const expected: QuoteBlock = {
+            type: 'quote',
+            body: [
+              {
+                type: 'textBody',
+                style: 'plain',
+                value: '',
+              },
+            ],
+          };
+          expect(parseBlock(input)).toEqual(expected);
+        });
+
+        test('handles excessive heading level', () => {
+          const input = '####### Too many hashes';
+          const expected: ParagraphBlock = {
+            type: 'paragraph',
+            body: [
+              {
+                type: 'textBody',
+                style: 'plain',
+                value: '####### Too many hashes',
+              },
+            ],
+          };
+          expect(parseBlock(input)).toEqual(expected);
+        });
+      });
     });
   });
-
   describe('Integration Tests', () => {
     describe('Blog Content', () => {
       test('parses heading with Japanese text', () => {

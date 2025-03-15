@@ -5,12 +5,12 @@ export const SiteFooter: FC = () => {
   return (
     <div className={`${styles.container} border-color`}>
       <a
-        href="https://asukachikaru.com"
+        href="https://asukawang.com"
         rel="noopener noreferrer"
         target="_blank"
         className={`${styles.link} interactive-color`}
       >
-        asukachikaru.com 2018-
+        asukawang.com 2018-
       </a>
     </div>
   );

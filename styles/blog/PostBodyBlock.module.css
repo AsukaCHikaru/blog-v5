@@ -1,21 +1,5 @@
-.wrapper {
-  margin-bottom: 20px;
-  font-family: 'Gentium Book', 'Noto Serif JP', serif;
-  font-size: 16px;
-  line-height: 22px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  &:has(img) {
-    display: flex;
-  }
-
-  @media (min-width: 768px) {
-    font-size: 20px;
-    line-height: 27px;
-  }
+.figure {
+  width: 100%;
 }
 .image {
   margin: auto;
@@ -84,16 +68,9 @@
   margin: 60px auto;
   width: 20rem;
 }
-.snapshot-image {
-  margin: 0 auto;
-  padding: 0.5rem 1rem;
-}
 .link {
   color: var(--light-accent);
   text-decoration: underline;
-}
-.italic {
-  font-style: italic;
 }
 .inline-code {
   color: var(--light);
@@ -101,4 +78,7 @@
   font-family: 'Courier New';
   background-color: rgb(55, 65, 81);
   border-radius: 2px;
+}
+.video {
+  width: 100%;
 }

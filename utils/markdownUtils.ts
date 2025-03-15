@@ -7,6 +7,7 @@ export type PostMetadata = {
   id: string;
   title: string;
   category: string;
+  topic: string;
   tags: string[];
   publishDate: string;
   pathname: string;
@@ -149,7 +150,7 @@ const parseParagraphContent = (content: Paragraph): MarkdownBlock => {
     content.children[0].type === 'text' &&
     /^!\[\[.+\]\]/.test(content.children[0].value)
   ) {
-    const match = /^!\[\[(.+)\]\]\n(.*)$/.exec(content.children[0].value);
+    const match = /^!\[\[(.+)\]\]\n?(.*)$/.exec(content.children[0].value);
     if (match?.length) {
       return {
         type: 'image',
@@ -209,13 +210,9 @@ const parseRawContent = (rawContent: Content[]): MarkdownBlock[] => {
     if (content.type === 'blockquote') {
       result.push({
         type: 'quote',
-        children: parseTextBlock(
-          (
-            content.children.filter(
-              (c) => c.type === 'paragraph',
-            )[0] as Paragraph
-          ).children,
-        ),
+        children: content.children
+          .filter((c) => c.type === 'paragraph')
+          .flatMap((c) => parseTextBlock(c.children)),
       });
     }
 
@@ -249,6 +246,7 @@ export const convertFrontmatterToMetadata = (
     title: frontmatter.title,
     description: frontmatter.description || '',
     category: frontmatter.category,
+    topic: frontmatter.topic,
     tags: frontmatter.tags?.split(/,\s?/) || [],
     publishDate: frontmatter.published,
     pathname: frontmatter.pathname,

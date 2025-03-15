@@ -37,14 +37,14 @@
 
 .title {
   margin-bottom: 12px;
-  font-family: 'Noto Serif JP', serif;
+  font-family: 'Noto Serif JP CJK', 'Noto Serif JP', serif;
   font-size: 28px;
   line-height: 36px;
   font-weight: 200;
 }
 
 .description {
-  font-family: 'Gentium', serif;
+  font-family: 'Gentium Plus', serif;
   font-style: italic;
   font-size: 18px;
   line-height: 22px;

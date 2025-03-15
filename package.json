@@ -1,17 +1,19 @@
 {
   "name": "blog",
-  "version": "5.9.2",
+  "version": "5.12.4",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "deploy": "npm run build && touch ./out/.nojekyll && echo asukachikaru.com > ./out/CNAME",
+    "deploy": "rm -rf out && npm run build && subfont out/index.html -ir && touch ./out/.nojekyll && echo asukawang.com > ./out/CNAME",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest"
+    "test": "jest",
+    "copy:blog": "bun run tools/copyBlogPosts.ts"
   },
   "dependencies": {
     "@next/font": "13.0.7",
+    "better-react-mathjax": "^2.0.3",
     "dayjs": "^1.11.7",
     "highlight.js": "^11.7.0",
     "modern-normalize": "^2.0.0",
@@ -21,7 +23,7 @@
     "remark": "^14.0.3",
     "remark-frontmatter": "^4.0.1",
     "remark-parse": "^10.0.2",
-    "typescript": "4.9.4",
+    "typescript": "^5.7.3",
     "unified": "^10.1.2"
   },
   "devDependencies": {
@@ -42,6 +44,7 @@
     "postcss-import": "^16.1.0",
     "postcss-nested": "^6.2.0",
     "prettier": "^2.8.8",
-    "serve": "^14.1.2"
+    "serve": "^14.1.2",
+    "subfont": "^7.2.1"
   }
 }

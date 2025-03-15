@@ -4,6 +4,7 @@ import 'styles/fonts.css';
 import 'node_modules/modern-normalize/modern-normalize.css';
 import { Layout } from '@components/layout/Layout';
 import { createContext } from 'react';
+import { MathJaxContext } from 'better-react-mathjax';
 
 type SiteContextType = {
   activeSection: 'blog' | 'about' | undefined;
@@ -19,7 +20,9 @@ export default function App({ Component, pageProps }: AppProps) {
         value={{ activeSection: undefined, blogCategories: [] }}
       >
         <Layout>
-          <Component {...pageProps} />
+          <MathJaxContext>
+            <Component {...pageProps} />
+          </MathJaxContext>
         </Layout>
       </SiteContext.Provider>
     </main>

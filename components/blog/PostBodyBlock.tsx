@@ -3,53 +3,64 @@ import { CodeBlock } from './CodeBlock';
 import Image from 'next/image';
 import { YoutubeBlock } from './YoutubeBlock';
 import { QuoteBlock } from './QuoteBlock';
-import { getImageSnapshotUrl, isImageSnapshot } from '@utils/stringUtils';
 import styles from '@styles/blog/PostBodyBlock.module.css';
 import { convertHeaderLabelToId } from '@utils/blogUtils';
 import { MarkdownBlock, TextBlock } from '@utils/markdownUtils';
+import { D2FigureBlock } from './D2FigureBlock';
 
 interface Props {
   block: MarkdownBlock;
 }
 
-export const PostBodyBlock: FC<Props> = ({ block }) => {
-  return (
-    <div className={styles.wrapper}>
-      <BlockContent block={block} />
-    </div>
-  );
-};
+export const PostBodyBlock: FC<Props> = ({ block }) => (
+  <BlockContent block={block} />
+);
 
-export const BlockContent: FC<Props> = ({ block }) => {
+const BlockContent: FC<Props> = ({ block }) => {
   switch (block.type) {
     case 'paragraph':
       return (
-        <>
+        <p>
           {block.children.map((child, i) => (
             <RichTextItem key={i} item={child} />
           ))}
-        </>
+        </p>
       );
 
     case 'image':
       if (/youtube\.com/.test(block.url) || /youtu\.be/.test(block.url)) {
         return <YoutubeBlock item={block} />;
       }
+
       return (
-        <div>
-          <Image
-            src={'/images/' + block.url}
-            alt={block.alt || ''}
-            width={600}
-            height={400}
-            className={styles.image}
-          />
-          {block.caption !== '#nullcaption' ? (
-            <span className={`${styles['image-caption']} text-color-second`}>
+        <figure className={styles.figure}>
+          {block.url.endsWith('.mp4') ? (
+            <video
+              src={'/images/' + block.url}
+              controls={false}
+              autoPlay={true}
+              loop={true}
+              muted={true}
+              className={styles.video}
+              playsInline={true}
+            />
+          ) : (
+            <Image
+              src={'/images/' + block.url}
+              alt={block.alt || ''}
+              width={600}
+              height={400}
+              className={styles.image}
+            />
+          )}
+          {block.caption ? (
+            <figcaption
+              className={`${styles['image-caption']} text-color-second`}
+            >
               {block.caption}
-            </span>
+            </figcaption>
           ) : null}
-        </div>
+        </figure>
       );
 
     case 'heading':
@@ -130,27 +141,18 @@ interface RichTextItemProps {
 export const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
   switch (item.type) {
     case 'plain':
-      if (isImageSnapshot(item.text)) {
-        return (
-          <Image
-            className={styles['snapshot-image']}
-            src={getImageSnapshotUrl(item.text)}
-            alt="" // TODO
-            width={500}
-            height={500}
-          />
-        );
+      if (item.text.startsWith('::d2')) {
+        return <D2FigureBlock>{item.text}</D2FigureBlock>;
       }
-
-      return <span>{item.text}</span>;
+      return <>{item.text}</>;
 
     case 'link':
       return (
         <a
           href={item.url}
           className={styles.link}
-          rel="noreferrer noopener"
-          target="_blank"
+          rel={item.url.startsWith('/') ? undefined : 'noreferrer noopener'}
+          target={item.url.startsWith('/') ? undefined : '_blank'}
         >
           {item.text}
         </a>
@@ -160,7 +162,7 @@ export const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
       return <strong>{item.text}</strong>;
 
     case 'italic':
-      return <span className={styles.italic}>{item.text}</span>;
+      return <em>{item.text}</em>;
 
     case 'inlineCode':
       return <code className={styles['inline-code']}>{item.text}</code>;

@@ -7,7 +7,7 @@
 }
 .header {
   margin: 20px 0 28px;
-  font-family: 'Noto Serif JP', serif;
+  font-family: 'Noto Serif JP CJK', 'Noto Serif JP', serif;
   font-size: 32px;
   font-weight: 200;
   line-height: 1;
@@ -16,5 +16,23 @@
     margin: 8px 0 32px;
     font-size: 72px;
     grid-column: 2 / span 4;
+  }
+}
+
+.article {
+  font-family: 'Noto Serif JP CJK', 'Gentium Plus Book', 'Noto Serif JP', serif;
+  font-size: 16px;
+  line-height: 22px;
+
+  & > * {
+    margin-bottom: 20px;
+  }
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+    line-height: 27px;
   }
 }

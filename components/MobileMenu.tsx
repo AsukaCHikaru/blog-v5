@@ -1,4 +1,4 @@
-import { ReactNode, useContext } from 'react';
+import React, { ReactNode, useContext } from 'react';
 import styles from '@styles/MobileMenu.module.css';
 import Link from 'next/link';
 import { SiteContext } from 'pages/_app';
@@ -17,6 +17,15 @@ export const MobileMenu = ({ onClose }: Props) => {
           active={context?.activeSection === 'blog'}
           label="blog"
           path="/blog"
+          rssLink={
+            <Link
+              href="/blog/feed.xml"
+              target="_blank"
+              className={`${styles['menu-section-title']} interactive-color`}
+            >
+              rss
+            </Link>
+          }
           onTitleClick={onClose}
         >
           {context?.activeSection === 'blog' ? (
@@ -56,25 +65,30 @@ const MenuSectionTitle = ({
   children,
   active,
   label,
+  rssLink,
   path,
   onTitleClick,
 }: {
   children?: ReactNode;
   active: boolean;
   label: string;
+  rssLink?: ReactNode;
   path: string;
   onTitleClick: () => void;
 }) => {
   return (
     <div data-active={active}>
-      <Link
-        href={path}
-        className={`${styles['menu-section-title']} interactive-color`}
-        data-active={active}
-        onClick={onTitleClick}
-      >
-        {label}
-      </Link>
+      <div className={styles['menu-section-container']}>
+        <Link
+          href={path}
+          className={`${styles['menu-section-title']} interactive-color`}
+          data-active={active}
+          onClick={onTitleClick}
+        >
+          {label}
+        </Link>
+        {rssLink}
+      </div>
       {children}
     </div>
   );

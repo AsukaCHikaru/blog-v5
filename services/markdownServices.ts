@@ -1,9 +1,7 @@
 import fs from 'fs';
 import { resolve } from 'path';
-import {
-  convertFrontmatterToMetadata,
-  parseMarkdown,
-} from '../utils/markdownUtils';
+import { convertFrontmatterToMetadata } from '../utils/markdownUtils';
+import { parse as amp } from '@asukawang/amp';
 
 const CONTENTS_PATH = 'public/contents';
 
@@ -18,7 +16,7 @@ export const getBlogPostList = async () => {
         resolve(postFolderPath, fileName),
         'utf-8',
       );
-      const { frontmatter } = parseMarkdown(markdown);
+      const { frontmatter } = amp(markdown);
       const postMetadata = convertFrontmatterToMetadata(frontmatter);
 
       return { postMetadata };
@@ -35,15 +33,15 @@ export const getBlogPostList = async () => {
 export const getBlogPostContent = (pathname: string) => {
   const postPath = resolve(CONTENTS_PATH, 'blog', `${pathname}.md`);
   const markdown = fs.readFileSync(postPath, 'utf-8');
-  const { content } = parseMarkdown(markdown);
+  const { blocks } = amp(markdown);
 
-  return content;
+  return blocks;
 };
 
 export const getAboutPageContent = async () => {
   const filePath = resolve(CONTENTS_PATH, 'about', 'about-page.md');
   const markdown = fs.readFileSync(filePath, 'utf-8');
-  const { frontmatter, content } = parseMarkdown(markdown);
+  const { frontmatter, blocks } = amp(markdown);
 
-  return { content, frontmatter };
+  return { frontmatter, blocks };
 };

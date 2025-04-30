@@ -12,6 +12,7 @@
     "copy:blog": "bun run tools/copyBlogPosts.ts"
   },
   "dependencies": {
+    "@asukawang/amp": "^0.2.0",
     "@next/font": "13.0.7",
     "better-react-mathjax": "^2.0.3",
     "dayjs": "^1.11.7",

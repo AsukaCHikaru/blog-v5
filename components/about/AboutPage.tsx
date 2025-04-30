@@ -1,9 +1,9 @@
+import { Block } from '@asukawang/amp';
 import { PostBodyBlock } from '@components/blog/PostBodyBlock';
 import { FullContent, MainContent } from '@components/layout/Layout';
-import { MarkdownBlock } from '@utils/markdownUtils';
 import styles from '@styles/about/AboutPage.module.css';
 
-export const AboutPage = ({ content }: { content: MarkdownBlock[] }) => (
+export const AboutPage = ({ content }: { content: Block[] }) => (
   <>
     <FullContent>
       <div className={styles['header-wrapper']}>

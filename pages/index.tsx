@@ -10,11 +10,12 @@ import {
   BlogCategoryList,
   convertPostListToCategories,
 } from '@utils/blogUtils';
-import { MarkdownBlock, PostMetadata } from '@utils/markdownUtils';
+import { PostMetadata } from '@utils/markdownUtils';
+import { Block } from '@asukawang/amp';
 
 interface Props {
   postMetadata: PostMetadata;
-  postContent: MarkdownBlock[];
+  postContent: Block[];
   last5posts: PostMetadata[];
   categoryPosts: PostMetadata[];
   categories: BlogCategoryList;

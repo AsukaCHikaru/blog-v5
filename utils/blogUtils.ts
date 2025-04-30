@@ -1,4 +1,5 @@
-import { HeadingBlock, PostMetadata } from './markdownUtils';
+import { HeadingBlock } from '@asukawang/amp';
+import { PostMetadata } from './markdownUtils';
 
 type TileSize = 1 | 2 | 3;
 
@@ -65,8 +66,8 @@ const convertPostMetadataToTile = (post: PostMetadata): PostTile => ({
 });
 
 export const convertHeaderLabelToId = (header: HeadingBlock) =>
-  header.children
-    .map((item) => item.text)
+  header.body
+    .map((item) => item.value)
     .join('-')
     .replace(/[\s\.,\(\)]/g, '-')
     .toLowerCase();

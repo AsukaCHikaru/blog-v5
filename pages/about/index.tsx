@@ -4,10 +4,10 @@ import { FC, useContext, useEffect } from 'react';
 import { getAboutPageContent } from 'services/markdownServices';
 import { AboutPage } from '@components/about/AboutPage';
 import { SiteContext } from 'pages/_app';
-import { MarkdownBlock } from '@utils/markdownUtils';
+import { Block } from '@asukawang/amp';
 
 interface Props {
-  content: MarkdownBlock[];
+  content: Block[];
 }
 
 export const About: FC<Props> = ({ content }) => {

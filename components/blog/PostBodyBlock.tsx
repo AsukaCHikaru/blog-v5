@@ -5,11 +5,11 @@ import { YoutubeBlock } from './YoutubeBlock';
 import { QuoteBlock } from './QuoteBlock';
 import styles from '@styles/blog/PostBodyBlock.module.css';
 import { convertHeaderLabelToId } from '@utils/blogUtils';
-import { MarkdownBlock, TextBlock } from '@utils/markdownUtils';
 import { D2FigureBlock } from './D2FigureBlock';
+import { Block, Link, TextBody } from '@asukawang/amp';
 
 interface Props {
-  block: MarkdownBlock;
+  block: Block;
 }
 
 export const PostBodyBlock: FC<Props> = ({ block }) => (
@@ -21,7 +21,7 @@ const BlockContent: FC<Props> = ({ block }) => {
     case 'paragraph':
       return (
         <p>
-          {block.children.map((child, i) => (
+          {block.body.map((child, i) => (
             <RichTextItem key={i} item={child} />
           ))}
         </p>
@@ -47,7 +47,7 @@ const BlockContent: FC<Props> = ({ block }) => {
           ) : (
             <Image
               src={'/images/' + block.url}
-              alt={block.alt || ''}
+              alt={block.altText || ''}
               width={600}
               height={400}
               className={styles.image}
@@ -64,11 +64,11 @@ const BlockContent: FC<Props> = ({ block }) => {
       );
 
     case 'heading':
-      switch (block.depth) {
+      switch (block.level) {
         case 1:
           return (
             <h2 className={styles.h2} id={convertHeaderLabelToId(block)}>
-              {block.children.map((child, i) => (
+              {block.body.map((child, i) => (
                 <RichTextItem key={i} item={child} />
               ))}
             </h2>
@@ -76,7 +76,7 @@ const BlockContent: FC<Props> = ({ block }) => {
         case 2:
           return (
             <h3 className={styles.h3} id={convertHeaderLabelToId(block)}>
-              {block.children.map((child, i) => (
+              {block.body.map((child, i) => (
                 <RichTextItem key={i} item={child} />
               ))}
             </h3>
@@ -84,7 +84,7 @@ const BlockContent: FC<Props> = ({ block }) => {
         case 3:
           return (
             <h4 className={styles.h4} id={convertHeaderLabelToId(block)}>
-              {block.children.map((child, i) => (
+              {block.body.map((child, i) => (
                 <RichTextItem key={i} item={child} />
               ))}
             </h4>
@@ -97,9 +97,9 @@ const BlockContent: FC<Props> = ({ block }) => {
       if (block.ordered) {
         return (
           <ol className={styles.ol}>
-            {block.children.map((child, i) => (
+            {block.items.map((child, i) => (
               <li key={i}>
-                {child.children.map((child) => (
+                {child.body.map((child) => (
                   <RichTextItem key={i} item={child} />
                 ))}
               </li>
@@ -109,9 +109,9 @@ const BlockContent: FC<Props> = ({ block }) => {
       } else {
         return (
           <ul className={styles.ul}>
-            {block.children.map((child, i) => (
+            {block.items.map((child, i) => (
               <li key={i}>
-                {child.children.map((child) => (
+                {child.body.map((child) => (
                   <RichTextItem key={i} item={child} />
                 ))}
               </li>
@@ -121,7 +121,7 @@ const BlockContent: FC<Props> = ({ block }) => {
       }
 
     case 'code':
-      return <CodeBlock lan={block.lang}>{block.text}</CodeBlock>;
+      return <CodeBlock lan={block.lang}>{block.body}</CodeBlock>;
 
     case 'quote':
       return <QuoteBlock block={block} />;
@@ -135,17 +135,11 @@ const BlockContent: FC<Props> = ({ block }) => {
 };
 
 interface RichTextItemProps {
-  item: TextBlock;
+  item: TextBody | Link;
 }
 
 export const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
   switch (item.type) {
-    case 'plain':
-      if (item.text.startsWith('::d2')) {
-        return <D2FigureBlock>{item.text}</D2FigureBlock>;
-      }
-      return <>{item.text}</>;
-
     case 'link':
       return (
         <a
@@ -154,21 +148,28 @@ export const RichTextItem: FC<RichTextItemProps> = ({ item }) => {
           rel={item.url.startsWith('/') ? undefined : 'noreferrer noopener'}
           target={item.url.startsWith('/') ? undefined : '_blank'}
         >
-          {item.text}
+          {item.body.map((child, i) => (
+            <RichTextItem key={i} item={child} />
+          ))}
         </a>
       );
-
-    case 'strong':
-      return <strong>{item.text}</strong>;
-
-    case 'italic':
-      return <em>{item.text}</em>;
-
-    case 'inlineCode':
-      return <code className={styles['inline-code']}>{item.text}</code>;
-
-    // TODO: strikethrough (need remark GFM plugin)
+    case 'textBody':
+      switch (item.style) {
+        case 'plain':
+          if (item.value.startsWith('::d2')) {
+            return <D2FigureBlock>{item.value}</D2FigureBlock>;
+          }
+          return <>{item.value}</>;
+        case 'strong':
+          return <strong>{item.value}</strong>;
+        case 'italic':
+          return <em>{item.value}</em>;
+        case 'code':
+          return <code className={styles['inline-code']}>{item.value}</code>;
+        default:
+          throw new Error(`Invalid text style ${item.style satisfies never}`);
+      }
     default:
-      return <span>FIXME</span>;
+      throw new Error(`Invalid block type`);
   }
 };

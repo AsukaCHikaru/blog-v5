@@ -1,18 +1,15 @@
 import { FC } from 'react';
 import { PostBodyBlock } from './PostBodyBlock';
 import { PostDetailPageHeader } from './PostDetailPageHeader';
-import {
-  isHeadingBlock,
-  MarkdownBlock,
-  PostMetadata,
-} from '@utils/markdownUtils';
 import { MainContent, FullContent } from '@components/layout/Layout';
 import { AdditionalPostList } from './AdditionPostList';
 import styles from '@styles/blog/PostDetailPage.module.css';
+import { PostMetadata } from '@utils/markdownUtils';
+import { Block } from '@asukawang/amp';
 
 interface Props {
   postMetadata: PostMetadata;
-  postContent: MarkdownBlock[];
+  postContent: Block[];
   last5posts: PostMetadata[];
   categoryPosts: PostMetadata[];
 }

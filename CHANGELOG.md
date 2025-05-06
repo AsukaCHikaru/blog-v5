@@ -1,3 +1,13 @@
+# v5.12.5
+
+## Polish
+
+- Replace markdown parser `remark` with self-made `@asukawang/amp`
+
+## Bug fixes
+
+- Unintended line changes in quote block
+
 # v5.12.4
 
 ## Feature

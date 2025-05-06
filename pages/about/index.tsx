@@ -32,9 +32,9 @@ export const About: FC<Props> = ({ content }) => {
 };
 
 export const getStaticProps = async () => {
-  const content = await getAboutPageContent();
+  const { blocks } = await getAboutPageContent();
 
-  return { props: { ...content } };
+  return { props: { content: blocks } };
 };
 
 export default About;

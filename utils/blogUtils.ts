@@ -67,7 +67,7 @@ const convertPostMetadataToTile = (post: PostMetadata): PostTile => ({
 
 export const convertHeaderLabelToId = (header: HeadingBlock) =>
   header.body
-    .map((item) => item.value)
+    .map((item) => item.type === 'textBody' && item.value)
     .join('-')
     .replace(/[\s\.,\(\)]/g, '-')
     .toLowerCase();

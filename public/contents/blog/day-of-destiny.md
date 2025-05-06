@@ -7,9 +7,10 @@ pathname: day-of-destiny
 description: 在歷經五年十個月以及一百一十四場公演之後，我迎來了偶像宅生涯的巔峰。
 category: essay
 topic: HKT48
+thumbnail: day-of-destiny_4.png
 ---
 
-![](day-of-destiny_1.png "劇場 MVP 的票，不經過票務中心所以沒有名字。不用參加入場抽選所以也沒有整理番號。")
+![](day-of-destiny_1.png)(劇場 MVP 的票，不經過票務中心所以沒有名字。不用參加入場抽選所以也沒有整理番號。)
 
 先說明一下劇場 MVP 這個東西。
 

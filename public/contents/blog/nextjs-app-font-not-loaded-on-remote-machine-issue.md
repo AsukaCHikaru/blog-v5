@@ -8,6 +8,7 @@ description: Debugging note of a source loading issue that never reproduces on t
 updated: 2025-01-11
 category: research
 topic: web development
+thumbnail: nextjs-app-font-not-loaded-on-remote-machine-issue_2.png
 ---
 
 # TL;DR
@@ -67,11 +68,9 @@ When access either the dev server or the prod environment from the development m
 
 The font file is successfully fetched on either machine, but on the remote machine the fetched font's content becomes the default sans font. I used some online .woff2 preview tool and it clearly shows that the downloaded .woff2 file is the default sans font. Such issue didn't happen on the development machine.
 
-![[nextjs-app-font-not-loaded-on-remote-machine-issue_1.png]]
-Font file response on development machine
+![](nextjs-app-font-not-loaded-on-remote-machine-issue_1.png)(Font file response on development machine)
 
-![[nextjs-app-font-not-loaded-on-remote-machine-issue_2.png]]
-Font file response on remote machine
+![](nextjs-app-font-not-loaded-on-remote-machine-issue_2.png)(Font file response on remote machine)
 
 ## Attempts
 

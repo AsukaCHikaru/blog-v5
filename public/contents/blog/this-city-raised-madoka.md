@@ -7,6 +7,7 @@ pathname: this-city-raised-madoka
 description: 一時興起，去了一趟長崎，那個把まどか養育成人的城市。
 category: essay
 topic: HKT48
+thumbnail: this-city-raised-madoka_1.jpg
 ---
 
 ![](this-city-raised-madoka_1.jpg)

@@ -6,9 +6,9 @@ import { QuoteBlock as QuoteBlockType } from '@asukawang/amp';
 export const QuoteBlock: FC<{ block: QuoteBlockType }> = ({ block }) => (
   <blockquote className={`${styles.quoteblock} text-color-second`}>
     {block.body.map((item, i) => (
-      <p key={i}>
-        <RichTextItem item={item} key={i} />
-      </p>
+      <span key={i}>
+        <RichTextItem item={item} />
+      </span>
     ))}
   </blockquote>
 );

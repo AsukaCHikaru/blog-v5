@@ -33,6 +33,6 @@ Overall I still enjoyed season two, but any shortcomings stand easy to notice af
 
 Season two, however, had my absolutely favorite moment in the series, which was of course episode seven, the _Ma Meilleure Ennemie_ scene. Because we saw what it was not, therefore the more beautiful what it could be was.
 
-![[s14_recap_1.webp]]
+![](s14_recap_1.webp)
 
 When I was watching season two, sometimes I felt like they were rushing to get the plot laid out as fast as possible, but I'm glad they told the story about Ekko and Powder in another universe slowly and carefully.

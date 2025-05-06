@@ -3,13 +3,12 @@ created: 2025-02-10 16:30
 title: Blogging and Digital Gardening in the Social Platform and Generative AI Era
 description: I talk to myself about why bother writing at somewhere nobody comes.
 published: 2025-02-11
-updated: 2025-02-11
+updated: 2025-02-14
 language: en-US
 pathname: blogging-and-digital-gardening
 category: essay
 topic: life
 ---
-
 I read [Hacker News](https://news.ycombinator.com/) everyday. I don't read every entry on the front page, but there is one topic I always read if it's on it, which is _blogging_.
 
 Sometimes people blog about blogging, and I am always curious about what my fellow bloggers think. More specifically, I'm interested in the opinions of indie bloggers, who do not host their blog site on a publishing platform such as medium, substack, or tumblr, as I see us being a dying breed, and from it I arbitrarily find a sense of comradeship.
@@ -36,7 +35,7 @@ Writing is my mental workout, and my blog site is the gym where I can workout wh
 
 I regularly as well as consciously look for other blogs for knowledge and inspiration. At first I was looking for visual design ideas to borrow, then I started to notice beauty in everyone's blog, and virtually visiting people's home itself becomes a pleasure.
 
-Some people refer to their blog or personal site as a _digital garden_, in which they dump or grow ideas, mow and decorate for visitors or themselves. Most importantly, it is a personal space in the vast ocean of internet, in an age of platforms and AIs controlled by giant corporations. I strongly resonate with and adore this idea, as the internet is flooded with attention-grabbing tricks, a shelter made of indie blogs provides tranquility hard to find elsewhere.
+Some people refer to their blog or personal site as a _digital garden_, in which they dump or grow ideas, mow and decorate for visitors or themselves. Most importantly, it is a personal space in the vast ocean of internet, in an age of platforms and AIs controlled by giant corporations. I strongly resonate with and adore this idea, as the internet is flooded with attention-grabbing tricks, a shelter made of indie blogs provide tranquility hard to find elsewhere.
 
 I also love taking a glimpse of the blogger's personality through their sites, not only from words, but also from visual design. It really feels like visiting people's home, each with a different layout, furnitures and vibe.
 
